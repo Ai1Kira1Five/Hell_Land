@@ -1,0 +1,21 @@
+# Blocks
+
+tile.HellLand:Hell Fragment.name=Hell Fragment
+tile.HellLand:Hell Base.name=Hell Base
+tile.HellLand:Strong Stone.name=Stongstone
+tile.HellOvenIdle.name=Hell Oven
+tile.Wire lvl I.name=Wire of Hell FEAR
+
+# Items
+
+item.HellLand:Hell Crystal.name=Hell CrystalL
+item.HellLand:Blood Drop.name=BLOOD DROP
+item.HellLand:Bone Fragment.name=Bone Fragment
+item.HellLand:Bone Sword.name=Bone Sword
+item.HellLand:Bone Blade.name=Bone Blade
+item.HellLand:Tool Rob I.name=Tool Rob I
+
+# Misc
+
+itemGroup.Hell Land=Hell Land
+Container.inventory=v^v
