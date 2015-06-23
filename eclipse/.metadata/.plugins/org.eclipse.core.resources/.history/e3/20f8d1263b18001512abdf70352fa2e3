@@ -1,0 +1,16 @@
+[
+{
+  "modid": "HellLand",
+  "name": "Hell Land",
+  "description": "Some little mod about hell and such other...",
+  "version": "\u00A7fAlert_ver.0.1",
+  "mcversion": "${1.7.10}",
+  "url": "vk.com/egbox",
+  "updateUrl": "",
+  "authorList": ["Artemius1607"],
+  "credits": "Hell everywere",
+  "logoFile": "assets/hellland/textures/logo.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]

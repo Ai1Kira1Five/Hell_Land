@@ -1,0 +1,9 @@
+package com.Arteman.HellLand.fluids;
+
+public class MateriallizedFear {
+
+	public MateriallizedFear(String string) {
+		// TODO Auto-generated constructor stub
+	}
+
+}

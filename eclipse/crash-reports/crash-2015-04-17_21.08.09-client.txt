@@ -1,0 +1,108 @@
+---- Minecraft Crash Report ----
+// Why is it breaking :(
+
+Time: 17.04.15 21:08
+Description: Unexpected error
+
+java.lang.Error: Unresolved compilation problem: 
+	Cannot instantiate the type TileEntityHellOven
+
+	at com.Arteman.HellLand.blocks.machines.HellOven.createNewTileEntity(HellOven.java:108)
+	at net.minecraft.block.Block.createTileEntity(Block.java:1775)
+	at net.minecraft.world.chunk.Chunk.func_150806_e(Chunk.java:933)
+	at net.minecraft.world.ChunkCache.getTileEntity(ChunkCache.java:102)
+	at net.minecraft.client.renderer.WorldRenderer.updateRenderer(WorldRenderer.java:189)
+	at net.minecraft.client.renderer.RenderGlobal.updateRenderers(RenderGlobal.java:1618)
+	at net.minecraft.client.renderer.EntityRenderer.renderWorld(EntityRenderer.java:1263)
+	at net.minecraft.client.renderer.EntityRenderer.updateCameraAndRender(EntityRenderer.java:1091)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1056)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:951)
+	at net.minecraft.client.main.Main.main(Main.java:164)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(Unknown Source)
+	at GradleStart.main(Unknown Source)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at com.Arteman.HellLand.blocks.machines.HellOven.createNewTileEntity(HellOven.java:108)
+	at net.minecraft.block.Block.createTileEntity(Block.java:1775)
+	at net.minecraft.world.chunk.Chunk.func_150806_e(Chunk.java:933)
+	at net.minecraft.world.ChunkCache.getTileEntity(ChunkCache.java:102)
+	at net.minecraft.client.renderer.WorldRenderer.updateRenderer(WorldRenderer.java:189)
+	at net.minecraft.client.renderer.RenderGlobal.updateRenderers(RenderGlobal.java:1618)
+	at net.minecraft.client.renderer.EntityRenderer.renderWorld(EntityRenderer.java:1263)
+
+-- Affected level --
+Details:
+	Level name: MpServer
+	All players: 1 total; [EntityClientPlayerMP['Player138'/215, l='MpServer', x=-735,32, y=6,50, z=1089,27]]
+	Chunk stats: MultiplayerChunkCache: 625, 625
+	Level seed: 0
+	Level generator: ID 01 - flat, ver 0. Features enabled: false
+	Level generator options: 
+	Level spawn location: World: (-730,4,1079), Chunk: (at 6,0,7 in -46,67; contains blocks -736,0,1072 to -721,255,1087), Region: (-2,2; contains chunks -64,64 to -33,95, blocks -1024,0,1024 to -513,255,1535)
+	Level time: 141893 game time, 92364 day time
+	Level dimension: 0
+	Level storage version: 0x00000 - Unknown?
+	Level weather: Rain time: 0 (now: false), thunder time: 0 (now: false)
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: false
+	Forced entities: 97 total; [EntitySheep['Sheep'/36, l='MpServer', x=-808,18, y=4,00, z=1014,73], EntityHorse['Horse'/37, l='MpServer', x=-803,50, y=4,00, z=1018,16], EntitySheep['Sheep'/38, l='MpServer', x=-808,91, y=4,00, z=1039,16], EntityHorse['Donkey'/39, l='MpServer', x=-804,50, y=4,00, z=1048,91], EntityChicken['Chicken'/40, l='MpServer', x=-810,59, y=4,00, z=1050,38], EntityHorse['Donkey'/41, l='MpServer', x=-812,75, y=4,00, z=1043,78], EntityChicken['Chicken'/42, l='MpServer', x=-810,44, y=4,00, z=1058,59], EntityChicken['Chicken'/43, l='MpServer', x=-810,53, y=4,00, z=1085,56], EntityPig['Pig'/44, l='MpServer', x=-807,91, y=4,00, z=1074,81], EntityPig['Pig'/45, l='MpServer', x=-811,22, y=4,00, z=1113,50], EntityPig['Pig'/46, l='MpServer', x=-808,88, y=4,00, z=1145,72], EntitySheep['Sheep'/56, l='MpServer', x=-795,28, y=4,00, z=1020,18], EntityPig['Pig'/57, l='MpServer', x=-789,53, y=4,00, z=1015,03], EntitySheep['Sheep'/58, l='MpServer', x=-794,72, y=4,00, z=1019,34], EntityPig['Pig'/59, l='MpServer', x=-790,94, y=4,00, z=1017,97], EntityHorse['Horse'/60, l='MpServer', x=-788,94, y=4,00, z=1017,13], EntityCow['Cow'/61, l='MpServer', x=-788,75, y=4,00, z=1027,31], EntityPig['Pig'/62, l='MpServer', x=-796,97, y=4,00, z=1072,06], EntityChicken['Chicken'/63, l='MpServer', x=-797,66, y=4,00, z=1100,56], EntityPig['Pig'/64, l='MpServer', x=-786,69, y=4,00, z=1115,22], EntitySheep['Sheep'/65, l='MpServer', x=-786,84, y=4,00, z=1109,88], EntityChicken['Chicken'/66, l='MpServer', x=-789,44, y=4,00, z=1115,59], EntityChicken['Chicken'/67, l='MpServer', x=-792,44, y=4,00, z=1121,59], EntityChicken['Chicken'/68, l='MpServer', x=-793,63, y=4,00, z=1127,59], EntitySheep['Sheep'/69, l='MpServer', x=-788,94, y=4,00, z=1121,84], EntityPig['Pig'/70, l='MpServer', x=-799,09, y=4,00, z=1146,69], EntityPig['Pig'/71, l='MpServer', x=-794,03, y=4,00, z=1155,09], EntityPig['Pig'/86, l='MpServer', x=-773,47, y=4,00, z=1010,16], EntityCow['Cow'/87, l='MpServer', x=-774,59, y=4,00, z=1011,91], EntityChicken['Chicken'/88, l='MpServer', x=-779,44, y=4,00, z=1041,56], EntityPig['Pig'/89, l='MpServer', x=-773,09, y=4,00, z=1052,91], EntityPig['Pig'/90, l='MpServer', x=-781,88, y=4,00, z=1074,13], EntityPig['Pig'/91, l='MpServer', x=-770,03, y=4,00, z=1082,09], EntityChicken['Chicken'/92, l='MpServer', x=-779,56, y=4,00, z=1099,38], EntityPig['Pig'/93, l='MpServer', x=-778,10, y=4,00, z=1102,93], EntityChicken['Chicken'/94, l='MpServer', x=-771,44, y=4,00, z=1109,56], EntityPig['Pig'/95, l='MpServer', x=-774,59, y=4,00, z=1114,19], EntityPig['Pig'/96, l='MpServer', x=-777,38, y=4,00, z=1127,63], EntityPig['Pig'/97, l='MpServer', x=-768,68, y=4,00, z=1148,25], EntitySheep['Sheep'/108, l='MpServer', x=-756,19, y=4,00, z=1030,19], EntityPig['Pig'/109, l='MpServer', x=-762,59, y=4,00, z=1036,88], EntitySheep['Sheep'/110, l='MpServer', x=-766,50, y=4,00, z=1104,50], EntityPig['Pig'/111, l='MpServer', x=-763,97, y=4,00, z=1135,09], EntityPig['Pig'/112, l='MpServer', x=-748,85, y=4,00, z=1150,47], EntityPig['Pig'/113, l='MpServer', x=-759,06, y=4,00, z=1152,03], EntityPig['Pig'/114, l='MpServer', x=-753,97, y=4,00, z=1166,78], EntityChicken['Chicken'/118, l='MpServer', x=-748,40, y=4,00, z=1044,19], EntityPig['Pig'/119, l='MpServer', x=-741,92, y=4,00, z=1071,85], EntityPig['Pig'/120, l='MpServer', x=-743,18, y=4,00, z=1128,80], EntityChicken['Chicken'/121, l='MpServer', x=-751,38, y=4,00, z=1147,41], EntityPig['Pig'/122, l='MpServer', x=-750,44, y=4,00, z=1146,50], EntityCow['Cow'/128, l='MpServer', x=-727,16, y=4,00, z=1016,88], EntityHorse['Horse'/129, l='MpServer', x=-722,25, y=4,00, z=1037,59], EntityChicken['Chicken'/130, l='MpServer', x=-722,47, y=4,00, z=1038,84], EntityPig['Pig'/131, l='MpServer', x=-722,34, y=4,00, z=1139,19], EntityHorse['Horse'/132, l='MpServer', x=-736,00, y=4,00, z=1163,00], EntityChicken['Chicken'/133, l='MpServer', x=-732,56, y=4,00, z=1160,59], EntityPig['Pig'/134, l='MpServer', x=-723,63, y=4,00, z=1160,81], EntityCow['Cow'/143, l='MpServer', x=-712,94, y=4,00, z=1019,97], EntityChicken['Chicken'/144, l='MpServer', x=-713,59, y=4,00, z=1064,59], EntityChicken['Chicken'/145, l='MpServer', x=-717,47, y=4,00, z=1119,59], EntityChicken['Chicken'/146, l='MpServer', x=-705,14, y=4,00, z=1116,03], EntitySheep['Sheep'/147, l='MpServer', x=-714,25, y=4,00, z=1127,38], EntityChicken['Chicken'/148, l='MpServer', x=-709,41, y=4,00, z=1125,44], EntityPig['Pig'/149, l='MpServer', x=-706,91, y=4,00, z=1157,25], EntityChicken['Chicken'/150, l='MpServer', x=-705,56, y=4,00, z=1154,44], EntityCow['Cow'/156, l='MpServer', x=-694,06, y=4,00, z=1010,09], EntityCow['Cow'/157, l='MpServer', x=-689,63, y=4,00, z=1018,44], EntityPig['Pig'/158, l='MpServer', x=-694,63, y=4,00, z=1130,84], EntityPig['Pig'/159, l='MpServer', x=-698,84, y=4,00, z=1137,69], EntityCow['Cow'/160, l='MpServer', x=-693,31, y=4,00, z=1140,78], EntityChicken['Chicken'/161, l='MpServer', x=-691,44, y=4,00, z=1164,44], EntityChicken['Chicken'/165, l='MpServer', x=-682,53, y=4,00, z=1045,47], EntityChicken['Chicken'/166, l='MpServer', x=-682,44, y=4,00, z=1065,44], EntityChicken['Chicken'/167, l='MpServer', x=-684,47, y=4,00, z=1058,47], EntityChicken['Chicken'/168, l='MpServer', x=-683,56, y=4,00, z=1073,38], EntityPig['Pig'/169, l='MpServer', x=-680,03, y=4,00, z=1084,06], EntityCow['Cow'/170, l='MpServer', x=-677,72, y=4,00, z=1095,03], EntityCow['Cow'/171, l='MpServer', x=-684,97, y=4,00, z=1115,91], EntityChicken['Chicken'/172, l='MpServer', x=-681,34, y=4,00, z=1105,44], EntityChicken['Chicken'/173, l='MpServer', x=-689,08, y=4,00, z=1108,68], EntityCow['Cow'/174, l='MpServer', x=-684,84, y=4,00, z=1131,09], EntityChicken['Chicken'/175, l='MpServer', x=-684,63, y=4,00, z=1129,56], EntityChicken['Chicken'/176, l='MpServer', x=-681,81, y=4,00, z=1126,31], EntityHorse['Horse'/177, l='MpServer', x=-680,06, y=4,00, z=1145,75], EntityCow['Cow'/178, l='MpServer', x=-684,94, y=4,00, z=1165,94], EntityPig['Pig'/179, l='MpServer', x=-682,88, y=4,00, z=1167,19], EntityHorse['Horse'/181, l='MpServer', x=-671,44, y=4,00, z=1055,47], EntityChicken['Chicken'/182, l='MpServer', x=-660,53, y=4,00, z=1062,47], EntityChicken['Chicken'/183, l='MpServer', x=-665,63, y=4,00, z=1083,47], EntityChicken['Chicken'/184, l='MpServer', x=-671,56, y=4,00, z=1091,63], EntitySheep['Sheep'/185, l='MpServer', x=-668,88, y=4,00, z=1131,91], EntityChicken['Chicken'/186, l='MpServer', x=-667,38, y=4,00, z=1128,63], EntitySheep['Sheep'/187, l='MpServer', x=-664,22, y=4,00, z=1139,84], EntityCow['Cow'/188, l='MpServer', x=-664,31, y=4,00, z=1164,41], EntitySheep['Sheep'/189, l='MpServer', x=-657,84, y=4,00, z=1168,72], EntityClientPlayerMP['Player138'/215, l='MpServer', x=-735,32, y=6,50, z=1089,27]]
+	Retry entities: 0 total; []
+	Server brand: fml,forge
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.WorldClient.addWorldInfoToCrashReport(WorldClient.java:415)
+	at net.minecraft.client.Minecraft.addGraphicsAndWorldToCrashReport(Minecraft.java:2555)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:980)
+	at net.minecraft.client.main.Main.main(Main.java:164)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at net.minecraft.launchwrapper.Launch.launch(Launch.java:135)
+	at net.minecraft.launchwrapper.Launch.main(Launch.java:28)
+	at net.minecraftforge.gradle.GradleStartCommon.launch(Unknown Source)
+	at GradleStart.main(Unknown Source)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.7.10
+	Operating System: Windows 7 (amd64) version 6.1
+	Java Version: 1.8.0_40, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 893361600 bytes (851 MB) / 1056309248 bytes (1007 MB) up to 2130051072 bytes (2031 MB)
+	JVM Flags: 3 total; -Xincgc -Xmx2048M -Xms1024M
+	AABB Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	FML: MCP v9.05 FML v7.10.85.1291 Minecraft Forge 10.13.2.1291 7 mods loaded, 7 mods active
+	mcp{9.05} [Minecraft Coder Pack] (minecraft.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	FML{7.10.85.1291} [Forge Mod Loader] (forgeSrc-1.7.10-10.13.2.1291.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	Forge{10.13.2.1291} [Minecraft Forge] (forgeSrc-1.7.10-10.13.2.1291.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	CodeChickenCore{1.0.4.35} [CodeChicken Core] (minecraft.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	NotEnoughItems{1.0.4.95} [Not Enough Items] (NotEnoughItems-1.7.10-1.0.4.95-universal.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	HellLand{Alert_ver.0.1} [Hell Land] (bin) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	debugscreenplus{1.0.1710.b51} [DebugScreen+] (debugscreenplusEGB-1.0.1710.b1.jar) Unloaded->Constructed->Pre-initialized->Initialized->Post-initialized->Available->Available->Available->Available
+	Launched Version: 1.7.10
+	LWJGL: 2.9.1
+	OpenGL: GeForce GTX 650 Ti/PCIe/SSE2 GL version 4.4.0, NVIDIA Corporation
+	GL Caps: Using GL 1.3 multitexturing.
+Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
+Anisotropic filtering is supported and maximum anisotropy is 16.
+Shaders are available because OpenGL 2.1 is supported.
+
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
+	Type: Client (map_client.txt)
+	Resource Packs: []
+	Current Language: English (US)
+	Profiler Position: N/A (disabled)
+	Vec3 Pool Size: 0 (0 bytes; 0 MB) allocated, 0 (0 bytes; 0 MB) used
+	Anisotropic Filtering: Off (1)

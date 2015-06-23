@@ -1,0 +1,7 @@
+package com.Arteman.HellLand.fluids;
+
+import net.minecraftforge.fluids.Fluid;
+
+public class MateriallizedFear extends Fluid {
+
+}
