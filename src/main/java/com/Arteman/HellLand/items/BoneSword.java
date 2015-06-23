@@ -38,18 +38,12 @@ public class BoneSword extends ItemSword
 	public void addInformation(ItemStack itemSt, EntityPlayer player, List ls, boolean inf)
 	{
 		ls.add("Not so good weapon, but you are need it...");
-		//player.getActivePotionEffect(Potion.wither);
 	}
-	
-	public PotionEffect onItemUse(EntityPlayer player)
-	{
-		return player.getActivePotionEffect(Potion.wither);
-	}
-	
+
 	@Override
 	public void onCreated(ItemStack stack, World world, EntityPlayer player)
 	{
-		stack.addEnchantment(Enchantment.looting, 10);
+		stack.addEnchantment(Enchantment.looting, 100);
 	}
 		
 	@SideOnly(Side.CLIENT)
