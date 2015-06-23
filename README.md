@@ -1,10 +1,12 @@
+![](https://github.com/Ai1Kira1Five/Hell_Land/blob/master/src/main/resources/assets/hellland/textures/logo.png)
+
 -------------------------------------------
      Information for others modders
 -------------------------------------------
          The MIT License (MIT)
 -------------------------------------------
 
-Copyright (c) <year> <copyright holders>
+Copyright (c) <2015> <copyright EGB>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
