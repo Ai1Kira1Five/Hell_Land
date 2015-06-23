@@ -1,0 +1,120 @@
+---- Minecraft Profiler Results ----
+// Maybe if you treated it better then it'll have more motivation to work faster! Poor server.
+
+Time span: 12922 ms
+Tick span: 163 ticks
+// This is approximately 12,61 ticks per second. It should be 20 ticks per second
+
+--- BEGIN PROFILE DUMP ---
+
+[00] levels - 99,50%/99,50%
+[01]  New World - 99,69%/99,69%
+[02]   tick - 99,02%/99,02%
+[03]    entities - 53,12%/53,12%
+[04]     regular - 99,84%/99,84%
+[05]      tick - 98,24%/98,24%
+[06]       ai - 65,82%/65,82%
+[07]        newAi - 97,87%/97,87%
+[08]         goalSelector - 81,93%/81,93%
+[09]          canUse - 79,63%/79,63%
+[09]          unspecified - 19,56%/19,56%
+[09]          goalStart - 0,40%/0,40%
+[10]           unspecified - 90,52%/90,52%
+[10]           EntityAILookIdle - 9,48%/9,48%
+[09]          goalTick - 0,36%/0,36%
+[09]          canContinue - 0,05%/0,05%
+[08]         unspecified - 7,55%/7,55%
+[08]         controls - 5,02%/5,02%
+[09]          unspecified - 60,01%/60,01%
+[09]          look - 15,40%/15,40%
+[09]          move - 14,06%/14,06%
+[09]          jump - 10,53%/10,53%
+[08]         targetSelector - 3,61%/3,61%
+[09]          unspecified - 89,47%/89,47%
+[09]          goalStart - 5,55%/5,55%
+[09]          goalTick - 4,98%/4,98%
+[08]         sensing - 0,61%/0,61%
+[08]         checkDespawn - 0,52%/0,52%
+[08]         navigation - 0,49%/0,49%
+[08]         mob tick - 0,28%/0,28%
+[07]        unspecified - 2,13%/2,13%
+[06]       unspecified - 15,25%/15,25%
+[06]       travel - 10,03%/10,03%
+[07]        move - 41,36%/41,36%
+[07]        rest - 30,39%/30,39%
+[07]        unspecified - 28,25%/28,25%
+[06]       entityBaseTick - 3,70%/3,70%
+[07]        unspecified - 90,85%/90,85%
+[07]        portal - 9,15%/9,15%
+[06]       livingEntityBaseTick - 2,17%/2,17%
+[06]       chunkCheck - 0,73%/0,73%
+[06]       move - 0,47%/0,47%
+[06]       push - 0,40%/0,40%
+[06]       mobBaseTick - 0,38%/0,38%
+[06]       rangeChecks - 0,34%/0,34%
+[06]       headTurn - 0,27%/0,27%
+[06]       rest - 0,20%/0,20%
+[06]       looting - 0,15%/0,15%
+[06]       jump - 0,09%/0,09%
+[05]      unspecified - 1,67%/1,67%
+[05]      remove - 0,09%/0,09%
+[04]     unspecified - 0,14%/0,14%
+[04]     remove - 0,01%/0,01%
+[04]     global - 0,00%/0,00%
+[04]     blockEntities - 0,00%/0,00%
+[04]     pendingBlockEntities - 0,00%/0,00%
+[03]    tickBlocks - 42,63%/42,63%
+[04]     getChunk - 29,09%/29,09%
+[04]     tickBlocks - 21,98%/21,98%
+[04]     unspecified - 20,54%/20,54%
+[04]     tickChunk - 12,65%/12,65%
+[04]     buildList - 6,96%/6,96%
+[04]     playerCheckLight - 3,84%/3,84%
+[05]      unspecified - 95,58%/95,58%
+[05]      getBrightness - 3,35%/3,35%
+[05]      checkedPosition < toCheckCount - 1,07%/1,07%
+[04]     moodSound - 3,40%/3,40%
+[04]     iceandsnow - 0,69%/0,69%
+[04]     thunder - 0,55%/0,55%
+[04]     checkLight - 0,32%/0,32%
+[03]    mobSpawner - 3,79%/3,79%
+[03]    unspecified - 0,31%/0,31%
+[03]    tickPending - 0,09%/0,09%
+[04]     unspecified - 91,77%/91,77%
+[04]     ticking - 5,29%/5,29%
+[04]     cleaning - 2,94%/2,94%
+[03]    chunkSource - 0,04%/0,04%
+[03]    village - 0,02%/0,02%
+[03]    portalForcer - 0,01%/0,01%
+[03]    chunkMap - 0,00%/0,00%
+[02]   unspecified - 0,53%/0,53%
+[02]   tracker - 0,43%/0,43%
+[02]   pools - 0,02%/0,02%
+[01]  unspecified - 0,31%/0,31%
+[00] connection - 0,50%/0,50%
+[01]  unspecified - 52,89%/52,89%
+[01]  travel - 14,15%/14,15%
+[02]   move - 36,64%/36,64%
+[02]   unspecified - 35,47%/35,47%
+[02]   rest - 27,89%/27,89%
+[01]  keepAlive - 12,56%/12,56%
+[01]  entityBaseTick - 6,43%/6,43%
+[02]   unspecified - 89,98%/89,98%
+[02]   portal - 10,02%/10,02%
+[01]  livingEntityBaseTick - 4,18%/4,18%
+[01]  rest - 2,71%/2,71%
+[01]  move - 2,41%/2,41%
+[01]  ai - 1,76%/1,76%
+[02]   unspecified - 83,41%/83,41%
+[02]   oldAi - 16,59%/16,59%
+[01]  push - 0,82%/0,82%
+[01]  headTurn - 0,52%/0,52%
+[01]  rangeChecks - 0,41%/0,41%
+[01]  players - 0,29%/0,29%
+[01]  tallying - 0,29%/0,29%
+[01]  snooper - 0,23%/0,23%
+[01]  tickables - 0,17%/0,17%
+[01]  jump - 0,17%/0,17%
+[00] dim_unloading - 0,00%/0,00%
+--- END PROFILE DUMP ---
+

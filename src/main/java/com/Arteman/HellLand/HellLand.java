@@ -6,6 +6,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
+
+import com.Arteman.HellLand.cfg.Config;
 import com.Arteman.HellLand.handler.GuiHandler;
 import com.Arteman.HellLand.items.ModItems;
 import com.Arteman.HellLand.proxy.CommonProxy;
@@ -13,6 +15,8 @@ import com.Arteman.HellLand.tileentity.ModTiles;
 import com.Arteman.HellLand.tileentity.TileEntityHellOven;
 import com.Arteman.HellLand.tileentity.TileEntitySoulCrystallizer;
 import com.Arteman.HellLand.tileentity.TileEntityWire;
+
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.SidedProxy;
@@ -47,6 +51,8 @@ public class HellLand
     	ModBlocks.init();
     	ModItems.init();
     	ModFluids.init();
+    	Config.init(event.getSuggestedConfigurationFile());
+    	FMLCommonHandler.instance().bus().register(new Config());
     	
     	//Recipes
     	ModRecipes.init();

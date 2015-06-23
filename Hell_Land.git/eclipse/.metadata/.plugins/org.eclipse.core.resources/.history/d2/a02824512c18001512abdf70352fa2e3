@@ -1,0 +1,11 @@
+package com.Arteman.HellLand;
+
+import net.minecraftforge.common.config.Configuration;
+
+public class ModCfg 
+{
+	public static void init() 
+	{
+		Configuration config = new Configuration();
+	}
+}

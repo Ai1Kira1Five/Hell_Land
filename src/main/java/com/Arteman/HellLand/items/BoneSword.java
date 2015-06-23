@@ -14,12 +14,13 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
 public class BoneSword extends ItemSword
 {
 	private String name = "Bone Sword";
-	private String text;
 	
 	public final ToolMaterial toolMaterial;
 	
@@ -36,14 +37,19 @@ public class BoneSword extends ItemSword
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack itemSt, EntityPlayer player, List ls, boolean inf)
 	{
-		ls.add(HellLand.MODID + ":" + text/*"Not so good weapon, but you are need it..."*/ );
+		ls.add("Not so good weapon, but you are need it...");
+		//player.getActivePotionEffect(Potion.wither);
+	}
+	
+	public PotionEffect onItemUse(EntityPlayer player)
+	{
+		return player.getActivePotionEffect(Potion.wither);
 	}
 	
 	@Override
 	public void onCreated(ItemStack stack, World world, EntityPlayer player)
 	{
 		stack.addEnchantment(Enchantment.looting, 10);
-		stack.setRepairCost(15);
 	}
 		
 	@SideOnly(Side.CLIENT)

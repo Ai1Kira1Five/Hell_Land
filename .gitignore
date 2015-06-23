@@ -1,6 +1,9 @@
 .gradle
 .settings
 /bin
+/eclipse
+/gradle
+/out
 /build
 /libs
 /out
