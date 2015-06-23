@@ -1,2 +1,13 @@
 /eclipse
 .gradle
+.settings
+/bin
+/build
+/gradle
+/libs
+/out
+.classpath
+.project
+build.gradle
+gradlew
+gradlew.bat
