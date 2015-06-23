@@ -40,18 +40,18 @@ public class BoneSword extends ItemSword
 		ls.add("Not so good weapon, but you are need it...");
 	}
 
-	@Override
-	public void onCreated(ItemStack stack, World world, EntityPlayer player)
+	public void onItemUse(EntityPlayer pl, ItemStack itemST, List ls)
 	{
-		stack.addEnchantment(Enchantment.looting, 100);
+		pl.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 500, 4));
+		itemST.addEnchantment(Enchantment.looting, 10);
 	}
-		
-	@SideOnly(Side.CLIENT)
-	public boolean isFull3D()
-	{
-		return true;
-	}
-		
+	
+	//public void onItemTick(World world, EntityPlayer player, ItemStack itemStack)
+	//{
+	//	player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 500, 4));
+	//	itemStack.addEnchantment(Enchantment.looting, 10);
+	//}
+
 	public boolean getIsRepairable(ItemStack itemSt1, ItemStack itemSt2)
 	{
 		ItemStack mat = this.toolMaterial.getRepairItemStack();
