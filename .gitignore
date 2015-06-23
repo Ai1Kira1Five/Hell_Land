@@ -1,9 +1,7 @@
-/eclipse
 .gradle
 .settings
 /bin
 /build
-/gradle
 /libs
 /out
 .classpath
