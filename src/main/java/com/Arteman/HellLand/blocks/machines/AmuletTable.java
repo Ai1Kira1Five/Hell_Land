@@ -1,0 +1,49 @@
+package com.Arteman.HellLand.blocks.machines;
+
+import com.Arteman.HellLand.HellLand;
+
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.util.IIcon;
+
+public class AmuletTable extends Block 
+{
+	//@SideOnly(Side.CLIENT)
+	//private IIcon iconFront;
+	
+	@SideOnly(Side.CLIENT)
+	private IIcon iconTop;
+	
+	@SideOnly(Side.CLIENT)
+	public void registerBlockIcons(IIconRegister iconRegister)
+	{
+		this.blockIcon = iconRegister.registerIcon(HellLand.MODID + ":" + "AmuletTableSide");
+		//this.iconFront = iconRegister.registerIcon(HellLand.MODID + ":" + "AmuletTableSide");
+		//this.iconFront = iconRegister.registerIcon(HellLand.MODID + ":" + (this.isActive ? "HellOvenFrontOn" : "HellOvenFrontOff"));
+		this.iconTop = iconRegister.registerIcon(HellLand.MODID + ":" + "AmuletTableTop");
+	}
+
+	@SideOnly(Side.CLIENT)
+	public IIcon getIcon(int side, int metadata)
+	{
+		return side == 1 ? this.iconTop : (side == 1 ? this.iconTop : (side == 0 ? this.iconTop : (side != metadata ? this.blockIcon : this.blockIcon)));
+	}
+	
+	public final String name = "Amulet Table";
+	public AmuletTable(String name, Material material)
+	{
+		super(Material.wood);
+		this.setCreativeTab(HellLand.HellMCTab);
+		this.setBlockName(HellLand.MODID + ":" + name);
+		//this.setBlockTextureName(HellLand.MODID + ":" + name);
+		this.setHardness(30.0f);
+		this.setResistance(1000.0f);
+		this.setStepSound(soundTypeMetal);
+		this.setHarvestLevel("axe", 2);
+		GameRegistry.registerBlock(this, name);
+	}
+}

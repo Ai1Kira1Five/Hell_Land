@@ -5,6 +5,7 @@ import java.util.Iterator;
 import com.Arteman.HellLand.blocks.HellBase;
 import com.Arteman.HellLand.blocks.HellFragment;
 import com.Arteman.HellLand.blocks.StrongStone;
+import com.Arteman.HellLand.blocks.machines.AmuletTable;
 import com.Arteman.HellLand.blocks.machines.HellOven;
 import com.Arteman.HellLand.blocks.machines.SoulCrystallizer;
 import com.Arteman.HellLand.blocks.wire.WireOne;
@@ -19,6 +20,7 @@ public class ModBlocks{
 	public static Block HellFragment;
 	public static Block HellBase;
 	public static Block StrongStone;
+	public static Block AmuletTable;
 
 	//machines
 	public static Block HellOvenIdle;
@@ -36,6 +38,7 @@ public class ModBlocks{
 		HellFragment = new HellFragment("Hell Fragment", Material.iron);
 		HellBase = new HellBase("Hell Base", Material.iron);
 		StrongStone = new StrongStone("Strong Stone", Material.rock);
+		AmuletTable = new AmuletTable("Amulet Table", Material.wood);
 
 		//machines
 		HellOvenIdle = new HellOven(false).setBlockName("HellOvenIdle").setCreativeTab(HellLand.HellMCTab).setHardness(3.4f);
