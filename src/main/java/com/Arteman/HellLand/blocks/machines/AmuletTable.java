@@ -22,8 +22,6 @@ public class AmuletTable extends Block
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		this.blockIcon = iconRegister.registerIcon(HellLand.MODID + ":" + "AmuletTableSide");
-		//this.iconFront = iconRegister.registerIcon(HellLand.MODID + ":" + "AmuletTableSide");
-		//this.iconFront = iconRegister.registerIcon(HellLand.MODID + ":" + (this.isActive ? "HellOvenFrontOn" : "HellOvenFrontOff"));
 		this.iconTop = iconRegister.registerIcon(HellLand.MODID + ":" + "AmuletTableTop");
 	}
 
@@ -39,7 +37,6 @@ public class AmuletTable extends Block
 		super(Material.wood);
 		this.setCreativeTab(HellLand.HellMCTab);
 		this.setBlockName(HellLand.MODID + ":" + name);
-		//this.setBlockTextureName(HellLand.MODID + ":" + name);
 		this.setHardness(30.0f);
 		this.setResistance(1000.0f);
 		this.setStepSound(soundTypeMetal);
