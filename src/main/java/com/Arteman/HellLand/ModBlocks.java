@@ -2,6 +2,7 @@ package com.Arteman.HellLand;
 
 import java.util.Iterator;
 
+import com.Arteman.HellLand.blocks.BloodWood;
 import com.Arteman.HellLand.blocks.HellBase;
 import com.Arteman.HellLand.blocks.HellFragment;
 import com.Arteman.HellLand.blocks.StrongStone;
@@ -21,6 +22,7 @@ public class ModBlocks{
 	public static Block HellBase;
 	public static Block StrongStone;
 	public static Block AmuletTable;
+	public static Block BloodWood;
 
 	//machines
 	public static Block HellOvenIdle;
@@ -38,6 +40,7 @@ public class ModBlocks{
 		HellFragment = new HellFragment("Hell Fragment", Material.iron);
 		HellBase = new HellBase("Hell Base", Material.iron);
 		StrongStone = new StrongStone("Strong Stone", Material.rock);
+		BloodWood = new BloodWood("Blood Wood", Material.wood);
 		AmuletTable = new AmuletTable("Amulet Table", Material.wood);
 
 		//machines

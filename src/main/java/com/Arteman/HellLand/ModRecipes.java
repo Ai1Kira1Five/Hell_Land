@@ -2,6 +2,7 @@ package com.Arteman.HellLand;
 
 import com.Arteman.HellLand.items.ModItems;
 
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -19,5 +20,7 @@ public class ModRecipes
 		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.StrongStone, 2), new Object[]{ "X#X", "#Y#", "X#X", ('X'), Blocks.obsidian, ('#'), Blocks.netherrack, ('Y'), Blocks.cobblestone});
 		GameRegistry.addShapedRecipe(new ItemStack(ModItems.BoneSword, 1), "Y", "X", 'X', ModItems.ToolRobI, 'Y', ModItems.BoneBlade);
 		GameRegistry.addRecipe(new ItemStack(ModBlocks.HellOvenIdle, 1), new Object[]{"XXX", "X#X", "XXX", ('X'), ModBlocks.StrongStone});
+		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.BloodWood, 2), new Object[]{"#Y#", "YXY", "#Y#", ('X'), Blocks.planks, ('Y'), ModItems.BloodDrop});
+		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.AmuletTable, 1), new Object[]{ "XX", "XX", ('X'), ModBlocks.BloodWood});
 	}
 }
