@@ -12,15 +12,6 @@ import net.minecraft.util.IIcon;
 
 public class BloodWood extends Block 
 {
-	@SideOnly(Side.CLIENT)
-	private IIcon iconTop;
-	
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconRegister)
-	{
-		this.blockIcon = iconRegister.registerIcon(HellLand.MODID + ":" + "Blood Wood");
-	}
-	
 	public final String name = "Blood Wood";
 	
 	public BloodWood(String name, Material material)
