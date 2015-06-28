@@ -9,6 +9,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
@@ -40,17 +41,19 @@ public class BoneSword extends ItemSword
 		ls.add("Not so good weapon, but you are need it...");
 	}
 
-	public void onItemUse(EntityPlayer pl, ItemStack itemST, List ls)
+	@Override
+	public void onUpdate(ItemStack itSt, World world, Entity pl, int i1, boolean ch)
 	{
-		pl.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 500, 4));
-		itemST.addEnchantment(Enchantment.looting, 10);
+		super.onUpdate(itSt, world, pl, i1, ch);
+		{
+			EntityPlayer player = (EntityPlayer) pl;
+			ItemStack equipped = player.getCurrentEquippedItem();
+			if(equipped == itSt){
+				player.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 100, 2));
+			}
+		}
+		itSt.addEnchantment(Enchantment.looting, 10);
 	}
-	
-	//public void onItemTick(World world, EntityPlayer player, ItemStack itemStack)
-	//{
-	//	player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 500, 4));
-	//	itemStack.addEnchantment(Enchantment.looting, 10);
-	//}
 
 	public boolean getIsRepairable(ItemStack itemSt1, ItemStack itemSt2)
 	{

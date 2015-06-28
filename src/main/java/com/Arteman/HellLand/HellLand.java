@@ -10,6 +10,7 @@ import net.minecraftforge.common.util.EnumHelper;
 import com.Arteman.HellLand.cfg.Config;
 import com.Arteman.HellLand.handler.GuiHandler;
 import com.Arteman.HellLand.items.ModItems;
+import com.Arteman.HellLand.otherStuff.Enchantments;
 import com.Arteman.HellLand.proxy.CommonProxy;
 import com.Arteman.HellLand.tileentity.ModTiles;
 import com.Arteman.HellLand.tileentity.TileEntityHellOven;
@@ -53,6 +54,7 @@ public class HellLand
     	ModFluids.init();
     	Config.init(event.getSuggestedConfigurationFile());
     	FMLCommonHandler.instance().bus().register(new Config());
+    	Enchantments.init();
     	
     	//Recipes
     	ModRecipes.init();
