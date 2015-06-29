@@ -1,6 +1,8 @@
-package com.Arteman.HellLand.tileentity;
+package com.Arteman.HellLand;
 
-import com.Arteman.HellLand.HellLand;
+import com.Arteman.HellLand.tileentity.TileEntityHellOven;
+import com.Arteman.HellLand.tileentity.TileEntitySoulCrystallizer;
+import com.Arteman.HellLand.tileentity.TileEntityWire;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 

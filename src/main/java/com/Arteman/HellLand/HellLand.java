@@ -12,7 +12,6 @@ import com.Arteman.HellLand.handler.GuiHandler;
 import com.Arteman.HellLand.items.ModItems;
 import com.Arteman.HellLand.otherStuff.Enchantments;
 import com.Arteman.HellLand.proxy.CommonProxy;
-import com.Arteman.HellLand.tileentity.ModTiles;
 import com.Arteman.HellLand.tileentity.TileEntityHellOven;
 import com.Arteman.HellLand.tileentity.TileEntitySoulCrystallizer;
 import com.Arteman.HellLand.tileentity.TileEntityWire;
@@ -41,6 +40,7 @@ public class HellLand
     public static HellLand instance;
     public static final int guiIDHellOven = 1;
     public static final int guiIDSoulCrystallizer = 2;
+    public static final int guiIDAmuletTable = 3;
     
     @SidedProxy(clientSide = "com.Arteman.HellLand.proxy.ClientProxy", serverSide = "com.Arteman.HellLand.proxy.CommonProxy")
     public static CommonProxy artemanProxy;

@@ -52,8 +52,7 @@ public class BoneSword extends ItemSword
 				player.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 100, 2));
 			}
 		}
-		itSt.addEnchantment(Enchantment.looting, 10);
-	}
+		}
 
 	public boolean getIsRepairable(ItemStack itemSt1, ItemStack itemSt2)
 	{

@@ -4,8 +4,10 @@ tile.HellLand:Hell Fragment.name=Hell Fragment
 tile.HellLand:Hell Base.name=Hell Base
 tile.HellLand:Strong Stone.name=Stongstone
 tile.HellOvenIdle.name=Hell Oven
-tile.SoulCrystallizerIdle.name=Soul Crystallizer
+tile.HellLand:Soul Crystallizer.name=Soul Crystallizer
 tile.Wire lvl I.name=Wire of Hell FEAR
+tile.HellLand:Blood Wood.name=Bloody wood
+tile.HellLand:Amulet Table.name=Amulet Table
 
 # Items
 
@@ -23,3 +25,4 @@ item.HellLand:Tool Rob I.name=Tool Rob I
 
 itemGroup.Hell Land=Hell Land
 Container.inventory=v^v
+enchantment.Devil's strike=Devil's Strike

@@ -8,13 +8,12 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
 
 public class AmuletTable extends Block 
 {
-	//@SideOnly(Side.CLIENT)
-	//private IIcon iconFront;
-	
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
 	
@@ -28,7 +27,7 @@ public class AmuletTable extends Block
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata)
 	{
-		return side == 1 ? this.iconTop : (side == 1 ? this.iconTop : (side == 0 ? this.iconTop : (side != metadata ? this.blockIcon : this.blockIcon)));
+		return side == 1 ? this.iconTop : this.blockIcon;
 	}
 	
 	public final String name = "Amulet Table";
@@ -37,10 +36,20 @@ public class AmuletTable extends Block
 		super(Material.wood);
 		this.setCreativeTab(HellLand.HellMCTab);
 		this.setBlockName(HellLand.MODID + ":" + name);
-		this.setHardness(30.0f);
-		this.setResistance(1000.0f);
-		this.setStepSound(soundTypeMetal);
+		this.setHardness(3.5f);
+		this.setResistance(5.0f);
+		this.setStepSound(soundTypeWood);
 		this.setHarvestLevel("axe", 2);
 		GameRegistry.registerBlock(this, name);
+	}
+	
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int q, float a, float c)
+	{
+		if (!player.isSneaking()){
+			player.openGui(HellLand.MODID, HellLand.guiIDAmuletTable, world, x, y, z);
+			return true;
+		}else{
+			return false;
+		}
 	}
 }
