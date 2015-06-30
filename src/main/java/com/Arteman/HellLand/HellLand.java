@@ -7,14 +7,15 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 
-import com.Arteman.HellLand.cfg.Config;
 import com.Arteman.HellLand.handler.GuiHandler;
 import com.Arteman.HellLand.items.ModItems;
 import com.Arteman.HellLand.otherStuff.Enchantments;
+import com.Arteman.HellLand.otherStuff.enchantments.EnchantmentHandler;
 import com.Arteman.HellLand.proxy.CommonProxy;
 import com.Arteman.HellLand.tileentity.TileEntityHellOven;
 import com.Arteman.HellLand.tileentity.TileEntitySoulCrystallizer;
 import com.Arteman.HellLand.tileentity.TileEntityWire;
+import com.Arteman.HellLand.utils.Config;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
@@ -73,6 +74,7 @@ public class HellLand
     	//Different
     	MinecraftForge.EVENT_BUS.register(new ModDrops());
     	NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
+    	MinecraftForge.EVENT_BUS.register(new EnchantmentHandler());
     	
     	//TileEntity
     	ModTiles.init();

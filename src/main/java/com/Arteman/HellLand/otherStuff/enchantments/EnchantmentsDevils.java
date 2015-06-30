@@ -1,5 +1,7 @@
 package com.Arteman.HellLand.otherStuff.enchantments;
 
+import com.Arteman.HellLand.otherStuff.Enchantments;
+
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
 
@@ -25,4 +27,9 @@ public class EnchantmentsDevils extends Enchantment
 	{
 		return 5;
 	}
+	
+	public boolean canApplyTogether(Enchantments enchant, Enchantment ench)
+    {
+        return this != enchant.EnchantmentsAngel && this != ench.sharpness;
+    }
 }

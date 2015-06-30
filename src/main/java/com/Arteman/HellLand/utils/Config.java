@@ -1,4 +1,4 @@
-package com.Arteman.HellLand.cfg;
+package com.Arteman.HellLand.utils;
 
 import java.io.File;
 
