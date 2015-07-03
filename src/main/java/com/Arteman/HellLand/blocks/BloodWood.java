@@ -19,11 +19,28 @@ public class BloodWood extends Block
 		super(Material.wood);
 		this.setCreativeTab(HellLand.HellMCTab);
 		this.setBlockName(HellLand.MODID + ":" + name);
-		this.setBlockTextureName(HellLand.MODID + ":" + name);
-		this.setHardness(30.0f);
-		this.setResistance(1000.0f);
 		this.setStepSound(soundTypeWood);
 		this.setHarvestLevel("axe", 1);
 		GameRegistry.registerBlock(this, name);
+	}
+	
+	@SideOnly(Side.CLIENT)
+	private IIcon iconTop;
+	
+	@SideOnly(Side.CLIENT)
+	private IIcon iconDown;
+	
+	@SideOnly(Side.CLIENT)
+	public void registerBlockIcons(IIconRegister iconRegister)
+	{
+		this.blockIcon = iconRegister.registerIcon(HellLand.MODID + ":" + "Blood Wood");
+		this.iconTop = iconRegister.registerIcon(HellLand.MODID + ":" + "Blood Wood Top");
+		this.iconDown = iconRegister.registerIcon(HellLand.MODID + ":" + "Blood Wood Top");
+	}
+	
+	@SideOnly(Side.CLIENT)
+	public IIcon getIcon(int side, int metadata)
+	{
+		return side == 1 ? this.iconTop : (side == 1 ? this.iconTop : (side == 0 ? this.iconTop : this.blockIcon));
 	}
 }

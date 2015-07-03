@@ -22,5 +22,6 @@ public class ModRecipes
 		GameRegistry.addRecipe(new ItemStack(ModBlocks.HellOvenIdle, 1), new Object[]{"XXX", "X#X", "XXX", ('X'), ModBlocks.StrongStone});
 		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.BloodWood, 2), new Object[]{"#Y#", "YXY", "#Y#", ('X'), Blocks.planks, ('Y'), ModItems.BloodDrop});
 		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.AmuletTable, 1), new Object[]{ "XX", "XX", ('X'), ModBlocks.BloodWood});
+		GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.BloodWoodLogs, 4), "X", 'X', ModBlocks.BloodWood);
 	}
 }
