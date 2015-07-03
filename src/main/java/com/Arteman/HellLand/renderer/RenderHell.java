@@ -3,14 +3,11 @@ package com.Arteman.HellLand.renderer;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.world.IBlockAccess;
-
 import org.lwjgl.opengl.GL11;
-
 import com.Arteman.HellLand.proxy.ClientProxy;
-
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
-public class RenderHell implements ISimpleBlockRenderingHandler
+public class RenderHell extends RenderBlockHelper implements ISimpleBlockRenderingHandler
 {
 	private static final float minSize = 0.01F;
 	private static final float maxSize = 0.99F;
