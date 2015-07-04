@@ -1,7 +1,9 @@
 package com.Arteman.HellLand.blocks;
 
 import com.Arteman.HellLand.HellLand;
-
+import com.Arteman.HellLand.renderer.AnimationSideHandler;
+import com.Arteman.HellLand.utils.BlockHell;
+import com.Arteman.HellLand.utils.HellNames;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -9,8 +11,10 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.common.util.ForgeDirection;
 
-public class BloodWood extends Block 
+public class BloodWood extends BlockHell
 {
 	public final String name = "Blood Wood";
 	
@@ -23,7 +27,7 @@ public class BloodWood extends Block
 		this.setHarvestLevel("axe", 1);
 		GameRegistry.registerBlock(this, name);
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
 	
