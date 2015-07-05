@@ -40,8 +40,8 @@ public class BloodWood extends BlockHell implements AnimationSideHandler
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(HellLand.MODID + ":" + "Blood Wood");
-		this.iconTop = iconRegister.registerIcon(HellLand.MODID + ":" + "Blood Wood Top");
+		this.blockIcon = iconRegister.registerIcon(HellLand.MODID + ":" + "Blood_Wood");
+		this.iconTop = iconRegister.registerIcon(HellLand.MODID + ":" + "Blood_Wood_Top");
 		//this.iconDown = iconRegister.registerIcon(HellLand.MODID + ":" + "Blood Wood Top");
 		this.animation = iconRegister.registerIcon(HellLand.MODID + ":" + "animation_blood");
 	}
