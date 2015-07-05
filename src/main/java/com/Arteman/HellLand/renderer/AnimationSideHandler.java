@@ -1,8 +1,8 @@
 package com.Arteman.HellLand.renderer;
 
+import codechicken.lib.colour.Colour;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.util.ForgeDirection;
-import codechicken.lib.colour.Colour;
 
 public interface AnimationSideHandler 
 {

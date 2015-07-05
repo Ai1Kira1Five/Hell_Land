@@ -1,7 +1,5 @@
 package com.Arteman.HellLand.blocks;
 
-import codechicken.lib.colour.Colour;
-
 import com.Arteman.HellLand.HellLand;
 import com.Arteman.HellLand.renderer.AnimationSideHandler;
 import com.Arteman.HellLand.utils.BlockHell;
@@ -17,7 +15,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class BloodWood extends BlockHell implements AnimationSideHandler
+public class BloodWood extends BlockHell //implements AnimationSideHandler
 {
 	public final String name = "Blood Wood";
 	
@@ -32,23 +30,24 @@ public class BloodWood extends BlockHell implements AnimationSideHandler
 	}
 
 	@SideOnly(Side.CLIENT)
-	private IIcon iconTop, animation;
+	private IIcon iconTop/*, animation*/;
 	
-	//@SideOnly(Side.CLIENT)
-	//private IIcon iconDown;
+	@SideOnly(Side.CLIENT)
+	private IIcon iconDown;
 	
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
 		this.blockIcon = iconRegister.registerIcon(HellLand.MODID + ":" + "Blood_Wood");
 		this.iconTop = iconRegister.registerIcon(HellLand.MODID + ":" + "Blood_Wood_Top");
-		//this.iconDown = iconRegister.registerIcon(HellLand.MODID + ":" + "Blood Wood Top");
-		this.animation = iconRegister.registerIcon(HellLand.MODID + ":" + "animation_blood");
+		this.iconDown = iconRegister.registerIcon(HellLand.MODID + ":" + "Blood Wood Top");
+		//this.animation = iconRegister.registerIcon(HellLand.MODID + ":" + "animation_blood");
 	}
 	
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata)
 	{
+		/*
 		if(side == 0 || side == 1)
 		{
 			return iconTop;
@@ -59,9 +58,11 @@ public class BloodWood extends BlockHell implements AnimationSideHandler
 			}else{
 				return animation;
 			}
-		//return side == 1 ? this.iconTop : (side == 1 ? this.iconTop : (side == 0 ? this.iconTop : this.blockIcon));
+		*/
+		return side == 1 ? this.iconTop : (side == 1 ? this.iconTop : (side == 0 ? this.iconTop : this.blockIcon));
 	}
 
+	/*
 	@Override
 	public Colour getItemColor(int meta, ForgeDirection side) 
 	{
@@ -97,4 +98,5 @@ public class BloodWood extends BlockHell implements AnimationSideHandler
 	{
 		return 220;
 	}
+	*/
 }
