@@ -8,7 +8,7 @@ import net.minecraft.item.ItemSword;
 
 public class MagicSword extends ItemSword
 {
-	private String name = "magic_sword";
+	private String name = "magic_sword_animated";
 	
 	public final ToolMaterial toolMaterial;
 
