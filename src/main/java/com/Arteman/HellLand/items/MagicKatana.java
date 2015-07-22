@@ -9,7 +9,7 @@ import net.minecraft.item.ItemSword;
 
 public class MagicKatana extends ItemSword 
 {
-	private String name = "magic_katana";
+	private String name = "katana_magic_animated";
 	
 	public final ToolMaterial toolMaterial;
 
