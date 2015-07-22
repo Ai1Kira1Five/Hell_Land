@@ -15,7 +15,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class BloodWood extends BlockHell //implements AnimationSideHandler
+public class BloodWood extends Block
 {
 	public final String name = "Blood Wood";
 	
@@ -30,7 +30,7 @@ public class BloodWood extends BlockHell //implements AnimationSideHandler
 	}
 
 	@SideOnly(Side.CLIENT)
-	private IIcon iconTop/*, animation*/;
+	private IIcon iconTop;
 	
 	@SideOnly(Side.CLIENT)
 	private IIcon iconDown;
@@ -40,63 +40,13 @@ public class BloodWood extends BlockHell //implements AnimationSideHandler
 	{
 		this.blockIcon = iconRegister.registerIcon(HellLand.MODID + ":" + "Blood_Wood");
 		this.iconTop = iconRegister.registerIcon(HellLand.MODID + ":" + "Blood_Wood_Top");
-		this.iconDown = iconRegister.registerIcon(HellLand.MODID + ":" + "Blood Wood Top");
-		//this.animation = iconRegister.registerIcon(HellLand.MODID + ":" + "animation_blood");
+		this.iconDown = iconRegister.registerIcon(HellLand.MODID + ":" + "Blood_Wood_Top");
 	}
 	
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int metadata)
 	{
-		/*
-		if(side == 0 || side == 1)
-		{
-			return iconTop;
-		}else
-			if(side < 6)
-			{
-				return blockIcon;
-			}else{
-				return animation;
-			}
-		*/
 		return side == 1 ? this.iconTop : (side == 1 ? this.iconTop : (side == 0 ? this.iconTop : this.blockIcon));
 	}
 
-	/*
-	@Override
-	public Colour getItemColor(int meta, ForgeDirection side) 
-	{
-		return HellNames.HellColors.HellColors[2];
-	}
-
-	@Override
-	public int getAnimationIndex(int meta, ForgeDirection side) 
-	{
-		return 255;
-	}
-
-	@Override
-	public int getAnimationBrightness(int meta, ForgeDirection side) 
-	{
-		return 220;
-	}
-
-	@Override
-	public Colour getColor(IBlockAccess iBlockAccess, int x, int y, int z, ForgeDirection side) 
-	{
-		return HellNames.HellColors.HellColors[2];
-	}
-
-	@Override
-	public int getAnimationIndex(IBlockAccess iBlockAccess, int x, int y, int z, ForgeDirection side) 
-	{
-		return 255;
-	}
-
-	@Override
-	public int getAnimationBrightness(IBlockAccess iBlockAccess, int x, int y, int z, ForgeDirection side) 
-	{
-		return 220;
-	}
-	*/
 }

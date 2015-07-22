@@ -8,9 +8,6 @@ import java.util.Map.Entry;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-
-import com.Arteman.HellLand.items.ModItems;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class CrystallizerResipes

@@ -8,7 +8,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 
 import com.Arteman.HellLand.handler.GuiHandler;
-import com.Arteman.HellLand.items.ModItems;
 import com.Arteman.HellLand.otherStuff.Enchantments;
 import com.Arteman.HellLand.otherStuff.enchantments.EnchantmentHandler;
 import com.Arteman.HellLand.proxy.CommonProxy;
@@ -35,7 +34,10 @@ public class HellLand
     
     public static CreativeTabs HellMCTab = new CreativeTabHell("Hell Land");
     
+    //Materials
     public static final Item.ToolMaterial Bone = EnumHelper.addToolMaterial("BONE", 3, 38, 2.0f, 15.5f, 20);
+    public static final Item.ToolMaterial MagicSteel = EnumHelper.addToolMaterial("MagicSteel", 5, 700, 3.0f, 16.0f, 40);
+    
     
     @Mod.Instance(MODID)
     public static HellLand instance;

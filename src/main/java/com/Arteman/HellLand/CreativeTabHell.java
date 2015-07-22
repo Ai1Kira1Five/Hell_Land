@@ -1,7 +1,5 @@
 package com.Arteman.HellLand;
 
-import com.Arteman.HellLand.items.ModItems;
-
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 

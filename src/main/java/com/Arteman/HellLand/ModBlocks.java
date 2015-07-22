@@ -8,6 +8,7 @@ import com.Arteman.HellLand.blocks.HellBase;
 import com.Arteman.HellLand.blocks.HellFragment;
 import com.Arteman.HellLand.blocks.StrongStone;
 import com.Arteman.HellLand.blocks.machines.AmuletTable;
+import com.Arteman.HellLand.blocks.machines.CrystallOven;
 import com.Arteman.HellLand.blocks.machines.HellOven;
 import com.Arteman.HellLand.blocks.machines.SoulCrystallizer;
 import com.Arteman.HellLand.blocks.wire.WireOne;
@@ -29,6 +30,8 @@ public class ModBlocks{
 	//machines
 	public static Block HellOvenIdle;
 	public static Block HellOvenActive;
+	public static Block CrystallOvenIdle;
+	public static Block CrystallOvenActive;
 	public static Block SoulCrystallizerIdle;
 	public static Block SoulCrystallizerActive;
 	
@@ -51,13 +54,16 @@ public class ModBlocks{
 		HellOvenActive = new HellOven(true).setBlockName("HellOvenActive").setHardness(3.4f).setLightLevel(1.0f);
 		SoulCrystallizerIdle = new SoulCrystallizer(false).setCreativeTab(HellLand.HellMCTab);
 		SoulCrystallizerActive = new SoulCrystallizer(true).setLightLevel(2.0f);
-		
+		CrystallOvenIdle = new CrystallOven(false).setBlockName("CrystallOvenIdle").setCreativeTab(HellLand.HellMCTab).setHardness(3.4f);
+		CrystallOvenActive = new CrystallOven(true).setBlockName("CrystallOvenActive").setHardness(3.4f).setLightLevel(2.0f);
 		
 		
 		//wires
 		WireOne = new WireOne().setBlockName("Wire lvl I").setCreativeTab(HellLand.HellMCTab);
 		
 		//Register bad blocks
+		GameRegistry.registerBlock(CrystallOvenIdle, "CrystallOvenIdle");
+		GameRegistry.registerBlock(CrystallOvenActive, "CrystallOvenActive");
 		GameRegistry.registerBlock(HellOvenIdle, "HellOvenIdle");
 		GameRegistry.registerBlock(HellOvenActive, "HellOvenActive");
 		GameRegistry.registerBlock(WireOne, "WireOne");

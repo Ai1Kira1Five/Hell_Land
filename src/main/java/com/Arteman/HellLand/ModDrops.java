@@ -2,8 +2,6 @@ package com.Arteman.HellLand;
 
 import java.util.Random;
 
-import com.Arteman.HellLand.items.ModItems;
-
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntityZombie;

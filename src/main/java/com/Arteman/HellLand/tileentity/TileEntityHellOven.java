@@ -53,7 +53,7 @@ public class TileEntityHellOven extends TileEntity implements ISidedInventory
 	@Override
 	public int getInventoryStackLimit()
 	{
-		return 128;
+		return 64;
 	}
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer entityplayer)

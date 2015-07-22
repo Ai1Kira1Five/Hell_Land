@@ -1,7 +1,5 @@
 package com.Arteman.HellLand;
 
-import com.Arteman.HellLand.items.ModItems;
-
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
