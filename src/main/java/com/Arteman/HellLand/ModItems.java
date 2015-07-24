@@ -8,7 +8,7 @@ import com.Arteman.HellLand.items.HellCrystal;
 import com.Arteman.HellLand.items.MagicBIGDADYSword;
 import com.Arteman.HellLand.items.MagicDoubleSword;
 import com.Arteman.HellLand.items.MagicKatana;
-import com.Arteman.HellLand.items.MagicSkyth;
+import com.Arteman.HellLand.items.MagicScythe;
 import com.Arteman.HellLand.items.MagicSword;
 import com.Arteman.HellLand.items.ToolRodI;
 
@@ -40,7 +40,7 @@ public class ModItems
 		MagicSword = new MagicSword(HellLand.MagicSteel);
 		MagicDoubleSword = new MagicDoubleSword(HellLand.MagicSteel);
 		MagicKatana = new MagicKatana(HellLand.MagicSteel);
-		MagicSkyth = new MagicSkyth(HellLand.MagicSteel);
+		MagicSkyth = new MagicScythe(HellLand.MagicSteel);
 		MagicBIGDADYSword = new MagicBIGDADYSword(HellLand.MagicSteel);
 	}
 }

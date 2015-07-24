@@ -7,13 +7,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemSword;
 
-public class MagicSkyth extends ItemSword 
+public class MagicScythe extends ItemSword 
 {
-	private String name = "magic_scyth";
+	private String name = "magic_scyth_animated";
 	
 	public final ToolMaterial toolMaterial;
 
-	public MagicSkyth(ToolMaterial enumToolMaterial)
+	public MagicScythe(ToolMaterial enumToolMaterial)
 	{
 		super(enumToolMaterial);
 		toolMaterial = enumToolMaterial;

@@ -2,10 +2,13 @@ package com.Arteman.HellLand;
 
 import java.util.Iterator;
 
+import com.Arteman.HellLand.blocks.Ash;
+import com.Arteman.HellLand.blocks.Basalt;
 import com.Arteman.HellLand.blocks.BloodWood;
 import com.Arteman.HellLand.blocks.BloodWoodLogs;
 import com.Arteman.HellLand.blocks.HellBase;
 import com.Arteman.HellLand.blocks.HellFragment;
+import com.Arteman.HellLand.blocks.Marble;
 import com.Arteman.HellLand.blocks.StrongStone;
 import com.Arteman.HellLand.blocks.machines.AmuletTable;
 import com.Arteman.HellLand.blocks.machines.CrystallOven;
@@ -26,6 +29,9 @@ public class ModBlocks{
 	public static Block AmuletTable;
 	public static Block BloodWood;
 	public static Block BloodWoodLogs;
+	public static Block Basalt;
+	public static Block Marble;
+	public static Block Ash;
 
 	//machines
 	public static Block HellOvenIdle;
@@ -48,7 +54,10 @@ public class ModBlocks{
 		BloodWood = new BloodWood("Blood Wood", Material.wood);
 		AmuletTable = new AmuletTable("Amulet Table", Material.wood);
 		BloodWoodLogs = new BloodWoodLogs("Blood Logs", Material.wood);
-
+		Basalt = new Basalt("Basalt", Material.rock);
+		Marble = new Marble("Marble", Material.rock);
+		Ash = new Ash("Ash", Material.sand);
+ 
 		//machines
 		HellOvenIdle = new HellOven(false).setBlockName("HellOvenIdle").setCreativeTab(HellLand.HellMCTab).setHardness(3.4f);
 		HellOvenActive = new HellOven(true).setBlockName("HellOvenActive").setHardness(3.4f).setLightLevel(1.0f);
