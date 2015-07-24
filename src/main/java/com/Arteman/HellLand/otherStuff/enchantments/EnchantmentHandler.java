@@ -4,6 +4,7 @@ import com.Arteman.HellLand.otherStuff.Enchantments;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -25,6 +26,10 @@ public class EnchantmentHandler
 				if(EnchantmentHelper.getEnchantmentLevel(Enchantments.EnchantmentsDevil.effectId, currentItem) > 0)
 				{
 					int enchLevel = EnchantmentHelper.getEnchantmentLevel(Enchantments.EnchantmentsDevil.effectId, currentItem);
+					if(player.worldObj.rand.nextInt(Math.max(1, 7-enchLevel)) == 0)
+					{
+						
+					}
 				}
 			}
 		}

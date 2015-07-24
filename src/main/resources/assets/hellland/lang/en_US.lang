@@ -21,6 +21,7 @@ item.HellLand:Bone Sword.text=Not so good weapon, but you are need it=)
 
 item.HellLand:Bone Blade.name=Bone Blade
 item.HellLand:Tool Rob I.name=Tool Rob I
+item.HellLand:katana_magic_animated.name=Magic katana
 
 # Misc
 
