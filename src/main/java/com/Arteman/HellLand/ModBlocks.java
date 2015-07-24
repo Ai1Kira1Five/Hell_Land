@@ -53,7 +53,7 @@ public class ModBlocks{
 		StrongStone = new StrongStone("Strong Stone", Material.rock);
 		BloodWood = new BloodWood("Blood Wood", Material.wood);
 		AmuletTable = new AmuletTable("Amulet Table", Material.wood);
-		BloodWoodLogs = new BloodWoodLogs("Blood Logs", Material.wood);
+		BloodWoodLogs = new BloodWoodLogs("Blood Planks", Material.wood);
 		Basalt = new Basalt("Basalt", Material.rock);
 		Marble = new Marble("Marble", Material.rock);
 		Ash = new Ash("Ash", Material.sand);

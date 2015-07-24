@@ -1,10 +1,7 @@
 package com.Arteman.HellLand.blocks;
 
 import com.Arteman.HellLand.HellLand;
-import com.Arteman.HellLand.renderer.AnimationSideHandler;
 import com.Arteman.HellLand.utils.BlockHell;
-import com.Arteman.HellLand.utils.HellNames;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

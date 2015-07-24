@@ -33,11 +33,12 @@ public class HellLand
     public static final String VERSION = "Alert_ver.0.1";
     
     public static CreativeTabs HellMCTab = new CreativeTabHell("Hell Land");
+    public static CreativeTabs HellMCTabStuff = new CreativeTabHellStuff("Hell Land Stuff");
     
     //Materials
     public static final Item.ToolMaterial Bone = EnumHelper.addToolMaterial("BONE", 3, 38, 2.0f, 15.5f, 20);
     public static final Item.ToolMaterial MagicSteel = EnumHelper.addToolMaterial("MagicSteel", 5, 700, 3.0f, 16.0f, 40);
-    
+    public static final Item.ToolMaterial Crystall = EnumHelper.addToolMaterial("Crystall", 3, 120, 5.0f, 10.0f, 50);
     
     @Mod.Instance(MODID)
     public static HellLand instance;

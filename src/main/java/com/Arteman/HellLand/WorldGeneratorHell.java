@@ -12,11 +12,10 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import cpw.mods.fml.common.IWorldGenerator;
 
-public class WorldGeneratorHell implements IWorldGenerator {
-
+public class WorldGeneratorHell implements IWorldGenerator 
+{
 	@Override
-	public void generate(Random random, int chunkX, int chunkZ, World world,
-			IChunkProvider chunkGenerator, IChunkProvider chunkProvider) 
+	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) 
 	{
 		switch (world.provider.dimensionId)
 		{
@@ -28,7 +27,9 @@ public class WorldGeneratorHell implements IWorldGenerator {
 	
 	private void GenerateOverworld(Random random, int x, int z, World world)
 	{
-		this.addOreSpawn(ModBlocks.HellFragment, world, random, x, z, 2, 15, 5, 0, 25);
+		this.addOreSpawn(ModBlocks.HellFragment, world, random, x, z, 2, 15, 15, 0, 25);
+		//this.addOreSpawn(ModBlocks.Basalt, world, random, x, z, 2, 100, 20, 5, 50);
+		//this.addOreSpawn(ModBlocks.Marble, world, random, x, z, 20, 100, 30, 20, 60);
 		
 		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(x, z);
 		if ((biome == BiomeGenBase.desert))
@@ -50,18 +51,19 @@ public class WorldGeneratorHell implements IWorldGenerator {
 	
 	private void GenerateNether(Random random, int x, int z, World world)
 	{
-		this.addOreSpawn(ModBlocks.HellFragment, world, random, x, z, 20, 40, 9, 0, 128);
+		this.addOreSpawn(ModBlocks.HellFragment, world, random, x, z, 20, 40, 30, 0, 128);
+		//this.addOreSpawn(ModBlocks.Ash, world, random, x, z, 30, 60, 40, 0, 128);
 	}
 	
-	 public void addOreSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int minVeinSize, int maxVeinSize, int chancesToSpawn, int minY, int maxY )
-	    {
-	        WorldGenMinable minable = new WorldGenMinable(block, (minVeinSize + random.nextInt(maxVeinSize - minVeinSize)), Blocks.stone);
-	        for(int i = 0; i < chancesToSpawn; i++)
-	        {
-	            int posX = blockXPos + random.nextInt(16);
-	            int posY = minY + random.nextInt(maxY - minY);
-	            int posZ = blockZPos + random.nextInt(16);
-	            minable.generate(world, random, posX, posY, posZ);
-	        }
-	    }
+	public void addOreSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int minVeinSize, int maxVeinSize, int chancesToSpawn, int minY, int maxY )
+	   {
+	       WorldGenMinable minable = new WorldGenMinable(block, (minVeinSize + random.nextInt(maxVeinSize - minVeinSize)), Blocks.stone);
+	       for(int i = 0; i < chancesToSpawn; i++)
+	       {
+	           int posX = blockXPos + random.nextInt(16);
+	           int posY = minY + random.nextInt(maxY - minY);
+	           int posZ = blockZPos + random.nextInt(16);
+	           minable.generate(world, random, posX, posY, posZ);
+	       }
+	   }
 }

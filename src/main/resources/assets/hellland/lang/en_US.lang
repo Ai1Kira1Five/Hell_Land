@@ -9,6 +9,11 @@ tile.Wire lvl I.name=Wire of Hell FEAR
 tile.HellLand:Blood Wood.name=Bloody wood
 tile.HellLand:Amulet Table.name=Amulet Table
 tile.HellLand:Blood Planks.name=Blood Planks
+tile.HellLand:Blood Planks.name=Bloody planks
+tile.HellLand:Basalt.name=Basalt
+tile.HellLand:Marble.name=Marble
+tile.HellLand:Ash.name=Ach
+tile.CrystallOvenIdle.name=Crystall oven
 
 # Items
 
@@ -21,10 +26,40 @@ item.HellLand:Bone Sword.text=Not so good weapon, but you are need it=)
 
 item.HellLand:Bone Blade.name=Bone Blade
 item.HellLand:Tool Rob I.name=Tool Rob I
+
+item.HellLand:magic_sword_animated.name=Magic sword
+item.HellLand:magic_double_sword_animated.name=Magic ExtraSword
 item.HellLand:katana_magic_animated.name=Magic katana
+item.HellLand:magic_scyth_animated.name=Magic scythe
+item.HellLand:magic_vrazumitel_animated.name=Magic BIG DADY sword
+item.wrench.name=Dragon's wrench
+item.HellLand:crystall_hoe.name=Crystall hoe
+item.HellLand:crystall_axe.name=Crystall axe
+item.HellLand:crystall_pickaxe.name=Crystall pickaxe
+item.HellLand:crystall_shovel.name=Crystall spike
+
+item.crystall_0.name=Basic crystall
+item.crystall_1.name=Fire crystall
+item.crystall_2.name=Aqua crystall
+item.crystall_3.name=Earth crystall
+item.crystall_4.name=Air crystall
+item.crystall_5.name=Light crystall
+item.crystall_6.name=Darkness crystall
+item.crystall_7.name=Energy crystall
+item.crystall_8.name=Blood crystall
+
+item.heart_0.name=Heart
+item.heart_1.name=Fire heart
+item.heart_2.name=Aqua heart
+item.heart_3.name=Earth heart
+item.heart_4.name=Air heart
+item.heart_5.name=Light heart
+item.heart_6.name=Darkness heart
+item.heart_7.name=Energy heart
 
 # Misc
 
 itemGroup.Hell Land=Hell Land
+itemGroup.Hell Land Stuff=Hell Land Stuff
 Container.inventory=v^v
 enchantment.Devil's strike=Devil's Strike
