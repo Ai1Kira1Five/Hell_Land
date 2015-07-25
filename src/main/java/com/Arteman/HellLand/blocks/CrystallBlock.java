@@ -17,6 +17,7 @@ public class CrystallBlock extends Block
 		this.setBlockTextureName(HellLand.MODID + ":" + name);
 		this.setCreativeTab(HellLand.HellMCTabDecor);
 		this.setHardness(5.0f);
+		this.setLightLevel(1.0f);
 		GameRegistry.registerBlock(this, name);
 	}
 

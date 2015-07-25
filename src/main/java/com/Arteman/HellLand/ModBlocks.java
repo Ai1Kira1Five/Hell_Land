@@ -58,11 +58,11 @@ public class ModBlocks{
 		BloodWood = new BloodWood("Blood Wood", Material.wood);
 		AmuletTable = new AmuletTable("Amulet Table", Material.wood);
 		BloodWoodLogs = new BloodWoodLogs("Blood Planks", Material.wood);
-		Basalt = new Basalt("Basalt", Material.rock);
+		//Basalt = new Basalt("Basalt", Material.rock);
 		Marble = new Marble("Marble", Material.rock);
 		Ash = new Ash("Ash", Material.sand);
-		NecroticLamp = new NecroticLamp("NecroticLamp", Material.rock);
-		CrystallBlock = new CrystallBlock("CrystallBlock", Material.rock);
+		NecroticLamp = new NecroticLamp("necrotic_lamp", Material.rock);
+		CrystallBlock = new CrystallBlock("crystall_block", Material.rock);
  
 		//machines
 		HellOvenIdle = new HellOven(false).setBlockName("HellOvenIdle").setCreativeTab(HellLand.HellMCTab).setHardness(3.4f);
@@ -84,5 +84,7 @@ public class ModBlocks{
 		GameRegistry.registerBlock(WireOne, "WireOne");
 		GameRegistry.registerBlock(SoulCrystallizerIdle, "SoulCrystallizerIdle");
 		GameRegistry.registerBlock(SoulCrystallizerActive, "SoulCrystallizerActive");
+		
+		GameRegistry.registerBlock(Basalt = new Basalt("basalt", Material.rock), BlockMetaBlock.class, "basalt");
 	}
 }
