@@ -55,6 +55,7 @@ public class TileEntityHellOven extends TileEntity implements ISidedInventory
 	{
 		return 64;
 	}
+	
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer entityplayer)
 	{
@@ -81,6 +82,7 @@ public class TileEntityHellOven extends TileEntity implements ISidedInventory
 	{
 		return this.slots.length;
 	}
+	
 	@Override
 	public ItemStack getStackInSlot(int var1)
 	{

@@ -5,10 +5,12 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 import com.Arteman.HellLand.HellLand;
+import com.Arteman.HellLand.container.ContainerCrystallOven;
 import com.Arteman.HellLand.container.ContainerHellOven;
 import com.Arteman.HellLand.container.ContainerSoulCrystallizer;
 import com.Arteman.HellLand.gui.GuiHellOven;
 import com.Arteman.HellLand.gui.GuiSoulCrystallizer;
+import com.Arteman.HellLand.tileentity.TileEntityCrystallOven;
 import com.Arteman.HellLand.tileentity.TileEntityHellOven;
 import com.Arteman.HellLand.tileentity.TileEntitySoulCrystallizer;
 
@@ -17,7 +19,8 @@ import cpw.mods.fml.common.network.IGuiHandler;
 public class GuiHandler implements IGuiHandler
 {
 	 @Override
-	    public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
+	    public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
+	 {
 	        TileEntity entity = world.getTileEntity(x, y, z);
 
 	        if(entity != null)
@@ -34,6 +37,11 @@ public class GuiHandler implements IGuiHandler
 	                	{
 	                		return new ContainerSoulCrystallizer(player.inventory, (TileEntitySoulCrystallizer) entity);
 	                	}
+	                case 3:
+	                	if(entity instanceof TileEntityCrystallOven)
+	                	{
+	                		return new ContainerCrystallOven(player.inventory, (TileEntityCrystallOven) entity);
+	                	}
 	                    return null;
 	            }
 	        }
@@ -41,7 +49,8 @@ public class GuiHandler implements IGuiHandler
 	    }
 
 	    @Override
-	    public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
+	    public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z)
+	    {
 	        TileEntity entity = world.getTileEntity(x, y, z);
 
 	        if(entity != null)
@@ -49,15 +58,20 @@ public class GuiHandler implements IGuiHandler
 	            switch(ID)
 	            {
 	                case 1:
-	                if(entity instanceof TileEntityHellOven)
-	                {
-	                    return new GuiHellOven(player.inventory, (TileEntityHellOven) entity);
-	                }
+	                	if(entity instanceof TileEntityHellOven)
+	                	{
+	                		return new GuiHellOven(player.inventory, (TileEntityHellOven) entity);
+	                	}
 	                case 2:
 	                	if(entity instanceof TileEntitySoulCrystallizer)
 		                {
 		                    return new GuiSoulCrystallizer(player.inventory, (TileEntitySoulCrystallizer) entity);
 		                }
+	                case 3:
+	                	if(entity instanceof TileEntityCrystallOven)
+	                	{
+	                		return new ContainerCrystallOven(player.inventory, (TileEntityCrystallOven) entity);
+	                	}
 	                return null;
 	            }
 	        }
