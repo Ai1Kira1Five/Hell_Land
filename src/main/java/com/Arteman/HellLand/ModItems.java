@@ -17,6 +17,7 @@ import com.Arteman.HellLand.items.MagicKatana;
 import com.Arteman.HellLand.items.MagicScythe;
 import com.Arteman.HellLand.items.MagicSword;
 import com.Arteman.HellLand.items.ToolRodI;
+import com.Arteman.HellLand.items.WeaponiumIngot;
 import com.Arteman.HellLand.items.Wrench;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -28,6 +29,7 @@ public class ModItems
 	public static Item BoneBlade;
 	public static Item HellCrystal;
 	public static Item ToolRobI;
+	public static Item WeaponiumIngot;
 	
 	//mob drop
 	public static Item BloodDrop;
@@ -67,6 +69,7 @@ public class ModItems
 		ToolRobI = new ToolRodI();
 		HellCrystal = new HellCrystal();
 		BoneBlade = new BoneBlade();
+		WeaponiumIngot = new WeaponiumIngot();
 		
 		//tools and weapons
 		BoneSword = new BoneSword(HellLand.Bone);

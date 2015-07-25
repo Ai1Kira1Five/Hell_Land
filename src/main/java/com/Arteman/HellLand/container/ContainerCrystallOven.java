@@ -26,14 +26,30 @@ public class ContainerCrystallOven extends Container
     public int lastCurrentItemBurnTime;
     public int lastCookTime;
 
+    /*
+     * slot 1 - fuel
+     * 
+     * slot 0 - before
+     * 
+     * slot 2 - after
+     */
+    
 	public ContainerCrystallOven(InventoryPlayer inventory, TileEntityCrystallOven tileentity)
 	{
 		this.crystallOven = tileentity;
 		
 		this.addSlotToContainer(new Slot((IInventory) tileentity, 1, 62, 64));
-		this.addSlotToContainer(new Slot((IInventory) tileentity, 1, 8, 62));
-        this.addSlotToContainer(new SlotFurnace(inventory.player, (IInventory) tileentity, 2, 116, 35));
-        
+		this.addSlotToContainer(new Slot((IInventory) tileentity, 1, 80, 64));
+		this.addSlotToContainer(new Slot((IInventory) tileentity, 1, 98, 64));
+		this.addSlotToContainer(new Slot((IInventory) tileentity, 0, 26, 27));
+		this.addSlotToContainer(new Slot((IInventory) tileentity, 0, 44, 27));
+		this.addSlotToContainer(new Slot((IInventory) tileentity, 0, 26, 44));
+		this.addSlotToContainer(new Slot((IInventory) tileentity, 0, 44, 44));
+		this.addSlotToContainer(new SlotFurnace(inventory.player, (IInventory) tileentity, 2, 116, 27));
+		this.addSlotToContainer(new SlotFurnace(inventory.player, (IInventory) tileentity, 2, 134, 27));
+		this.addSlotToContainer(new SlotFurnace(inventory.player, (IInventory) tileentity, 2, 116, 44));
+		this.addSlotToContainer(new SlotFurnace(inventory.player, (IInventory) tileentity, 2, 134, 44));
+
         for (int i = 0; i < 3; i++){
             for (int j = 0; j < 9; j++){
                 this.addSlotToContainer(new Slot(inventory, j + i*9 + 9, 8 + j*18, 84 + i*18));

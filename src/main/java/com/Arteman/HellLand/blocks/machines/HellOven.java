@@ -190,7 +190,7 @@ public class HellOven extends BlockContainer
 
         if (active)
         {
-            worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.HellOvenIdle);
+            worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.HellOvenActive);
         }
         else
         {

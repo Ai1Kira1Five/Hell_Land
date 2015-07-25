@@ -187,11 +187,11 @@ public class CrystallOven extends BlockContainer
 
         if (active)
         {
-            worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.HellOvenIdle);
+            worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.CrystallOvenActive);
         }
         else
         {
-            worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.HellOvenIdle);
+            worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.CrystallOvenIdle);
         }
 
         keepInventory = false;

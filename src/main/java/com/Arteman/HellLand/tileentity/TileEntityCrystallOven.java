@@ -52,7 +52,7 @@ public class TileEntityCrystallOven extends TileEntity implements ISidedInventor
 	@Override
 	public int getInventoryStackLimit()
 	{
-		return 64;
+		return 256;
 	}
 	
 	@Override

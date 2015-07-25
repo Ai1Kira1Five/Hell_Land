@@ -26,6 +26,7 @@ item.HellLand:Bone Sword.text=Not so good weapon, but you are need it=)
 
 item.HellLand:Bone Blade.name=Bone Blade
 item.HellLand:Tool Rob I.name=Tool Rob I
+item.HellLand:weaponium_ingot=Weaponium ingot
 
 item.HellLand:magic_sword_animated.name=Magic sword
 item.HellLand:magic_double_sword_animated.name=Magic ExtraSword
