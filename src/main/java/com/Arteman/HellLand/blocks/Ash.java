@@ -12,7 +12,7 @@ public class Ash extends Block
 	public Ash(String name, Material material) 
 	{
 		super(material.sand);
-		this.setCreativeTab(HellLand.HellMCTab);
+		this.setCreativeTab(HellLand.HellMCTabDecor);
 		this.setBlockName(HellLand.MODID + ":" + name);
 		this.setBlockTextureName(HellLand.MODID + ":" + name);
 		this.setHardness(50.0f);

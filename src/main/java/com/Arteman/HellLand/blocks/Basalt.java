@@ -12,7 +12,7 @@ public class Basalt extends Block
 	public Basalt(String name, Material material) 
 	{
 		super(material.rock);
-		this.setCreativeTab(HellLand.HellMCTab);
+		this.setCreativeTab(HellLand.HellMCTabDecor);
 		this.setBlockName(HellLand.MODID + ":" + name);
 		this.setBlockTextureName(HellLand.MODID + ":" + name);
 		this.setHardness(50.0f);

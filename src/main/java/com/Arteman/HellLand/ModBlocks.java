@@ -6,6 +6,7 @@ import com.Arteman.HellLand.blocks.Ash;
 import com.Arteman.HellLand.blocks.Basalt;
 import com.Arteman.HellLand.blocks.BloodWood;
 import com.Arteman.HellLand.blocks.BloodWoodLogs;
+import com.Arteman.HellLand.blocks.CrystallBlock;
 import com.Arteman.HellLand.blocks.HellBase;
 import com.Arteman.HellLand.blocks.HellFragment;
 import com.Arteman.HellLand.blocks.Marble;
@@ -34,6 +35,7 @@ public class ModBlocks{
 	public static Block Marble;
 	public static Block Ash;
 	public static Block NecroticLamp;
+	public static Block CrystallBlock;
 
 	//machines
 	public static Block HellOvenIdle;
@@ -59,7 +61,8 @@ public class ModBlocks{
 		Basalt = new Basalt("Basalt", Material.rock);
 		Marble = new Marble("Marble", Material.rock);
 		Ash = new Ash("Ash", Material.sand);
-		NecroticLamp = new NecroticLamp("Necrotic Lamp", Material.rock);
+		NecroticLamp = new NecroticLamp("NecroticLamp", Material.rock);
+		CrystallBlock = new CrystallBlock("CrystallBlock", Material.rock);
  
 		//machines
 		HellOvenIdle = new HellOven(false).setBlockName("HellOvenIdle").setCreativeTab(HellLand.HellMCTab).setHardness(3.4f);

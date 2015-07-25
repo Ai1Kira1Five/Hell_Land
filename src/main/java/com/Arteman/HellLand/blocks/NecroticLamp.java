@@ -9,12 +9,12 @@ import net.minecraft.block.material.Material;
 
 public class NecroticLamp extends Block 
 {
-	private String name = "necrotic_lamp";
+	public final String name = "necrotic_lamp";
 	
-	public NecroticLamp(String name, Material mat) 
+	public NecroticLamp(String name, Material material) 
 	{
-		super(mat.rock);
-		this.setCreativeTab(HellLand.HellMCTab);
+		super(Material.rock);
+		this.setCreativeTab(HellLand.HellMCTabDecor);
 		this.setBlockName(HellLand.MODID + ":" + name);
 		this.setBlockTextureName(HellLand.MODID + ":" + name);
 		this.setLightLevel(15.0f);
@@ -22,9 +22,15 @@ public class NecroticLamp extends Block
 		this.setStepSound(soundTypeGlass);
 		GameRegistry.registerBlock(this, name);
 	}
-
+	/*
 	public MapColor getMapColor(int i)
 	{
 		return MapColor.redColor;
+	}
+	*/
+	@Override
+	public boolean renderAsNormalBlock()
+	{
+		return false;
 	}
 }

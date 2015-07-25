@@ -7,11 +7,10 @@ import net.minecraft.item.Item;
 
 public class WeaponiumIngot extends Item 
 {
-	private String name = "weaponium_ingot";
+	public String name = "weaponium_ingot";
 	
 	public WeaponiumIngot()
 	{
-		super();
 		this.setCreativeTab(HellLand.HellMCTabStuff);
 		this.setTextureName(HellLand.MODID + ":" + name);
 		this.setUnlocalizedName(HellLand.MODID + ":" + name);

@@ -6,19 +6,18 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
-public class Marble extends Block 
+public class CrystallBlock extends Block 
 {
-	public final String name = "marble";
-	public Marble(String name, Material material) 
+	public final String name = "crystall_block";
+
+	public CrystallBlock(String name, Material material)
 	{
-		super(material.rock);
-		this.setCreativeTab(HellLand.HellMCTabDecor);
+		super(Material.rock);
 		this.setBlockName(HellLand.MODID + ":" + name);
 		this.setBlockTextureName(HellLand.MODID + ":" + name);
-		this.setHardness(50.0f);
-		this.setResistance(100.0f);
-		this.setStepSound(soundTypeStone);
-		this.setHarvestLevel("pickaxe", 3);
+		this.setCreativeTab(HellLand.HellMCTabDecor);
+		this.setHardness(5.0f);
 		GameRegistry.registerBlock(this, name);
 	}
+
 }

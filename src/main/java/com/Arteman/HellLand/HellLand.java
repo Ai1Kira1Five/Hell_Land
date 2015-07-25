@@ -34,6 +34,7 @@ public class HellLand
     
     public static CreativeTabs HellMCTab = new CreativeTabHell("Hell Land");
     public static CreativeTabs HellMCTabStuff = new CreativeTabHellStuff("Hell Land Stuff");
+    public static CreativeTabs HellMCTabDecor = new CreativeTabHellDecor("Hell Land Decorative");
     
     //Materials
     public static final Item.ToolMaterial Bone = EnumHelper.addToolMaterial("BONE", 3, 38, 2.0f, 15.5f, 20);
