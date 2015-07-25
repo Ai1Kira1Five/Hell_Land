@@ -8,6 +8,7 @@ import com.Arteman.HellLand.HellLand;
 import com.Arteman.HellLand.container.ContainerCrystallOven;
 import com.Arteman.HellLand.container.ContainerHellOven;
 import com.Arteman.HellLand.container.ContainerSoulCrystallizer;
+import com.Arteman.HellLand.gui.GuiCrystallOven;
 import com.Arteman.HellLand.gui.GuiHellOven;
 import com.Arteman.HellLand.gui.GuiSoulCrystallizer;
 import com.Arteman.HellLand.tileentity.TileEntityCrystallOven;
@@ -70,7 +71,7 @@ public class GuiHandler implements IGuiHandler
 	                case 3:
 	                	if(entity instanceof TileEntityCrystallOven)
 	                	{
-	                		return new ContainerCrystallOven(player.inventory, (TileEntityCrystallOven) entity);
+	                		return new GuiCrystallOven(player.inventory, (TileEntityCrystallOven) entity);
 	                	}
 	                return null;
 	            }
