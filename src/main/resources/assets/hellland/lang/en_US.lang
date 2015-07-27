@@ -62,5 +62,5 @@ item.heart_7.name=Energy heart
 
 itemGroup.Hell Land=Hell Land
 itemGroup.Hell Land Stuff=Hell Land Stuff
-Container.inventory=v^v
+Container.inventory=.
 enchantment.Devil's strike=Devil's Strike
