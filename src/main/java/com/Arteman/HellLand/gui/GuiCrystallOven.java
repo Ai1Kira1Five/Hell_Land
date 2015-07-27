@@ -43,14 +43,17 @@ public class GuiCrystallOven extends GuiContainer
 	        Minecraft.getMinecraft().getTextureManager().bindTexture(bground);
 	        drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 
+
 	        if (this.crystallOven.isBurning())
 	        {
-	            int k = this.crystallOven.getBurnTimeRemainingScaled(40);
-	            int j = 40 - k;
-	            drawTexturedModalRect(guiLeft + 29, guiTop + 65, 176, 0, 40 - j, 10);
+	            int k = this.crystallOven.getBurnTimeRemainingScaled(14);
+	            int j = 14 - k;
+                    drawTexturedModalRect(guiLeft + 43, guiTop + 65 + j, 176, j, 14, k);
+                    drawTexturedModalRect(guiLeft + 121, guiTop + 65 + j, 176, j, 14, k);
 	        }
 
 	        int k = this.crystallOven.getCookProgressScaled(24);
-	        drawTexturedModalRect(guiLeft + 79, guiTop + 34, 176, 10, k + 1, 16);
+	        drawTexturedModalRect(guiLeft + 77, guiTop + 35, 176, 14, k, 16);
+	        
 	 }
 }
