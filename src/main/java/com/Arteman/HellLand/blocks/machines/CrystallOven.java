@@ -47,8 +47,8 @@ public class CrystallOven extends BlockContainer
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(HellLand.MODID + ":" + "SoulCrystallizerSide");
 		this.iconFront = iconRegister.registerIcon(HellLand.MODID + ":" + (this.isActive ? "CrystallOvenFrontOn" : "CrystallOvenFrontOff"));
+		this.blockIcon = iconRegister.registerIcon(HellLand.MODID + ":" + "SoulCrystallizerSide");
 		this.iconTop = iconRegister.registerIcon(HellLand.MODID + ":" + "SoulCrystallizerSide");
 	}
 	

@@ -21,10 +21,10 @@ public class TileEntityCrystallOven extends TileEntity implements ISidedInventor
 {
 	private String localizedName;
 	
-	private static final int[] slots_top = new int[]{0};
-	private static final int[] slots_bottom = new int[]{2, 1};
-	private static final int[] slots_side = new int[]{1};
-	private ItemStack[] slots = new ItemStack[3];
+	private static final int[] slots_top = new int[]{7, 8, 9, 10};
+	private static final int[] slots_bottom = new int[]{3, 4, 5, 6};
+	private static final int[] slots_side = new int[]{0, 1, 2};
+	private ItemStack[] slots = new ItemStack[11];
 	
 	public int furnaceSpeed = 300;
 	
@@ -52,7 +52,7 @@ public class TileEntityCrystallOven extends TileEntity implements ISidedInventor
 	@Override
 	public int getInventoryStackLimit()
 	{
-		return 256;
+		return 64;
 	}
 	
 	@Override

@@ -38,17 +38,17 @@ public class ContainerCrystallOven extends Container
 	{
 		this.crystallOven = tileentity;
 		
-		this.addSlotToContainer(new Slot((IInventory) tileentity, 1, 62, 64));
+		this.addSlotToContainer(new Slot((IInventory) tileentity, 0, 62, 64));
 		this.addSlotToContainer(new Slot((IInventory) tileentity, 1, 80, 64));
-		this.addSlotToContainer(new Slot((IInventory) tileentity, 1, 98, 64));
-		this.addSlotToContainer(new Slot((IInventory) tileentity, 0, 26, 27));
-		this.addSlotToContainer(new Slot((IInventory) tileentity, 0, 44, 27));
-		this.addSlotToContainer(new Slot((IInventory) tileentity, 0, 26, 44));
-		this.addSlotToContainer(new Slot((IInventory) tileentity, 0, 44, 44));
-		this.addSlotToContainer(new SlotFurnace(inventory.player, (IInventory) tileentity, 2, 116, 27));
-		this.addSlotToContainer(new SlotFurnace(inventory.player, (IInventory) tileentity, 2, 134, 27));
-		this.addSlotToContainer(new SlotFurnace(inventory.player, (IInventory) tileentity, 2, 116, 44));
-		this.addSlotToContainer(new SlotFurnace(inventory.player, (IInventory) tileentity, 2, 134, 44));
+		this.addSlotToContainer(new Slot((IInventory) tileentity, 2, 98, 64));
+		this.addSlotToContainer(new Slot((IInventory) tileentity, 3, 26, 27));
+		this.addSlotToContainer(new Slot((IInventory) tileentity, 4, 44, 27));
+		this.addSlotToContainer(new Slot((IInventory) tileentity, 5, 26, 44));
+		this.addSlotToContainer(new Slot((IInventory) tileentity, 6, 44, 44));
+		this.addSlotToContainer(new SlotFurnace(inventory.player, (IInventory) tileentity, 7, 116, 27));
+		this.addSlotToContainer(new SlotFurnace(inventory.player, (IInventory) tileentity, 8, 134, 27));
+		this.addSlotToContainer(new SlotFurnace(inventory.player, (IInventory) tileentity, 9, 116, 44));
+		this.addSlotToContainer(new SlotFurnace(inventory.player, (IInventory) tileentity, 10, 134, 44));
 
         for (int i = 0; i < 3; i++){
             for (int j = 0; j < 9; j++){
