@@ -71,8 +71,16 @@ public class ContainerCrystallOven extends Container
 	{
         super.addCraftingToCrafters(icrafting);
         icrafting.sendProgressBarUpdate(this, 0, this.crystallOven.cookTime);
-        icrafting.sendProgressBarUpdate(this, 1, this.crystallOven.burnTime);
-        icrafting.sendProgressBarUpdate(this, 2, this.crystallOven.currentItemBurnTime);
+        icrafting.sendProgressBarUpdate(this, 1, this.crystallOven.cookTime);
+        icrafting.sendProgressBarUpdate(this, 2, this.crystallOven.cookTime);
+        icrafting.sendProgressBarUpdate(this, 3, this.crystallOven.burnTime);
+        icrafting.sendProgressBarUpdate(this, 4, this.crystallOven.burnTime);
+        icrafting.sendProgressBarUpdate(this, 5, this.crystallOven.burnTime);
+        icrafting.sendProgressBarUpdate(this, 6, this.crystallOven.burnTime);
+        icrafting.sendProgressBarUpdate(this, 7, this.crystallOven.currentItemBurnTime);
+        icrafting.sendProgressBarUpdate(this, 8, this.crystallOven.currentItemBurnTime);
+        icrafting.sendProgressBarUpdate(this, 9, this.crystallOven.currentItemBurnTime);
+        icrafting.sendProgressBarUpdate(this, 10, this.crystallOven.currentItemBurnTime);
     }
 
 	public void detectAndSendChanges()
@@ -86,15 +94,47 @@ public class ContainerCrystallOven extends Container
             {
                 icrafting.sendProgressBarUpdate(this, 0, this.crystallOven.cookTime);
             }
+            if (this.lastCookTime != this.crystallOven.cookTime)
+            {
+                icrafting.sendProgressBarUpdate(this, 1, this.crystallOven.cookTime);
+            }
+            if (this.lastCookTime != this.crystallOven.cookTime)
+            {
+                icrafting.sendProgressBarUpdate(this, 2, this.crystallOven.cookTime);
+            }
 
             if (this.lastBurnTime != this.crystallOven.burnTime)
             {
-                icrafting.sendProgressBarUpdate(this, 1, this.crystallOven.burnTime);
+                icrafting.sendProgressBarUpdate(this, 3, this.crystallOven.burnTime);
+            }
+            if (this.lastBurnTime != this.crystallOven.burnTime)
+            {
+                icrafting.sendProgressBarUpdate(this, 4, this.crystallOven.burnTime);
+            }
+            if (this.lastBurnTime != this.crystallOven.burnTime)
+            {
+                icrafting.sendProgressBarUpdate(this, 5, this.crystallOven.burnTime);
+            }
+            if (this.lastBurnTime != this.crystallOven.burnTime)
+            {
+                icrafting.sendProgressBarUpdate(this, 6, this.crystallOven.burnTime);
             }
 
             if (this.lastCurrentItemBurnTime != this.crystallOven.currentItemBurnTime)
             {
-                icrafting.sendProgressBarUpdate(this, 2, this.crystallOven.currentItemBurnTime);
+                icrafting.sendProgressBarUpdate(this, 7, this.crystallOven.currentItemBurnTime);
+            }
+            if (this.lastCurrentItemBurnTime != this.crystallOven.currentItemBurnTime)
+            {
+                icrafting.sendProgressBarUpdate(this, 8, this.crystallOven.currentItemBurnTime);
+            }
+            if (this.lastCurrentItemBurnTime != this.crystallOven.currentItemBurnTime)
+            {
+                icrafting.sendProgressBarUpdate(this, 9, this.crystallOven.currentItemBurnTime);
+            }
+            if (this.lastCurrentItemBurnTime != this.crystallOven.currentItemBurnTime)
+            {
+                icrafting.sendProgressBarUpdate(this, 10, this.crystallOven.currentItemBurnTime);
             }
         }
         this.lastCookTime = this.crystallOven.cookTime;
@@ -109,13 +149,45 @@ public class ContainerCrystallOven extends Container
         {
             this.crystallOven.cookTime = par2;
         }
-
         if (par1 == 1)
+        {
+        	this.crystallOven.cookTime = par2;
+        }
+        if (par1 == 2)
+        {
+        	this.crystallOven.cookTime = par2;
+        }
+
+        if (par1 == 3)
+        {
+            this.crystallOven.burnTime = par2;
+        }
+        if (par1 == 4)
+        {
+            this.crystallOven.burnTime = par2;
+        }
+        if (par1 == 5)
+        {
+            this.crystallOven.burnTime = par2;
+        }
+        if (par1 == 6)
         {
             this.crystallOven.burnTime = par2;
         }
 
-        if (par1 == 2)
+        if (par1 == 7)
+        {
+            this.crystallOven.currentItemBurnTime = par2;
+        }
+        if (par1 == 8)
+        {
+            this.crystallOven.currentItemBurnTime = par2;
+        }
+        if (par1 == 9)
+        {
+            this.crystallOven.currentItemBurnTime = par2;
+        }
+        if (par1 == 10)
         {
             this.crystallOven.currentItemBurnTime = par2;
         }
