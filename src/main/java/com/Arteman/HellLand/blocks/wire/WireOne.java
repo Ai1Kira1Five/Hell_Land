@@ -20,18 +20,11 @@ public class WireOne extends BlockContainer
 	public WireOne()
 	{
 		super(Material.glass);
-		
 		this.setBlockTextureName(HellLand.MODID + ":" + "WireOne");
 		this.setBlockBounds(11*pixel/2, 11*pixel/2, 11*pixel/2, 1-11*pixel/2, 1-11*pixel/2, 1-11*pixel/2);
 		this.useNeighborBrightness=true;
 	}
-	
-	/*@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconRegister)
-	{
-		this.blockIcon = iconRegister.registerIcon(HellLand.MODID + ":" + "WireOne");
-	}
-	*/
+
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z)
 	{
 		TileEntityWire wire = (TileEntityWire)world.getTileEntity(x, y, z);
@@ -56,7 +49,6 @@ public class WireOne extends BlockContainer
 
 		if(wire != null)
 		{
-			//System.out.println(wire.connections[2]);
 			float minX = 11*pixel/2-(wire.connections[5] !=null?(11*pixel/2) :0);
 			float minY = 11*pixel/2-(wire.connections[1] !=null?(11*pixel/2) :0);
 			float minZ = 11*pixel/2-(wire.connections[2] !=null?(11*pixel/2) :0);
