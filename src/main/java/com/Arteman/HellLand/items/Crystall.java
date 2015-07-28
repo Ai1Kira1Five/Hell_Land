@@ -15,7 +15,7 @@ import net.minecraft.util.IIcon;
 
 public class Crystall extends Item 
 {
-	public IIcon[] icons = new IIcon[9];
+	public IIcon[] icons = new IIcon[10];
 	
 	public Crystall(String unlocalizedName)
 	{
@@ -28,7 +28,7 @@ public class Crystall extends Item
 	@Override
 	public void registerIcons(IIconRegister reg)
 	{
-		for(int i = 0; i < 9; i++)
+		for(int i = 0; i < 10; i++)
 		{
 			this.icons[i] = reg.registerIcon(HellLand.MODID + ":crystall_" + i);
 		}
@@ -37,7 +37,7 @@ public class Crystall extends Item
 	@Override
 	public IIcon getIconFromDamage(int meta) 
 	{
-	    if (meta > 9)
+	    if (meta > 10)
 	        meta = 0;
 
 	    return this.icons[meta];
@@ -46,7 +46,7 @@ public class Crystall extends Item
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List list) 
 	{
-	    for (int i = 0; i < 9; i ++) 
+	    for (int i = 0; i < 10; i ++)
 	    {
 	        list.add(new ItemStack(item, 1, i));
 	    }

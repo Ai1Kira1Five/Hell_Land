@@ -47,6 +47,7 @@ public class HellLand
     public static final int guiIDSoulCrystallizer = 2;
     public static final int guiIDCrystallOven = 3;
     public static final int guiIDAmuletTable = 4;
+    public static final int guiIDMMixer = 5;
 
     
     @SidedProxy(clientSide = "com.Arteman.HellLand.proxy.ClientProxy", serverSide = "com.Arteman.HellLand.proxy.CommonProxy")

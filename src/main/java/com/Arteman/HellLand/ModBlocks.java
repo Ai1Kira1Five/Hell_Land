@@ -12,10 +12,7 @@ import com.Arteman.HellLand.blocks.HellFragment;
 import com.Arteman.HellLand.blocks.Marble;
 import com.Arteman.HellLand.blocks.NecroticLamp;
 import com.Arteman.HellLand.blocks.StrongStone;
-import com.Arteman.HellLand.blocks.machines.AmuletTable;
-import com.Arteman.HellLand.blocks.machines.CrystallOven;
-import com.Arteman.HellLand.blocks.machines.HellOven;
-import com.Arteman.HellLand.blocks.machines.SoulCrystallizer;
+import com.Arteman.HellLand.blocks.machines.*;
 import com.Arteman.HellLand.blocks.wire.WireOne;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -44,6 +41,7 @@ public class ModBlocks{
 	public static Block CrystallOvenActive;
 	public static Block SoulCrystallizerIdle;
 	public static Block SoulCrystallizerActive;
+	public static Block MMixer;
 	
 	//Wires
 	public static Block WireOne;
@@ -71,6 +69,7 @@ public class ModBlocks{
 		SoulCrystallizerActive = new SoulCrystallizer(true).setLightLevel(2.0f);
 		CrystallOvenIdle = new CrystallOven(false).setBlockName("CrystallOvenIdle").setCreativeTab(HellLand.HellMCTab).setHardness(3.4f);
 		CrystallOvenActive = new CrystallOven(true).setBlockName("CrystallOvenActive").setHardness(3.4f).setLightLevel(2.0f);
+		MMixer = new MagicalMixer();
 		
 		
 		//wires

@@ -26,7 +26,7 @@ item.HellLand:Bone Sword.text=Not so good weapon, but you are need it=)
 
 item.HellLand:Bone Blade.name=Bone Blade
 item.HellLand:Tool Rob I.name=Tool Rod I
-item.HellLand:weaponium_ingot=Weaponium ingot
+item.HellLand:weaponium_ingot.name=Weaponium ingot
 
 item.HellLand:magic_sword_animated.name=Magic sword
 item.HellLand:magic_double_sword_animated.name=Magic ExtraSword
@@ -48,6 +48,7 @@ item.crystall_5.name=Light crystall
 item.crystall_6.name=Darkness crystall
 item.crystall_7.name=Energy crystall
 item.crystall_8.name=Blood crystall
+item.crystall_8.name=Weaponium crystall
 
 item.heart_0.name=Heart
 item.heart_1.name=Fire heart
