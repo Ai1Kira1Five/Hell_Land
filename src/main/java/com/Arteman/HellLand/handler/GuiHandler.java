@@ -11,6 +11,7 @@ import com.Arteman.HellLand.container.ContainerSoulCrystallizer;
 import com.Arteman.HellLand.gui.GuiCrystallOven;
 import com.Arteman.HellLand.gui.GuiHellOven;
 import com.Arteman.HellLand.gui.GuiSoulCrystallizer;
+import com.Arteman.HellLand.gui.GuiCrystallOven;
 import com.Arteman.HellLand.tileentity.TileEntityCrystallOven;
 import com.Arteman.HellLand.tileentity.TileEntityHellOven;
 import com.Arteman.HellLand.tileentity.TileEntitySoulCrystallizer;
