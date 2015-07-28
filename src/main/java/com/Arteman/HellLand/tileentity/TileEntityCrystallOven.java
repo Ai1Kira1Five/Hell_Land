@@ -99,7 +99,7 @@ public class TileEntityCrystallOven extends TileEntity implements ISidedInventor
 			{
 				itemstack = this.slots[var1];
 				this.slots[var1] = null;
-				this.makeDirty();
+				this.markDirty();
 				return itemstack;
 			}
 			else
@@ -110,7 +110,7 @@ public class TileEntityCrystallOven extends TileEntity implements ISidedInventor
 				{
 					this.slots[var1] = null;
 				}
-				this.makeDirty();
+				this.markDirty();
 				return itemstack;
 			}
 		}
