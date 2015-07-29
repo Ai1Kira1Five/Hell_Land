@@ -12,7 +12,6 @@ public class BlockHell extends Block
 	public BlockHell(Material material)
 	{
 		super(material);
-		setCreativeTab(HellLand.HellMCTab);
 	}
 	
 	@Override

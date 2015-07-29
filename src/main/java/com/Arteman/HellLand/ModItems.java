@@ -1,5 +1,7 @@
 package com.Arteman.HellLand;
 
+import com.Arteman.HellLand.items.ArcaneGoldIngot;
+import com.Arteman.HellLand.items.ArcaneSteelIngot;
 import com.Arteman.HellLand.items.BloodDrop;
 import com.Arteman.HellLand.items.BoneBlade;
 import com.Arteman.HellLand.items.BoneFragment;
@@ -30,6 +32,8 @@ public class ModItems
 	public static Item HellCrystal;
 	public static Item ToolRobI;
 	public static Item WeaponiumIngot;
+	public static Item ArcaneGoldIngot;
+	public static Item ArcaneSteelIngot;
 	
 	//mob drop
 	public static Item BloodDrop;
@@ -70,6 +74,8 @@ public class ModItems
 		HellCrystal = new HellCrystal();
 		BoneBlade = new BoneBlade();
 		WeaponiumIngot = new WeaponiumIngot();
+		ArcaneGoldIngot = new ArcaneGoldIngot();
+		ArcaneSteelIngot = new ArcaneSteelIngot();
 		
 		//tools and weapons
 		BoneSword = new BoneSword(HellLand.Bone);

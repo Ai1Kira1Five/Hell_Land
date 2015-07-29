@@ -2,6 +2,8 @@ package com.Arteman.HellLand;
 
 import java.util.Iterator;
 
+import com.Arteman.HellLand.blocks.ArcaneGoldBlock;
+import com.Arteman.HellLand.blocks.ArcaneSteelBlock;
 import com.Arteman.HellLand.blocks.Ash;
 import com.Arteman.HellLand.blocks.Basalt;
 import com.Arteman.HellLand.blocks.BloodWood;
@@ -33,6 +35,8 @@ public class ModBlocks{
 	public static Block Ash;
 	public static Block NecroticLamp;
 	public static Block CrystallBlock;
+	public static Block ArcaneGoldBlock;
+	public static Block ArcaneSteelBlock;
 
 	//machines
 	public static Block HellOvenIdle;
@@ -61,6 +65,9 @@ public class ModBlocks{
 		Ash = new Ash("Ash", Material.sand);
 		NecroticLamp = new NecroticLamp("necrotic_lamp", Material.rock);
 		CrystallBlock = new CrystallBlock("crystall_block", Material.rock);
+		ArcaneGoldBlock = new ArcaneGoldBlock("arcane_golg_block", Material.iron);
+		ArcaneSteelBlock = new ArcaneSteelBlock("arcane_steel_block", Material.iron);
+		
  
 		//machines
 		HellOvenIdle = new HellOven(false).setBlockName("HellOvenIdle").setCreativeTab(HellLand.HellMCTab).setHardness(3.4f);
