@@ -100,6 +100,7 @@ public class TileEntityHellOven extends TileEntity implements ISidedInventory
 			{
 				itemstack = this.slots[var1];
 				this.slots[var1] = null;
+				this.markDirty();
 				return itemstack;
 			}
 			else
@@ -110,14 +111,18 @@ public class TileEntityHellOven extends TileEntity implements ISidedInventory
 				{
 					this.slots[var1] = null;
 				}
+				this.markDirty();
+				return itemstack;
 			}
 		}
 		return null;
 	}
 	
 	@Override
-	public ItemStack getStackInSlotOnClosing(int i) {
-        if (this.slots[i]!= null){
+	public ItemStack getStackInSlotOnClosing(int i)
+	{
+        if (this.slots[i]!= null)
+        {
             ItemStack itemstack = this.slots[i];
             this.slots[i] = null;
             return itemstack;
@@ -126,10 +131,12 @@ public class TileEntityHellOven extends TileEntity implements ISidedInventory
     }
 
 	@Override
-    public void setInventorySlotContents(int i, ItemStack itemstack) {
+    public void setInventorySlotContents(int i, ItemStack itemstack)
+	{
         this.slots[i] = itemstack;
 
-        if (itemstack != null && itemstack.stackSize > this.getInventoryStackLimit()){
+        if (itemstack != null && itemstack.stackSize > this.getInventoryStackLimit())
+        {
             itemstack.stackSize = this.getInventoryStackLimit();
         }
     }
@@ -138,13 +145,18 @@ public class TileEntityHellOven extends TileEntity implements ISidedInventory
         return getItemBurnTime(itemstack) > 0;
     }
 
-    private static int getItemBurnTime(ItemStack itemstack) {
-        if (itemstack == null) {
+    private static int getItemBurnTime(ItemStack itemstack) 
+    {
+        if (itemstack == null) 
+        {
             return 0;
-        } else {
+        } 
+        else 
+        {
             Item item = itemstack.getItem();
 
-            if (item instanceof ItemBlock && Block.getBlockFromItem(item) != Blocks.air) {
+            if (item instanceof ItemBlock && Block.getBlockFromItem(item) != Blocks.air) 
+            {
                 Block block = Block.getBlockFromItem(item);
 
                     if (block == Blocks.sapling) return 100;
