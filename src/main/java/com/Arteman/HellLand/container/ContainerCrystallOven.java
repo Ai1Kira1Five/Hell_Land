@@ -1,5 +1,7 @@
 package com.Arteman.HellLand.container;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 import com.Arteman.HellLand.tileentity.TileEntityCrystallOven;
 import com.Arteman.HellLand.tileentity.TileEntityHellOven;
 
@@ -25,9 +27,9 @@ public class ContainerCrystallOven extends Container
     public int lastBurnTime;
     public int lastCurrentItemBurnTime;
     public int lastCookTime;
-    private int[] slots_after = new int[](0,1,2); 	
-    private int[] slots_before = new int[](3,4,5,6);
-    private int[] slots_fuel = new int[](7,8,9,10);
+    private int[] slots_after = new int[]{0,1,2}; 	
+    private int[] slots_before = new int[]{3,4,5,6};
+    private int[] slots_fuel = new int[]{7,8,9,10};
     /*
      * slot 1 - fuel
      * 
@@ -126,7 +128,7 @@ public class ContainerCrystallOven extends Container
 
             if (ArrayUtils.contains(slots_after, par2))
             {
-                if (!this.mergeItemStack(itemstack1, crystalOven.getSizeInventory(), crystalOven.getSizeInventory()+36, true))
+                if (!this.mergeItemStack(itemstack1, crystallOven.getSizeInventory(), crystallOven.getSizeInventory()+36, true))
                 {
                     return null;
                 }
@@ -145,19 +147,19 @@ public class ContainerCrystallOven extends Container
                         return null;
                     }
                     slot.onSlotChanged();
-                }else if (par2 >=crystalOven.getSizeInventory() && par2 < (crystalOven.getSizeInventory()+27)){
-                    if (!this.mergeItemStack(itemstack1, crystalOven.getSizeInventory()+27, crystalOven.getSizeInventory()+36, false))
+                }else if (par2 >=crystallOven.getSizeInventory() && par2 < (crystallOven.getSizeInventory()+27)){
+                    if (!this.mergeItemStack(itemstack1, crystallOven.getSizeInventory()+27, crystallOven.getSizeInventory()+36, false))
                     {
                         return null;
                     }
                     slot.onSlotChanged();
-                }else if (par2 >= (crystalOven.getSizeInventory()+27) && par2 < (crystalOven.getSizeInventory()+36))){
-                        if(!this.mergeItemStack(itemstack1, crystalOven.getSizeInventory(), crystalOven.getSizeInventory()+27, false)){
+                }else if (par2 >= (crystallOven.getSizeInventory()+27) && par2 < (crystallOven.getSizeInventory()+36)){
+                        if(!this.mergeItemStack(itemstack1, crystallOven.getSizeInventory(), crystallOven.getSizeInventory()+27, false)){
                 	    return null;
                         }
                         slot.onSlotChanged();
                 }
-            }else if (!this.mergeItemStack(itemstack1, crystalOven.getSizeInventory(), crystalOven.getSizeInventory()+36, false)){
+            }else if (!this.mergeItemStack(itemstack1, crystallOven.getSizeInventory(), crystallOven.getSizeInventory()+36, false)){
                 return null;
             }
 
