@@ -25,7 +25,9 @@ public class ContainerCrystallOven extends Container
     public int lastBurnTime;
     public int lastCurrentItemBurnTime;
     public int lastCookTime;
-
+    private int[] slots_after = new int[](0,1,2); 	
+    private int[] slots_before = new int[](3,4,5,6);
+    private int[] slots_fuel = new int[](7,8,9,10);
     /*
      * slot 1 - fuel
      * 
@@ -70,18 +72,10 @@ public class ContainerCrystallOven extends Container
 	public void addCraftingToCrafters(ICrafting icrafting)
 	{
         super.addCraftingToCrafters(icrafting);
-        icrafting.sendProgressBarUpdate(this, 0, this.crystallOven.cookTime);
-        icrafting.sendProgressBarUpdate(this, 1, this.crystallOven.cookTime);
-        icrafting.sendProgressBarUpdate(this, 2, this.crystallOven.cookTime);
-        icrafting.sendProgressBarUpdate(this, 3, this.crystallOven.burnTime);
-        icrafting.sendProgressBarUpdate(this, 4, this.crystallOven.burnTime);
-        icrafting.sendProgressBarUpdate(this, 5, this.crystallOven.burnTime);
-        icrafting.sendProgressBarUpdate(this, 6, this.crystallOven.burnTime);
-        icrafting.sendProgressBarUpdate(this, 7, this.crystallOven.currentItemBurnTime);
-        icrafting.sendProgressBarUpdate(this, 8, this.crystallOven.currentItemBurnTime);
-        icrafting.sendProgressBarUpdate(this, 9, this.crystallOven.currentItemBurnTime);
-        icrafting.sendProgressBarUpdate(this, 10, this.crystallOven.currentItemBurnTime);
-    }
+		icrafting.sendProgressBarUpdate(this, 0, this.crystallOven.cookTime);
+		icrafting.sendProgressBarUpdate(this, 1, this.crystallOven.burnTime);
+		icrafting.sendProgressBarUpdate(this, 2, this.crystallOven.currentItemBurnTime);
+    	}
 
 	public void detectAndSendChanges()
 	{
@@ -94,47 +88,14 @@ public class ContainerCrystallOven extends Container
             {
                 icrafting.sendProgressBarUpdate(this, 0, this.crystallOven.cookTime);
             }
-            if (this.lastCookTime != this.crystallOven.cookTime)
-            {
-                icrafting.sendProgressBarUpdate(this, 1, this.crystallOven.cookTime);
-            }
-            if (this.lastCookTime != this.crystallOven.cookTime)
-            {
-                icrafting.sendProgressBarUpdate(this, 2, this.crystallOven.cookTime);
-            }
-
             if (this.lastBurnTime != this.crystallOven.burnTime)
             {
-                icrafting.sendProgressBarUpdate(this, 3, this.crystallOven.burnTime);
+                icrafting.sendProgressBarUpdate(this, 1, this.crystallOven.burnTime);
             }
-            if (this.lastBurnTime != this.crystallOven.burnTime)
-            {
-                icrafting.sendProgressBarUpdate(this, 4, this.crystallOven.burnTime);
-            }
-            if (this.lastBurnTime != this.crystallOven.burnTime)
-            {
-                icrafting.sendProgressBarUpdate(this, 5, this.crystallOven.burnTime);
-            }
-            if (this.lastBurnTime != this.crystallOven.burnTime)
-            {
-                icrafting.sendProgressBarUpdate(this, 6, this.crystallOven.burnTime);
-            }
-
+            
             if (this.lastCurrentItemBurnTime != this.crystallOven.currentItemBurnTime)
             {
-                icrafting.sendProgressBarUpdate(this, 7, this.crystallOven.currentItemBurnTime);
-            }
-            if (this.lastCurrentItemBurnTime != this.crystallOven.currentItemBurnTime)
-            {
-                icrafting.sendProgressBarUpdate(this, 8, this.crystallOven.currentItemBurnTime);
-            }
-            if (this.lastCurrentItemBurnTime != this.crystallOven.currentItemBurnTime)
-            {
-                icrafting.sendProgressBarUpdate(this, 9, this.crystallOven.currentItemBurnTime);
-            }
-            if (this.lastCurrentItemBurnTime != this.crystallOven.currentItemBurnTime)
-            {
-                icrafting.sendProgressBarUpdate(this, 10, this.crystallOven.currentItemBurnTime);
+                icrafting.sendProgressBarUpdate(this, 2, this.crystallOven.currentItemBurnTime);
             }
         }
         this.lastCookTime = this.crystallOven.cookTime;
@@ -143,96 +104,60 @@ public class ContainerCrystallOven extends Container
     }
 	
 	@SideOnly(Side.CLIENT)
-    public void updateProgressBar(int par1, int par2)
-	{
-        if (par1 == 0)
-        {
+    public void updateProgressBar(int par1, int par2){
+        if (par1 == 0){
             this.crystallOven.cookTime = par2;
         }
-        if (par1 == 1)
-        {
-        	this.crystallOven.cookTime = par2;
-        }
-        if (par1 == 2)
-        {
-        	this.crystallOven.cookTime = par2;
-        }
-
-        if (par1 == 3)
-        {
+        if (par1 == 1){
             this.crystallOven.burnTime = par2;
         }
-        if (par1 == 4)
-        {
-            this.crystallOven.burnTime = par2;
-        }
-        if (par1 == 5)
-        {
-            this.crystallOven.burnTime = par2;
-        }
-        if (par1 == 6)
-        {
-            this.crystallOven.burnTime = par2;
-        }
-
-        if (par1 == 7)
-        {
-            this.crystallOven.currentItemBurnTime = par2;
-        }
-        if (par1 == 8)
-        {
-            this.crystallOven.currentItemBurnTime = par2;
-        }
-        if (par1 == 9)
-        {
-            this.crystallOven.currentItemBurnTime = par2;
-        }
-        if (par1 == 10)
-        {
+        if (par1 == 2){
             this.crystallOven.currentItemBurnTime = par2;
         }
     }
 	
-	public ItemStack transferStackInSlot(EntityPlayer par1EntityPlayer, int par2)
-	{
+	public ItemStack transferStackInSlot(EntityPlayer par1EntityPlayer, int par2){
         ItemStack itemstack = null;
         Slot slot = (Slot)this.inventorySlots.get(par2);
 
-        if (slot != null && slot.getHasStack())
-        {
+        if (slot != null && slot.getHasStack()){
             ItemStack itemstack1 = slot.getStack();
             itemstack = itemstack1.copy();
 
-            if (par2 == 2)
+            if (ArrayUtils.contains(slots_after, par2))
             {
-                if (!this.mergeItemStack(itemstack1, 3, 39, true))
+                if (!this.mergeItemStack(itemstack1, crystalOven.getSizeInventory(), crystalOven.getSizeInventory()+36, true))
                 {
                     return null;
                 }
-
                 slot.onSlotChange(itemstack1, itemstack);
-            }else if (par2 != 1 && par2 != 0)
-            {
+            }else if (!ArrayUtils.contains(slots_before, par2) && !ArrayUtils.contains(slots_fuel, par2)){
                 if (FurnaceRecipes.smelting().getSmeltingResult(itemstack1) != null)
                 {
-                    if (!this.mergeItemStack(itemstack1, 0, 1, false))
+                    if (!this.mergeItemStack(itemstack1, 3, 7, false))
                     {
                         return null;
                     }
+                    slot.onSlotChanged();
                 }else if (TileEntityCrystallOven.isItemFuel(itemstack1)){
-                    if (!this.mergeItemStack(itemstack1, 1, 2, false))
+                    if (!this.mergeItemStack(itemstack1, 0, 3, false))
                     {
                         return null;
                     }
-                }else if (par2 >= 3 && par2 < 30){
-                    if (!this.mergeItemStack(itemstack1, 30, 39, false))
+                    slot.onSlotChanged();
+                }else if (par2 >=crystalOven.getSizeInventory() && par2 < (crystalOven.getSizeInventory()+27)){
+                    if (!this.mergeItemStack(itemstack1, crystalOven.getSizeInventory()+27, crystalOven.getSizeInventory()+36, false))
                     {
                         return null;
                     }
-                }else if (par2 >= 30 && par2 < 39 && !this.mergeItemStack(itemstack1, 3, 30, false)){
-                    return null;
+                    slot.onSlotChanged();
+                }else if (par2 >= (crystalOven.getSizeInventory()+27) && par2 < (crystalOven.getSizeInventory()+36))){
+                        if(!this.mergeItemStack(itemstack1, crystalOven.getSizeInventory(), crystalOven.getSizeInventory()+27, false)){
+                	    return null;
+                        }
+                        slot.onSlotChanged();
                 }
-            }else if (!this.mergeItemStack(itemstack1, 3, 39, false)){
+            }else if (!this.mergeItemStack(itemstack1, crystalOven.getSizeInventory(), crystalOven.getSizeInventory()+36, false)){
                 return null;
             }
 
