@@ -1,10 +1,10 @@
 package com.Arteman.HellLand.tileentity;
 
-import com.Arteman.HellLand.CrystallizerResipes;
 import com.Arteman.HellLand.ModBlocks;
 import com.Arteman.HellLand.ModItems;
 import com.Arteman.HellLand.blocks.machines.HellOven;
 import com.Arteman.HellLand.blocks.machines.SoulCrystallizer;
+import com.Arteman.HellLand.resipes.CrystallizerResipes;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;

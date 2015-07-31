@@ -22,6 +22,12 @@ public class TileEntityHellOven extends TileEntity implements ISidedInventory
 {
 	private String localizedName;
 	
+	/*
+	 * 0 - before
+	 * 1 - fuel
+	 * 2 - result
+	 */
+	
 	private static final int[] slots_top = new int[]{0};
 	private static final int[] slots_bottom = new int[]{2, 1};
 	private static final int[] slots_side = new int[]{1};

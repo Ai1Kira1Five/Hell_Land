@@ -21,6 +21,12 @@ public class TileEntityCrystallOven extends TileEntity implements ISidedInventor
 {
 	private String localizedName;
 	
+	/*
+	 * 7, 8, 9, 10 - after
+	 *  3, 4, 5, 6 - before
+	 *  0, 1, 2 - fuel
+	 */
+	
 	private static final int[] slots_top = new int[]{7, 8, 9, 10};
 	private static final int[] slots_bottom = new int[]{3, 4, 5, 6};
 	private static final int[] slots_side = new int[]{0, 1, 2};
@@ -191,18 +197,29 @@ public class TileEntityCrystallOven extends TileEntity implements ISidedInventor
         {
             if (this.burnTime == 0 && this.canSmelt())
             {
+                this.currentItemBurnTime = this.burnTime = getItemBurnTime(this.slots[0]);
                 this.currentItemBurnTime = this.burnTime = getItemBurnTime(this.slots[1]);
+                this.currentItemBurnTime = this.burnTime = getItemBurnTime(this.slots[2]);
 
                 if (this.isBurning())
                 {
                     flag1 = true;
 
-                    if (this.slots[1] != null)
+                    if (this.slots[0] != null 
+                    		&& this.slots[1] != null 
+                    		&& this.slots[2] != null)
                     {
+                    	this.slots[0].stackSize--;
                         this.slots[1].stackSize--;
+                        this.slots[2].stackSize--;
 
-                        if (this.slots[1].stackSize == 0){
+                        if (this.slots[0].stackSize == 0 
+                        		&& this.slots[1].stackSize == 0 
+                        		&& this.slots[2].stackSize == 0)
+                        {
+                        	this.slots[0] = this.slots[0].getItem().getContainerItem(this.slots[0]);
                             this.slots[1] = this.slots[1].getItem().getContainerItem(this.slots[1]);
+                            this.slots[2] = this.slots[2].getItem().getContainerItem(this.slots[2]);
                         }
                     }
                 }
@@ -235,19 +252,46 @@ public class TileEntityCrystallOven extends TileEntity implements ISidedInventor
 	
 	public boolean canSmelt() 
 	{
-        if (this.slots[0] == null) 
+        if (this.slots[3] == null 
+        		&& this.slots[4] == null 
+        		&& this.slots[5] == null 
+        		&& this.slots[6] == null) 
         {
             return false;
-        } else {
-            ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.slots[0]);
+        }
+        else
+        {
+            ItemStack itemstack0 = FurnaceRecipes.smelting().getSmeltingResult(this.slots[3]);
+            ItemStack itemstack1 = FurnaceRecipes.smelting().getSmeltingResult(this.slots[4]);
+            ItemStack itemstack2 = FurnaceRecipes.smelting().getSmeltingResult(this.slots[5]);
+            ItemStack itemstack3 = FurnaceRecipes.smelting().getSmeltingResult(this.slots[6]);
 
-            if (itemstack == null) return false;
-            if (this.slots[2] == null) return true;
-            if (!this.slots[2].isItemEqual(itemstack)) return false;
+            if (itemstack0 == null) return false;
+            if (itemstack1 == null) return false;
+            if (itemstack2 == null) return false;
+            if (itemstack3 == null) return false;
+            if (this.slots[7] == null) return true;
+            if (this.slots[8] == null) return true;
+            if (this.slots[9] == null) return true;
+            if (this.slots[10] == null) return true;
+            if (!this.slots[7].isItemEqual(itemstack0)) return false;
+            if (!this.slots[8].isItemEqual(itemstack1)) return false;
+            if (!this.slots[9].isItemEqual(itemstack2)) return false;
+            if (!this.slots[10].isItemEqual(itemstack3)) return false;
 
-            int result = this.slots[2].stackSize + itemstack.stackSize;
+            int result0 = this.slots[7].stackSize + itemstack0.stackSize;
+            int result1 = this.slots[8].stackSize + itemstack1.stackSize;
+            int result2 = this.slots[9].stackSize + itemstack2.stackSize;
+            int result3 = this.slots[10].stackSize + itemstack3.stackSize;
 
-            return (result <= getInventoryStackLimit() && result <= itemstack.getMaxStackSize());
+            return (result0 <= getInventoryStackLimit() 
+            		&& result0 <= itemstack0.getMaxStackSize() 
+            		&& result1 <= getInventoryStackLimit() 
+            		&& result1 <= itemstack1.getMaxStackSize() 
+            		&& result2 <= getInventoryStackLimit() 
+            		&& result2 <= itemstack2.getMaxStackSize() 
+            		&& result3 <= getInventoryStackLimit() 
+            		&& result3 <= itemstack3.getMaxStackSize());
         }
     }
 	
@@ -255,21 +299,46 @@ public class TileEntityCrystallOven extends TileEntity implements ISidedInventor
 	{
         if (this.canSmelt()) 
         {
-            ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.slots[0]);
+            ItemStack itemstack0 = FurnaceRecipes.smelting().getSmeltingResult(this.slots[3]);
+            ItemStack itemstack1 = FurnaceRecipes.smelting().getSmeltingResult(this.slots[4]);
+            ItemStack itemstack2 = FurnaceRecipes.smelting().getSmeltingResult(this.slots[5]);
+            ItemStack itemstack3 = FurnaceRecipes.smelting().getSmeltingResult(this.slots[6]);
 
-            if (this.slots[2] == null) 
+            if (this.slots[7] == null 
+            		&& this.slots[8] == null 
+            		&& this.slots[9] == null 
+            		&& this.slots[10] == null) 
             {
-                this.slots[2] = itemstack.copy();
-            } else if (this.slots[2].isItemEqual(itemstack)) 
+                this.slots[7] = itemstack0.copy();
+                this.slots[8] = itemstack1.copy();
+                this.slots[9] = itemstack2.copy();
+                this.slots[10] = itemstack3.copy();
+            }
+            else if (this.slots[7].isItemEqual(itemstack0) 
+            		&& this.slots[8].isItemEqual(itemstack1) 
+            		&& this.slots[9].isItemEqual(itemstack2) 
+            		&& this.slots[10].isItemEqual(itemstack3)) 
             {
-                this.slots[2].stackSize += itemstack.stackSize;
+                this.slots[3].stackSize += itemstack0.stackSize;
+                this.slots[4].stackSize += itemstack1.stackSize;
+                this.slots[5].stackSize += itemstack2.stackSize;
+                this.slots[6].stackSize += itemstack3.stackSize;
             }
 
-            this.slots[0].stackSize--;
+            this.slots[3].stackSize--;
+            this.slots[4].stackSize--;
+            this.slots[5].stackSize--;
+            this.slots[6].stackSize--;
 
-            if (this.slots[0].stackSize <= 0) 
+            if (this.slots[3].stackSize <= 0 
+            		&& this.slots[4].stackSize <= 0 
+            		&& this.slots[5].stackSize <= 0 
+            		&& this.slots[6].stackSize <= 0) 
             {
-                this.slots[0] = null;
+                this.slots[3] = null;
+                this.slots[4] = null;
+                this.slots[5] = null;
+                this.slots[6] = null;
             }
         }
     }

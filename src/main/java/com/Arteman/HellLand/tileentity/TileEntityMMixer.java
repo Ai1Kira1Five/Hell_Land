@@ -9,6 +9,7 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
 import com.Arteman.HellLand.items.MixedItem;
+import com.Arteman.HellLand.resipes.MixerResipes;
 
 public class TileEntityMMixer extends TileEntity implements ISidedInventory
 {
@@ -87,13 +88,19 @@ public class TileEntityMMixer extends TileEntity implements ISidedInventory
 
 	public boolean canMix()
 	{
-		if()
-		{
-			return true;
-		}
-		else if()
+		if(this.mixerItemStacks[3] == null)
 		{
 			return false;
+		}
+		else
+		{
+			ItemStack itemstack = MixerResipes.mixering().getMixerResult(this.mixerItemStacks[0]);
+			
+			if (itemstack == null) return false;
+			
+			int result = this.mixerItemStacks[2].stackSize + itemstack.stackSize;
+			
+			return (result <= getInventoryStackLimit() && result <= itemstack.getMaxStackSize());
 		}
 	}
 	
@@ -109,7 +116,26 @@ public class TileEntityMMixer extends TileEntity implements ISidedInventory
 
 	public void mixItems()
 	{
-		
+		if (this.canMix())
+		{
+			ItemStack itemstack = MixerResipes.mixering().getMixerResult(this.mixerItemStacks[3]);
+			
+			if (this.mixerItemStacks[] == null)
+			{
+				this.mixerItemStacks[] = itemstack.copy();
+			}
+			else if (this.mixerItemStacks[].isItemEqual(itemstack))
+			{
+				this.mixerItemStacks[].stackSize += itemstack.stackSize;
+			}
+			
+			this.mixerItemStacks[].stackSize--;
+			
+			if (this.mixerItemStacks[0].stackSize <= 0)
+			{
+				this.mixerItemStacks[0] = null;
+			}
+		}
 	}
 	
 	public void readFromNBT(NBTTagCompound nbt)
@@ -211,9 +237,9 @@ public class TileEntityMMixer extends TileEntity implements ISidedInventory
 	}
 
 	@Override
-	public int[] getAccessibleSlotsFromSide(int p_94128_1_)
+	public int[] getAccessibleSlotsFromSide(int var1)
 	{
-		return null;
+		return var1 == 0 ? slots_ingredients : (var1 == 1 ? slots_final : slots_chest);
 	}
 
 	@Override
