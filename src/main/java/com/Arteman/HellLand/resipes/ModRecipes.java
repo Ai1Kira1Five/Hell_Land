@@ -1,4 +1,7 @@
-package com.Arteman.HellLand;
+package com.Arteman.HellLand.resipes;
+
+import com.Arteman.HellLand.ModBlocks;
+import com.Arteman.HellLand.ModItems;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
