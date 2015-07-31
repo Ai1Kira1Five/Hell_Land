@@ -11,6 +11,8 @@ import com.Arteman.HellLand.handler.GuiHandler;
 import com.Arteman.HellLand.otherStuff.Enchantments;
 import com.Arteman.HellLand.otherStuff.enchantments.EnchantmentHandler;
 import com.Arteman.HellLand.proxy.CommonProxy;
+import com.Arteman.HellLand.resipes.CrystallizerResipes;
+import com.Arteman.HellLand.resipes.ModRecipes;
 import com.Arteman.HellLand.tileentity.TileEntityHellOven;
 import com.Arteman.HellLand.tileentity.TileEntitySoulCrystallizer;
 import com.Arteman.HellLand.tileentity.TileEntityWire;

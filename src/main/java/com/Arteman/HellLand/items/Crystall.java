@@ -17,6 +17,20 @@ public class Crystall extends Item
 {
 	public IIcon[] icons = new IIcon[10];
 	
+	/*
+	 *  0 - basic 
+	 *  1 - fire
+	 *  2 - aqua
+	 *  3 - earth
+	 *  4 - air
+	 *  5 - light
+	 *  6 - darkness
+	 *  7 - energy
+	 *  8 - blood
+	 *  9 - weaponium
+	 *  
+	 */
+	
 	public Crystall(String unlocalizedName)
 	{
 		super();
