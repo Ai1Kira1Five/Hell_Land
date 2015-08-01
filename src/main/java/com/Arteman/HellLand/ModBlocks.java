@@ -1,20 +1,11 @@
 package com.Arteman.HellLand;
 
-import java.util.Iterator;
-
-import com.Arteman.HellLand.blocks.ArcaneGoldBlock;
-import com.Arteman.HellLand.blocks.ArcaneSteelBlock;
-import com.Arteman.HellLand.blocks.Ash;
-import com.Arteman.HellLand.blocks.Basalt;
-import com.Arteman.HellLand.blocks.BloodWood;
-import com.Arteman.HellLand.blocks.BloodWoodLogs;
-import com.Arteman.HellLand.blocks.CrystallBlock;
-import com.Arteman.HellLand.blocks.HellBase;
-import com.Arteman.HellLand.blocks.HellFragment;
-import com.Arteman.HellLand.blocks.Marble;
-import com.Arteman.HellLand.blocks.NecroticLamp;
-import com.Arteman.HellLand.blocks.StrongStone;
-import com.Arteman.HellLand.blocks.machines.*;
+import com.Arteman.HellLand.blocks.*;
+import com.Arteman.HellLand.blocks.machines.AmuletTable;
+import com.Arteman.HellLand.blocks.machines.CrystalOven;
+import com.Arteman.HellLand.blocks.machines.HellOven;
+import com.Arteman.HellLand.blocks.machines.MagicalMixer;
+import com.Arteman.HellLand.blocks.machines.SoulCrystallizer;
 import com.Arteman.HellLand.blocks.wire.WireOne;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -24,31 +15,31 @@ import net.minecraft.block.material.Material;
 public class ModBlocks{
 	
 	//blocks
-	public static Block HellFragment;
-	public static Block HellBase;
-	public static Block StrongStone;
-	public static Block AmuletTable;
-	public static Block BloodWood;
-	public static Block BloodWoodLogs;
-	public static Block Basalt;
-	public static Block Marble;
-	public static Block Ash;
-	public static Block NecroticLamp;
-	public static Block CrystallBlock;
-	public static Block ArcaneGoldBlock;
-	public static Block ArcaneSteelBlock;
+		public static Block HellFragment;
+		public static Block HellBase;
+		public static Block StrongStone;
+		public static Block AmuletTable;
+		public static Block BloodWood;
+		public static Block BloodWoodLogs;
+		public static Block Basalt;
+		public static Block Marble;
+		public static Block Ash;
+		public static Block NecroticLamp;
+		public static Block CrystallBlock;
+		public static Block ArcaneGoldBlock;
+		public static Block ArcaneSteelBlock;
 
-	//machines
-	public static Block HellOvenIdle;
-	public static Block HellOvenActive;
-	public static Block CrystallOvenIdle;
-	public static Block CrystallOvenActive;
-	public static Block SoulCrystallizerIdle;
-	public static Block SoulCrystallizerActive;
-	public static Block MMixer;
-	
-	//Wires
-	public static Block WireOne;
+		//machines
+		public static Block HellOvenIdle;
+		public static Block HellOvenActive;
+		public static Block CrystalOvenIdle;
+		public static Block CrystalOvenActive;
+		public static Block SoulCrystallizerIdle;
+		public static Block SoulCrystallizerActive;
+		public static Block MMixer;
+		
+		//Wires
+		public static Block WireOne;
 	
 	
 	
@@ -67,15 +58,14 @@ public class ModBlocks{
 		CrystallBlock = new CrystallBlock("crystall_block", Material.rock);
 		ArcaneGoldBlock = new ArcaneGoldBlock("arcane_golg_block", Material.iron);
 		ArcaneSteelBlock = new ArcaneSteelBlock("arcane_steel_block", Material.iron);
-		
  
 		//machines
 		HellOvenIdle = new HellOven(false).setBlockName("HellOvenIdle").setCreativeTab(HellLand.HellMCTab).setHardness(3.4f);
 		HellOvenActive = new HellOven(true).setBlockName("HellOvenActive").setHardness(3.4f).setLightLevel(1.0f);
 		SoulCrystallizerIdle = new SoulCrystallizer(false).setCreativeTab(HellLand.HellMCTab);
 		SoulCrystallizerActive = new SoulCrystallizer(true).setLightLevel(2.0f);
-		CrystallOvenIdle = new CrystallOven(false).setBlockName("CrystallOvenIdle").setCreativeTab(HellLand.HellMCTab).setHardness(3.4f);
-		CrystallOvenActive = new CrystallOven(true).setBlockName("CrystallOvenActive").setHardness(3.4f).setLightLevel(2.0f);
+		CrystalOvenIdle = new CrystalOven(false).setBlockName("CrystallOvenIdle").setCreativeTab(HellLand.HellMCTab).setHardness(3.4f);
+		CrystalOvenActive = new CrystalOven(true).setBlockName("CrystallOvenActive").setHardness(3.4f).setLightLevel(2.0f);
 		MMixer = new MagicalMixer();
 		
 		
@@ -83,8 +73,8 @@ public class ModBlocks{
 		WireOne = new WireOne().setBlockName("Wire lvl I").setCreativeTab(HellLand.HellMCTab);
 		
 		//Register bad blocks
-		GameRegistry.registerBlock(CrystallOvenIdle, "CrystallOvenIdle");
-		GameRegistry.registerBlock(CrystallOvenActive, "CrystallOvenActive");
+		GameRegistry.registerBlock(CrystalOvenIdle, "CrystalOvenIdle");
+		GameRegistry.registerBlock(CrystalOvenActive, "CrystalOvenActive");
 		GameRegistry.registerBlock(HellOvenIdle, "HellOvenIdle");
 		GameRegistry.registerBlock(HellOvenActive, "HellOvenActive");
 		GameRegistry.registerBlock(WireOne, "WireOne");

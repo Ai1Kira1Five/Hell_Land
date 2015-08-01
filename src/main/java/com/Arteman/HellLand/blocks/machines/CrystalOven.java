@@ -1,12 +1,8 @@
 package com.Arteman.HellLand.blocks.machines;
 
-import java.util.Random;
-
 import com.Arteman.HellLand.HellLand;
 import com.Arteman.HellLand.ModBlocks;
-import com.Arteman.HellLand.tileentity.TileEntityCrystallOven;
-import com.Arteman.HellLand.tileentity.TileEntityHellOven;
-
+import com.Arteman.HellLand.tileentity.TileEntityCrystalOven;
 import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -25,7 +21,9 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class CrystallOven extends BlockContainer 
+import java.util.Random;
+
+public class CrystalOven extends BlockContainer
 {
 	private final boolean isActive;
 	
@@ -38,7 +36,7 @@ public class CrystallOven extends BlockContainer
 	private static boolean keepInventory;
 	private Random rand = new Random();
 	
-	public CrystallOven(boolean isActive)
+	public CrystalOven(boolean isActive)
 	{
 		super(Material.rock);
 		this.isActive = isActive;
@@ -47,8 +45,8 @@ public class CrystallOven extends BlockContainer
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.iconFront = iconRegister.registerIcon(HellLand.MODID + ":" + (this.isActive ? "CrystallOvenFrontOn" : "CrystallOvenFrontOff"));
 		this.blockIcon = iconRegister.registerIcon(HellLand.MODID + ":" + "SoulCrystallizerSide");
+		this.iconFront = iconRegister.registerIcon(HellLand.MODID + ":" + (this.isActive ? "CrystallOvenFrontOn" : "CrystallOvenFrontOff"));
 		this.iconTop = iconRegister.registerIcon(HellLand.MODID + ":" + "SoulCrystallizerSide");
 	}
 	
@@ -60,7 +58,7 @@ public class CrystallOven extends BlockContainer
 	
 	public Item getItemDropped(int i, Random random, int j)
 	{
-		return Item.getItemFromBlock(ModBlocks.CrystallOvenIdle);
+		return Item.getItemFromBlock(ModBlocks.CrystalOvenIdle);
 	}
 	
 	private void setDefaultDirection(World world, int x, int y, int z)
@@ -107,7 +105,7 @@ public class CrystallOven extends BlockContainer
 	@Override
 	public TileEntity createNewTileEntity(World world, int i) 
 	{
-		return new TileEntityCrystallOven();
+		return new TileEntityCrystalOven();
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -174,11 +172,11 @@ public class CrystallOven extends BlockContainer
 
         if(itemstack.hasDisplayName())
         {
-            ((TileEntityCrystallOven)world.getTileEntity(x, y, z)).setGuiDisplayName(itemstack.getDisplayName());
+            ((TileEntityCrystalOven)world.getTileEntity(x, y, z)).setGuiDisplayName(itemstack.getDisplayName());
         }
     }
 
-	public static void updateCrystallOvenBlockState(boolean active, World worldObj, int xCoord, int yCoord, int zCoord) 
+	public static void updateCrystalOvenBlockState(boolean active, World worldObj, int xCoord, int yCoord, int zCoord)
 	{
 		int i = worldObj.getBlockMetadata(xCoord, yCoord, zCoord);
 
@@ -187,11 +185,11 @@ public class CrystallOven extends BlockContainer
 
         if (active)
         {
-            worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.CrystallOvenActive);
+            worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.CrystalOvenActive);
         }
         else
         {
-            worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.CrystallOvenIdle);
+            worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.CrystalOvenIdle);
         }
 
         keepInventory = false;
@@ -209,7 +207,7 @@ public class CrystallOven extends BlockContainer
     {
         if (!keepInventory)
         {
-            TileEntityCrystallOven tileentity = (TileEntityCrystallOven) world.getTileEntity(x, y, z);
+            TileEntityCrystalOven tileentity = (TileEntityCrystalOven) world.getTileEntity(x, y, z);
 
             if (tileentity != null)
             {
@@ -255,6 +253,6 @@ public class CrystallOven extends BlockContainer
 	
 	public Item getItem(World world, int x, int y, int z)
     {
-        return Item.getItemFromBlock(ModBlocks.CrystallOvenIdle);
+        return Item.getItemFromBlock(ModBlocks.CrystalOvenIdle);
     }
 }
