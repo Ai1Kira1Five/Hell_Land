@@ -1,15 +1,21 @@
 package com.Arteman.HellLand;
 
+
+
+import org.apache.logging.log4j.Logger;
+
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.EnumHelper;
 
 import com.Arteman.HellLand.handler.GuiHandler;
 import com.Arteman.HellLand.otherStuff.Enchantments;
 import com.Arteman.HellLand.otherStuff.enchantments.EnchantmentHandler;
+import com.Arteman.HellLand.proxy.ClientProxy;
 import com.Arteman.HellLand.proxy.CommonProxy;
 import com.Arteman.HellLand.resipes.CrystallizerResipes;
 import com.Arteman.HellLand.resipes.ModRecipes;
@@ -17,7 +23,7 @@ import com.Arteman.HellLand.tileentity.TileEntityHellOven;
 import com.Arteman.HellLand.tileentity.TileEntitySoulCrystallizer;
 import com.Arteman.HellLand.tileentity.TileEntityWire;
 import com.Arteman.HellLand.utils.Config;
-import com.Arteman.HellLand.utils.network.HellMessegePipeline;
+import com.Arteman.HellLand.utils.network.HellMessagePipeline;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
@@ -39,7 +45,9 @@ public class HellLand
     public static CreativeTabs HellMCTabStuff = new CreativeTabHellStuff("Hell Land Stuff");
     public static CreativeTabs HellMCTabDecor = new CreativeTabHellDecor("Hell Land Decorative");
     
-    public HellMessegePipeline messagePipeline;
+    public Config modConfig;
+    public HellMessagePipeline messagePipeline;
+    public static Logger modLog;
     
     //Materials
     public static final Item.ToolMaterial Bone = EnumHelper.addToolMaterial("BONE", 3, 38, 2.0f, 15.5f, 20);
@@ -58,6 +66,11 @@ public class HellLand
     @SidedProxy(clientSide = "com.Arteman.HellLand.proxy.ClientProxy", serverSide = "com.Arteman.HellLand.proxy.CommonProxy")
     public static CommonProxy artemanProxy;
     
+    public HellLand()
+    {
+    	messagePipeline = new HellMessagePipeline();
+    }
+    
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
@@ -65,8 +78,14 @@ public class HellLand
     	ModBlocks.init();
     	ModItems.init();
     	ModFluids.init();
-    	Config.init(event.getSuggestedConfigurationFile());
-    	FMLCommonHandler.instance().bus().register(new Config());
+    	
+    	modConfig = new Config(new Configuration(event.getSuggestedConfigurationFile()));
+    	modConfig.addEnableSetting("swords");
+    	modConfig.addEnableSetting("tools");
+    	
+    	modConfig.loadConfig();
+    	addModItems();
+    	
     	Enchantments.init();
     	
     	//Recipes
@@ -78,12 +97,16 @@ public class HellLand
     	artemanProxy.registerRenderThings();
     	artemanProxy.registerTileEntitySpecialRender();
     	artemanProxy.registerProxies();
+    	modLog = event.getModLog();
     }
     
     @EventHandler
     public void Init(FMLInitializationEvent event)
     {
     	//Different
+    	messagePipeline.initalize();
+    	artemanProxy.registerPackets(messagePipeline);
+    	artemanProxy.registerEventHandlers();
     	MinecraftForge.EVENT_BUS.register(new ModDrops());
     	NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
     	MinecraftForge.EVENT_BUS.register(new EnchantmentHandler());
@@ -95,6 +118,19 @@ public class HellLand
     @EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
+    	messagePipeline.postInitialize();
+    }
+    
+    private void addModItems()
+    {
+    	if(modConfig.isEnabled("swords"))
+    	{
+    		
+    	}
     	
+    	if(modConfig.isEnabled("tools"))
+    	{
+    		
+    	}
     }
 }

@@ -3,8 +3,10 @@ package com.Arteman.HellLand.utils;
 import com.Arteman.HellLand.HellLand;
 import com.Arteman.HellLand.utils.network.MSGExplosion;
 
+import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;

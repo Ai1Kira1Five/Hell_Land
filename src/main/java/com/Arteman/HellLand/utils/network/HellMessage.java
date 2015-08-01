@@ -6,7 +6,7 @@ import io.netty.channel.ChannelHandlerContext;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public abstract class HellMessege
+public abstract class HellMessage
 {
 	public abstract void encodeInto(ChannelHandlerContext ctx, ByteBuf buffer);
 	

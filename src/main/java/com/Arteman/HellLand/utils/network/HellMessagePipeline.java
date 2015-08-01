@@ -1,5 +1,6 @@
 package com.Arteman.HellLand.utils.network;
 
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.EnumMap;
 import java.util.LinkedList;
@@ -7,9 +8,9 @@ import java.util.List;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.INetHandler;
 import net.minecraft.network.NetHandlerPlayServer;
-import akka.util.Collections;
 
 import com.Arteman.HellLand.HellLand;
 
@@ -22,17 +23,18 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageCodec;
 
 @ChannelHandler.Sharable
-public class HellMessegePipeline extends MessageToMessageCodec<FMLProxyPacket, HellMessege>
+public class HellMessagePipeline extends MessageToMessageCodec<FMLProxyPacket, HellMessage>
 {
 	private EnumMap<Side, FMLEmbeddedChannel> channels;
-	private LinkedList<Class<? extends HellMessege>> packets = new LinkedList<Class<? extends HellMessege>>();
+	private LinkedList<Class<? extends HellMessage>> packets = new LinkedList<Class<? extends HellMessage>>();
 	private boolean	isPostInitialized = false;
 
-	public boolean registerPacket(Class<? extends HellMessege> class0)
+	public boolean registerPacket(Class<? extends HellMessage> class0)
 	{
 		if (packets.size() > 256)
 		{
@@ -57,10 +59,10 @@ public class HellMessegePipeline extends MessageToMessageCodec<FMLProxyPacket, H
 	}
 	
 	@Override
-	protected void encode(ChannelHandlerContext ctx, HellMessege msg, List<Object> out) throws Exception
+	protected void encode(ChannelHandlerContext ctx, HellMessage msg, List<Object> out) throws Exception
 	{
 		ByteBuf buffer = Unpooled.buffer();
-		Class<? extends HellMessege> clazz = msg.getClass();
+		Class<? extends HellMessage> clazz = msg.getClass();
 		if (!packets.contains(msg.getClass()))
 		{
 			throw new NullPointerException("No Packet Registered for: " + msg.getClass().getCanonicalName());
@@ -78,13 +80,13 @@ public class HellMessegePipeline extends MessageToMessageCodec<FMLProxyPacket, H
 	{
 		ByteBuf payload = msg.payload();
 		byte discriminator = payload.readByte();
-		Class<? extends HellMessege> clazz = packets.get(discriminator);
+		Class<? extends HellMessage> clazz = packets.get(discriminator);
 		if (clazz == null)
 		{
 			throw new NullPointerException("No packet registered for discriminator: " + discriminator);
 		}
 		
-		HellMessege pkt = clazz.newInstance();
+		HellMessage pkt = clazz.newInstance();
 		pkt.decodeInto(ctx, payload.slice());
 		
 		EntityPlayer player;
@@ -120,11 +122,11 @@ public class HellMessegePipeline extends MessageToMessageCodec<FMLProxyPacket, H
 		}
 		
 		isPostInitialized = true;
-		Collections.sort(packets, new Comparator<Class<? extends HellMessege>>()
+		Collections.sort(packets, new Comparator<Class<? extends HellMessage>>()
 		{
 			
 			@Override
-			public int compare(Class<? extends HellMessege> clazz1, Class<? extends HellMessege> clazz2)
+			public int compare(Class<? extends HellMessage> clazz1, Class<? extends HellMessage> clazz2)
 			{
 				int com = String.CASE_INSENSITIVE_ORDER.compare(clazz1.getCanonicalName(), clazz2.getCanonicalName());
 				if (com == 0)
@@ -143,9 +145,36 @@ public class HellMessegePipeline extends MessageToMessageCodec<FMLProxyPacket, H
 		return Minecraft.getMinecraft().thePlayer;
 	}
 	
-	public void sendToAll(HellMessege message)
+	public void sendToAll(HellMessage message)
 	{
 		channels.get(Side.SERVER).attr(FMLOutboundHandler.FML_MESSAGETARGET).set(FMLOutboundHandler.OutboundTarget.ALL);
 		channels.get(Side.SERVER).writeAndFlush(message);
+	}
+	
+	public void sendTo(HellMessage message, EntityPlayerMP player)
+	{
+		channels.get(Side.SERVER).attr(FMLOutboundHandler.FML_MESSAGETARGET).set(FMLOutboundHandler.OutboundTarget.PLAYER);
+		channels.get(Side.SERVER).attr(FMLOutboundHandler.FML_MESSAGETARGETARGS).set(player);
+		channels.get(Side.SERVER).writeAndFlush(message);
+	}
+	
+	public void sendToAllAround(HellMessage message, NetworkRegistry.TargetPoint point)
+	{
+		channels.get(Side.SERVER).attr(FMLOutboundHandler.FML_MESSAGETARGET).set(FMLOutboundHandler.OutboundTarget.ALLAROUNDPOINT);
+		channels.get(Side.SERVER).attr(FMLOutboundHandler.FML_MESSAGETARGETARGS).set(point);
+		channels.get(Side.SERVER).writeAndFlush(message);
+	}
+	
+	public void sendToDimension(HellMessage message, int dimensionId)
+	{
+		channels.get(Side.SERVER).attr(FMLOutboundHandler.FML_MESSAGETARGET).set(FMLOutboundHandler.OutboundTarget.DIMENSION);
+		channels.get(Side.SERVER).attr(FMLOutboundHandler.FML_MESSAGETARGETARGS).set(dimensionId);
+		channels.get(Side.SERVER).writeAndFlush(message);
+	}
+	
+	public void sendToServer(HellMessage message)
+	{
+		channels.get(Side.CLIENT).attr(FMLOutboundHandler.FML_MESSAGETARGET).set(FMLOutboundHandler.OutboundTarget.TOSERVER);
+		channels.get(Side.CLIENT).writeAndFlush(message);
 	}
 }

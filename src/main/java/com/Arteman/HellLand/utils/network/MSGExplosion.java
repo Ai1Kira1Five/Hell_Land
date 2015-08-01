@@ -16,7 +16,7 @@ import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class MSGExplosion extends HellMessege
+public class MSGExplosion extends HellMessage
 {
 	private double x, y, z;
 	private float size;
