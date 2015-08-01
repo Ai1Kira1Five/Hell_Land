@@ -120,7 +120,9 @@ public class TileEntityMMixer extends TileEntity implements ISidedInventory
 		{
 			ItemStack itemstack = MixerResipes.mixering().getMixerResult(this.mixerItemStacks[3]);
 			
-			if (this.mixerItemStacks[] == null)
+/* WIP */
+ 			if (this.mixerItemStacks[] == null)
+
 			{
 				this.mixerItemStacks[] = itemstack.copy();
 			}

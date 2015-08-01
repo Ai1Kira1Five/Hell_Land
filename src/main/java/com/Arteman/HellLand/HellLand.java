@@ -17,6 +17,7 @@ import com.Arteman.HellLand.tileentity.TileEntityHellOven;
 import com.Arteman.HellLand.tileentity.TileEntitySoulCrystallizer;
 import com.Arteman.HellLand.tileentity.TileEntityWire;
 import com.Arteman.HellLand.utils.Config;
+import com.Arteman.HellLand.utils.network.HellMessegePipeline;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
@@ -37,6 +38,8 @@ public class HellLand
     public static CreativeTabs HellMCTab = new CreativeTabHell("Hell Land");
     public static CreativeTabs HellMCTabStuff = new CreativeTabHellStuff("Hell Land Stuff");
     public static CreativeTabs HellMCTabDecor = new CreativeTabHellDecor("Hell Land Decorative");
+    
+    public HellMessegePipeline messagePipeline;
     
     //Materials
     public static final Item.ToolMaterial Bone = EnumHelper.addToolMaterial("BONE", 3, 38, 2.0f, 15.5f, 20);

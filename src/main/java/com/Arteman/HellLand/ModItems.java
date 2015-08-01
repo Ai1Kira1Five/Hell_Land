@@ -14,7 +14,9 @@ import com.Arteman.HellLand.items.CrystallShovel;
 import com.Arteman.HellLand.items.Heart;
 import com.Arteman.HellLand.items.HellCrystal;
 import com.Arteman.HellLand.items.MagicBIGDADYSword;
+import com.Arteman.HellLand.items.MagicChacram;
 import com.Arteman.HellLand.items.MagicDoubleSword;
+import com.Arteman.HellLand.items.MagicHammer;
 import com.Arteman.HellLand.items.MagicKatana;
 import com.Arteman.HellLand.items.MagicScythe;
 import com.Arteman.HellLand.items.MagicSword;
@@ -47,6 +49,8 @@ public class ModItems
 	public static Item MagicKatana;
 	public static Item MagicSkyth;
 	public static Item MagicBIGDADYSword;
+	public static Item MagicHammer;
+	public static Item MagicChacram;
 	public static Item CrystallHoe;
 	public static Item CrystallAxe;
 	public static Item CrystallPickaxe;
@@ -84,6 +88,8 @@ public class ModItems
 		MagicKatana = new MagicKatana(HellLand.MagicSteel);
 		MagicSkyth = new MagicScythe(HellLand.MagicSteel);
 		MagicBIGDADYSword = new MagicBIGDADYSword(HellLand.MagicSteel);
+		MagicHammer = new MagicHammer(HellLand.MagicSteel);
+		MagicChacram = new MagicChacram(HellLand.MagicSteel);
 		CrystallHoe = new CrystallHoe(HellLand.Crystall);
 		CrystallAxe = new CrystallAxe(HellLand.Crystall);
 		CrystallPickaxe = new CrystallPickaxe(HellLand.Crystall);

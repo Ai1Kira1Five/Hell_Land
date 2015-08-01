@@ -319,10 +319,10 @@ public class TileEntityCrystallOven extends TileEntity implements ISidedInventor
             		&& this.slots[9].isItemEqual(itemstack2) 
             		&& this.slots[10].isItemEqual(itemstack3)) 
             {
-                this.slots[3].stackSize += itemstack0.stackSize;
-                this.slots[4].stackSize += itemstack1.stackSize;
-                this.slots[5].stackSize += itemstack2.stackSize;
-                this.slots[6].stackSize += itemstack3.stackSize;
+                this.slots[7].stackSize += itemstack0.stackSize;
+                this.slots[8].stackSize += itemstack1.stackSize;
+                this.slots[9].stackSize += itemstack2.stackSize;
+                this.slots[10].stackSize += itemstack3.stackSize;
             }
 
             this.slots[3].stackSize--;
