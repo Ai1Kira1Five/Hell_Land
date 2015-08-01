@@ -14,6 +14,8 @@ import cpw.mods.fml.common.IWorldGenerator;
 
 public class WorldGeneratorHell implements IWorldGenerator 
 {
+	private static final String __OBFID = "CL_00000429";
+	
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) 
 	{
@@ -28,8 +30,6 @@ public class WorldGeneratorHell implements IWorldGenerator
 	private void GenerateOverworld(Random random, int x, int z, World world)
 	{
 		this.addOreSpawn(ModBlocks.HellFragment, world, random, x, z, 2, 15, 15, 0, 25);
-		//this.addOreSpawn(ModBlocks.Basalt, world, random, x, z, 2, 100, 20, 5, 50);
-		//this.addOreSpawn(ModBlocks.Marble, world, random, x, z, 20, 100, 30, 20, 60);
 		
 		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(x, z);
 		if ((biome == BiomeGenBase.desert))
@@ -42,6 +42,11 @@ public class WorldGeneratorHell implements IWorldGenerator
 				new RuinsOfCult().generate(world, random, i, j, k);
 			}
 		}
+		
+		if ((biome == BiomeGenBase.extremeHills))
+		{
+			
+		}
 	}
 	
 	private void GenerateEnd(Random random, int x, int z, World world)
@@ -52,7 +57,6 @@ public class WorldGeneratorHell implements IWorldGenerator
 	private void GenerateNether(Random random, int x, int z, World world)
 	{
 		this.addOreSpawn(ModBlocks.HellFragment, world, random, x, z, 20, 40, 30, 0, 128);
-		//this.addOreSpawn(ModBlocks.Ash, world, random, x, z, 30, 60, 40, 0, 128);
 	}
 	
 	public void addOreSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int minVeinSize, int maxVeinSize, int chancesToSpawn, int minY, int maxY )
