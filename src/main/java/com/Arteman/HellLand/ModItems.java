@@ -20,6 +20,7 @@ import com.Arteman.HellLand.items.MagicHammer;
 import com.Arteman.HellLand.items.MagicKatana;
 import com.Arteman.HellLand.items.MagicScythe;
 import com.Arteman.HellLand.items.MagicSword;
+import com.Arteman.HellLand.items.Ring;
 import com.Arteman.HellLand.items.ToolRodI;
 import com.Arteman.HellLand.items.WeaponiumIngot;
 import com.Arteman.HellLand.items.Wrench;
@@ -97,6 +98,7 @@ public class ModItems
 		Wrench = new Wrench();
 		
 		//other stuff
+		Ring = new Ring(null, 0, 0);
 		
 		//ore's drop
 		GameRegistry.registerItem(Crystall = new Crystall("crystall"), "crystall");
