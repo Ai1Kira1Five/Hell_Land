@@ -69,7 +69,7 @@ item.heart_7.name=Energy heart
 
 # Misc
 
-itemGroup.Hell Land=Hell Land
-itemGroup.Hell Land Stuff=Hell Land Stuff
+itemGroup.Hell Land=§4Hell Land
+itemGroup.Hell Land Stuff=§4Hell Land Stuff
 Container.inventory=.
 enchantment.Devil's strike=Devil's Strike

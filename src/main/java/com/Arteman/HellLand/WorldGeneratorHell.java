@@ -32,7 +32,9 @@ public class WorldGeneratorHell implements IWorldGenerator
 		this.addOreSpawn(ModBlocks.HellFragment, world, random, x, z, 2, 15, 15, 0, 25);
 		
 		BiomeGenBase biome = world.getWorldChunkManager().getBiomeGenAt(x, z);
-		if ((biome == BiomeGenBase.desert))
+		if ((biome == BiomeGenBase.desert)
+				|| (biome == BiomeGenBase.desertHills)
+				|| (biome == BiomeGenBase.hell))
 		{
 			for (int a = 0; a < 1; a++)
 			{
@@ -43,9 +45,14 @@ public class WorldGeneratorHell implements IWorldGenerator
 			}
 		}
 		
-		if ((biome == BiomeGenBase.extremeHills))
+		if ((biome == BiomeGenBase.extremeHills) 
+				|| (biome == BiomeGenBase.forest) 
+				|| (biome == BiomeGenBase.forestHills)
+				|| (biome == BiomeGenBase.megaTaiga)
+				|| (biome == BiomeGenBase.megaTaigaHills)
+				|| (biome == BiomeGenBase.plains))
 		{
-			
+			this.addOreSpawn(ModBlocks.Marble, world, random, x, z, 15, 64, 15, 40, 50);
 		}
 	}
 	

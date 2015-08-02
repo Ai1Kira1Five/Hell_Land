@@ -98,7 +98,7 @@ public class ModItems
 		Wrench = new Wrench();
 		
 		//other stuff
-		Ring = new Ring(null, 0, 0);
+		//Ring = new Ring(null, 0, 0);
 		
 		//ore's drop
 		GameRegistry.registerItem(Crystall = new Crystall("crystall"), "crystall");

@@ -40,6 +40,16 @@ public class BoneSword extends ItemSword
 	{
 		ls.add("Not so good weapon, but you are need it...");
 	}
+	
+	public void isItemEnchanted(ItemStack itSt)
+	{
+		if (!itSt.isItemEnchanted())
+		{
+			itSt.addEnchantment(Enchantment.sharpness, 4);
+			itSt.addEnchantment(Enchantment.looting, 5);
+		}
+
+	}
 
 	@Override
 	public void onUpdate(ItemStack itSt, World world, Entity pl, int i1, boolean ch)

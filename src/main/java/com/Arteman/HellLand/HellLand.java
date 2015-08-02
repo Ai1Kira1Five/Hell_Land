@@ -8,6 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.util.EnumHelper;
@@ -52,6 +53,7 @@ public class HellLand
     //Materials
     public static final Item.ToolMaterial Bone = EnumHelper.addToolMaterial("BONE", 3, 38, 2.0f, 15.5f, 20);
     public static final Item.ToolMaterial MagicSteel = EnumHelper.addToolMaterial("MagicSteel", 5, 700, 3.0f, 16.0f, 40);
+    public static final ArmorMaterial ArcaneSteel = EnumHelper.addArmorMaterial("ArcaneSteel", 250, new int[]{3, 7, 5, 2}, 40);
     public static final Item.ToolMaterial Crystall = EnumHelper.addToolMaterial("Crystall", 3, 120, 5.0f, 10.0f, 50);
     
     @Mod.Instance(MODID)
@@ -93,7 +95,7 @@ public class HellLand
     	CrystallizerResipes.init();
     	
     	//Other stuff like proxy and worldGen
-    	GameRegistry.registerWorldGenerator(new WorldGeneratorHell(), 1);
+    	GameRegistry.registerWorldGenerator(new WorldGeneratorHell(), 0);
     	artemanProxy.registerRenderThings();
     	artemanProxy.registerTileEntitySpecialRender();
     	artemanProxy.registerProxies();

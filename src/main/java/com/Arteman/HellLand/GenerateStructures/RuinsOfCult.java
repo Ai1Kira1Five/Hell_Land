@@ -14,10 +14,10 @@ public class RuinsOfCult extends WorldGenerator
 	{
 		return new Block[]
 		{
-			Blocks.dirt,
-			Blocks.grass,
 			Blocks.stone,
 			Blocks.sand,
+			Blocks.netherrack,
+			Blocks.sandstone
 		};
 	}
 
