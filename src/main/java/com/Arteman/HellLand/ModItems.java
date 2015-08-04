@@ -4,6 +4,7 @@ import com.Arteman.HellLand.handler.ConfigurationHandler;
 import com.Arteman.HellLand.items.*;
 import com.Arteman.HellLand.utils.ItemHell;
 import com.Arteman.HellLand.utils.tools.*;
+
 import net.minecraft.item.Item;
 
 public class ModItems {
@@ -63,6 +64,8 @@ public class ModItems {
         ArcaneGoldIngot = new ItemHell("arcaneGoldIngot", HellLand.HellMCTabStuff, false, 0);
         ArcaneSteelIngot = new ItemHell("arcaneSteelIngot", HellLand.HellMCTabStuff, false, 0);
 
+        //other stuff
+        Bag = new Bag("bag", HellLand.HellMCTab, false, 0);
         //tools and weapons
         if (ConfigurationHandler.enableTools) {
             //axe
