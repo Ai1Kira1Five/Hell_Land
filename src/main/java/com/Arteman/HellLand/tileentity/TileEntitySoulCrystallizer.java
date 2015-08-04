@@ -2,10 +2,8 @@ package com.Arteman.HellLand.tileentity;
 
 import com.Arteman.HellLand.ModBlocks;
 import com.Arteman.HellLand.ModItems;
-import com.Arteman.HellLand.blocks.machines.HellOven;
 import com.Arteman.HellLand.blocks.machines.SoulCrystallizer;
-import com.Arteman.HellLand.resipes.CrystallizerResipes;
-
+import com.Arteman.HellLand.recipes.CrystallizerRecipes;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,111 +13,97 @@ import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntitySoulCrystallizer extends TileEntity implements ISidedInventory
-{
-	private String localizedName;
+public class TileEntitySoulCrystallizer extends TileEntity implements ISidedInventory {
+    private String localizedName;
 
-	private static final int[] slots_top = new int[]{0};
-	private static final int[] slots_bottom = new int[]{2, 1};
-	private static final int[] slots_side = new int[]{1};
-	private ItemStack[] slots = new ItemStack[3];
-	
-	public int furnaceSpeed = 200;
-	
-	public int burnTime;
-	
-	public int currentItemBurnTime;
-	
-	public int cookTime;
-	
-	public void setGuiDisplayName(String displayName)
-	{
-		this.localizedName = displayName;
-	}
-	
+    private static final int[] slots_top = new int[]{0};
+    private static final int[] slots_bottom = new int[]{2, 1};
+    private static final int[] slots_side = new int[]{1};
+    private ItemStack[] slots = new ItemStack[3];
 
-	public String getInventoryName()
-	{
-		return this.hasCustomInventoryName() ? this.localizedName : "container.ContainerSoulCrystallizer";
-	}
-	
-	public boolean hasCustomInventoryName()
-	{
-		return this.localizedName != null && this.localizedName.length() > 0;
-	}
-	
-	@Override
-	public int getInventoryStackLimit()
-	{
-		return 128;
-	}
-	
-	@Override
-	public boolean isUseableByPlayer(EntityPlayer entityplayer)
-	{
-		return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : entityplayer.getDistanceSq((double)this.xCoord + 0.5D, (double)this.yCoord + 0.5D, (double)this.zCoord + 0.5D) <= 64.0D;
-	}
-	
-	public void openInventory()
-	{
-		
-	}
-	
-	public void closeInventory()
-	{
-		
-	}
-	
-	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack)
-	{
-		return i == 2 ? false : (i == 1 ? isItemFuel(itemstack) : true);
-	}
-	
-	public int getSizeInventory()
-	{
-		return this.slots.length;
-	}
-	@Override
-	public ItemStack getStackInSlot(int var1)
-	{
-		return this.slots[var1];
-	}
-	
-	@Override
-	public ItemStack decrStackSize(int var1, int var2)
-	{
-		if (this.slots[var1] != null)
-		{
-			ItemStack itemstack;
-			
-			if (this.slots[var1].stackSize <= var2)
-			{
-				itemstack = this.slots[var1];
-				this.slots[var1] = null;
-				return itemstack;
-			}
-			else
-			{
-				itemstack = this.slots[var1].splitStack(var2);
-				
-				if (this.slots[var1].stackSize == 0)
-				{
-					this.slots[var1] = null;
-				}
-			}
-		}
-		return null;
-	}
-	
-	@Override
-	public ItemStack getStackInSlotOnClosing(int i) {
-        if (this.slots[i]!= null){
+    public int furnaceSpeed = 200;
+
+    public int burnTime;
+
+    public int currentItemBurnTime;
+
+    public int cookTime;
+
+    public void setGuiDisplayName(String displayName) {
+        this.localizedName = displayName;
+    }
+
+
+    public String getInventoryName() {
+        return this.hasCustomInventoryName() ? this.localizedName : "container.containerSoulCrystallizer";
+    }
+
+    public boolean hasCustomInventoryName() {
+        return this.localizedName != null && this.localizedName.length() > 0;
+    }
+
+    @Override
+    public int getInventoryStackLimit() {
+        return 128;
+    }
+
+    @Override
+    public boolean isUseableByPlayer(EntityPlayer entityplayer) {
+        return this.worldObj.getTileEntity(this.xCoord, this.yCoord, this.zCoord) != this ? false : entityplayer.getDistanceSq((double) this.xCoord + 0.5D, (double) this.yCoord + 0.5D, (double) this.zCoord + 0.5D) <= 64.0D;
+    }
+
+    public void openInventory() {
+
+    }
+
+    public void closeInventory() {
+
+    }
+
+    @Override
+    public boolean isItemValidForSlot(int i, ItemStack itemstack) {
+        return i == 2 ? false : (i == 1 ? isItemFuel(itemstack) : true);
+    }
+
+    public int getSizeInventory() {
+        return this.slots.length;
+    }
+
+    @Override
+    public ItemStack getStackInSlot(int var1) {
+        return this.slots[var1];
+    }
+
+    @Override
+    public ItemStack decrStackSize(int var1, int var2) {
+        if (this.slots[var1] != null) {
+            ItemStack itemstack;
+
+            if (this.slots[var1].stackSize <= var2) {
+                itemstack = this.slots[var1];
+                this.slots[var1] = null;
+                this.markDirty();
+                return itemstack;
+            } else {
+                itemstack = this.slots[var1].splitStack(var2);
+
+                if (this.slots[var1].stackSize == 0) {
+                    this.slots[var1] = null;
+                }
+                this.markDirty();
+                return itemstack;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public ItemStack getStackInSlotOnClosing(int i) {
+        if (this.slots[i] != null) {
             ItemStack itemstack = this.slots[i];
             this.slots[i] = null;
             return itemstack;
@@ -127,11 +111,11 @@ public class TileEntitySoulCrystallizer extends TileEntity implements ISidedInve
         return null;
     }
 
-	@Override
+    @Override
     public void setInventorySlotContents(int i, ItemStack itemstack) {
         this.slots[i] = itemstack;
 
-        if (itemstack != null && itemstack.stackSize > this.getInventoryStackLimit()){
+        if (itemstack != null && itemstack.stackSize > this.getInventoryStackLimit()) {
             itemstack.stackSize = this.getInventoryStackLimit();
         }
     }
@@ -149,66 +133,66 @@ public class TileEntitySoulCrystallizer extends TileEntity implements ISidedInve
             if (item instanceof ItemBlock && Block.getBlockFromItem(item) != Blocks.air) {
                 Block block = Block.getBlockFromItem(item);
 
-                    if (block == ModBlocks.HellBase) return 20000;
-                    if (block == Blocks.diamond_block) return 14400;
-                    if (block == Blocks.gold_block) return 4000;
-                    if (block == Blocks.emerald_block) return 10000;
-                    if (block == Blocks.glowstone) return 5000;
-                }
-
-                if (item == ModItems.BloodDrop) return 1600;
-                if (item == ModItems.BoneFragment) return 100;
-                if (item == ModItems.HellCrystal) return 20000;
-                if (item == Items.blaze_rod) return 2400;
+                if (block == ModBlocks.HellBase) return 20000;
+                if (block == Blocks.diamond_block) return 14400;
+                if (block == Blocks.gold_block) return 4000;
+                if (block == Blocks.emerald_block) return 10000;
+                if (block == Blocks.glowstone) return 5000;
             }
+
+            if (item == ModItems.BloodDrop) return 1600;
+            if (item == ModItems.BoneFragment) return 100;
+            if (item == ModItems.HellCrystal) return 20000;
+            if (item == Items.blaze_rod) return 2400;
+        }
         return GameRegistry.getFuelValue(itemstack);
     }
 
-    public boolean isBurning(){
+    public boolean isBurning() {
         return this.burnTime > 0;
     }
 
-    public void updateEntity(){
+    public void updateEntity() {
         boolean flag = this.burnTime > 0;
         boolean flag1 = false;
 
-        if(this.isBurning()){
+        if (this.isBurning()) {
             this.burnTime--;
         }
-        if(!this.worldObj.isRemote){
-            if (this.burnTime == 0 && this.canSmelt()){
+        if (!this.worldObj.isRemote) {
+            if (this.burnTime == 0 && this.canSmelt()) {
                 this.currentItemBurnTime = this.burnTime = getItemBurnTime(this.slots[1]);
 
-                if (this.isBurning()){
+                if (this.isBurning()) {
                     flag1 = true;
 
-                    if (this.slots[1] != null){
+                    if (this.slots[1] != null) {
                         this.slots[1].stackSize--;
 
-                        if (this.slots[1].stackSize == 0){
+                        if (this.slots[1].stackSize == 0) {
                             this.slots[1] = this.slots[1].getItem().getContainerItem(this.slots[1]);
                         }
                     }
                 }
             }
-            if (this.isBurning() && this.canSmelt()){
+            if (this.isBurning() && this.canSmelt()) {
                 this.cookTime++;
 
-                if (this.cookTime == this.furnaceSpeed){
+                if (this.cookTime == this.furnaceSpeed) {
                     this.cookTime = 0;
                     this.smeltItem();
                     flag1 = true;
                 }
-            }else{
+            } else {
                 this.cookTime = 0;
             }
 
-            if (flag != this.isBurning()){
+            if (flag != this.isBurning()) {
                 flag1 = true;
                 SoulCrystallizer.updateSoulCrystallizerBlockState(this.burnTime > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
             }
         }
-        if (flag1){
+        if (flag1) {
             this.markDirty();
         }
     }
@@ -217,7 +201,7 @@ public class TileEntitySoulCrystallizer extends TileEntity implements ISidedInve
         if (this.slots[0] == null) {
             return false;
         } else {
-            ItemStack itemstack = CrystallizerResipes.crystallizing().getCrystallResult(this.slots[0]);
+            ItemStack itemstack = CrystallizerRecipes.crystallizing().getCrystallResult(this.slots[0]);
 
             if (itemstack == null) return false;
             if (this.slots[2] == null) return true;
@@ -231,7 +215,7 @@ public class TileEntitySoulCrystallizer extends TileEntity implements ISidedInve
 
     public void smeltItem() {
         if (this.canSmelt()) {
-            ItemStack itemstack = CrystallizerResipes.crystallizing().getCrystallResult(this.slots[0]);
+            ItemStack itemstack = CrystallizerRecipes.crystallizing().getCrystallResult(this.slots[0]);
 
             if (this.slots[2] == null) {
                 this.slots[2] = itemstack.copy();
@@ -262,7 +246,7 @@ public class TileEntitySoulCrystallizer extends TileEntity implements ISidedInve
         return j != 0 || i != 1 || itemstack.getItem() == Items.bucket;
     }
 
-    
+
     public int getBurnTimeRemainingScaled(int i) {
         if (this.currentItemBurnTime == 0) {
             this.currentItemBurnTime = this.furnaceSpeed;
@@ -270,47 +254,47 @@ public class TileEntitySoulCrystallizer extends TileEntity implements ISidedInve
         return this.burnTime * i / this.currentItemBurnTime;
     }
 
-    public int getCookProgressScaled(int i){
+    public int getCookProgressScaled(int i) {
         return this.cookTime * i / this.furnaceSpeed;
     }
 
-    public void readFromNBT(NBTTagCompound nbt){
+    public void readFromNBT(NBTTagCompound nbt) {
         super.readFromNBT(nbt);
 
         NBTTagList list = nbt.getTagList("Items", 10);
         this.slots = new ItemStack[this.getSizeInventory()];
 
-        for (int i = 0; i < list.tagCount(); i++){
+        for (int i = 0; i < list.tagCount(); i++) {
             NBTTagCompound compound = (NBTTagCompound) list.getCompoundTagAt(i);
             byte b = compound.getByte("Slot");
 
-            if (b >= 0 && b < this.slots.length){
+            if (b >= 0 && b < this.slots.length) {
                 this.slots[b] = ItemStack.loadItemStackFromNBT(compound);
             }
         }
 
-        this.burnTime = (int)nbt.getShort("BurnTime");
-        this.cookTime = (int)nbt.getShort("CookTime");
-        this.currentItemBurnTime = (int)nbt.getShort("CurrentBurnTime");
+        this.burnTime = (int) nbt.getShort("BurnTime");
+        this.cookTime = (int) nbt.getShort("CookTime");
+        this.currentItemBurnTime = (int) nbt.getShort("CurrentBurnTime");
 
-        if (nbt.hasKey("CustomName")){
+        if (nbt.hasKey("CustomName")) {
             this.localizedName = nbt.getString("CustomName");
         }
     }
 
-    public void writeToNBT(NBTTagCompound nbt){
+    public void writeToNBT(NBTTagCompound nbt) {
         super.writeToNBT(nbt);
 
-        nbt.setShort("BurnTime", (short)this.burnTime);
-        nbt.setShort("CookTime", (short)this.cookTime);
-        nbt.setShort("CurrentBurnTime", (short)this.currentItemBurnTime);
+        nbt.setShort("BurnTime", (short) this.burnTime);
+        nbt.setShort("CookTime", (short) this.cookTime);
+        nbt.setShort("CurrentBurnTime", (short) this.currentItemBurnTime);
 
         NBTTagList list = new NBTTagList();
 
-        for (int i = 0; i < this.slots.length; i++){
-            if (this.slots[i] != null){
+        for (int i = 0; i < this.slots.length; i++) {
+            if (this.slots[i] != null) {
                 NBTTagCompound compound = new NBTTagCompound();
-                compound.setByte("Slot", (byte)i);
+                compound.setByte("Slot", (byte) i);
                 this.slots[i].writeToNBT(compound);
                 list.appendTag(compound);
             }
@@ -318,7 +302,7 @@ public class TileEntitySoulCrystallizer extends TileEntity implements ISidedInve
 
         nbt.setTag("Items", list);
 
-        if (this.hasCustomInventoryName()){
+        if (this.hasCustomInventoryName()) {
             nbt.setString("CustomName", this.localizedName);
         }
     }

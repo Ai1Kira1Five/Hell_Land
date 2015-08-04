@@ -1,15 +1,12 @@
 package com.Arteman.HellLand.gui;
 
+import com.Arteman.HellLand.tileentity.TileEntityMMixer;
 import net.minecraft.entity.player.InventoryPlayer;
 
-import com.Arteman.HellLand.tileentity.TileEntityMMixer;
+public class GuiMMixer {
 
-public class GuiMMixer
-{
+    public GuiMMixer(InventoryPlayer inventory, TileEntityMMixer entity) {
 
-	public GuiMMixer(InventoryPlayer inventory, TileEntityMMixer entity) 
-	{
-		
-	}
+    }
 
 }

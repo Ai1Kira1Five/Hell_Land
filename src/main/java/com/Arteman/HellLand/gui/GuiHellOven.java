@@ -1,20 +1,17 @@
 package com.Arteman.HellLand.gui;
 
-import org.lwjgl.opengl.GL11;
-
 import com.Arteman.HellLand.HellLand;
 import com.Arteman.HellLand.container.ContainerHellOven;
 import com.Arteman.HellLand.tileentity.TileEntityHellOven;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
-public class GuiHellOven extends GuiContainer 
-{
-	public static final ResourceLocation bground = new ResourceLocation(HellLand.MODID + ":" + "textures/gui/GuiHellOven.png");
+public class GuiHellOven extends GuiContainer {
+    public static final ResourceLocation bground = new ResourceLocation(HellLand.MODID + ":" + "textures/gui/GuiHellOven.png");
 
     public TileEntityHellOven hellOven;
 
@@ -28,11 +25,9 @@ public class GuiHellOven extends GuiContainer
     }
 
 
-    public void drawGuiContainerForegroundLayer(int par1, int par2){
+    public void drawGuiContainerForegroundLayer(int par1, int par2) {
         String name = "Hell Oven";
-
         this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
-        this.fontRendererObj.drawString(I18n.format("Container.inventory", new Object[0]), 118, this.ySize - 96 + 2, 4210752);
     }
 
     @Override
@@ -42,7 +37,7 @@ public class GuiHellOven extends GuiContainer
         Minecraft.getMinecraft().getTextureManager().bindTexture(bground);
         drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 
-        if (this.hellOven.isBurning()){
+        if (this.hellOven.isBurning()) {
             int k = this.hellOven.getBurnTimeRemainingScaled(40);
             int j = 40 - k;
             drawTexturedModalRect(guiLeft + 29, guiTop + 65, 176, 0, 40 - j, 10);

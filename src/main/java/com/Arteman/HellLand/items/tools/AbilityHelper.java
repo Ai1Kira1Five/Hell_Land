@@ -4,12 +4,10 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 
-public class AbilityHelper
-{
+public class AbilityHelper {
 
-	public static boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity, ToolCore toolCore, int i) 
-	{
-		return false;
-	}
+    public static boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity, ToolCore toolCore, int i) {
+        return false;
+    }
 
 }
