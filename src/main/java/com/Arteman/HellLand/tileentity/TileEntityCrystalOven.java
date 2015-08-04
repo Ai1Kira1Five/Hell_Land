@@ -222,19 +222,22 @@ public class TileEntityCrystalOven extends TileEntity implements ISidedInventory
 
     public void smeltItem() {
         if (this.canSmelt()) {
-            int i = getFirstSmeltSlot();
-            ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.slots[i]);
-            int s = getFirstResultSlot(itemstack);
-            if (this.slots[s] == null) {
-                this.slots[s] = itemstack.copy();
-            } else if (this.slots[s].isItemEqual(itemstack)) {
-                this.slots[s].stackSize += itemstack.stackSize;
-            }
+            for(int i=3;i<7;i++) {
+                if(this.slots[i]==null) continue;
+                ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(this.slots[i]);
+                int s = getFirstResultSlot(itemstack);
+                if(s<0)continue;
+                if (this.slots[s] == null) {
+                    this.slots[s] = itemstack.copy();
+                } else if (this.slots[s].isItemEqual(itemstack)) {
+                    this.slots[s].stackSize += itemstack.stackSize;
+                }
 
-            this.slots[i].stackSize--;
+                this.slots[i].stackSize--;
 
-            if (this.slots[i].stackSize <= 0) {
-                this.slots[i] = null;
+                if (this.slots[i].stackSize <= 0) {
+                    this.slots[i] = null;
+                }
             }
         }
     }
@@ -334,7 +337,7 @@ public class TileEntityCrystalOven extends TileEntity implements ISidedInventory
 
     private int getFirstResultSlot(ItemStack itemStack) {
         for (int i = 7; i < 11; i++) {
-            if (this.slots[i] == null || (itemStack.isItemEqual(this.slots[i]) && this.slots[i].stackSize < getInventoryStackLimit())) {
+            if (this.slots[i] == null || (itemStack.isItemEqual(this.slots[i]) && (this.slots[i].stackSize + itemStack.stackSize) <= getInventoryStackLimit())) {
                 return i;
             }
         }
