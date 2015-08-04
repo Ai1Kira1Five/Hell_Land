@@ -45,6 +45,7 @@ item.HellLand:crystalPickaxe.name=Crystal pickaxe
 item.HellLand:crystalShovel.name=Crystal spike
 item.HellLand:arcaneGoldIngot.name=Arcane gold ingot
 item.HellLand:arcaneSteelIngot.name=Arcane steel ingot
+item.HellLand:ashDust.name=Ash dust
 
 item.HellLand:crystal_0.name=Basic crystal
 item.HellLand:crystal_1.name=Fire crystal
