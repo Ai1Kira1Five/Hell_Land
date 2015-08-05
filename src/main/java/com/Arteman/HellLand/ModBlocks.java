@@ -58,8 +58,7 @@ public class ModBlocks {
         NecroticLamp = new NecroticLamp("necroticLamp");
 
         Ash = new BlockHell("ash", Material.sand, Block.soundTypeSand, HellLand.HellMCTabDecor, 10.0f, 100.0f, 0.0f);
-        Ash.setCustomDrop(new ItemStack(ModItems.AshDust, 4));
-
+        Ash.setHarvestLevel("shovel", 1).setCustomDrop(new ItemStack(ModItems.AshDust, 4));
 
         //machines
         HellOvenIdle = new HellOven(false).setCreativeTab(HellLand.HellMCTab).setHardness(3.4f);
