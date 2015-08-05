@@ -31,6 +31,7 @@ item.HellLand:boneBlade.name=Bone Blade
 item.HellLand:toolRod1.name=Tool Rod I
 item.HellLand:weaponiumIngot.name=Weaponium ingot
 
+item.HellLand:bag.name=Backpack
 item.HellLand:magicSword.name=Magic sword
 item.HellLand:magicDoubleSword.name=Magic ExtraSword
 item.HellLand:magicKatana.name=Magic katana
@@ -74,3 +75,4 @@ itemGroup.hellLandStuff=§4Hell Land Stuff
 itemGroup.hellLandDecorative=§4Hell Land Decorative
 enchantment.devilsStrike=Devil's Strike
 enchantment.angelsDeath=Angel's Death
+container.bag = BackPack
