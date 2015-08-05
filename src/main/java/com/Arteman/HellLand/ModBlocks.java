@@ -10,6 +10,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
+import com.Arteman.HellLand.ModItems;
 
 public class ModBlocks {
 
@@ -56,8 +57,8 @@ public class ModBlocks {
         BloodWoodLogs = new BloodWoodLogs("bloodPlanks");
         NecroticLamp = new NecroticLamp("necroticLamp");
 
-        Ash = new BlockHell("ash", Material.sand, Block.soundTypeSand, HellLand.HellMCTabDecor, 50.0f, 100.0f, 0.0f);
-        Ash.setCustomDrop(new ItemStack(Ash, 3));
+        Ash = new BlockHell("ash", Material.sand, Block.soundTypeSand, HellLand.HellMCTabDecor, 10.0f, 100.0f, 0.0f);
+        Ash.setCustomDrop(new ItemStack(ModItems.AshDust, 4));
 
 
         //machines
