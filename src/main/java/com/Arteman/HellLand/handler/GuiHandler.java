@@ -1,6 +1,6 @@
 package com.Arteman.HellLand.handler;
 
-import com.Arteman.HellLand.HellLand;
+import com.Arteman.HellLand.HellLandCore;
 import com.Arteman.HellLand.container.*;
 import com.Arteman.HellLand.gui.GuiBag;
 import com.Arteman.HellLand.gui.GuiCrystalOven;
@@ -21,22 +21,22 @@ public class GuiHandler implements IGuiHandler {
 
                 if (entity != null) {
                     switch (ID) {
-                        case HellLand.guiIDHellOven:
+                        case HellLandCore.guiIDHellOven:
                             if (entity instanceof TileEntityHellOven) {
                                 return new ContainerHellOven(player.inventory, (TileEntityHellOven) entity);
                             }
-                        case HellLand.guiIDSoulCrystallizer:
+                        case HellLandCore.guiIDSoulCrystallizer:
                             if (entity instanceof TileEntitySoulCrystallizer) {
                                 return new ContainerSoulCrystallizer(player.inventory, (TileEntitySoulCrystallizer) entity);
                             }
-                        case HellLand.guiIDCrystalOven:
+                        case HellLandCore.guiIDCrystalOven:
                             if (entity instanceof TileEntityCrystalOven) {
                                 return new ContainerCrystalOven(player.inventory, (TileEntityCrystalOven) entity);
                             }
                     }
                 }
                 switch (ID){
-                    case HellLand.guiIDBag:
+                    case HellLandCore.guiIDBag:
                         return new ContainerBag(player.inventory, new InventoryBag(player.getHeldItem()));
 
                 }
@@ -49,22 +49,22 @@ public class GuiHandler implements IGuiHandler {
 
         if (entity != null) {
             switch (ID) {
-                case HellLand.guiIDHellOven:
+                case HellLandCore.guiIDHellOven:
                     if (entity instanceof TileEntityHellOven) {
                         return new GuiHellOven(player.inventory, (TileEntityHellOven) entity);
                     }
-                case HellLand.guiIDSoulCrystallizer:
+                case HellLandCore.guiIDSoulCrystallizer:
                     if (entity instanceof TileEntitySoulCrystallizer) {
                         return new GuiSoulCrystallizer(player.inventory, (TileEntitySoulCrystallizer) entity);
                     }
-                case HellLand.guiIDCrystalOven:
+                case HellLandCore.guiIDCrystalOven:
                     if (entity instanceof TileEntityCrystalOven) {
                         return new GuiCrystalOven(player.inventory, (TileEntityCrystalOven) entity);
                     }
             }
         }
         switch (ID) {
-            case HellLand.guiIDBag:
+            case HellLandCore.guiIDBag:
                 return new GuiBag(player.inventory, new InventoryBag(player.getHeldItem()));
         }
         return null;

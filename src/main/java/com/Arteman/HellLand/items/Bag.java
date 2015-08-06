@@ -1,6 +1,6 @@
 package com.Arteman.HellLand.items;
 
-import com.Arteman.HellLand.HellLand;
+import com.Arteman.HellLand.HellLandCore;
 import com.Arteman.HellLand.utils.ItemHell;
 
 import com.Arteman.HellLand.utils.NBTHelper;
@@ -33,7 +33,7 @@ public class Bag extends ItemHell
             }
             NBTHelper.setUUID(itemStack);
             NBTHelper.setBoolean(itemStack, "bagGuiOpen", true);
-            entityPlayer.openGui(HellLand.instance, HellLand.guiIDBag, entityPlayer.worldObj, (int) entityPlayer.posX, (int) entityPlayer.posY, (int) entityPlayer.posZ);
+            entityPlayer.openGui(HellLandCore.instance, HellLandCore.guiIDBag, entityPlayer.worldObj, (int) entityPlayer.posX, (int) entityPlayer.posY, (int) entityPlayer.posZ);
         }
 
         return itemStack;

@@ -1,6 +1,6 @@
 package com.Arteman.HellLand.utils;
 
-import com.Arteman.HellLand.HellLand;
+import com.Arteman.HellLand.HellLandCore;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -20,8 +20,8 @@ public class BlockHell extends Block {
     {
         super(material);
         this.setCreativeTab(tabs);
-        this.setBlockName(HellLand.MODID + ":" + name);
-        this.setBlockTextureName(HellLand.MODID + ":" + name);
+        this.setBlockName(HellLandCore.MODID + ":" + name);
+        this.setBlockTextureName(HellLandCore.MODID + ":" + name);
         this.setHardness(hardness);
         this.setResistance(resistance);
         this.setStepSound(soundType);

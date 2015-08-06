@@ -1,6 +1,6 @@
 package com.Arteman.HellLand.blocks;
 
-import com.Arteman.HellLand.HellLand;
+import com.Arteman.HellLand.HellLandCore;
 import com.Arteman.HellLand.ModBlocks;
 import com.Arteman.HellLand.utils.BlockHell;
 
@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 public class NecroticLamp extends BlockHell {
 
     public NecroticLamp(String name) {
-        super(name,Material.rock,soundTypeGlass,HellLand.HellMCTabDecor,0.5f,5.0f,15.0f);
+        super(name,Material.rock,soundTypeGlass,HellLandCore.HellMCTabDecor,0.5f,5.0f,15.0f);
     }
 
     /*

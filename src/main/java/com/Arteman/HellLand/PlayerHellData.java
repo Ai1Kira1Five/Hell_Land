@@ -9,11 +9,11 @@ public class PlayerHellData {
 
     public static void initPlayerWeaponData(EntityPlayer player) {
         String playername = getPlayerName(player);
-        HellLand.modLog.trace("Initializing DataWatcher values for " + playername);
+        HellLandCore.modLog.trace("Initializing DataWatcher values for " + playername);
         DataWatcher datawatcher = player.getDataWatcher();
         try {
             datawatcher.getWatchableObjectInt(BOOLEANS);
-            HellLand.modLog.warn("DataWatcher ID conflict for " + playername + " @ " + BOOLEANS);
+            HellLandCore.modLog.warn("DataWatcher ID conflict for " + playername + " @ " + BOOLEANS);
         } catch (NullPointerException e) {
         } finally {
             datawatcher.addObject(BOOLEANS, Integer.valueOf(0));
@@ -21,7 +21,7 @@ public class PlayerHellData {
 
         try {
             datawatcher.getWatchableObjectInt(HAMMER_LAST_SMASH_TICKS);
-            HellLand.modLog.warn("DataWatcher ID conflict for " + playername + " @ " + HAMMER_LAST_SMASH_TICKS);
+            HellLandCore.modLog.warn("DataWatcher ID conflict for " + playername + " @ " + HAMMER_LAST_SMASH_TICKS);
         } catch (NullPointerException e) {
         } finally {
             datawatcher.addObject(HAMMER_LAST_SMASH_TICKS, Integer.valueOf(player.ticksExisted));
@@ -29,7 +29,7 @@ public class PlayerHellData {
 
         try {
             datawatcher.getWatchableObjectInt(FLAIL_ENTITY_ID);
-            HellLand.modLog.warn("DataWatcher ID conflict for " + playername + " @ " + FLAIL_ENTITY_ID);
+            HellLandCore.modLog.warn("DataWatcher ID conflict for " + playername + " @ " + FLAIL_ENTITY_ID);
         } catch (NullPointerException e) {
         } finally {
             datawatcher.addObject(FLAIL_ENTITY_ID, Integer.valueOf(0));
@@ -48,7 +48,7 @@ public class PlayerHellData {
     }
 
     private static void unavailableError(EntityPlayer player, int id) {
-        HellLand.modLog.error("DataWatcher ID " + id + " for " + getPlayerName(player) + " unavailable, trying to reinitialize");
+        HellLandCore.modLog.error("DataWatcher ID " + id + " for " + getPlayerName(player) + " unavailable, trying to reinitialize");
         initPlayerWeaponData(player);
     }
 

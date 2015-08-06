@@ -1,6 +1,6 @@
 package com.Arteman.HellLand.blocks;
 
-import com.Arteman.HellLand.HellLand;
+import com.Arteman.HellLand.HellLandCore;
 import com.Arteman.HellLand.utils.BlockHell;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -11,7 +11,7 @@ import net.minecraft.util.IIcon;
 public class BloodWood extends BlockHell {
 
     public BloodWood(String name) {
-        super(name,Material.wood,soundTypeWood,HellLand.HellMCTab,5.0f,50.0f,0.0f);
+        super(name,Material.wood,soundTypeWood,HellLandCore.HellMCTab,5.0f,50.0f,0.0f);
         this.setHarvestLevel("axe", 1);
     }
 
@@ -23,9 +23,9 @@ public class BloodWood extends BlockHell {
 
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
-        this.blockIcon = iconRegister.registerIcon(HellLand.MODID + ":" + "bloodWood");
-        this.iconTop = iconRegister.registerIcon(HellLand.MODID + ":" + "bloodWoodTop");
-        this.iconDown = iconRegister.registerIcon(HellLand.MODID + ":" + "bloodWoodTop");
+        this.blockIcon = iconRegister.registerIcon(HellLandCore.MODID + ":" + "bloodWood");
+        this.iconTop = iconRegister.registerIcon(HellLandCore.MODID + ":" + "bloodWoodTop");
+        this.iconDown = iconRegister.registerIcon(HellLandCore.MODID + ":" + "bloodWoodTop");
     }
 
     @SideOnly(Side.CLIENT)

@@ -1,6 +1,6 @@
 package com.Arteman.HellLand.blocks.machines;
 
-import com.Arteman.HellLand.HellLand;
+import com.Arteman.HellLand.HellLandCore;
 import com.Arteman.HellLand.ModBlocks;
 import com.Arteman.HellLand.tileentity.TileEntityHellOven;
 import com.Arteman.HellLand.tileentity.TileEntityMMixer;
@@ -10,6 +10,7 @@ import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -41,8 +42,13 @@ public class MagicalMixer extends BlockContainer {
     	TileEntity tileentity = world.getTileEntity(x, y, z);
     	if(tileentity instanceof TileEntityHellOven)
     	{
-    		FMLNetworkHandler.openGui(player, HellLand.instance, HellLand.guiIDMMixer, world, x, y, z);
+    		FMLNetworkHandler.openGui(player, HellLandCore.instance, HellLandCore.guiIDMMixer, world, x, y, z);
+    		return true;
     	}
-    	return true;
+    	else
+    	{
+			player.addChatComponentMessage(null);
+    		return false;
+    	}
     }
 }

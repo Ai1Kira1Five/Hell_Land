@@ -1,6 +1,6 @@
 package com.Arteman.HellLand.blocks.machines;
 
-import com.Arteman.HellLand.HellLand;
+import com.Arteman.HellLand.HellLandCore;
 import com.Arteman.HellLand.ModBlocks;
 import com.Arteman.HellLand.tileentity.TileEntityCrystalOven;
 import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
@@ -37,15 +37,15 @@ public class CrystalOven extends BlockContainer {
 
     public CrystalOven(boolean isActive) {
         super(Material.rock);
-        this.setBlockName(HellLand.MODID+":crystalOven");
+        this.setBlockName(HellLandCore.MODID+":crystalOven");
         this.isActive = isActive;
     }
 
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
-        this.blockIcon = iconRegister.registerIcon(HellLand.MODID + ":" + "soulCrystallizerSide");
-        this.iconFront = iconRegister.registerIcon(HellLand.MODID + ":" + (this.isActive ? "crystalOvenFrontOn" : "crystalOvenFrontOff"));
-        this.iconTop = iconRegister.registerIcon(HellLand.MODID + ":" + "soulCrystallizerSide");
+        this.blockIcon = iconRegister.registerIcon(HellLandCore.MODID + ":" + "soulCrystallizerSide");
+        this.iconFront = iconRegister.registerIcon(HellLandCore.MODID + ":" + (this.isActive ? "crystalOvenFrontOn" : "crystalOvenFrontOff"));
+        this.iconTop = iconRegister.registerIcon(HellLandCore.MODID + ":" + "soulCrystallizerSide");
     }
 
     @SideOnly(Side.CLIENT)
@@ -85,7 +85,7 @@ public class CrystalOven extends BlockContainer {
 
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
         if (!world.isRemote) {
-            FMLNetworkHandler.openGui(player, HellLand.instance, HellLand.guiIDCrystalOven, world, x, y, z);
+            FMLNetworkHandler.openGui(player, HellLandCore.instance, HellLandCore.guiIDCrystalOven, world, x, y, z);
         }
         return true;
     }

@@ -1,7 +1,7 @@
 package com.Arteman.HellLand.gui;
 
 
-import com.Arteman.HellLand.HellLand;
+import com.Arteman.HellLand.HellLandCore;
 import com.Arteman.HellLand.container.ContainerBag;
 import com.Arteman.HellLand.container.InventoryBag;
 import cpw.mods.fml.relauncher.Side;
@@ -17,7 +17,7 @@ import org.lwjgl.opengl.GL11;
 @SideOnly(Side.CLIENT)
 public class GuiBag extends GuiContainer{
 
-    public static final ResourceLocation bground = new ResourceLocation(HellLand.MODID + ":" + "textures/gui/guiBag.png");
+    public static final ResourceLocation bground = new ResourceLocation(HellLandCore.MODID + ":" + "textures/gui/guiBag.png");
 
     private final ItemStack parentItemStack;
     private final InventoryBag inventoryBag;

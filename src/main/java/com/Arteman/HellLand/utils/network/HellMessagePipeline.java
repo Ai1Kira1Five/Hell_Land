@@ -1,6 +1,6 @@
 package com.Arteman.HellLand.utils.network;
 
-import com.Arteman.HellLand.HellLand;
+import com.Arteman.HellLand.HellLandCore;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.FMLEmbeddedChannel;
 import cpw.mods.fml.common.network.FMLOutboundHandler;
@@ -29,17 +29,17 @@ public class HellMessagePipeline extends MessageToMessageCodec<FMLProxyPacket, H
 
     public boolean registerPacket(Class<? extends HellMessage> class0) {
         if (packets.size() > 256) {
-            HellLand.modLog.error("More than 256 packets registered");
+            HellLandCore.modLog.error("More than 256 packets registered");
             return false;
         }
 
         if (packets.contains(class0)) {
-            HellLand.modLog.warn("Packet already registered");
+            HellLandCore.modLog.warn("Packet already registered");
             return false;
         }
 
         if (isPostInitialized) {
-            HellLand.modLog.error("Already post-initialized");
+            HellLandCore.modLog.error("Already post-initialized");
             return false;
         }
 

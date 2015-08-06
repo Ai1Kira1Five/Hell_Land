@@ -1,6 +1,6 @@
 package com.Arteman.HellLand.items;
 
-import com.Arteman.HellLand.HellLand;
+import com.Arteman.HellLand.HellLandCore;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.dispenser.BehaviorDefaultDispenseItem;
@@ -75,7 +75,7 @@ public class Ring extends ItemArmor implements ISpecialArmor {
         this.armorType = armorType;
         this.renderIndex = renderIndex;
         this.setMaxStackSize(1);
-        this.setCreativeTab(HellLand.HellMCTab);
+        this.setCreativeTab(HellLandCore.HellMCTab);
         this.setFull3D();
         this.setMaxDamage(material.getDurability(armorType));
         this.damageReduceAmount = material.getDamageReductionAmount(armorType);

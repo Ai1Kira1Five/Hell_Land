@@ -8,9 +8,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ModTiles {
     public final static void init() {
-        GameRegistry.registerTileEntity(TileEntityHellOven.class, HellLand.MODID + ":hellOven");
-        GameRegistry.registerTileEntity(TileEntityWire.class, HellLand.MODID + ":wireOne");
-        GameRegistry.registerTileEntity(TileEntitySoulCrystallizer.class, HellLand.MODID + ":soulCrystallizer");
-        GameRegistry.registerTileEntity(TileEntityCrystalOven.class, HellLand.MODID + ":crystalOven");
+        GameRegistry.registerTileEntity(TileEntityHellOven.class, HellLandCore.MODID + ":hellOven");
+        GameRegistry.registerTileEntity(TileEntityWire.class, HellLandCore.MODID + ":wireOne");
+        GameRegistry.registerTileEntity(TileEntitySoulCrystallizer.class, HellLandCore.MODID + ":soulCrystallizer");
+        GameRegistry.registerTileEntity(TileEntityCrystalOven.class, HellLandCore.MODID + ":crystalOven");
     }
 }

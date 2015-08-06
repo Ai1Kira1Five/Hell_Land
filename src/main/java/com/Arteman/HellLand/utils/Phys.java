@@ -1,6 +1,6 @@
 package com.Arteman.HellLand.utils;
 
-import com.Arteman.HellLand.HellLand;
+import com.Arteman.HellLand.HellLandCore;
 import com.Arteman.HellLand.utils.network.MSGExplosion;
 import cpw.mods.fml.common.network.NetworkRegistry.TargetPoint;
 import net.minecraft.entity.Entity;
@@ -61,7 +61,7 @@ public class Phys {
     private static void sendExplosion(World world, AdvancedExplosion explosion, boolean smallparts, boolean bigparts) {
         if (world instanceof WorldServer && !world.isRemote) {
             MSGExplosion msg = new MSGExplosion(explosion, smallparts, bigparts);
-            HellLand.instance.messagePipeline.sendToAllAround(msg, new TargetPoint(world.provider.dimensionId, explosion.explosionX, explosion.explosionY, explosion.explosionZ, 64D));
+            HellLandCore.instance.messagePipeline.sendToAllAround(msg, new TargetPoint(world.provider.dimensionId, explosion.explosionX, explosion.explosionY, explosion.explosionZ, 64D));
         }
     }
 
