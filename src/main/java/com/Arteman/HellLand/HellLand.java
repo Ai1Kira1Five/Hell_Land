@@ -84,9 +84,9 @@ public class HellLand {
         };
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
-
-        ModBlocks.init();
+        
         ModItems.init();
+        ModBlocks.init();
         ModFluids.init();
         Enchantments.init();
 
