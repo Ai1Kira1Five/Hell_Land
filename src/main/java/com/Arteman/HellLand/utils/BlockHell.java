@@ -16,7 +16,8 @@ public class BlockHell extends Block {
 
     private ItemStack customDrop;
 
-    public BlockHell(String name, Material material,SoundType soundType,CreativeTabs tabs, float hardness, float resistance, float lightLevel) {
+    public BlockHell(String name, Material material,SoundType soundType,CreativeTabs tabs, float hardness, float resistance, float lightLevel) 
+    {
         super(material);
         this.setCreativeTab(tabs);
         this.setBlockName(HellLand.MODID + ":" + name);
@@ -25,14 +26,20 @@ public class BlockHell extends Block {
         this.setResistance(resistance);
         this.setStepSound(soundType);
         this.setHarvestLevel("pickaxe", 3);
+        this.setLightLevel(lightLevel);
         GameRegistry.registerBlock(this, name);
         this.setCustomDrop(new ItemStack(this,1));
     }
 
-    public void setCustomDrop(ItemStack itemStack){
-        if(itemStack!=null){
-            customDrop = itemStack;
-        }else{
+
+    public void setCustomDrop(ItemStack itemStack)
+    {
+        if(itemStack!=null)
+        {
+        	customDrop = itemStack;
+        }
+        else
+        {
             customDrop = null;
         }
     }

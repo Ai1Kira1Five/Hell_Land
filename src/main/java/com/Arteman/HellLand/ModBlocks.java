@@ -36,7 +36,8 @@ public class ModBlocks {
     public static Block CrystalOvenActive;
     public static Block SoulCrystallizerIdle;
     public static Block SoulCrystallizerActive;
-    public static Block MMixer;
+    public static Block MMixerIdle;
+    public static Block MMixerActive;
 
     //Wires
     public static Block WireOne;
@@ -61,6 +62,12 @@ public class ModBlocks {
         BloodWoodLogs = new BloodWoodLogs("bloodPlanks");
         NecroticLamp = new NecroticLamp("necroticLamp");
 
+
+        Ash = new BlockHell("ash", Material.sand, Block.soundTypeSand, HellLand.HellMCTabDecor, 10.0f, 100.0f, 0.0f);
+        	Ash.setHarvestLevel("shovel", 1);
+        	Ash.setCustomDrop(new ItemStack(ModItems.AshDust, 4));
+        
+
         //machines
         HellOvenIdle = new HellOven(false).setCreativeTab(HellLand.HellMCTab).setHardness(3.4f);
         HellOvenActive = new HellOven(true).setHardness(3.4f).setLightLevel(1.0f);
@@ -68,7 +75,8 @@ public class ModBlocks {
         SoulCrystallizerActive = new SoulCrystallizer(true).setLightLevel(2.0f);
         CrystalOvenIdle = new CrystalOven(false).setCreativeTab(HellLand.HellMCTab).setHardness(3.4f);
         CrystalOvenActive = new CrystalOven(true).setHardness(3.4f).setLightLevel(2.0f);
-        MMixer = new MagicalMixer();
+        MMixerIdle = new MagicalMixer(false);
+        MMixerActive = new MagicalMixer(true);
 
 
         //wires
