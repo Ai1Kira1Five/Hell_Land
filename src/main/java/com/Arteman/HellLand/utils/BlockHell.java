@@ -14,7 +14,7 @@ import java.util.Random;
 
 public class BlockHell extends Block {
 
-    private static ItemStack customDrop;
+    private ItemStack customDrop;
 
     public BlockHell(String name, Material material,SoundType soundType,CreativeTabs tabs, float hardness, float resistance, float lightLevel) {
         super(material);
@@ -26,18 +26,20 @@ public class BlockHell extends Block {
         this.setStepSound(soundType);
         this.setHarvestLevel("pickaxe", 3);
         GameRegistry.registerBlock(this, name);
+        this.setCustomDrop(new ItemStack(this,1));
     }
 
     public void setCustomDrop(ItemStack itemStack){
-        if(customDrop == null && itemStack!=null){
+        if(itemStack!=null){
             customDrop = itemStack;
         }else{
             customDrop = null;
         }
     }
 
-    public Item getItemDropped(){
-        return (customDrop!=null)?customDrop.getItem():new ItemBlock(this);
+    @Override
+    public Item getItemDropped(int par1, Random random, int fortuneLvl){
+        return (this.customDrop==null)?new ItemBlock(this):this.customDrop.getItem();
     }
 
     public int quantityDroppedWithBonus(int min, Random random)
