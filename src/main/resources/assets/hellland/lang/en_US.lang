@@ -31,7 +31,6 @@ item.HellLand:boneBlade.name=Bone Blade
 item.HellLand:toolRod1.name=Tool Rod I
 item.HellLand:weaponiumIngot.name=Weaponium ingot
 
-item.HellLand:bag.name=Backpack
 item.HellLand:magicSword.name=Magic sword
 item.HellLand:magicDoubleSword.name=Magic ExtraSword
 item.HellLand:magicKatana.name=Magic katana
@@ -46,7 +45,6 @@ item.HellLand:crystalPickaxe.name=Crystal pickaxe
 item.HellLand:crystalShovel.name=Crystal spike
 item.HellLand:arcaneGoldIngot.name=Arcane gold ingot
 item.HellLand:arcaneSteelIngot.name=Arcane steel ingot
-item.HellLand:ashDust.name=Ash dust
 
 item.HellLand:crystal_0.name=Basic crystal
 item.HellLand:crystal_1.name=Fire crystal
@@ -75,4 +73,3 @@ itemGroup.hellLandStuff=§4Hell Land Stuff
 itemGroup.hellLandDecorative=§4Hell Land Decorative
 enchantment.devilsStrike=Devil's Strike
 enchantment.angelsDeath=Angel's Death
-container.bag=BackPack

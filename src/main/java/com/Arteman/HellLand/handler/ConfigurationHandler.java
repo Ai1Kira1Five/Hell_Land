@@ -2,7 +2,7 @@ package com.Arteman.HellLand.handler;
 
 import java.io.File;
 
-import com.Arteman.HellLand.HellLandCore;
+import com.Arteman.HellLand.HellLand;
 import net.minecraftforge.common.config.Configuration;
 import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -34,7 +34,7 @@ public class ConfigurationHandler {
 
     @SubscribeEvent
     public void OnConfigChangedEvent(ConfigChangedEvent.OnConfigChangedEvent event){
-        if(event.modID.equalsIgnoreCase(HellLandCore.MODID)){
+        if(event.modID.equalsIgnoreCase(HellLand.MODID)){
             loadConfiguration();
         }
     }

@@ -1,11 +1,6 @@
 package com.Arteman.HellLand;
 
 
-import java.nio.ByteBuffer;
-import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
-import java.util.UUID;
-
 import com.Arteman.HellLand.handler.ConfigurationHandler;
 import com.Arteman.HellLand.handler.GuiHandler;
 import com.Arteman.HellLand.otherStuff.Enchantments;
@@ -13,11 +8,7 @@ import com.Arteman.HellLand.otherStuff.enchantments.EnchantmentHandler;
 import com.Arteman.HellLand.proxy.CommonProxy;
 import com.Arteman.HellLand.recipes.CrystallizerRecipes;
 import com.Arteman.HellLand.recipes.ModRecipes;
-import com.Arteman.HellLand.utils.network.ChannelHandler;
-import com.Arteman.HellLand.utils.network.HLLog;
 import com.Arteman.HellLand.utils.network.HellMessagePipeline;
-import com.mojang.authlib.GameProfile;
-
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -32,15 +23,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
-
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = HellLandCore.MODID, version = HellLandCore.VERSION, guiFactory = "com.Arteman.HellLand.gui.GuiFactory")
-public class HellLandCore extends HellLandMod
-{
+@Mod(modid = HellLand.MODID, version = HellLand.VERSION, guiFactory = "com.Arteman.HellLand.gui.GuiFactory")
+public class HellLand {
     public static final String MODID = "HellLand";
     public static final String VERSION = "Alert_ver.0.1";
-  
+
     public static CreativeTabs HellMCTab;
     public static CreativeTabs HellMCTabStuff;
     public static CreativeTabs HellMCTabDecor;
@@ -48,8 +37,6 @@ public class HellLandCore extends HellLandMod
     public HellMessagePipeline messagePipeline;
     public static Logger modLog;
 
-    public static int itemLifespan = 1200;
-    
     //Materials
     public static final Item.ToolMaterial Bone = EnumHelper.addToolMaterial("BONE", 3, 38, 2.0f, 15.5f, 20);
     public static final Item.ToolMaterial MagicSteel = EnumHelper.addToolMaterial("MagicSteel", 5, 700, 3.0f, 16.0f, 40);
@@ -57,66 +44,47 @@ public class HellLandCore extends HellLandMod
     public static final Item.ToolMaterial Crystal = EnumHelper.addToolMaterial("Crystal", 3, 120, 5.0f, 10.0f, 50);
 
     @Mod.Instance(MODID)
-    public static HellLandCore instance;
+    public static HellLand instance;
     public static final int guiIDHellOven = 1;
     public static final int guiIDSoulCrystallizer = 2;
     public static final int guiIDCrystalOven = 3;
     public static final int guiIDAmuletTable = 4;
     public static final int guiIDMMixer = 5;
-    public static final int guiIDBag = 6;
 
-    public static GameProfile gameProfile = new GameProfile(UUID.nameUUIDFromBytes("hellLand.core".getBytes()), "[HellLand]");
-    
-    private static FloatBuffer modelviewF;
-	private static FloatBuffer projectionF;
-	private static IntBuffer viewport;
 
-	private static FloatBuffer pos = ByteBuffer.allocateDirect(3 * 4).asFloatBuffer();
-    
     @SidedProxy(clientSide = "com.Arteman.HellLand.proxy.ClientProxy", serverSide = "com.Arteman.HellLand.proxy.CommonProxy")
     public static CommonProxy artemanProxy;
-    
 
-    public HellLandCore() {
+    public HellLand() {
         messagePipeline = new HellMessagePipeline();
     }
 
     @EventHandler
-    public void preInit(FMLPreInitializationEvent event) 
-    {
-    	HLLog.initLog();
-    	
+    public void preInit(FMLPreInitializationEvent event) {
         //Main stuff
-        HellMCTab = new CreativeTabs("hellLand") 
-        {
+        HellMCTab = new CreativeTabs("hellLand") {
             @Override
-            public Item getTabIconItem() 
-            {
+            public Item getTabIconItem() {
                 return ModItems.HellCrystal;
             }
         };
-        HellMCTabStuff = new CreativeTabs("hellLandStuff") 
-        {
+        HellMCTabStuff = new CreativeTabs("hellLandStuff") {
             @Override
-            public Item getTabIconItem()
-            {
+            public Item getTabIconItem() {
                 return ModItems.Heart;
             }
         };
-        HellMCTabDecor = new CreativeTabs("hellLandDecorative") 
-        {
+        HellMCTabDecor = new CreativeTabs("hellLandDecorative") {
             @Override
-            public Item getTabIconItem()
-            {
+            public Item getTabIconItem() {
                 return Item.getItemFromBlock(ModBlocks.Marble);
             }
         };
-        
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
-        
-        ModItems.init();
+
         ModBlocks.init();
+        ModItems.init();
         ModFluids.init();
         Enchantments.init();
 
@@ -141,9 +109,7 @@ public class HellLandCore extends HellLandMod
         MinecraftForge.EVENT_BUS.register(new ModDrops());
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
         MinecraftForge.EVENT_BUS.register(new EnchantmentHandler());
-        
-        ChannelHandler coreChannelHandler = new ChannelHandler();
-        
+
         //TileEntity
         ModTiles.init();
     }

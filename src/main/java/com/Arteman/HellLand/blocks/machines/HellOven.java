@@ -1,6 +1,6 @@
 package com.Arteman.HellLand.blocks.machines;
 
-import com.Arteman.HellLand.HellLandCore;
+import com.Arteman.HellLand.HellLand;
 import com.Arteman.HellLand.ModBlocks;
 import com.Arteman.HellLand.tileentity.TileEntityHellOven;
 import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
@@ -37,15 +37,15 @@ public class HellOven extends BlockContainer {
 
     public HellOven(boolean isActive) {
         super(Material.iron);
-        this.setBlockName(HellLandCore.MODID+":hellOven");
+        this.setBlockName(HellLand.MODID+":hellOven");
         this.isActive = isActive;
     }
 
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
-        this.blockIcon = iconRegister.registerIcon(HellLandCore.MODID + ":" + "hellOvenSide");
-        this.iconFront = iconRegister.registerIcon(HellLandCore.MODID + ":" + (this.isActive ? "hellOvenFrontOn" : "hellOvenFrontOff"));
-        this.iconTop = iconRegister.registerIcon(HellLandCore.MODID + ":" + "hellOvenTop");
+        this.blockIcon = iconRegister.registerIcon(HellLand.MODID + ":" + "hellOvenSide");
+        this.iconFront = iconRegister.registerIcon(HellLand.MODID + ":" + (this.isActive ? "hellOvenFrontOn" : "hellOvenFrontOff"));
+        this.iconTop = iconRegister.registerIcon(HellLand.MODID + ":" + "hellOvenTop");
     }
 
     @SideOnly(Side.CLIENT)
@@ -85,7 +85,7 @@ public class HellOven extends BlockContainer {
 
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
         if (!world.isRemote) {
-            FMLNetworkHandler.openGui(player, HellLandCore.instance, HellLandCore.guiIDHellOven, world, x, y, z);
+            FMLNetworkHandler.openGui(player, HellLand.instance, HellLand.guiIDHellOven, world, x, y, z);
         }
         return true;
     }

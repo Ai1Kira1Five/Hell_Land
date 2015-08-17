@@ -1,6 +1,6 @@
 package com.Arteman.HellLand.blocks.machines;
 
-import com.Arteman.HellLand.HellLandCore;
+import com.Arteman.HellLand.HellLand;
 import com.Arteman.HellLand.utils.BlockHell;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 public class AmuletTable extends BlockHell {
 
     public AmuletTable(String name) {
-        super(name,Material.wood,soundTypeWood,HellLandCore.HellMCTab,3.5f,5.0f,0.0f);
+        super(name,Material.wood,soundTypeWood,HellLand.HellMCTab,3.5f,5.0f,0.0f);
         this.setHarvestLevel("axe", 2);
     }
 
@@ -22,8 +22,8 @@ public class AmuletTable extends BlockHell {
 
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
-        this.blockIcon = iconRegister.registerIcon(HellLandCore.MODID + ":" + "amuletTableSide");
-        this.iconTop = iconRegister.registerIcon(HellLandCore.MODID + ":" + "amuletTableTop");
+        this.blockIcon = iconRegister.registerIcon(HellLand.MODID + ":" + "amuletTableSide");
+        this.iconTop = iconRegister.registerIcon(HellLand.MODID + ":" + "amuletTableTop");
     }
 
     @SideOnly(Side.CLIENT)
@@ -33,7 +33,7 @@ public class AmuletTable extends BlockHell {
 
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int q, float a, float c) {
         if (!player.isSneaking()) {
-            player.openGui(HellLandCore.MODID, HellLandCore.guiIDAmuletTable, world, x, y, z);
+            player.openGui(HellLand.MODID, HellLand.guiIDAmuletTable, world, x, y, z);
             return true;
         } else {
             return false;

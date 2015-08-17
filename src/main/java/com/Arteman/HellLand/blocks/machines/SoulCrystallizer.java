@@ -1,6 +1,6 @@
 package com.Arteman.HellLand.blocks.machines;
 
-import com.Arteman.HellLand.HellLandCore;
+import com.Arteman.HellLand.HellLand;
 import com.Arteman.HellLand.ModBlocks;
 import com.Arteman.HellLand.tileentity.TileEntitySoulCrystallizer;
 import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
@@ -36,16 +36,16 @@ public class SoulCrystallizer extends BlockContainer {
     public SoulCrystallizer(boolean isActive) {
         super(Material.rock);
         this.isAct2 = isActive;
-        this.setBlockName(HellLandCore.MODID + ":soulCrystallizer");
+        this.setBlockName(HellLand.MODID + ":soulCrystallizer");
         this.setStepSound(soundTypePiston);
         this.setHardness(3.4f);
     }
 
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister) {
-        this.blockIcon = iconRegister.registerIcon(HellLandCore.MODID + ":" + "soulCrystallizerSide");
-        this.iconFront = iconRegister.registerIcon(HellLandCore.MODID + ":" + (this.isAct2 ? "soulCrystallizerFrontOn" : "soulCrystallizerFrontOff"));
-        this.iconTop = iconRegister.registerIcon(HellLandCore.MODID + ":" + "soulCrystallizerTop");
+        this.blockIcon = iconRegister.registerIcon(HellLand.MODID + ":" + "soulCrystallizerSide");
+        this.iconFront = iconRegister.registerIcon(HellLand.MODID + ":" + (this.isAct2 ? "soulCrystallizerFrontOn" : "soulCrystallizerFrontOff"));
+        this.iconTop = iconRegister.registerIcon(HellLand.MODID + ":" + "soulCrystallizerTop");
     }
 
     @SideOnly(Side.CLIENT)
@@ -88,7 +88,7 @@ public class SoulCrystallizer extends BlockContainer {
 
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
         if (!world.isRemote) {
-            FMLNetworkHandler.openGui(player, HellLandCore.instance, HellLandCore.guiIDSoulCrystallizer, world, x, y, z);
+            FMLNetworkHandler.openGui(player, HellLand.instance, HellLand.guiIDSoulCrystallizer, world, x, y, z);
         }
         return true;
     }

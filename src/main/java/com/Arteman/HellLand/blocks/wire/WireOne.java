@@ -1,6 +1,6 @@
 package com.Arteman.HellLand.blocks.wire;
 
-import com.Arteman.HellLand.HellLandCore;
+import com.Arteman.HellLand.HellLand;
 import com.Arteman.HellLand.tileentity.TileEntityWire;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -14,8 +14,8 @@ public class WireOne extends BlockContainer {
 
     public WireOne() {
         super(Material.glass);
-        this.setBlockName(HellLandCore.MODID + ":" + "wireOne");
-        this.setBlockTextureName(HellLandCore.MODID + ":" + "wireOne");
+        this.setBlockName(HellLand.MODID + ":" + "wireOne");
+        this.setBlockTextureName(HellLand.MODID + ":" + "wireOne");
         this.setBlockBounds(11 * pixel / 2, 11 * pixel / 2, 11 * pixel / 2, 1 - 11 * pixel / 2, 1 - 11 * pixel / 2, 1 - 11 * pixel / 2);
         this.useNeighborBrightness = true;
     }

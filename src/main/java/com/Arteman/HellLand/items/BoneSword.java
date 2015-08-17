@@ -26,10 +26,8 @@ public class BoneSword extends SwordsHell {
         ls.add("Not so good weapon, but you are need it...");
     }
 
-    public void isItemEnchanted(ItemStack itSt)
-    {
-        if (!itSt.isItemEnchanted())
-        {
+    public void isItemEnchanted(ItemStack itSt) {
+        if (!itSt.isItemEnchanted()) {
             itSt.addEnchantment(Enchantment.sharpness, 4);
             itSt.addEnchantment(Enchantment.looting, 5);
         }

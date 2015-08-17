@@ -1,6 +1,6 @@
 package com.Arteman.HellLand.items.tools;
 
-import com.Arteman.HellLand.HellLandCore;
+import com.Arteman.HellLand.HellLand;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,7 +18,7 @@ public class ToolCore extends Item {
         super();
         this.maxStackSize = 1;
         this.setMaxDamage(200);
-        this.setCreativeTab(HellLandCore.HellMCTab);
+        this.setCreativeTab(HellLand.HellMCTab);
     }
 
     public void onEntityDamaged(World world, EntityLivingBase player, Entity entity) {

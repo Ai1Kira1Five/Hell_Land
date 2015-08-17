@@ -1,6 +1,6 @@
 package com.Arteman.HellLand.gui;
 
-import com.Arteman.HellLand.HellLandCore;
+import com.Arteman.HellLand.HellLand;
 import com.Arteman.HellLand.container.ContainerAmuletTable;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
 public class GuiAmuletTable extends GuiContainer {
-    private ResourceLocation texture = new ResourceLocation(HellLandCore.MODID + ":" + "textures/gui/GuiAmuletTable.png");
+    private ResourceLocation texture = new ResourceLocation(HellLand.MODID + ":" + "textures/gui/GuiAmuletTable.png");
 
     public GuiAmuletTable(InventoryPlayer invPlayer, World world, int x, int y, int z) {
         super(new ContainerAmuletTable(invPlayer, world, x, y, z));

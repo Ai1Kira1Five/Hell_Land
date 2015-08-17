@@ -1,6 +1,6 @@
 package com.Arteman.HellLand.gui;
 
-import com.Arteman.HellLand.HellLandCore;
+import com.Arteman.HellLand.HellLand;
 import com.Arteman.HellLand.container.ContainerSoulCrystallizer;
 import com.Arteman.HellLand.tileentity.TileEntitySoulCrystallizer;
 import net.minecraft.client.Minecraft;
@@ -11,7 +11,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GuiSoulCrystallizer extends GuiContainer {
-    public static final ResourceLocation bground = new ResourceLocation(HellLandCore.MODID + ":" + "textures/gui/guiSoulCrystallizer.png");
+    public static final ResourceLocation bground = new ResourceLocation(HellLand.MODID + ":" + "textures/gui/guiSoulCrystallizer.png");
 
     public TileEntitySoulCrystallizer soulCrystallizer;
 
