@@ -17,7 +17,7 @@ import org.lwjgl.opengl.GL11;
 @SideOnly(Side.CLIENT)
 public class GuiBag extends GuiContainer{
 
-    public static final ResourceLocation bground = new ResourceLocation(HellLand.MODID + ":" + "textures/gui/guiBag.png");
+    public static ResourceLocation bground;
 
     private final ItemStack parentItemStack;
     private final InventoryBag inventoryBag;
@@ -29,8 +29,22 @@ public class GuiBag extends GuiContainer{
         this.parentItemStack = inventoryBag.parentItemStack;
         this.inventoryBag = inventoryBag;
 
-            xSize = 176;
-            ySize = 169;
+        this.bground = new ResourceLocation(HellLand.MODID+":"+"textures/gui/guiBag"+parentItemStack.getItemDamage()+".png");
+
+        xSize = 176;
+        switch(parentItemStack.getItemDamage()) {
+            case 0:
+                ySize = 150;
+                break;
+            case 1:
+                ySize = 186;
+                break;
+            case 2:
+                ySize = 222;
+                break;
+            default:ySize = 150;
+        }
+
 
     }
 

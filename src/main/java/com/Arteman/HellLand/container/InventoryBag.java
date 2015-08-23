@@ -16,10 +16,11 @@ public class InventoryBag implements IInventory
     public ItemStack parentItemStack;
     protected ItemStack[] inventory;
     protected String customName;
+    private int minSize = 18;
 
     public InventoryBag(ItemStack itemStack){
         parentItemStack = itemStack;
-        int size = 27;
+        int size = getSizeFromDamage(itemStack);
         inventory = new ItemStack[size];
         readFromNBT(itemStack.getTagCompound());
     }
@@ -197,5 +198,10 @@ public class InventoryBag implements IInventory
     public String getCustomName()
     {
         return customName;
+    }
+
+    public int getSizeFromDamage(ItemStack itemStack){
+        int meta = ((itemStack.getItemDamage()>2)?0:itemStack.getItemDamage())+1;
+        return minSize*meta;
     }
 }

@@ -21,7 +21,7 @@ public class ContainerBag extends Container
     {
         this.inventoryPlayer = inventory;
         this.inventoryBag = inventoryBag;
-        bagInventoryRows = 3;
+        bagInventoryRows = 2*(inventoryBag.parentItemStack.getItemDamage()+1);
         bagInventoryColumns = 9;
 
         for (int bagRowIndex = 0; bagRowIndex < bagInventoryRows; ++bagRowIndex)
@@ -33,27 +33,18 @@ public class ContainerBag extends Container
             }
         }
 
+
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 9; j++) {
-                this.addSlotToContainer(new Slot(inventory, j + i * 9 + 9, 8 + j * 18, 87 + i * 18));
+                this.addSlotToContainer(new Slot(inventory, j + i * 9 + 9, 8 + j * 18, (bagInventoryRows * 18 + 32) + i * 18));
             }
         }
 
-        //for (int i = 0; i < 9; i++) {
-        //    this.addSlotToContainer(new Slot(inventory, i, 8 + i * 18, 142));
-        //}
-  /*
-        for (int inventoryRowIndex = 0; inventoryRowIndex < 3; ++inventoryRowIndex){
-            for (int inventoryColumnIndex = 0; inventoryColumnIndex < 9; ++inventoryColumnIndex){
-                this.addSlotToContainer(new Slot(inventoryPlayer, inventoryColumnIndex + inventoryRowIndex * 9 + 9, 35 + inventoryColumnIndex * 18, 104 + inventoryRowIndex * 18));
-            }
-        }
-*/
         for (int actionBarSlotIndex = 0; actionBarSlotIndex < 9; ++actionBarSlotIndex){
                 if(!(inventoryPlayer.getStackInSlot(actionBarSlotIndex)==inventoryBag.parentItemStack)){
-                    this.addSlotToContainer(new Slot(inventoryPlayer, actionBarSlotIndex, 8 + actionBarSlotIndex * 18, 144));
+                    this.addSlotToContainer(new Slot(inventoryPlayer, actionBarSlotIndex, 8 + actionBarSlotIndex * 18, ((bagInventoryRows * 18 + 36) + 3 * 18)));
                 }else{
-                    this.addSlotToContainer(new Slot(inventoryPlayer, actionBarSlotIndex, 8 + actionBarSlotIndex * 18, 144){
+                    this.addSlotToContainer(new Slot(inventoryPlayer, actionBarSlotIndex, 8 + actionBarSlotIndex * 18, ((bagInventoryRows * 18 + 36) + 3 * 18)){
                         public boolean canTakeStack(EntityPlayer p_82869_1_){
                             return false;
                         }

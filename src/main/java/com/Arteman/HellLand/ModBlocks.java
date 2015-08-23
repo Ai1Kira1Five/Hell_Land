@@ -44,15 +44,15 @@ public class ModBlocks {
 
     public final static void init() {
 
-        HellFragment = new BlockHell("hellFragment", Material.iron, Block.soundTypeMetal, HellLand.HellMCTab, 50.0f, 1000.0f, 0.0f);
-        HellBase = new BlockHell("hellBase", Material.iron, Block.soundTypeMetal, HellLand.HellMCTab, 30.0f, 1000.0f, 0.0f);
-        StrongStone = new BlockHell("strongStone", Material.rock, Block.soundTypePiston, HellLand.HellMCTab, 20.0f, 10000.0f, 0.0f);
-        Marble = new BlockHell("marble", Material.rock, Block.soundTypeStone, HellLand.HellMCTabDecor, 50.0f, 100.0f, 0.0f);
-        Basalt = new BlockHell("basalt", Material.rock, Block.soundTypeStone, HellLand.HellMCTabDecor, 50.0f, 100.0f, 0.0f);
-        CrystallBlock = new BlockHell("crystalBlock", Material.rock, Block.soundTypeGlass, HellLand.HellMCTabDecor, 5.0f, 50.0f, 1.0f);
+        HellFragment = new BlockHell("hellFragment", Material.iron, Block.soundTypeMetal, HellLand.HellMCTab, 10.0f, 1000.0f, 0.0f);
+        HellBase = new BlockHell("hellBase", Material.iron, Block.soundTypeMetal, HellLand.HellMCTab, 10.0f, 1000.0f, 0.0f);
+        StrongStone = new BlockHell("strongStone", Material.rock, Block.soundTypePiston, HellLand.HellMCTab, 10.0f, 10000.0f, 0.0f);
+        Marble = new BlockHell("marble", Material.rock, Block.soundTypeStone, HellLand.HellMCTabDecor, 10.0f, 100.0f, 0.0f);
+        CrystallBlock = new BlockHell("crystalBlock", Material.rock, Block.soundTypeGlass, HellLand.HellMCTabDecor, 10.0f, 50.0f, 1.0f);
         ArcaneGoldBlock = new BlockHell("arcaneGoldBlock", Material.iron, Block.soundTypeMetal, HellLand.HellMCTab, 10.0f, 50.0f, 0.0f);
         ArcaneSteelBlock = new BlockHell("arcaneSteelBlock", Material.iron, Block.soundTypeMetal, HellLand.HellMCTab, 10.0f, 50.0f, 0.0f);
-        Ash = new BlockHell("ash", Material.sand, Block.soundTypeSand, HellLand.HellMCTabDecor, 10.0f, 100.0f, 0.0f);
+        Basalt = new BlockHell("basalt", Material.rock, Block.soundTypeStone, HellLand.HellMCTabDecor, 10.0f, 100.0f, 0.0f);
+        Ash = new BlockHell("ash", Material.sand, Block.soundTypeSand, HellLand.HellMCTabDecor, 3.0f, 100.0f, 0.0f);
             Ash.setCustomDrop(new ItemStack(ModItems.AshDust,4));
             Ash.setHarvestLevel("shovel",1);
 

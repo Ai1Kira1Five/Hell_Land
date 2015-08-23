@@ -1,7 +1,6 @@
 package com.Arteman.HellLand.utils;
 
 import com.Arteman.HellLand.HellLand;
-import com.Arteman.HellLand.ModBlocks;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -15,10 +14,12 @@ import java.util.Random;
 
 public class BlockHell extends Block {
 
-    private ItemStack customDrop;
+    private ItemStack customDrop = null;
+    public String name;
 
     public BlockHell(String name, Material material,SoundType soundType,CreativeTabs tabs, float hardness, float resistance, float lightLevel) {
         super(material);
+        this.name = name;
         this.setCreativeTab(tabs);
         this.setBlockName(HellLand.MODID + ":" + name);
         this.setBlockTextureName(HellLand.MODID + ":" + name);
@@ -26,8 +27,9 @@ public class BlockHell extends Block {
         this.setResistance(resistance);
         this.setStepSound(soundType);
         this.setHarvestLevel("pickaxe", 3);
+        this.setLightLevel(lightLevel);
         GameRegistry.registerBlock(this, name);
-        this.setCustomDrop(new ItemStack(this,1));
+        this.setCustomDrop(new ItemStack(this, 1));
     }
 
     public void setCustomDrop(ItemStack itemStack){
@@ -38,9 +40,8 @@ public class BlockHell extends Block {
         }
     }
 
-    @Override
-    public Item getItemDropped(int par1, Random random, int fortuneLvl){
-        return (this.customDrop==null)?new ItemBlock(this):this.customDrop.getItem();
+    public Item getItemDropped(int meta, Random random, int fortuneLvl){
+            return (this.customDrop == null) ? new ItemBlock(this) : this.customDrop.getItem();
     }
 
     public int quantityDroppedWithBonus(int min, Random random)
@@ -56,4 +57,5 @@ public class BlockHell extends Block {
     {
         return random.nextInt(this.customDrop.stackSize);
     }
+
 }

@@ -64,7 +64,7 @@ public class ModItems {
         ArcaneSteelIngot = new ItemHell("arcaneSteelIngot", HellLand.HellMCTabStuff, false, 0);
 
         //other stuff
-        Bag = new Bag("bag", HellLand.HellMCTab, false, 0);
+        Bag = new Bag("bag", HellLand.HellMCTab, true, 2);
         //tools and weapons
         if (ConfigurationHandler.enableTools) {
             //axe

@@ -45,6 +45,7 @@ item.HellLand:crystalPickaxe.name=Crystal pickaxe
 item.HellLand:crystalShovel.name=Crystal spike
 item.HellLand:arcaneGoldIngot.name=Arcane gold ingot
 item.HellLand:arcaneSteelIngot.name=Arcane steel ingot
+item.HellLand:ashDust.name=Ash dust
 
 item.HellLand:crystal_0.name=Basic crystal
 item.HellLand:crystal_1.name=Fire crystal
@@ -66,6 +67,9 @@ item.HellLand:heart_5.name=Light heart
 item.HellLand:heart_6.name=Darkness heart
 item.HellLand:heart_7.name=Energy heart
 
+item.HellLand:bag_0.name=Backpack(Micro)
+item.HellLand:bag_1.name=Backpack(Normal)
+item.HellLand:bag_2.name=Backpack(Large)
 # Misc
 
 itemGroup.hellLand=§4Hell Land
@@ -73,3 +77,4 @@ itemGroup.hellLandStuff=§4Hell Land Stuff
 itemGroup.hellLandDecorative=§4Hell Land Decorative
 enchantment.devilsStrike=Devil's Strike
 enchantment.angelsDeath=Angel's Death
+container.bag=BackPack
