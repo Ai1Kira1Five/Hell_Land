@@ -1,6 +1,5 @@
 package com.Arteman.HellLand.items;
 
-
 import com.Arteman.HellLand.utils.tools.SwordsHell;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -26,8 +25,8 @@ public class BoneSword extends SwordsHell {
         ls.add("Not so good weapon, but you are need it...");
     }
 
-    public void isItemEnchanted(ItemStack itSt) {
-        if (!itSt.isItemEnchanted()) {
+    public void isItemEnchanted(ItemStack itSt){
+        if (!itSt.isItemEnchanted()){
             itSt.addEnchantment(Enchantment.sharpness, 4);
             itSt.addEnchantment(Enchantment.looting, 5);
         }
@@ -37,13 +36,11 @@ public class BoneSword extends SwordsHell {
     @Override
     public void onUpdate(ItemStack itSt, World world, Entity pl, int i1, boolean ch) {
         super.onUpdate(itSt, world, pl, i1, ch);
-        {
             EntityPlayer player = (EntityPlayer) pl;
             ItemStack equipped = player.getCurrentEquippedItem();
             if (equipped == itSt) {
                 player.addPotionEffect(new PotionEffect(Potion.moveSpeed.getId(), 100, 2));
             }
-        }
     }
 
     public boolean getIsRepairable(ItemStack itemSt1, ItemStack itemSt2) {

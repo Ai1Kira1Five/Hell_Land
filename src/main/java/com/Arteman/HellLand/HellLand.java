@@ -51,6 +51,8 @@ public class HellLand {
     public static final int guiIDAmuletTable = 4;
     public static final int guiIDMMixer = 5;
 
+    public static final int guiIDBag = 6;
+
 
     @SidedProxy(clientSide = "com.Arteman.HellLand.proxy.ClientProxy", serverSide = "com.Arteman.HellLand.proxy.CommonProxy")
     public static CommonProxy artemanProxy;
@@ -83,8 +85,8 @@ public class HellLand {
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
 
-        ModBlocks.init();
         ModItems.init();
+        ModBlocks.init();
         ModFluids.init();
         Enchantments.init();
 
