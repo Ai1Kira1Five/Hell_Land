@@ -9,7 +9,6 @@ tile.HellLand:wireOne.name=Wire of Hell FEAR
 tile.HellLand:bloodWood.name=Bloody wood
 tile.HellLand:amuletTable.name=Amulet Table
 tile.HellLand:bloodPlanks.name=Blood Planks
-tile.HellLand:basalt.name=Basalt
 tile.HellLand:marble.name=Marble
 tile.HellLand:ash.name=Ash
 tile.HellLand:crystalOven.name=Crystal oven
@@ -70,6 +69,12 @@ item.HellLand:heart_7.name=Energy heart
 item.HellLand:bag_0.name=Backpack(Micro)
 item.HellLand:bag_1.name=Backpack(Normal)
 item.HellLand:bag_2.name=Backpack(Large)
+
+tile.HellLand:basalt_0.name=Basalt
+tile.HellLand:basalt_1.name=Basalt Brick
+tile.HellLand:basalt_2.name=Basalt Brickwork
+tile.HellLand:basalt_3.name=Basalt Framed
+tile.HellLand:basalt_4.name=Basalt Monolith
 # Misc
 
 itemGroup.hellLand=§4Hell Land

@@ -7,7 +7,7 @@ import net.minecraft.block.material.Material;
 public class BloodWoodLogs extends BlockHell {
 
     public BloodWoodLogs(String name) {
-        super(name,Material.wood,soundTypeWood,HellLand.HellMCTab,3.5f,25.0f,0.0f);
+        super(name,Material.wood,soundTypeWood,HellLand.HellMCTab,3.5f,25.0f,0.0f,false,0);
          this.setHarvestLevel("axe", 1);
    }
 }

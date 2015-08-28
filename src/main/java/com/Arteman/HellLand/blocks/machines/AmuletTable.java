@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 public class AmuletTable extends BlockHell {
 
     public AmuletTable(String name) {
-        super(name,Material.wood,soundTypeWood,HellLand.HellMCTab,3.5f,5.0f,0.0f);
+        super(name,Material.wood,soundTypeWood,HellLand.HellMCTab,3.5f,5.0f,0.0f,false,0);
         this.setHarvestLevel("axe", 2);
     }
 

@@ -11,7 +11,7 @@ import net.minecraft.util.IIcon;
 public class BloodWood extends BlockHell {
 
     public BloodWood(String name) {
-        super(name,Material.wood,soundTypeWood,HellLand.HellMCTab,5.0f,50.0f,0.0f);
+        super(name,Material.wood,soundTypeWood,HellLand.HellMCTab,5.0f,50.0f,0.0f,false,0);
         this.setHarvestLevel("axe", 1);
     }
 

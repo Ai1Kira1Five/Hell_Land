@@ -7,7 +7,7 @@ import net.minecraft.block.material.Material;
 public class NecroticLamp extends BlockHell {
 
     public NecroticLamp(String name) {
-        super(name,Material.rock,soundTypeGlass,HellLand.HellMCTabDecor,0.5f,5.0f,15.0f);
+        super(name,Material.rock,soundTypeGlass,HellLand.HellMCTabDecor,0.5f,5.0f,15.0f,false,0);
     }
 
     /*
