@@ -130,34 +130,47 @@ public class BlockHell extends Block {
         return this.blockIcons.length-1;
     }
 
-    public void registerBlock(){
-        if(this.hasSub){
+    public void registerBlock()
+    {
+        if(this.hasSub)
+        {
             GameRegistry.registerBlock(this, ItemBlockHell.class, name);
-        }else{
+        }
+        else
+        {
             GameRegistry.registerBlock(this, ItemBlock.class, name);
         }
         System.out.println(String.format("Successfully register block: %s", this.getName()));
     }
 
-    public static class ItemBlockHell extends ItemBlockWithMetadata{
-        public ItemBlockHell(Block block){
+    public static class ItemBlockHell extends ItemBlockWithMetadata
+    {
+        public ItemBlockHell(Block block)
+        {
             super(block,block);
             this.hasSubtypes = ((BlockHell) block).hasSub;
             this.maxStackSize = 64;
         }
+        
         @SideOnly(Side.CLIENT)
-        public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list){
-            for(int i=0;i<=this.getMaxDamage();++i){
+        public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list)
+        {
+            for(int i=0;i<=this.getMaxDamage();++i)
+            {
                 list.add(new ItemStack(item, 1, i));
             }
         }
-        public String getUnlocalizedName(ItemStack itemStack){
+        
+        public String getUnlocalizedName(ItemStack itemStack)
+        {
             int meta = itemStack.getItemDamage();
             meta = MathHelper.clamp_int(meta, 0, ((BlockHell)this.field_150939_a).getMaxMeta());
             return this.getUnlocalizedName()+"_"+meta;
         }
+        
         @SideOnly(Side.CLIENT)
-        public IIcon getIconFromDamage(int metadata){
+        public IIcon getIconFromDamage(int metadata)
+        {
             return ((BlockHell)this.field_150939_a).blockIcons[metadata];
         }
     }
