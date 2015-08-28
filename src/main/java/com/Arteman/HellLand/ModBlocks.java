@@ -84,24 +84,6 @@ public class ModBlocks {
         GameRegistry.registerBlock(WireOne, "WireOne");
         GameRegistry.registerBlock(SoulCrystallizerIdle, "SoulCrystallizerIdle");
         GameRegistry.registerBlock(SoulCrystallizerActive, "SoulCrystallizerActive");
-        registerBlocks();
     }
 
-    public static void registerBlocks(){
-        for (Field field:ModBlocks.class.getFields()){
-            try {
-                Object inst = field.get(null);
-                if (inst instanceof BlockHell) {
-                    if(((BlockHell) inst).hasSub) {
-                        GameRegistry.registerBlock((Block) inst, ItemBlockHell.class, ((BlockHell) inst).getName());
-                        System.out.println(String.format("Successfully register block: %s", ((BlockHell) inst).getName()));
-                    }else{
-                        GameRegistry.registerBlock((Block) inst, ((BlockHell) inst).getName());
-                        System.out.println(String.format("Successfully register block: %s", ((BlockHell) inst).getName()));
-                    }
-                }
-            }catch(IllegalAccessException e){}
-
-        }
-    }
 }

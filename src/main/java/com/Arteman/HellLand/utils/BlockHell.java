@@ -1,6 +1,7 @@
 package com.Arteman.HellLand.utils;
 
 import com.Arteman.HellLand.HellLand;
+import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -37,6 +38,7 @@ public class BlockHell extends Block {
         this.setLightLevel(lightLevel);
         this.hasSub = hasSub;
         this.blockIcons = new IIcon[maxMeta+1];
+        registerBlock();
     }
 
     public void setCustomDrop(ItemStack itemStack){
@@ -101,6 +103,15 @@ public class BlockHell extends Block {
 
     public int getMaxMeta(){
         return this.blockIcons.length-1;
+    }
+
+    public void registerBlock(){
+        if(this.hasSub){
+            GameRegistry.registerBlock(this, ItemBlockHell.class, name);
+        }else{
+            GameRegistry.registerBlock(this, ItemBlock.class, name);
+        }
+        System.out.println(String.format("Successfully register block: %s", this.getName()));
     }
 
     public static class ItemBlockHell extends ItemBlockWithMetadata{
