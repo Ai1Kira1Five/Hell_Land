@@ -41,14 +41,10 @@ public class BlockHell extends Block {
         registerBlock();
     }
 
-    public void setCustomDrop(ItemStack itemStack)
-    {
-        if(customDrop == null && itemStack!=null)
-        {
+    public void setCustomDrop(ItemStack itemStack){
+        if(itemStack!=null){
             customDrop = itemStack;
-        }
-        else
-        {
+        }else{
             customDrop = null;
         }
     }
@@ -57,19 +53,10 @@ public class BlockHell extends Block {
         return (this.customDrop == null) ? Item.getItemFromBlock(this): this.customDrop.getItem();
     }
 
-    public Item getItemDropped()
-    {
-        return (customDrop!=null)?customDrop.getItem():new ItemBlock(this);
-    }
-
-    public int quantityDroppedWithBonus(int min, Random random)
-    {
-        if(customDrop != null) 
-        {
+    public int quantityDroppedWithBonus(int min, Random random){
+        if(customDrop != null) {
             return MathHelper.clamp_int(this.quantityDropped(random), 1, customDrop.stackSize);
-        }
-        else
-        {
+        }else{
             return 1;
         }
     }
@@ -89,18 +76,6 @@ public class BlockHell extends Block {
             this.blockIcons[0] = iconRegister.registerIcon(this.getTextureName());
         }
     }
-
-	public boolean isFullCube()
-	{
-		return true;
-	}
-
-   // @Override
-   // @SideOnly(Side.CLIENT)
-   // public int getRenderType() {
-    //    return ClientProxy.renderId;
-    //}
-
 
     @Override
     public int damageDropped(int meta){
@@ -130,47 +105,35 @@ public class BlockHell extends Block {
         return this.blockIcons.length-1;
     }
 
-    public void registerBlock()
-    {
-        if(this.hasSub)
-        {
+    public void registerBlock(){
+        if(this.hasSub){
             GameRegistry.registerBlock(this, ItemBlockHell.class, name);
-        }
-        else
-        {
+            System.out.println(String.format("Register MetaBlock: %s", name));
+        }else{
             GameRegistry.registerBlock(this, ItemBlock.class, name);
+            System.out.println(String.format("Register Block: %s", name));
         }
-        System.out.println(String.format("Successfully register block: %s", this.getName()));
     }
 
-    public static class ItemBlockHell extends ItemBlockWithMetadata
-    {
-        public ItemBlockHell(Block block)
-        {
+    public static class ItemBlockHell extends ItemBlockWithMetadata{
+        public ItemBlockHell(Block block){
             super(block,block);
             this.hasSubtypes = ((BlockHell) block).hasSub;
             this.maxStackSize = 64;
         }
-        
         @SideOnly(Side.CLIENT)
-        public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list)
-        {
-            for(int i=0;i<=this.getMaxDamage();++i)
-            {
+        public void getSubBlocks(Item item, CreativeTabs creativeTabs, List list){
+            for(int i=0;i<=this.getMaxDamage();++i){
                 list.add(new ItemStack(item, 1, i));
             }
         }
-        
-        public String getUnlocalizedName(ItemStack itemStack)
-        {
+        public String getUnlocalizedName(ItemStack itemStack){
             int meta = itemStack.getItemDamage();
             meta = MathHelper.clamp_int(meta, 0, ((BlockHell)this.field_150939_a).getMaxMeta());
             return this.getUnlocalizedName()+"_"+meta;
         }
-        
         @SideOnly(Side.CLIENT)
-        public IIcon getIconFromDamage(int metadata)
-        {
+        public IIcon getIconFromDamage(int metadata){
             return ((BlockHell)this.field_150939_a).blockIcons[metadata];
         }
     }

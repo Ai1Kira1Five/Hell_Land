@@ -6,12 +6,9 @@ import com.Arteman.HellLand.blocks.NecroticLamp;
 import com.Arteman.HellLand.blocks.machines.*;
 import com.Arteman.HellLand.blocks.wire.WireOne;
 import com.Arteman.HellLand.utils.BlockHell;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.Minecraft;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import static com.Arteman.HellLand.utils.BlockHell.ItemBlockHell;
 
@@ -52,11 +49,11 @@ public class ModBlocks {
         HellFragment = new BlockHell("hellFragment", Material.iron, Block.soundTypeMetal, HellLand.HellMCTab, 10.0f, 1000.0f, 0.0f,false,0);
         HellBase = new BlockHell("hellBase", Material.iron, Block.soundTypeMetal, HellLand.HellMCTab, 10.0f, 1000.0f, 0.0f,false,0);
         StrongStone = new BlockHell("strongStone", Material.rock, Block.soundTypePiston, HellLand.HellMCTab, 10.0f, 10000.0f, 0.0f,false,0);
+        Marble = new BlockHell("marble", Material.rock, Block.soundTypeStone, HellLand.HellMCTabDecor, 10.0f, 100.0f, 0.0f,false,0);
         CrystallBlock = new BlockHell("crystalBlock", Material.rock, Block.soundTypeGlass, HellLand.HellMCTabDecor, 10.0f, 50.0f, 1.0f,false,0);
         ArcaneGoldBlock = new BlockHell("arcaneGoldBlock", Material.iron, Block.soundTypeMetal, HellLand.HellMCTab, 10.0f, 50.0f, 0.0f,false,0);
         ArcaneSteelBlock = new BlockHell("arcaneSteelBlock", Material.iron, Block.soundTypeMetal, HellLand.HellMCTab, 10.0f, 50.0f, 0.0f,false,0);
         Basalt = new BlockHell("basalt", Material.rock, Block.soundTypeStone, HellLand.HellMCTabDecor, 10.0f, 100.0f, 0.0f,true,4);
-        Marble = new BlockHell("marble", Material.rock, Block.soundTypeStone, HellLand.HellMCTabDecor, 10.0f, 100.0f, 0.0f,true,4);
         Ash = new BlockHell("ash", Material.sand, Block.soundTypeSand, HellLand.HellMCTabDecor, 3.0f, 100.0f, 0.0f,false,0);
             Ash.setCustomDrop(new ItemStack(ModItems.AshDust,4));
             Ash.setHarvestLevel("shovel",1);
@@ -88,4 +85,5 @@ public class ModBlocks {
         GameRegistry.registerBlock(SoulCrystallizerIdle, "SoulCrystallizerIdle");
         GameRegistry.registerBlock(SoulCrystallizerActive, "SoulCrystallizerActive");
     }
+
 }
