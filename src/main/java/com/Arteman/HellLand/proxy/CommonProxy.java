@@ -6,23 +6,28 @@ import com.Arteman.HellLand.utils.network.MSGExplosion;
 import net.minecraftforge.common.MinecraftForge;
 
 public class CommonProxy {
-    public void registerEventHandlers() {
+    public void registerEventHandlers()
+    {
         MinecraftForge.EVENT_BUS.register(new HellCommonEventHandler());
     }
 
-    public void registerPackets(HellMessagePipeline pipeline) {
+    public void registerPackets(HellMessagePipeline pipeline) 
+    {
         pipeline.registerPacket(MSGExplosion.class);
     }
 
-    public void registerRenderThings() {
+    public void registerRenders()
+    {
 
     }
 
-    public void registerTileEntitySpecialRender() {
+    public void registerTileEntitySpecialRender()
+    {
 
     }
 
-    public void registerProxies() {
+    public void registerProxies()
+    {
 
     }
 }

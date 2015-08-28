@@ -2,13 +2,17 @@ package com.Arteman.HellLand;
 
 import com.Arteman.HellLand.blocks.BloodWood;
 import com.Arteman.HellLand.blocks.BloodWoodLogs;
+import com.Arteman.HellLand.blocks.LightningTotem;
 import com.Arteman.HellLand.blocks.NecroticLamp;
 import com.Arteman.HellLand.blocks.machines.*;
 import com.Arteman.HellLand.blocks.wire.WireOne;
 import com.Arteman.HellLand.utils.BlockHell;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import static com.Arteman.HellLand.utils.BlockHell.ItemBlockHell;
 
@@ -30,6 +34,7 @@ public class ModBlocks {
     public static BlockHell CrystallBlock;
     public static BlockHell ArcaneGoldBlock;
     public static BlockHell ArcaneSteelBlock;
+    public static BlockHell LightningTotem;
 
     //machines
     public static Block HellOvenIdle;
@@ -44,6 +49,7 @@ public class ModBlocks {
     public static Block WireOne;
 
 
+<<<<<<< Updated upstream
     public static void init() {
 
         HellFragment = new BlockHell("hellFragment", Material.iron, Block.soundTypeMetal, HellLand.HellMCTab, 10.0f, 1000.0f, 0.0f,false,0);
@@ -57,12 +63,32 @@ public class ModBlocks {
         Ash = new BlockHell("ash", Material.sand, Block.soundTypeSand, HellLand.HellMCTabDecor, 3.0f, 100.0f, 0.0f,false,0);
             Ash.setCustomDrop(new ItemStack(ModItems.AshDust,4));
             Ash.setHarvestLevel("shovel",1);
+=======
+    public final static void init() 
+    {
+        HellFragment = new BlockHell("hellFragment", Material.iron, Block.soundTypeMetal, HellLand.HellMCTab, 50.0f, 1000.0f, 0.0f);
+        HellBase = new BlockHell("hellBase", Material.iron, Block.soundTypeMetal, HellLand.HellMCTab, 30.0f, 1000.0f, 0.0f);
+        StrongStone = new BlockHell("strongStone", Material.rock, Block.soundTypePiston, HellLand.HellMCTab, 20.0f, 10000.0f, 0.0f);
+        Marble = new BlockHell("marble", Material.rock, Block.soundTypeStone, HellLand.HellMCTabDecor, 50.0f, 100.0f, 0.0f);
+        Basalt = new BlockHell("basalt", Material.rock, Block.soundTypeStone, HellLand.HellMCTabDecor, 50.0f, 100.0f, 0.0f);
+        CrystallBlock = new BlockHell("crystalBlock", Material.rock, Block.soundTypeGlass, HellLand.HellMCTabDecor, 5.0f, 50.0f, 1.0f);
+        ArcaneGoldBlock = new BlockHell("arcaneGoldBlock", Material.iron, Block.soundTypeMetal, HellLand.HellMCTab, 10.0f, 50.0f, 0.0f);
+        ArcaneSteelBlock = new BlockHell("arcaneSteelBlock", Material.iron, Block.soundTypeMetal, HellLand.HellMCTab, 10.0f, 50.0f, 0.0f);
+>>>>>>> Stashed changes
 
         BloodWood = new BloodWood("bloodWood");
         AmuletTable = new AmuletTable("amuletTable");
         BloodWoodLogs = new BloodWoodLogs("bloodPlanks");
         NecroticLamp = new NecroticLamp("necroticLamp");
 
+<<<<<<< Updated upstream
+=======
+        Ash = new BlockHell("ash", Material.sand, Block.soundTypeSand, HellLand.HellMCTabDecor, 50.0f, 100.0f, 0.0f);
+        Ash.setCustomDrop(new ItemStack(Ash, 3));
+
+        LightningTotem = new LightningTotem("lightningTotem", Material.iron, Block.soundTypeStone, HellLand.HellMCTab, 10.0f, 10.0f, 0.0f);
+
+>>>>>>> Stashed changes
         //machines
         HellOvenIdle = new HellOven(false).setCreativeTab(HellLand.HellMCTab).setHardness(3.4f);
         HellOvenActive = new HellOven(true).setHardness(3.4f).setLightLevel(1.0f);
@@ -85,5 +111,19 @@ public class ModBlocks {
         GameRegistry.registerBlock(SoulCrystallizerIdle, "SoulCrystallizerIdle");
         GameRegistry.registerBlock(SoulCrystallizerActive, "SoulCrystallizerActive");
     }
+<<<<<<< Updated upstream
 
+=======
+    
+    public static void registerRenders()
+    {
+    	registerRender(LightningTotem);
+    }
+    
+    public static void registerRender(Block block)
+    {
+    	Item item = Item.getItemFromBlock(block);
+    }
+    
+>>>>>>> Stashed changes
 }

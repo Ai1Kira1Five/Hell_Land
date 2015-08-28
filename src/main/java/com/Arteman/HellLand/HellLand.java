@@ -85,6 +85,11 @@ public class HellLand {
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
 
+<<<<<<< Updated upstream
+=======
+        ModBlocks.init();
+        ModBlocks.registerRenders();
+>>>>>>> Stashed changes
         ModItems.init();
         ModBlocks.init();
         ModFluids.init();
@@ -96,7 +101,6 @@ public class HellLand {
 
         //Other stuff like proxy and worldGen
         GameRegistry.registerWorldGenerator(new WorldGeneratorHell(), 0);
-        artemanProxy.registerRenderThings();
         artemanProxy.registerTileEntitySpecialRender();
         artemanProxy.registerProxies();
         modLog = event.getModLog();
@@ -106,6 +110,7 @@ public class HellLand {
     public void Init(FMLInitializationEvent event) {
         //Different
         messagePipeline.initalize();
+        artemanProxy.registerRenders();
         artemanProxy.registerPackets(messagePipeline);
         artemanProxy.registerEventHandlers();
         MinecraftForge.EVENT_BUS.register(new ModDrops());

@@ -41,22 +41,45 @@ public class BlockHell extends Block {
         registerBlock();
     }
 
+<<<<<<< Updated upstream
     public void setCustomDrop(ItemStack itemStack){
         if(itemStack!=null){
+=======
+    public void setCustomDrop(ItemStack itemStack)
+    {
+        if(customDrop == null && itemStack!=null)
+        {
+>>>>>>> Stashed changes
             customDrop = itemStack;
-        }else{
+        }
+        else
+        {
             customDrop = null;
         }
     }
 
+<<<<<<< Updated upstream
     public Item getItemDropped(int meta, Random random, int fortuneLvl){
         return (this.customDrop == null) ? Item.getItemFromBlock(this): this.customDrop.getItem();
     }
 
     public int quantityDroppedWithBonus(int min, Random random){
         if(customDrop != null) {
+=======
+    public Item getItemDropped()
+    {
+        return (customDrop!=null)?customDrop.getItem():new ItemBlock(this);
+    }
+
+    public int quantityDroppedWithBonus(int min, Random random)
+    {
+        if(customDrop != null) 
+        {
+>>>>>>> Stashed changes
             return MathHelper.clamp_int(this.quantityDropped(random), 1, customDrop.stackSize);
-        }else{
+        }
+        else
+        {
             return 1;
         }
     }
@@ -66,6 +89,7 @@ public class BlockHell extends Block {
         return random.nextInt(this.customDrop.stackSize);
     }
 
+<<<<<<< Updated upstream
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister iconRegister){
         if(hasSub) {
@@ -76,6 +100,18 @@ public class BlockHell extends Block {
             this.blockIcons[0] = iconRegister.registerIcon(this.getTextureName());
         }
     }
+=======
+	public boolean isFullCube()
+	{
+		return true;
+	}
+
+   // @Override
+   // @SideOnly(Side.CLIENT)
+   // public int getRenderType() {
+    //    return ClientProxy.renderId;
+    //}
+>>>>>>> Stashed changes
 
     @Override
     public int damageDropped(int meta){
