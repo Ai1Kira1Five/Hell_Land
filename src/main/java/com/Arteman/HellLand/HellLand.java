@@ -85,11 +85,8 @@ public class HellLand {
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
 
-<<<<<<< Updated upstream
-=======
+
         ModBlocks.init();
-        ModBlocks.registerRenders();
->>>>>>> Stashed changes
         ModItems.init();
         ModBlocks.init();
         ModFluids.init();
