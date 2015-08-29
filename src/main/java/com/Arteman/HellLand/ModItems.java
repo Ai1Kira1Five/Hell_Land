@@ -14,6 +14,7 @@ public class ModItems {
     public static Item WeaponiumIngot;
     public static Item ArcaneGoldIngot;
     public static Item ArcaneSteelIngot;
+    public static Item recidiumIngot;
 
     //mob drop
     public static Item BloodDrop;
@@ -38,6 +39,7 @@ public class ModItems {
     //ore's drop
     public static Item Crystal;
     public static Item AshDust;
+    public static Item recidiumDust;
 
     //other stuff
     public static Item Bag;
@@ -51,10 +53,11 @@ public class ModItems {
         BoneFragment = new ItemHell("boneFragment", HellLand.HellMCTab, false, 0);
         Heart = new ItemHell("heart", HellLand.HellMCTabStuff, true, 7);
         Crystal = new ItemHell("crystal", HellLand.HellMCTabStuff, true, 9);
+        recidiumDust = new ItemHell("recidiumDust", HellLand.HellMCTabStuff, false, 0);
 
         //ore's drop
         AshDust = new ItemHell("ashDust", HellLand.HellMCTabStuff, false, 0);
-        
+
         //crafting parts
         ToolRod1 = new ItemHell("toolRod1", HellLand.HellMCTab, false, 0);
         HellCrystal = new ItemHell("hellCrystal", HellLand.HellMCTab, false, 0);
@@ -62,6 +65,7 @@ public class ModItems {
         WeaponiumIngot = new ItemHell("weaponiumIngot", HellLand.HellMCTabStuff, false, 0);
         ArcaneGoldIngot = new ItemHell("arcaneGoldIngot", HellLand.HellMCTabStuff, false, 0);
         ArcaneSteelIngot = new ItemHell("arcaneSteelIngot", HellLand.HellMCTabStuff, false, 0);
+        recidiumIngot = new ItemHell("recidiumIngot", HellLand.HellMCTabStuff, false, 0);
 
         //other stuff
         Bag = new Bag("bag", HellLand.HellMCTab, true, 2);

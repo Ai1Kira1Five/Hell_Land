@@ -15,8 +15,7 @@ tile.HellLand:crystalOven.name=Crystal oven
 tile.HellLand:arcaneSteelBlock.name=Arcane steel block
 tile.HellLand:arcaneGoldBlock.name=Arcane gold block
 tile.HellLand:necroticLamp.name=Necrotic lamp
-tile.HellLand:crystalBlock.name=Crystal block
-
+tile.HellLand:recidiumBrick.name=Recidium Bricks
 # Items
 
 item.HellLand:hellCrystal.name=Hell Crystal
@@ -45,6 +44,8 @@ item.HellLand:crystalShovel.name=Crystal spike
 item.HellLand:arcaneGoldIngot.name=Arcane gold ingot
 item.HellLand:arcaneSteelIngot.name=Arcane steel ingot
 item.HellLand:ashDust.name=Ash dust
+item.HellLand:recidiumDust.name=Recidium Dust
+item.HellLand:recidiumIngot.name=Recidium Ingot
 
 item.HellLand:crystal_0.name=Basic crystal
 item.HellLand:crystal_1.name=Fire crystal
@@ -81,6 +82,15 @@ tile.HellLand:marble_1.name=Marble Brick
 tile.HellLand:marble_2.name=Marble Brickwork
 tile.HellLand:marble_3.name=Marble Framed
 tile.HellLand:marble_4.name=Marble Monolith
+
+tile.HellLand:crystalBlock_0.name=Crystal block
+tile.HellLand:crystalBlock_1.name=Crystal block(Blue)
+tile.HellLand:crystalBlock_2.name=Crystal block(Purple)
+tile.HellLand:crystalBlock_3.name=Crystal block(Magenta)
+tile.HellLand:crystalBlock_4.name=Crystal block(Yellow)
+tile.HellLand:crystalBlock_5.name=Crystal block(Red)
+tile.HellLand:crystalBlock_6.name=Crystal block(Green)
+tile.HellLand:crystalBlock_7.name=Crystal block(Chiseled)
 # Misc
 
 itemGroup.hellLand=§4Hell Land
