@@ -2,10 +2,12 @@ package com.Arteman.HellLand;
 
 import com.Arteman.HellLand.blocks.BloodWood;
 import com.Arteman.HellLand.blocks.BloodWoodLogs;
+import com.Arteman.HellLand.blocks.Crystal;
 import com.Arteman.HellLand.blocks.NecroticLamp;
 import com.Arteman.HellLand.blocks.machines.*;
 import com.Arteman.HellLand.blocks.wire.WireOne;
 import com.Arteman.HellLand.utils.BlockHell;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -27,7 +29,7 @@ public class ModBlocks {
     public static BlockHell Marble;
     public static BlockHell Ash;
     public static BlockHell NecroticLamp;
-    public static BlockHell CrystallBlock;
+    public static BlockHell CrystalBlock;
     public static BlockHell ArcaneGoldBlock;
     public static BlockHell ArcaneSteelBlock;
     public static BlockHell recidiumBrick;
@@ -40,6 +42,7 @@ public class ModBlocks {
     public static Block SoulCrystallizerIdle;
     public static Block SoulCrystallizerActive;
     public static Block MMixer;
+    public static Block Crystal;
 
     //Wires
     public static Block WireOne;
@@ -53,13 +56,13 @@ public class ModBlocks {
         ArcaneGoldBlock = new BlockHell("arcaneGoldBlock", Material.iron, Block.soundTypeMetal, HellLand.HellMCTab, 5.0f, 50.0f, 0.0f,false,0);
         ArcaneSteelBlock = new BlockHell("arcaneSteelBlock", Material.iron, Block.soundTypeMetal, HellLand.HellMCTab, 5.0f, 50.0f, 0.0f,false,0);
         recidiumBrick = new BlockHell("recidiumBrick", Material.iron, Block.soundTypeStone, HellLand.HellMCTab, 5.0f, 50.0f, 0.0f,false,0);
-        CrystallBlock = new BlockHell("crystalBlock", Material.rock, Block.soundTypeGlass, HellLand.HellMCTabDecor, 5.0f, 50.0f, 1.0f,true,8);
+        CrystalBlock = new BlockHell("crystalBlock", Material.rock, Block.soundTypeGlass, HellLand.HellMCTabDecor, 5.0f, 50.0f, 1.0f,true,8);
         Basalt = new BlockHell("basalt", Material.rock, Block.soundTypeStone, HellLand.HellMCTabDecor, 5.0f, 100.0f, 0.0f,true,4);
         Marble = new BlockHell("marble", Material.rock, Block.soundTypeStone, HellLand.HellMCTabDecor, 5.0f, 100.0f, 0.0f,true,4);
         Ash = new BlockHell("ash", Material.sand, Block.soundTypeSand, HellLand.HellMCTabDecor, 2.0f, 100.0f, 0.0f,false,0);
             Ash.setCustomDrop(new ItemStack(ModItems.AshDust,4));
             Ash.setHarvestLevel("shovel",1);
-
+        
         BloodWood = new BloodWood("bloodWood");
         AmuletTable = new AmuletTable("amuletTable");
         BloodWoodLogs = new BloodWoodLogs("bloodPlanks");
@@ -73,6 +76,7 @@ public class ModBlocks {
         CrystalOvenIdle = new CrystalOven(false).setCreativeTab(HellLand.HellMCTab).setHardness(3.4f);
         CrystalOvenActive = new CrystalOven(true).setHardness(3.4f).setLightLevel(2.0f);
         MMixer = new MagicalMixer();
+        Crystal = new Crystal();
 
 
         //wires

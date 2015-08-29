@@ -1,6 +1,7 @@
 package com.Arteman.HellLand.utils;
 
 import com.Arteman.HellLand.HellLand;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -12,13 +13,15 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemBlockWithMetadata;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
 
 import java.util.List;
 import java.util.Random;
 
-public class BlockHell extends Block {
+public class BlockHell extends Block{
 
     public boolean hasSub;
     private ItemStack customDrop = null;
