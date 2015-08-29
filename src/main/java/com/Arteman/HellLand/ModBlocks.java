@@ -33,6 +33,7 @@ public class ModBlocks {
     public static BlockHell ArcaneGoldBlock;
     public static BlockHell ArcaneSteelBlock;
     public static BlockHell recidiumBrick;
+    public static BlockHell alchemicalTable;
 
     //machines
     public static Block HellOvenIdle;
@@ -62,7 +63,7 @@ public class ModBlocks {
         Ash = new BlockHell("ash", Material.sand, Block.soundTypeSand, HellLand.HellMCTabDecor, 2.0f, 100.0f, 0.0f,false,0);
             Ash.setCustomDrop(new ItemStack(ModItems.AshDust,4));
             Ash.setHarvestLevel("shovel",1);
-        
+
         BloodWood = new BloodWood("bloodWood");
         AmuletTable = new AmuletTable("amuletTable");
         BloodWoodLogs = new BloodWoodLogs("bloodPlanks");
@@ -77,7 +78,7 @@ public class ModBlocks {
         CrystalOvenActive = new CrystalOven(true).setHardness(3.4f).setLightLevel(2.0f);
         MMixer = new MagicalMixer();
         //CrystalSpawn = new CrystalSpawn();
-
+        alchemicalTable = new alchemicalTable("alchemicalTable",HellLand.HellMCTab);
 
         //wires
         WireOne = new WireOne().setCreativeTab(HellLand.HellMCTab);
