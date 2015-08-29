@@ -53,7 +53,7 @@ public class ModBlocks {
         ArcaneGoldBlock = new BlockHell("arcaneGoldBlock", Material.iron, Block.soundTypeMetal, HellLand.HellMCTab, 5.0f, 50.0f, 0.0f,false,0);
         ArcaneSteelBlock = new BlockHell("arcaneSteelBlock", Material.iron, Block.soundTypeMetal, HellLand.HellMCTab, 5.0f, 50.0f, 0.0f,false,0);
         recidiumBrick = new BlockHell("recidiumBrick", Material.iron, Block.soundTypeStone, HellLand.HellMCTab, 5.0f, 50.0f, 0.0f,false,0);
-        CrystallBlock = new BlockHell("crystalBlock", Material.rock, Block.soundTypeGlass, HellLand.HellMCTabDecor, 5.0f, 50.0f, 1.0f,true,7);
+        CrystallBlock = new BlockHell("crystalBlock", Material.rock, Block.soundTypeGlass, HellLand.HellMCTabDecor, 5.0f, 50.0f, 1.0f,true,8);
         Basalt = new BlockHell("basalt", Material.rock, Block.soundTypeStone, HellLand.HellMCTabDecor, 5.0f, 100.0f, 0.0f,true,4);
         Marble = new BlockHell("marble", Material.rock, Block.soundTypeStone, HellLand.HellMCTabDecor, 5.0f, 100.0f, 0.0f,true,4);
         Ash = new BlockHell("ash", Material.sand, Block.soundTypeSand, HellLand.HellMCTabDecor, 2.0f, 100.0f, 0.0f,false,0);

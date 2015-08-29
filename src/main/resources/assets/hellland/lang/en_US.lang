@@ -84,13 +84,14 @@ tile.HellLand:marble_3.name=Marble Framed
 tile.HellLand:marble_4.name=Marble Monolith
 
 tile.HellLand:crystalBlock_0.name=Crystal block
-tile.HellLand:crystalBlock_1.name=Crystal block(Blue)
-tile.HellLand:crystalBlock_2.name=Crystal block(Purple)
-tile.HellLand:crystalBlock_3.name=Crystal block(Magenta)
-tile.HellLand:crystalBlock_4.name=Crystal block(Yellow)
-tile.HellLand:crystalBlock_5.name=Crystal block(Red)
-tile.HellLand:crystalBlock_6.name=Crystal block(Green)
-tile.HellLand:crystalBlock_7.name=Crystal block(Chiseled)
+tile.HellLand:crystalBlock_1.name=Crystal block(Fire)
+tile.HellLand:crystalBlock_2.name=Crystal block(Aqua)
+tile.HellLand:crystalBlock_3.name=Crystal block(Eatrh)
+tile.HellLand:crystalBlock_4.name=Crystal block(Air)
+tile.HellLand:crystalBlock_5.name=Crystal block(Light)
+tile.HellLand:crystalBlock_6.name=Crystal block(Dark)
+tile.HellLand:crystalBlock_7.name=Crystal block(Energy)
+tile.HellLand:crystalBlock_8.name=Crystal block(Blood)
 # Misc
 
 itemGroup.hellLand=§4Hell Land
