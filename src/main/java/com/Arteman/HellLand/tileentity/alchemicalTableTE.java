@@ -152,7 +152,7 @@ public class alchemicalTableTE extends TileEntity implements ISidedInventory {
     }
 
     public boolean canProcess(){
-        return((getFirstInputSlot()!=-1 && getStackInSlot(4)==null||getStackInSlot(4).stackSize<getInventoryStackLimit()))?true:false;
+        return((getFirstInputSlot()!=-1 && (getStackInSlot(4)==null||getStackInSlot(4).stackSize<getInventoryStackLimit())))?true:false;
     }
 
     private int getFirstInputSlot() {
