@@ -66,15 +66,21 @@ item.HellLand:heart_5.name=Light heart
 item.HellLand:heart_6.name=Darkness heart
 item.HellLand:heart_7.name=Energy heart
 
-item.HellLand:bag_0.name=Backpack(Micro)
-item.HellLand:bag_1.name=Backpack(Normal)
-item.HellLand:bag_2.name=Backpack(Large)
+item.HellLand:bag_0.name=§4Backpack(Micro)
+item.HellLand:bag_1.name=§4Backpack(Normal)
+item.HellLand:bag_2.name=§4Backpack(Large)
 
 tile.HellLand:basalt_0.name=Basalt
 tile.HellLand:basalt_1.name=Basalt Brick
 tile.HellLand:basalt_2.name=Basalt Brickwork
 tile.HellLand:basalt_3.name=Basalt Framed
 tile.HellLand:basalt_4.name=Basalt Monolith
+
+tile.HellLand:marble_0.name=Marble
+tile.HellLand:marble_1.name=Marble Brick
+tile.HellLand:marble_2.name=Marble Brickwork
+tile.HellLand:marble_3.name=Marble Framed
+tile.HellLand:marble_4.name=Marble Monolith
 # Misc
 
 itemGroup.hellLand=§4Hell Land
