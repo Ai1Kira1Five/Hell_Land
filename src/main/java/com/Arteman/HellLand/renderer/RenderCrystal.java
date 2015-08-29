@@ -3,7 +3,7 @@ package com.Arteman.HellLand.renderer;
 import org.lwjgl.opengl.GL11;
 
 import com.Arteman.HellLand.HellLand;
-import com.Arteman.HellLand.tileentity.TileEntityCrystal;
+import com.Arteman.HellLand.tileentity.TileEntityCrystalSpawn;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -20,10 +20,10 @@ public class RenderCrystal extends TileEntitySpecialRenderer {
     
 	@Override
 	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f) {
-		render((TileEntityCrystal)tileEntity,x,y,z,f);
+		render((TileEntityCrystalSpawn)tileEntity,x,y,z,f);
 	}
 	
-	private void render(TileEntityCrystal tile, double x, double y, double z, float f) {
+	private void render(TileEntityCrystalSpawn tile, double x, double y, double z, float f) {
         GL11.glPushMatrix();
         GL11.glTranslated(x, y, z);
         GL11.glTranslatef(0.5F, 0.0F, 0.5F);

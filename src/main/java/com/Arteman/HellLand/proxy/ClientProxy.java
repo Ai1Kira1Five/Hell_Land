@@ -7,7 +7,7 @@ import com.Arteman.HellLand.ModBlocks;
 import com.Arteman.HellLand.renderer.RenderCrystal;
 import com.Arteman.HellLand.renderer.RenderItemCrystal;
 import com.Arteman.HellLand.renderer.TileEntityRenderWire;
-import com.Arteman.HellLand.tileentity.TileEntityCrystal;
+import com.Arteman.HellLand.tileentity.TileEntityCrystalSpawn;
 import com.Arteman.HellLand.tileentity.TileEntityWire;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -26,7 +26,7 @@ public class ClientProxy extends CommonProxy {
 
     public void registerProxies() {
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWire.class, new TileEntityRenderWire());
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCrystal.class, new RenderCrystal());
-        MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.Crystal), new RenderItemCrystal());
+        //ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCrystalSpawn.class, new RenderCrystal());
+        //MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.CrystalSpawn), new RenderItemCrystal());
     }
 }

@@ -2,7 +2,7 @@ package com.Arteman.HellLand;
 
 import com.Arteman.HellLand.blocks.BloodWood;
 import com.Arteman.HellLand.blocks.BloodWoodLogs;
-import com.Arteman.HellLand.blocks.Crystal;
+import com.Arteman.HellLand.blocks.CrystalSpawn;
 import com.Arteman.HellLand.blocks.NecroticLamp;
 import com.Arteman.HellLand.blocks.machines.*;
 import com.Arteman.HellLand.blocks.wire.WireOne;
@@ -42,7 +42,7 @@ public class ModBlocks {
     public static Block SoulCrystallizerIdle;
     public static Block SoulCrystallizerActive;
     public static Block MMixer;
-    public static Block Crystal;
+    //public static Block CrystalSpawn;
 
     //Wires
     public static Block WireOne;
@@ -76,7 +76,7 @@ public class ModBlocks {
         CrystalOvenIdle = new CrystalOven(false).setCreativeTab(HellLand.HellMCTab).setHardness(3.4f);
         CrystalOvenActive = new CrystalOven(true).setHardness(3.4f).setLightLevel(2.0f);
         MMixer = new MagicalMixer();
-        Crystal = new Crystal();
+        //CrystalSpawn = new CrystalSpawn();
 
 
         //wires

@@ -9,13 +9,13 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 import com.Arteman.HellLand.HellLand;
-import com.Arteman.HellLand.tileentity.TileEntityCrystal;
+import com.Arteman.HellLand.tileentity.TileEntityCrystalSpawn;
 import com.Arteman.HellLand.utils.BlockHell;
 
-public class Crystal extends BlockHell implements ITileEntityProvider
+public class CrystalSpawn extends BlockHell implements ITileEntityProvider
 {
-	public Crystal(){
-		super("crystal", Material.glass, Block.soundTypeGlass, HellLand.HellMCTab, 5.0f, 50.0f, 1.0f, true, 5);
+	public CrystalSpawn(){
+		super("crystalSpawn", Material.glass, Block.soundTypeGlass, HellLand.HellMCTab, 5.0f, 50.0f, 1.0f, true, 5);
 	}
 	
 	@Override
@@ -27,7 +27,7 @@ public class Crystal extends BlockHell implements ITileEntityProvider
 
 	@Override
 	public TileEntity createNewTileEntity(World world, int i){
-		return new TileEntityCrystal();
+		return new TileEntityCrystalSpawn();
 	}
 	
 	public int getRenderType() {
