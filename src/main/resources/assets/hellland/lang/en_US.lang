@@ -12,6 +12,7 @@ tile.HellLand:bloodPlanks.name=Blood Planks
 tile.HellLand:marble.name=Marble
 tile.HellLand:ash.name=Ash
 tile.HellLand:crystalOven.name=Crystal oven
+tile.HellLand:alchemicalTable.name=Alchemical Table
 tile.HellLand:arcaneSteelBlock.name=Arcane steel block
 tile.HellLand:arcaneGoldBlock.name=Arcane gold block
 tile.HellLand:necroticLamp.name=Necrotic lamp

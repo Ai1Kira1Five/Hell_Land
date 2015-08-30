@@ -5,6 +5,8 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import org.apache.commons.lang3.ArrayUtils;
@@ -14,11 +16,11 @@ import java.util.Map;
 public class alchemicalTableTE extends TileEntity implements ISidedInventory {
 
     public ItemStack[] inventory = new ItemStack[5];
-    private int[] resultSlots = new int[]{4};
-    private int[] inputSlots = new int[]{0,1,2,3};
+    public int[] resultSlots = new int[]{4};
+    public int[] inputSlots = new int[]{0,1,2,3};
     public String localizedName;
     public int processingTime = 150;
-    public static int cookTime;
+    public int cookTime = 0;
 
     @Override
     public int[] getAccessibleSlotsFromSide(int side) {
@@ -118,41 +120,73 @@ public class alchemicalTableTE extends TileEntity implements ISidedInventory {
     }
 
     @Override
-    public void updateEntity() {
-        if(canProcess()){
+    public void updateEntity(){
             boolean flag = this.cookTime > 0;
-            boolean flag1 = false;
 
             if (!this.worldObj.isRemote) {
                 if (this.canProcess()) {
                     this.cookTime++;
-
                     if (this.cookTime >= this.processingTime) {
                         this.cookTime = 0;
                         this.processing();
-                        flag1 = true;
                     }
                 } else {
                     this.cookTime = 0;
                 }
-
-                if (flag != this.isProcessing()) {
-                    flag1 = true;
-                }
             }
-            if (flag1) {
-                this.markDirty();
-            }
-        }
         super.updateEntity();
     }
 
+    public void readFromNBT(NBTTagCompound nbt) {
+        super.readFromNBT(nbt);
+
+        NBTTagList list = nbt.getTagList("Items", 5);
+        this.inventory = new ItemStack[this.getSizeInventory()];
+
+        for (int i = 0; i < list.tagCount(); i++) {
+            NBTTagCompound compound = (NBTTagCompound) list.getCompoundTagAt(i);
+            byte b = compound.getByte("Slot");
+
+            if (b >= 0 && b < this.inventory.length) {
+                this.inventory[b] = ItemStack.loadItemStackFromNBT(compound);
+            }
+        }
+
+        this.cookTime = (int) nbt.getShort("CookTime");
+
+        if (nbt.hasKey("CustomName")) {
+            this.localizedName = nbt.getString("CustomName");
+        }
+    }
+
+    public void writeToNBT(NBTTagCompound nbt) {
+        super.writeToNBT(nbt);
+
+        nbt.setShort("CookTime", (short) this.cookTime);
+
+        NBTTagList list = new NBTTagList();
+
+        for (int i = 0; i < this.inventory.length; i++) {
+            if (this.inventory[i] != null) {
+                NBTTagCompound compound = new NBTTagCompound();
+                compound.setByte("Slot", (byte) i);
+                this.inventory[i].writeToNBT(compound);
+                list.appendTag(compound);
+            }
+        }
+
+        nbt.setTag("Items", list);
+
+        if (this.hasCustomInventoryName()) {
+            nbt.setString("CustomName", this.localizedName);
+        }
+    }
     public boolean isProcessing() {
         return this.cookTime!=0;
     }
 
     public boolean canProcess(){
-        return((getFirstInputSlot()!=-1 && (getStackInSlot(4)==null||getStackInSlot(4).stackSize<getInventoryStackLimit())))?true:false;
+        return ((getFirstInputSlot() != -1 && (getStackInSlot(4) == null || getStackInSlot(4).stackSize < getInventoryStackLimit())));
     }
 
     private int getFirstInputSlot() {
@@ -167,7 +201,7 @@ public class alchemicalTableTE extends TileEntity implements ISidedInventory {
 
     public void processing(){
         int slot = getFirstInputSlot();
-        if(slot!=1){
+        if(slot!=-1){
             ItemStack itemStack = getStackInSlot(slot);
             Map<Integer,Integer> enchants = EnchantmentHelper.getEnchantments(itemStack);
             int outputItemStackSize=0;
@@ -181,6 +215,11 @@ public class alchemicalTableTE extends TileEntity implements ISidedInventory {
                 outputStack.stackSize = MathHelper.clamp_int(outputStack.stackSize+outputItemStackSize,outputStack.stackSize+outputItemStackSize,getInventoryStackLimit());
             }
             this.setInventorySlotContents(4,outputStack);
+            this.setInventorySlotContents(slot, null);
         }
+    }
+
+    public int getCookProgressScaled(int i) {
+        return this.cookTime * i / this.processingTime;
     }
 }

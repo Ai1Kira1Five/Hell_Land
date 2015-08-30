@@ -1,9 +1,6 @@
 package com.Arteman.HellLand;
 
-import com.Arteman.HellLand.tileentity.TileEntityCrystalOven;
-import com.Arteman.HellLand.tileentity.TileEntityHellOven;
-import com.Arteman.HellLand.tileentity.TileEntitySoulCrystallizer;
-import com.Arteman.HellLand.tileentity.TileEntityWire;
+import com.Arteman.HellLand.tileentity.*;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ModTiles {
@@ -12,5 +9,6 @@ public class ModTiles {
         GameRegistry.registerTileEntity(TileEntityWire.class, HellLand.MODID + ":wireOne");
         GameRegistry.registerTileEntity(TileEntitySoulCrystallizer.class, HellLand.MODID + ":soulCrystallizer");
         GameRegistry.registerTileEntity(TileEntityCrystalOven.class, HellLand.MODID + ":crystalOven");
+        GameRegistry.registerTileEntity(alchemicalTableTE.class, HellLand.MODID+":alchemicalTable");
     }
 }

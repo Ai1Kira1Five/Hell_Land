@@ -21,6 +21,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import org.apache.logging.log4j.Logger;
@@ -50,9 +51,8 @@ public class HellLand {
     public static final int guiIDCrystalOven = 3;
     public static final int guiIDAmuletTable = 4;
     public static final int guiIDMMixer = 5;
-
     public static final int guiIDBag = 6;
-
+    public static final int guiIDAlchemicalTable = 7;
 
     @SidedProxy(clientSide = "com.Arteman.HellLand.proxy.ClientProxy", serverSide = "com.Arteman.HellLand.proxy.CommonProxy")
     public static CommonProxy artemanProxy;
