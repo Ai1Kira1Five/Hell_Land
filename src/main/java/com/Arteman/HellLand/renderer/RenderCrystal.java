@@ -14,9 +14,9 @@ import net.minecraftforge.client.model.IModelCustom;
 public class RenderCrystal extends TileEntitySpecialRenderer {
 	
 	public static final IModelCustom model =
-            AdvancedModelLoader.loadModel(new ResourceLocation(HellLand.MODID, "textures/obj/crystal.obj"));
+            AdvancedModelLoader.loadModel(new ResourceLocation(HellLand.MODID + ":" + "textures/obj/ñrystal.obj"));
 	int i;
-    public static ResourceLocation texture = new ResourceLocation(HellLand.MODID, "textures/blocks/crystal1.png");
+    public static ResourceLocation texture = new ResourceLocation(HellLand.MODID + ":" + "textures/blocks/crystal1.png");
     
 	@Override
 	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f) {

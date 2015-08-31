@@ -19,7 +19,7 @@ public class RenderItemCrystal implements IItemRenderer{
     public boolean shouldUseRenderHelper(IItemRenderer.ItemRenderType type, ItemStack is, ItemRendererHelper helper) {
         return true;
     }
-    public static ResourceLocation texture = new ResourceLocation(HellLand.MODID, "textures/blocks/crystal1.png");
+    public static ResourceLocation texture = new ResourceLocation(HellLand.MODID + ":" + "textures/blocks/crystal1.png");
     @Override
     public void renderItem(ItemRenderType type, ItemStack is, Object... data) {
         GL11.glPushMatrix();

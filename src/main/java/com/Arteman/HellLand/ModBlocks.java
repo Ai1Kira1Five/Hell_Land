@@ -43,7 +43,7 @@ public class ModBlocks {
     public static Block SoulCrystallizerIdle;
     public static Block SoulCrystallizerActive;
     public static Block MMixer;
-    //public static Block CrystalSpawn;
+    public static Block CrystalSpawn;
 
     //Wires
     public static Block WireOne;
@@ -77,7 +77,7 @@ public class ModBlocks {
         CrystalOvenIdle = new CrystalOven(false).setCreativeTab(HellLand.HellMCTab).setHardness(3.4f);
         CrystalOvenActive = new CrystalOven(true).setHardness(3.4f).setLightLevel(2.0f);
         MMixer = new MagicalMixer();
-        //CrystalSpawn = new CrystalSpawn();
+        CrystalSpawn = new CrystalSpawn();
         alchemicalTable = new alchemicalTable("alchemicalTable",HellLand.HellMCTab);
 
         //wires
