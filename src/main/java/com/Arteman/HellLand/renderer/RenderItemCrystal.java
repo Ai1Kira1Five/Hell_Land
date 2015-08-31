@@ -19,19 +19,19 @@ public class RenderItemCrystal implements IItemRenderer{
     public boolean shouldUseRenderHelper(IItemRenderer.ItemRenderType type, ItemStack is, ItemRendererHelper helper) {
         return true;
     }
-    public static ResourceLocation texture = new ResourceLocation(HellLand.MODID + ":" + "textures/blocks/crystal1.png");
+    public static ResourceLocation texture = new ResourceLocation(HellLand.MODID + ":textures/blocks/crystalSpawn_0.png");
     @Override
     public void renderItem(ItemRenderType type, ItemStack is, Object... data) {
         GL11.glPushMatrix();
         GL11.glTranslatef(0.5F, 0.0F, 0.5F);
         int meta=is.getItemDamage();
         switch (meta){
-            case  0: texture = new ResourceLocation(HellLand.MODID, "textures/blocks/crystal_blank.png"); break;
-            case  1: texture = new ResourceLocation(HellLand.MODID, "textures/blocks/crystal_air.png"); break;
-            case  2: texture = new ResourceLocation(HellLand.MODID, "textures/blocks/crystal_water.png"); break;
-            case  3: texture = new ResourceLocation(HellLand.MODID, "textures/blocks/crystal_fire.png"); break;
-            case  4: texture = new ResourceLocation(HellLand.MODID, "textures/blocks/crystal_earth.png"); break;
-            case  5: texture = new ResourceLocation(HellLand.MODID, "textures/blocks/crystal_pure.png"); break;
+            case  0: texture = new ResourceLocation(HellLand.MODID+":textures/blocks/crystalSpawn_0.png"); break;
+            case  1: texture = new ResourceLocation(HellLand.MODID+":textures/blocks/crystalSpawn_1.png"); break;
+            case  2: texture = new ResourceLocation(HellLand.MODID+":textures/blocks/crystalSpawn_2.png"); break;
+            case  3: texture = new ResourceLocation(HellLand.MODID+":textures/blocks/crystalSpawn_3.png"); break;
+            case  4: texture = new ResourceLocation(HellLand.MODID+":textures/blocks/crystalSpawn_4.png"); break;
+            case  5: texture = new ResourceLocation(HellLand.MODID+":textures/blocks/crystalSpawn_5.png"); break;
         }
 
        Minecraft.getMinecraft().renderEngine.bindTexture(texture);

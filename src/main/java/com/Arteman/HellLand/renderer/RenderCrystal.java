@@ -14,9 +14,9 @@ import net.minecraftforge.client.model.IModelCustom;
 public class RenderCrystal extends TileEntitySpecialRenderer {
 	
 	public static final IModelCustom model =
-            AdvancedModelLoader.loadModel(new ResourceLocation(HellLand.MODID + ":" + "textures/obj/ñrystal.obj"));
+            AdvancedModelLoader.loadModel(new ResourceLocation(HellLand.MODID + ":textures/obj/crystal.obj"));
 	int i;
-    public static ResourceLocation texture = new ResourceLocation(HellLand.MODID + ":" + "textures/blocks/crystal1.png");
+    public static ResourceLocation texture = new ResourceLocation(HellLand.MODID + ":textures/blocks/crystalSpawn_0.png");
     
 	@Override
 	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f) {
@@ -31,12 +31,12 @@ public class RenderCrystal extends TileEntitySpecialRenderer {
         GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
         int meta=tile.getBlockMetadata();
         switch (meta){
-            case  0: texture = new ResourceLocation(HellLand.MODID, "textures/blocks/crystal_blank.png"); break;
-            case  1: texture = new ResourceLocation(HellLand.MODID, "textures/blocks/crystal_air.png"); break;
-            case  2: texture = new ResourceLocation(HellLand.MODID, "textures/blocks/crystal_water.png"); break;
-            case  3: texture = new ResourceLocation(HellLand.MODID, "textures/blocks/crystal_fire.png"); break;
-            case  4: texture = new ResourceLocation(HellLand.MODID, "textures/blocks/crystal_earth.png"); break;
-            case  5: texture = new ResourceLocation(HellLand.MODID, "textures/blocks/crystal_pure.png"); break;
+            case  0: texture = new ResourceLocation(HellLand.MODID+":textures/blocks/crystalSpawn_0.png"); break;
+            case  1: texture = new ResourceLocation(HellLand.MODID+":textures/blocks/crystalSpawn_1.png"); break;
+            case  2: texture = new ResourceLocation(HellLand.MODID+":textures/blocks/crystalSpawn_2.png"); break;
+            case  3: texture = new ResourceLocation(HellLand.MODID+":textures/blocks/crystalSpawn_3.png"); break;
+            case  4: texture = new ResourceLocation(HellLand.MODID+":textures/blocks/crystalSpawn_4.png"); break;
+            case  5: texture = new ResourceLocation(HellLand.MODID+":textures/blocks/crystalSpawn_5.png"); break;
         }
         bindTexture(texture);
         model.renderAll();
