@@ -140,7 +140,7 @@ public class alchemicalTableTE extends TileEntity implements ISidedInventory {
     public void readFromNBT(NBTTagCompound nbt) {
         super.readFromNBT(nbt);
 
-        NBTTagList list = nbt.getTagList("Items", 5);
+        NBTTagList list = nbt.getTagList("Items", 10);
         this.inventory = new ItemStack[this.getSizeInventory()];
 
         for (int i = 0; i < list.tagCount(); i++) {
@@ -186,7 +186,7 @@ public class alchemicalTableTE extends TileEntity implements ISidedInventory {
     }
 
     public boolean canProcess(){
-        return ((getFirstInputSlot() != -1 && (getStackInSlot(4) == null || getStackInSlot(4).stackSize < getInventoryStackLimit())));
+        return ((getFirstInputSlot() != -1 && (getStackInSlot(4) == null || getStackInSlot(4).stackSize + countCurrentProcessingLVL(getStackInSlot(getFirstInputSlot()))<=getInventoryStackLimit())));
     }
 
     private int getFirstInputSlot() {
@@ -202,12 +202,7 @@ public class alchemicalTableTE extends TileEntity implements ISidedInventory {
     public void processing(){
         int slot = getFirstInputSlot();
         if(slot!=-1){
-            ItemStack itemStack = getStackInSlot(slot);
-            Map<Integer,Integer> enchants = EnchantmentHelper.getEnchantments(itemStack);
-            int outputItemStackSize=0;
-            for(int i:enchants.values()){
-                outputItemStackSize = outputItemStackSize + i;
-            }
+            int outputItemStackSize=countCurrentProcessingLVL(getStackInSlot(slot));
             ItemStack outputStack = getStackInSlot(4);
             if(outputStack == null){
                 outputStack = new ItemStack(ModItems.recidiumDust, outputItemStackSize);
@@ -221,5 +216,14 @@ public class alchemicalTableTE extends TileEntity implements ISidedInventory {
 
     public int getCookProgressScaled(int i) {
         return this.cookTime * i / this.processingTime;
+    }
+
+    public int countCurrentProcessingLVL(ItemStack itemStack){
+        Map<Integer,Integer> enchants = EnchantmentHelper.getEnchantments(itemStack);
+        int outputItemStackSize=0;
+        for(int i:enchants.values()){
+            outputItemStackSize = outputItemStackSize + i;
+        }
+        return outputItemStackSize;
     }
 }
