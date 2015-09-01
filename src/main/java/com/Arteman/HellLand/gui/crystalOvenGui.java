@@ -9,12 +9,12 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-public class GuiCrystalOven extends GuiContainer {
-    public static final ResourceLocation bground = new ResourceLocation(HellLand.MODID + ":" + "textures/gui/GuiCrystalOven.png");
+public class crystalOvenGui extends GuiContainer {
+    public static final ResourceLocation bground = new ResourceLocation(HellLand.MODID + ":" + "textures/gui/crystalOvenGui.png");
 
     public crystalOvenTE crystalOven;
 
-    public GuiCrystalOven(InventoryPlayer inventoryPlayer, crystalOvenTE entity) {
+    public crystalOvenGui(InventoryPlayer inventoryPlayer, crystalOvenTE entity) {
         super(new crystalOvenContainer(inventoryPlayer, entity));
 
         this.crystalOven = entity;

@@ -16,7 +16,7 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 import org.apache.commons.lang3.ArrayUtils;
 
-public class TileEntityCrystalOven extends TileEntity implements ISidedInventory {
+public class crystalOvenTE extends TileEntity implements ISidedInventory {
     private String localizedName;
 
     private static final int[] slots_top = new int[]{3, 4, 5, 6};

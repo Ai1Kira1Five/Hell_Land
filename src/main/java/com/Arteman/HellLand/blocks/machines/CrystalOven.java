@@ -23,7 +23,7 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class CrystalOven extends BlockContainer {
+public class crystalOven extends BlockContainer {
     private final boolean isActive;
 
     @SideOnly(Side.CLIENT)
@@ -35,7 +35,7 @@ public class CrystalOven extends BlockContainer {
     private static boolean keepInventory;
     private Random rand = new Random();
 
-    public CrystalOven(boolean isActive) {
+    public crystalOven(boolean isActive) {
         super(Material.rock);
         this.setBlockName(HellLand.MODID+":crystalOven");
         this.isActive = isActive;

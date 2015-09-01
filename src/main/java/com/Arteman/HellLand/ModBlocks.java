@@ -39,8 +39,8 @@ public class ModBlocks {
     public static Block CrystalOvenActive;
     public static Block SoulCrystallizerIdle;
     public static Block SoulCrystallizerActive;
-    public static Block MMixerIdle;
-    public static Block MMixerActive;
+    public static BlockHell MMixerIdle;
+    public static BlockHell MMixerActive;
     public static Block CrystalSpawn;
 
     //Wires
@@ -76,8 +76,9 @@ public class ModBlocks {
         CrystalOvenActive = new crystalOven(true).setHardness(3.4f).setLightLevel(2.0f);
         CrystalSpawn = new CrystalSpawn();
         alchemicalTable = new alchemicalTable("alchemicalTable",HellLand.HellMCTab);
-        MMixerIdle = new MagicalMixer("magicalMixer", HellLand.HellMCTab, false).setHardness(3.4f);
-        MMixerActive = new MagicalMixer("magicalMixer", null, true).setHardness(3.4f).setLightLevel(2.0f);
+        MMixerIdle = new MagicalMixer("magicalMixerIdle", HellLand.HellMCTab, false);
+        MMixerActive = new MagicalMixer("magicalMixerActive", null, true);
+            MMixerActive.setCustomDrop(new ItemStack(MMixerIdle));
 
         //wires
         WireOne = new WireOne().setCreativeTab(HellLand.HellMCTab);

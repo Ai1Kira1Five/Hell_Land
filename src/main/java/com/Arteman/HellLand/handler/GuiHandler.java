@@ -61,7 +61,7 @@ public class GuiHandler implements IGuiHandler {
                     }
                 case HellLand.guiIDCrystalOven:
                     if (entity instanceof crystalOvenTE) {
-                        return new GuiCrystalOven(player.inventory, (crystalOvenTE) entity);
+                        return new crystalOvenGui(player.inventory, (crystalOvenTE) entity);
                     }
                 case HellLand.guiIDAlchemicalTable:
                     if(entity instanceof alchemicalTableTE){

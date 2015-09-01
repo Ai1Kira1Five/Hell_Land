@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import org.apache.commons.lang3.ArrayUtils;
 
-public class ContainerCrystalOven extends Container {
+public class crystalOvenContainer extends Container {
     private crystalOvenTE crystalOven;
 
     public int lastBurnTime;
@@ -27,7 +27,7 @@ public class ContainerCrystalOven extends Container {
      * slot 2 - after 7,8,9,10
      */
 
-    public ContainerCrystalOven(InventoryPlayer inventory, crystalOvenTE tileentity) {
+    public crystalOvenContainer(InventoryPlayer inventory, crystalOvenTE tileentity) {
         this.crystalOven = tileentity;
         this.addSlotToContainer(new Slot((IInventory) tileentity, 0, 62, 64));
         this.addSlotToContainer(new Slot((IInventory) tileentity, 1, 80, 64));
