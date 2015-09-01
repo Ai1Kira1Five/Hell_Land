@@ -2,7 +2,9 @@ package com.Arteman.HellLand.blocks.machines;
 
 import com.Arteman.HellLand.HellLand;
 import com.Arteman.HellLand.ModBlocks;
+import com.Arteman.HellLand.renderer.blockRenderer;
 import com.Arteman.HellLand.tileentity.crystalOvenTE;
+import com.Arteman.HellLand.utils.TEBlockHell;
 import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -10,6 +12,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -23,7 +26,7 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class crystalOven extends BlockContainer {
+public class crystalOven extends TEBlockHell {
     private final boolean isActive;
 
     @SideOnly(Side.CLIENT)
@@ -32,11 +35,10 @@ public class crystalOven extends BlockContainer {
     @SideOnly(Side.CLIENT)
     private IIcon iconTop;
 
-    private static boolean keepInventory;
     private Random rand = new Random();
 
-    public crystalOven(boolean isActive) {
-        super(Material.rock);
+    public crystalOven(String name, CreativeTabs creativeTabs, boolean isActive) {
+        super(name,creativeTabs);
         this.setBlockName(HellLand.MODID+":crystalOven");
         this.isActive = isActive;
     }
@@ -51,10 +53,6 @@ public class crystalOven extends BlockContainer {
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int metadata) {
         return side == 1 ? this.iconTop : (side == 1 ? this.iconTop : (side == 0 ? this.iconTop : (side != metadata ? this.blockIcon : this.iconFront)));
-    }
-
-    public Item getItemDropped(int i, Random random, int j) {
-        return Item.getItemFromBlock(ModBlocks.CrystalOvenIdle);
     }
 
     private void setDefaultDirection(World world, int x, int y, int z) {
@@ -130,27 +128,6 @@ public class crystalOven extends BlockContainer {
         }
     }
 
-    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityplayer, ItemStack itemstack) {
-        int l = MathHelper.floor_double((double) (entityplayer.rotationYaw * 4.0F / 360.F) + 0.5D) & 3;
-
-        if (l == 0) {
-            world.setBlockMetadataWithNotify(x, y, z, 2, 2);
-        }
-        if (l == 1) {
-            world.setBlockMetadataWithNotify(x, y, z, 5, 2);
-        }
-        if (l == 2) {
-            world.setBlockMetadataWithNotify(x, y, z, 3, 2);
-        }
-        if (l == 3) {
-            world.setBlockMetadataWithNotify(x, y, z, 4, 2);
-        }
-
-        if (itemstack.hasDisplayName()) {
-            ((crystalOvenTE) world.getTileEntity(x, y, z)).setGuiDisplayName(itemstack.getDisplayName());
-        }
-    }
-
     public static void updateCrystalOvenBlockState(boolean active, World worldObj, int xCoord, int yCoord, int zCoord) {
         int i = worldObj.getBlockMetadata(xCoord, yCoord, zCoord);
 
@@ -158,9 +135,9 @@ public class crystalOven extends BlockContainer {
         keepInventory = true;
 
         if (active) {
-            worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.CrystalOvenActive);
+            worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.crystalOvenActive);
         } else {
-            worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.CrystalOvenIdle);
+            worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.crystalOvenIdle);
         }
 
         keepInventory = false;
@@ -172,7 +149,7 @@ public class crystalOven extends BlockContainer {
             worldObj.setTileEntity(xCoord, yCoord, zCoord, tileentity);
         }
     }
-
+    @Override
     public void breakBlock(World world, int x, int y, int z, Block oldblock, int oldMetadata) {
         if (!keepInventory) {
             crystalOvenTE tileentity = (crystalOvenTE) world.getTileEntity(x, y, z);
@@ -213,7 +190,9 @@ public class crystalOven extends BlockContainer {
         super.breakBlock(world, x, y, z, oldblock, oldMetadata);
     }
 
-    public Item getItem(World world, int x, int y, int z) {
-        return Item.getItemFromBlock(ModBlocks.CrystalOvenIdle);
+    @Override
+    public int getRenderType ()
+    {
+        return blockRenderer.blockModel;
     }
 }

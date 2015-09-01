@@ -121,19 +121,19 @@ public class alchemicalTableTE extends TileEntity implements ISidedInventory {
 
     @Override
     public void updateEntity(){
-            boolean flag = this.cookTime > 0;
+        boolean flag = this.cookTime > 0;
 
-            if (!this.worldObj.isRemote) {
-                if (this.canProcess()) {
-                    this.cookTime++;
-                    if (this.cookTime >= this.processingTime) {
-                        this.cookTime = 0;
-                        this.processing();
-                    }
-                } else {
+        if (!this.worldObj.isRemote) {
+            if (this.canProcess()) {
+                this.cookTime++;
+                if (this.cookTime >= this.processingTime) {
                     this.cookTime = 0;
+                    this.processing();
                 }
+            } else {
+                this.cookTime = 0;
             }
+        }
         super.updateEntity();
     }
 
@@ -192,7 +192,7 @@ public class alchemicalTableTE extends TileEntity implements ISidedInventory {
     private int getFirstInputSlot() {
         for(int i=0;i<4;i++){
             ItemStack itemStack = getStackInSlot(i);
-            if(itemStack!=null && (getStackInSlot(4) == null || getStackInSlot(4).stackSize + countCurrentProcessingLVL(getStackInSlot(getFirstInputSlot()))<=getInventoryStackLimit()){
+            if(itemStack!=null && (getStackInSlot(4) == null || getStackInSlot(4).stackSize + countCurrentProcessingLVL(getStackInSlot(i))<=getInventoryStackLimit())){
                 return i;
             }
         }

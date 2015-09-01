@@ -1,5 +1,6 @@
 package com.Arteman.HellLand.proxy;
 
+import com.Arteman.HellLand.renderer.blockRenderer;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;
 
@@ -25,6 +26,7 @@ public class ClientProxy extends CommonProxy {
     }
 
     public void registerProxies() {
+        RenderingRegistry.registerBlockHandler(new blockRenderer());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWire.class, new TileEntityRenderWire());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCrystalSpawn.class, new RenderCrystal());
         MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.CrystalSpawn), new RenderItemCrystal());

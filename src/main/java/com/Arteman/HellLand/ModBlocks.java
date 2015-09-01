@@ -35,8 +35,8 @@ public class ModBlocks {
     //machines
     public static Block HellOvenIdle;
     public static Block HellOvenActive;
-    public static Block CrystalOvenIdle;
-    public static Block CrystalOvenActive;
+    public static BlockHell crystalOvenIdle;
+    public static BlockHell crystalOvenActive;
     public static Block SoulCrystallizerIdle;
     public static Block SoulCrystallizerActive;
     public static BlockHell MMixerIdle;
@@ -72,8 +72,9 @@ public class ModBlocks {
         HellOvenActive = new HellOven(true).setHardness(3.4f).setLightLevel(1.0f);
         SoulCrystallizerIdle = new SoulCrystallizer(false).setCreativeTab(HellLand.HellMCTab);
         SoulCrystallizerActive = new SoulCrystallizer(true).setLightLevel(2.0f);
-        CrystalOvenIdle = new crystalOven(false).setCreativeTab(HellLand.HellMCTab).setHardness(3.4f);
-        CrystalOvenActive = new crystalOven(true).setHardness(3.4f).setLightLevel(2.0f);
+        crystalOvenIdle = new crystalOven("crystalOvenIdle", HellLand.HellMCTab,false);
+        crystalOvenActive = new crystalOven("crystalOvenActive", null ,true);
+            crystalOvenActive.setCustomDrop(new ItemStack(crystalOvenIdle));
         CrystalSpawn = new CrystalSpawn();
         alchemicalTable = new alchemicalTable("alchemicalTable",HellLand.HellMCTab);
         MMixerIdle = new MagicalMixer("magicalMixerIdle", HellLand.HellMCTab, false);
@@ -84,9 +85,7 @@ public class ModBlocks {
         WireOne = new WireOne().setCreativeTab(HellLand.HellMCTab);
 
         //Register bad blocks
-        GameRegistry.registerBlock(CrystalOvenIdle, "CrystalOvenIdle");
-        GameRegistry.registerBlock(CrystalOvenActive, "CrystalOvenActive");
-        GameRegistry.registerBlock(HellOvenIdle, "HellOvenIdle");
+         GameRegistry.registerBlock(HellOvenIdle, "HellOvenIdle");
         GameRegistry.registerBlock(HellOvenActive, "HellOvenActive");
         GameRegistry.registerBlock(WireOne, "WireOne");
         GameRegistry.registerBlock(SoulCrystallizerIdle, "SoulCrystallizerIdle");

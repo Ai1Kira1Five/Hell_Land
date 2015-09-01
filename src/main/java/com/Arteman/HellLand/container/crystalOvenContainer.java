@@ -8,6 +8,8 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityFurnace;
 import org.apache.commons.lang3.ArrayUtils;
 
 public class crystalOvenContainer extends Container {
@@ -120,7 +122,7 @@ public class crystalOvenContainer extends Container {
                         return null;
                     }
                     slot.onSlotChanged();
-                } else if (crystalOven.isItemFuel(itemstack1)) {
+                } else if (TileEntityFurnace.isItemFuel(itemstack1)) {
                     if (!this.mergeItemStack(itemstack1, 0, 3, false)) {
                         return null;
                     }
