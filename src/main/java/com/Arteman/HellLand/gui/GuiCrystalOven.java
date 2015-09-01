@@ -1,8 +1,8 @@
 package com.Arteman.HellLand.gui;
 
 import com.Arteman.HellLand.HellLand;
-import com.Arteman.HellLand.container.ContainerCrystalOven;
-import com.Arteman.HellLand.tileentity.TileEntityCrystalOven;
+import com.Arteman.HellLand.container.crystalOvenContainer;
+import com.Arteman.HellLand.tileentity.crystalOvenTE;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -12,10 +12,10 @@ import org.lwjgl.opengl.GL11;
 public class GuiCrystalOven extends GuiContainer {
     public static final ResourceLocation bground = new ResourceLocation(HellLand.MODID + ":" + "textures/gui/GuiCrystalOven.png");
 
-    public TileEntityCrystalOven crystalOven;
+    public crystalOvenTE crystalOven;
 
-    public GuiCrystalOven(InventoryPlayer inventoryPlayer, TileEntityCrystalOven entity) {
-        super(new ContainerCrystalOven(inventoryPlayer, entity));
+    public GuiCrystalOven(InventoryPlayer inventoryPlayer, crystalOvenTE entity) {
+        super(new crystalOvenContainer(inventoryPlayer, entity));
 
         this.crystalOven = entity;
 

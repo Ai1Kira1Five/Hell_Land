@@ -1,8 +1,6 @@
 package com.Arteman.HellLand.utils;
 
-import com.Arteman.HellLand.tileentity.TileEntityCrystalOven;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockContainer;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;

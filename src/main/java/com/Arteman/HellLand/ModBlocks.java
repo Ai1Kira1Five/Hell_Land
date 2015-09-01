@@ -12,9 +12,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
-import static com.Arteman.HellLand.utils.BlockHell.ItemBlockHell;
-
-import java.lang.reflect.Field;
 
 public class ModBlocks {
 
@@ -75,8 +72,8 @@ public class ModBlocks {
         HellOvenActive = new HellOven(true).setHardness(3.4f).setLightLevel(1.0f);
         SoulCrystallizerIdle = new SoulCrystallizer(false).setCreativeTab(HellLand.HellMCTab);
         SoulCrystallizerActive = new SoulCrystallizer(true).setLightLevel(2.0f);
-        CrystalOvenIdle = new CrystalOven(false).setCreativeTab(HellLand.HellMCTab).setHardness(3.4f);
-        CrystalOvenActive = new CrystalOven(true).setHardness(3.4f).setLightLevel(2.0f);
+        CrystalOvenIdle = new crystalOven(false).setCreativeTab(HellLand.HellMCTab).setHardness(3.4f);
+        CrystalOvenActive = new crystalOven(true).setHardness(3.4f).setLightLevel(2.0f);
         CrystalSpawn = new CrystalSpawn();
         alchemicalTable = new alchemicalTable("alchemicalTable",HellLand.HellMCTab);
         MMixerIdle = new MagicalMixer("magicalMixer", HellLand.HellMCTab, false).setHardness(3.4f);

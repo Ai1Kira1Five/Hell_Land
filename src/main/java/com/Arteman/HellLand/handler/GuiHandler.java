@@ -3,7 +3,7 @@ package com.Arteman.HellLand.handler;
 import com.Arteman.HellLand.HellLand;
 import com.Arteman.HellLand.container.*;
 import com.Arteman.HellLand.gui.*;
-import com.Arteman.HellLand.tileentity.TileEntityCrystalOven;
+import com.Arteman.HellLand.tileentity.crystalOvenTE;
 import com.Arteman.HellLand.tileentity.TileEntityHellOven;
 import com.Arteman.HellLand.tileentity.TileEntitySoulCrystallizer;
 import com.Arteman.HellLand.tileentity.alchemicalTableTE;
@@ -28,8 +28,8 @@ public class GuiHandler implements IGuiHandler {
                                 return new ContainerSoulCrystallizer(player.inventory, (TileEntitySoulCrystallizer) entity);
                             }
                         case HellLand.guiIDCrystalOven:
-                            if (entity instanceof TileEntityCrystalOven) {
-                                return new ContainerCrystalOven(player.inventory, (TileEntityCrystalOven) entity);
+                            if (entity instanceof crystalOvenTE) {
+                                return new crystalOvenContainer(player.inventory, (crystalOvenTE) entity);
                             }
                         case HellLand.guiIDAlchemicalTable:
                             if(entity instanceof alchemicalTableTE){
@@ -60,8 +60,8 @@ public class GuiHandler implements IGuiHandler {
                         return new GuiSoulCrystallizer(player.inventory, (TileEntitySoulCrystallizer) entity);
                     }
                 case HellLand.guiIDCrystalOven:
-                    if (entity instanceof TileEntityCrystalOven) {
-                        return new GuiCrystalOven(player.inventory, (TileEntityCrystalOven) entity);
+                    if (entity instanceof crystalOvenTE) {
+                        return new GuiCrystalOven(player.inventory, (crystalOvenTE) entity);
                     }
                 case HellLand.guiIDAlchemicalTable:
                     if(entity instanceof alchemicalTableTE){

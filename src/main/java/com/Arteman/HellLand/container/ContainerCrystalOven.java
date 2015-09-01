@@ -1,6 +1,6 @@
 package com.Arteman.HellLand.container;
 
-import com.Arteman.HellLand.tileentity.TileEntityCrystalOven;
+import com.Arteman.HellLand.tileentity.crystalOvenTE;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,7 +11,7 @@ import net.minecraft.item.crafting.FurnaceRecipes;
 import org.apache.commons.lang3.ArrayUtils;
 
 public class ContainerCrystalOven extends Container {
-    private TileEntityCrystalOven crystalOven;
+    private crystalOvenTE crystalOven;
 
     public int lastBurnTime;
     public int lastCurrentItemBurnTime;
@@ -27,7 +27,7 @@ public class ContainerCrystalOven extends Container {
      * slot 2 - after 7,8,9,10
      */
 
-    public ContainerCrystalOven(InventoryPlayer inventory, TileEntityCrystalOven tileentity) {
+    public ContainerCrystalOven(InventoryPlayer inventory, crystalOvenTE tileentity) {
         this.crystalOven = tileentity;
         this.addSlotToContainer(new Slot((IInventory) tileentity, 0, 62, 64));
         this.addSlotToContainer(new Slot((IInventory) tileentity, 1, 80, 64));

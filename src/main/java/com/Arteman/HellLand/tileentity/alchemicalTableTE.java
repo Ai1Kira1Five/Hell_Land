@@ -91,7 +91,7 @@ public class alchemicalTableTE extends TileEntity implements ISidedInventory {
     }
 
     public String getInventoryName() {
-        return this.hasCustomInventoryName() ? this.localizedName : "container.ContainerCrystalOven";
+        return this.hasCustomInventoryName() ? this.localizedName : "container.alchemicalTable";
     }
 
     public boolean hasCustomInventoryName() {

@@ -2,7 +2,7 @@ package com.Arteman.HellLand.blocks.machines;
 
 import com.Arteman.HellLand.HellLand;
 import com.Arteman.HellLand.ModBlocks;
-import com.Arteman.HellLand.tileentity.TileEntityCrystalOven;
+import com.Arteman.HellLand.tileentity.crystalOvenTE;
 import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -92,7 +92,7 @@ public class CrystalOven extends BlockContainer {
 
     @Override
     public TileEntity createNewTileEntity(World world, int i) {
-        return new TileEntityCrystalOven();
+        return new crystalOvenTE();
     }
 
     @SideOnly(Side.CLIENT)
@@ -147,7 +147,7 @@ public class CrystalOven extends BlockContainer {
         }
 
         if (itemstack.hasDisplayName()) {
-            ((TileEntityCrystalOven) world.getTileEntity(x, y, z)).setGuiDisplayName(itemstack.getDisplayName());
+            ((crystalOvenTE) world.getTileEntity(x, y, z)).setGuiDisplayName(itemstack.getDisplayName());
         }
     }
 
@@ -175,7 +175,7 @@ public class CrystalOven extends BlockContainer {
 
     public void breakBlock(World world, int x, int y, int z, Block oldblock, int oldMetadata) {
         if (!keepInventory) {
-            TileEntityCrystalOven tileentity = (TileEntityCrystalOven) world.getTileEntity(x, y, z);
+            crystalOvenTE tileentity = (crystalOvenTE) world.getTileEntity(x, y, z);
 
             if (tileentity != null) {
                 for (int i = 0; i < tileentity.getSizeInventory(); i++) {

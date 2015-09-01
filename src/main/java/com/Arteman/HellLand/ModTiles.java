@@ -8,7 +8,7 @@ public class ModTiles {
         GameRegistry.registerTileEntity(TileEntityHellOven.class, HellLand.MODID + ":hellOven");
         GameRegistry.registerTileEntity(TileEntityWire.class, HellLand.MODID + ":wireOne");
         GameRegistry.registerTileEntity(TileEntitySoulCrystallizer.class, HellLand.MODID + ":soulCrystallizer");
-        GameRegistry.registerTileEntity(TileEntityCrystalOven.class, HellLand.MODID + ":crystalOven");
+        GameRegistry.registerTileEntity(crystalOvenTE.class, HellLand.MODID + ":crystalOven");
         GameRegistry.registerTileEntity(alchemicalTableTE.class, HellLand.MODID+":alchemicalTable");
     }
 }

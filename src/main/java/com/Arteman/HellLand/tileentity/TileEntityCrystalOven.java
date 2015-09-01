@@ -1,6 +1,6 @@
 package com.Arteman.HellLand.tileentity;
 
-import com.Arteman.HellLand.blocks.machines.CrystalOven;
+import com.Arteman.HellLand.blocks.machines.crystalOven;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -37,7 +37,7 @@ public class TileEntityCrystalOven extends TileEntity implements ISidedInventory
     }
 
     public String getInventoryName() {
-        return this.hasCustomInventoryName() ? this.localizedName : "container.ContainerCrystalOven";
+        return this.hasCustomInventoryName() ? this.localizedName : "container.crystalOvenContainer";
     }
 
     public boolean hasCustomInventoryName() {
@@ -196,7 +196,7 @@ public class TileEntityCrystalOven extends TileEntity implements ISidedInventory
 
             if (flag != this.isBurning()) {
                 flag1 = true;
-                CrystalOven.updateCrystalOvenBlockState(this.burnTime > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
+                crystalOven.updateCrystalOvenBlockState(this.burnTime > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
             }
         }
         if (flag1) {
