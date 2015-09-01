@@ -192,7 +192,7 @@ public class alchemicalTableTE extends TileEntity implements ISidedInventory {
     private int getFirstInputSlot() {
         for(int i=0;i<4;i++){
             ItemStack itemStack = getStackInSlot(i);
-            if(itemStack!=null && !EnchantmentHelper.getEnchantments(itemStack).isEmpty()){
+            if(itemStack!=null && (getStackInSlot(4) == null || getStackInSlot(4).stackSize + countCurrentProcessingLVL(getStackInSlot(getFirstInputSlot()))<=getInventoryStackLimit()){
                 return i;
             }
         }
