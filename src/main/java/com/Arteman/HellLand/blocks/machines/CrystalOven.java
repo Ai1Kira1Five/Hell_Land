@@ -149,7 +149,7 @@ public class crystalOven extends TEBlockHell {
             worldObj.setTileEntity(xCoord, yCoord, zCoord, tileentity);
         }
     }
-    @Override
+    /*@Override
     public void breakBlock(World world, int x, int y, int z, Block oldblock, int oldMetadata) {
         if (!keepInventory) {
             crystalOvenTE tileentity = (crystalOvenTE) world.getTileEntity(x, y, z);
@@ -188,7 +188,7 @@ public class crystalOven extends TEBlockHell {
         }
 
         super.breakBlock(world, x, y, z, oldblock, oldMetadata);
-    }
+    }*/
 
     @Override
     public int getRenderType ()
