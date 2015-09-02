@@ -1,19 +1,13 @@
-package cofh.api.energy;
+package com.Arteman.HellLand.energy;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.common.util.ForgeDirection;
 
-/**
- * Reference implementation of {@link IEnergyHandler}. Use/extend this or implement your own.
- *
- * @author King Lemming
- *
- */
-public class TileEnergyHandler extends TileEntity implements IEnergyHandler {
-
-	protected EnergyStorage storage = new EnergyStorage(32000);
-
+public class TEEnergyHandler extends TileEntity implements HandlerEnergyInterface{
+	
+	protected Storage storage = new Storage(666000);
+	
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 
@@ -27,29 +21,25 @@ public class TileEnergyHandler extends TileEntity implements IEnergyHandler {
 		super.writeToNBT(nbt);
 		storage.writeToNBT(nbt);
 	}
-
-	/* IEnergyConnection */
+	
 	@Override
 	public boolean canConnectEnergy(ForgeDirection from) {
 
 		return true;
 	}
-
-	/* IEnergyReceiver */
+	
 	@Override
-	public int receiveEnergy(ForgeDirection from, int maxReceive, boolean simulate) {
+	public int receiveEnergy(ForgeDirection from, int maxReceive) {
 
-		return storage.receiveEnergy(maxReceive, simulate);
+		return storage.receiveEnergy(maxReceive);
 	}
-
-	/* IEnergyProvider */
+	
 	@Override
-	public int extractEnergy(ForgeDirection from, int maxExtract, boolean simulate) {
+	public int extractEnergy(ForgeDirection from, int maxExtract) {
 
-		return storage.extractEnergy(maxExtract, simulate);
+		return storage.extractEnergy(maxExtract);
 	}
-
-	/* IEnergyReceiver and IEnergyProvider */
+	
 	@Override
 	public int getEnergyStored(ForgeDirection from) {
 
@@ -61,5 +51,4 @@ public class TileEnergyHandler extends TileEntity implements IEnergyHandler {
 
 		return storage.getMaxEnergyStored();
 	}
-
 }

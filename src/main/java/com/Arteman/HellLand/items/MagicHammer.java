@@ -36,6 +36,7 @@ public class MagicHammer extends ItemPickaxe {
         return ImmutableSet.of("pickaxe", "sword");
     }
     
+    /*в данный момент не работает, раюотаю в этом направлении*/
     public void onItemUse(World world, int x, int y, int z, Random rand, Item item, ItemStack itemStack, EntityPlayer player, EntityLivingBase entity){
     	if (!world.isRemote && item.onLeftClickEntity(itemStack, player, entity))
     	{

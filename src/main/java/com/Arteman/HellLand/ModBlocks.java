@@ -85,7 +85,7 @@ public class ModBlocks {
         WireOne = new WireOne().setCreativeTab(HellLand.HellMCTab);
 
         //Register bad blocks
-         GameRegistry.registerBlock(HellOvenIdle, "HellOvenIdle");
+        GameRegistry.registerBlock(HellOvenIdle, "HellOvenIdle");
         GameRegistry.registerBlock(HellOvenActive, "HellOvenActive");
         GameRegistry.registerBlock(WireOne, "WireOne");
         GameRegistry.registerBlock(SoulCrystallizerIdle, "SoulCrystallizerIdle");

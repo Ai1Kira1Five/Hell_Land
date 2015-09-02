@@ -1,48 +1,44 @@
-package cofh.api.energy;
+package com.Arteman.HellLand.energy;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import cofh.api.energy.IEnergyContainerItem;
+import cofh.api.energy.ItemEnergyContainer;
 
-/**
- * Reference implementation of {@link IEnergyContainerItem}. Use/extend this or implement your own.
- * 
- * @author King Lemming
- * 
- */
-public class ItemEnergyContainer extends Item implements IEnergyContainerItem {
-
+public class ItemContainer extends Item implements EnergyItemContainerInterface{
+	
 	protected int capacity;
 	protected int maxReceive;
 	protected int maxExtract;
 
-	public ItemEnergyContainer() {
+	public ItemContainer() {
 
 	}
-
-	public ItemEnergyContainer(int capacity) {
+	
+	public ItemContainer(int capacity) {
 
 		this(capacity, capacity, capacity);
 	}
-
-	public ItemEnergyContainer(int capacity, int maxTransfer) {
+	
+	public ItemContainer(int capacity, int maxTransfer) {
 
 		this(capacity, maxTransfer, maxTransfer);
 	}
 
-	public ItemEnergyContainer(int capacity, int maxReceive, int maxExtract) {
+	public ItemContainer(int capacity, int maxReceive, int maxExtract) {
 
 		this.capacity = capacity;
 		this.maxReceive = maxReceive;
 		this.maxExtract = maxExtract;
 	}
 
-	public ItemEnergyContainer setCapacity(int capacity) {
+	public ItemContainer setCapacity(int capacity) {
 
 		this.capacity = capacity;
 		return this;
 	}
-
+	
 	public void setMaxTransfer(int maxTransfer) {
 
 		setMaxReceive(maxTransfer);
@@ -59,9 +55,8 @@ public class ItemEnergyContainer extends Item implements IEnergyContainerItem {
 		this.maxExtract = maxExtract;
 	}
 
-	/* IEnergyContainerItem */
 	@Override
-	public int receiveEnergy(ItemStack container, int maxReceive, boolean simulate) {
+	public int receiveEnergy(ItemStack container, int maxReceive) {
 
 		if (container.stackTagCompound == null) {
 			container.stackTagCompound = new NBTTagCompound();
@@ -69,15 +64,11 @@ public class ItemEnergyContainer extends Item implements IEnergyContainerItem {
 		int energy = container.stackTagCompound.getInteger("Energy");
 		int energyReceived = Math.min(capacity - energy, Math.min(this.maxReceive, maxReceive));
 
-		if (!simulate) {
-			energy += energyReceived;
-			container.stackTagCompound.setInteger("Energy", energy);
-		}
 		return energyReceived;
 	}
 
 	@Override
-	public int extractEnergy(ItemStack container, int maxExtract, boolean simulate) {
+	public int extractEnergy(ItemStack container, int maxExtract) {
 
 		if (container.stackTagCompound == null || !container.stackTagCompound.hasKey("Energy")) {
 			return 0;
@@ -85,10 +76,6 @@ public class ItemEnergyContainer extends Item implements IEnergyContainerItem {
 		int energy = container.stackTagCompound.getInteger("Energy");
 		int energyExtracted = Math.min(energy, Math.min(this.maxExtract, maxExtract));
 
-		if (!simulate) {
-			energy -= energyExtracted;
-			container.stackTagCompound.setInteger("Energy", energy);
-		}
 		return energyExtracted;
 	}
 
@@ -106,5 +93,4 @@ public class ItemEnergyContainer extends Item implements IEnergyContainerItem {
 
 		return capacity;
 	}
-
 }
