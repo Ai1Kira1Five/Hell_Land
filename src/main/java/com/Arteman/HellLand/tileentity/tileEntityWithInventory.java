@@ -17,6 +17,10 @@ public abstract class tileEntityWithInventory extends TileEntity implements IInv
         this.inventory = new ItemStack[slots];
     }
 
+    public void setGuiDisplayName(String displayName) {
+        this.localizedName = displayName;
+    }
+
     //abstract ISidedInventory
     public abstract int[] getAccessibleSlotsFromSide(int slot);
     public abstract boolean canInsertItem(int slot, ItemStack itemStack, int side);

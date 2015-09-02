@@ -31,17 +31,17 @@ public class crystalOvenContainer extends Container {
 
     public crystalOvenContainer(InventoryPlayer inventory, crystalOvenTE tileentity) {
         this.crystalOven = tileentity;
-        this.addSlotToContainer(new Slot((IInventory) tileentity, 0, 62, 64));
-        this.addSlotToContainer(new Slot((IInventory) tileentity, 1, 80, 64));
-        this.addSlotToContainer(new Slot((IInventory) tileentity, 2, 98, 64));
-        this.addSlotToContainer(new Slot((IInventory) tileentity, 3, 26, 27));
-        this.addSlotToContainer(new Slot((IInventory) tileentity, 4, 44, 27));
-        this.addSlotToContainer(new Slot((IInventory) tileentity, 5, 26, 44));
-        this.addSlotToContainer(new Slot((IInventory) tileentity, 6, 44, 44));
-        this.addSlotToContainer(new SlotFurnace(inventory.player, (IInventory) tileentity, 7, 116, 27));
-        this.addSlotToContainer(new SlotFurnace(inventory.player, (IInventory) tileentity, 8, 134, 27));
-        this.addSlotToContainer(new SlotFurnace(inventory.player, (IInventory) tileentity, 9, 116, 44));
-        this.addSlotToContainer(new SlotFurnace(inventory.player, (IInventory) tileentity, 10, 134, 44));
+        this.addSlotToContainer(new fuelSlot((IInventory) tileentity, 0, 62, 64));
+        this.addSlotToContainer(new fuelSlot((IInventory) tileentity, 1, 80, 64));
+        this.addSlotToContainer(new fuelSlot((IInventory) tileentity, 2, 98, 64));
+        this.addSlotToContainer(new inputSlot((IInventory) tileentity, 3, 26, 27));
+        this.addSlotToContainer(new inputSlot((IInventory) tileentity, 4, 44, 27));
+        this.addSlotToContainer(new inputSlot((IInventory) tileentity, 5, 26, 44));
+        this.addSlotToContainer(new inputSlot((IInventory) tileentity, 6, 44, 44));
+        this.addSlotToContainer(new outputSlot((IInventory) tileentity, 7, 116, 27));
+        this.addSlotToContainer(new outputSlot((IInventory) tileentity, 8, 134, 27));
+        this.addSlotToContainer(new outputSlot((IInventory) tileentity, 9, 116, 44));
+        this.addSlotToContainer(new outputSlot((IInventory) tileentity, 10, 134, 44));
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 9; j++) {
@@ -68,8 +68,8 @@ public class crystalOvenContainer extends Container {
 
     public void detectAndSendChanges() {
         super.detectAndSendChanges();
-        for (int i = 0; i < this.crafters.size(); i++) {
-            ICrafting icrafting = (ICrafting) this.crafters.get(i);
+        for (Object crafter : this.crafters) {
+            ICrafting icrafting = (ICrafting) crafter;
 
             if (this.lastCookTime != this.crystalOven.cookTime) {
                 icrafting.sendProgressBarUpdate(this, 0, this.crystalOven.cookTime);
@@ -155,5 +155,38 @@ public class crystalOvenContainer extends Container {
             slot.onPickupFromSlot(par1EntityPlayer, itemstack1);
         }
         return itemstack;
+    }
+
+    public class inputSlot extends Slot{
+
+        public inputSlot(IInventory inventory, int index, int x, int y) {
+            super(inventory, index, x, y);
+        }
+
+        @Override
+        public boolean isItemValid(ItemStack itemStack) {
+            return FurnaceRecipes.smelting().getSmeltingResult(itemStack)!=null;
+        }
+    }
+    public class fuelSlot extends Slot{
+
+        public fuelSlot(IInventory inventory, int index, int x, int y) {
+            super(inventory, index, x, y);
+        }
+
+        @Override
+        public boolean isItemValid(ItemStack itemStack) {
+            return TileEntityFurnace.isItemFuel(itemStack);
+        }
+    }
+    public class outputSlot extends Slot{
+        public outputSlot(IInventory inventory, int index, int x, int y) {
+            super(inventory, index, x, y);
+        }
+
+        @Override
+        public boolean isItemValid(ItemStack itemStack) {
+            return false;
+        }
     }
 }

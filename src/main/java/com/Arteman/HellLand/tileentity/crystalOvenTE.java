@@ -23,10 +23,6 @@ public class crystalOvenTE extends tileEntityWithInventory {
         super(11);
     }
 
-    public void setGuiDisplayName(String displayName) {
-        this.localizedName = displayName;
-    }
-
     public boolean isItemValidForSlot(int i, ItemStack itemstack) {
         if (ArrayUtils.contains(slots_side, i)) {
             return false;
@@ -120,7 +116,7 @@ public class crystalOvenTE extends tileEntityWithInventory {
                 } else if (this.inventory[s].isItemEqual(itemstack)) {
                     this.inventory[s].stackSize += itemstack.stackSize;
                 }
-                this.decrStackSize(i,1);
+                this.inventory[i].stackSize--;
                 if (this.inventory[i].stackSize <= 0) {
                     this.inventory[i] = null;
                 }

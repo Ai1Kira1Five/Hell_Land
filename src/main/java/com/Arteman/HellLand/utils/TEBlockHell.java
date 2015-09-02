@@ -96,7 +96,7 @@ public abstract class TEBlockHell extends BlockHell implements ITileEntityProvid
         }
 
         if (itemstack.hasDisplayName()) {
-            ((crystalOvenTE) world.getTileEntity(x, y, z)).setGuiDisplayName(itemstack.getDisplayName());
+            ((tileEntityWithInventory) world.getTileEntity(x, y, z)).setGuiDisplayName(itemstack.getDisplayName());
         }
     }
 
