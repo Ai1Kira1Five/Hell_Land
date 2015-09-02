@@ -1,6 +1,6 @@
 package com.Arteman.HellLand.utils;
 
-import com.Arteman.HellLand.tileentity.crystalOvenTE;
+import com.Arteman.HellLand.tileentity.tileEntityWithInventory;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
@@ -34,11 +34,12 @@ public abstract class TEBlockHell extends BlockHell implements ITileEntityProvid
         Random rand = new Random();
 
         if (!keepInventory) {
-            IInventory tileentity = (IInventory) world.getTileEntity(xCoord, yCoord, zCoord);
+            TileEntity tileEntity = world.getTileEntity(xCoord, yCoord, zCoord);
 
-            if (tileentity != null) {
-                for (int i = 0; i < tileentity.getSizeInventory(); i++) {
-                    ItemStack itemstack = tileentity.getStackInSlot(i);
+            if (tileEntity != null && tileEntity instanceof tileEntityWithInventory) {
+                tileEntityWithInventory te = (tileEntityWithInventory)tileEntity;
+                for (int i = 0; i < te.getSizeInventory(); i++) {
+                    ItemStack itemstack = te.getStackInSlot(i);
 
                     if (itemstack != null) {
                         float f = rand.nextFloat() * 0.8F + 0.1F;
