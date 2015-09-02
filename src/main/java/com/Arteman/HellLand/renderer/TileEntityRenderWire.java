@@ -2,14 +2,18 @@ package com.Arteman.HellLand.renderer;
 
 import com.Arteman.HellLand.HellLand;
 import com.Arteman.HellLand.tileentity.TileEntityWire;
+
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.common.util.ForgeDirection;
+
 import org.lwjgl.opengl.GL11;
 
-public class TileEntityRenderWire extends TileEntitySpecialRenderer {
+public class TileEntityRenderWire extends TileEntitySpecialRenderer{
 
     ResourceLocation texture = new ResourceLocation(HellLand.MODID + ":" + "textures/blocks/models/wire.png");
     boolean drawInside = true;
