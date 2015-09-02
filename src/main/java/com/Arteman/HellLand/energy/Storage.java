@@ -1,7 +1,6 @@
 package com.Arteman.HellLand.energy;
 
 import net.minecraft.nbt.NBTTagCompound;
-import cofh.api.energy.EnergyStorage;
 
 public class Storage implements EnergyIntsInterface{
 	

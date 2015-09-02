@@ -3,8 +3,6 @@ package com.Arteman.HellLand.energy;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import cofh.api.energy.IEnergyContainerItem;
-import cofh.api.energy.ItemEnergyContainer;
 
 public class ItemContainer extends Item implements EnergyItemContainerInterface{
 	
