@@ -138,10 +138,10 @@ public class alchemicalTableTE extends TileEntity implements ISidedInventory {
         super.updateEntity();
     }
     
-    public static void setProcessingTime(){
-        int slot = getFirstInputSlot();
-        if (i!=-1){
-            this.processingTime = 150 * countCurrentProcessingLVL(getStackInSlot(i));
+    public void setProcessingTime(){
+        int slot = this.getFirstInputSlot();
+        if (slot!=-1){
+            this.processingTime = 150 * countCurrentProcessingLVL(getStackInSlot(slot));
         }else{
             this.processingTime = 150;
         }
@@ -225,6 +225,7 @@ public class alchemicalTableTE extends TileEntity implements ISidedInventory {
     }
 
     public int getCookProgressScaled(int i) {
+        this.setProcessingTime();
         return this.cookTime * i / this.processingTime;
     }
 
