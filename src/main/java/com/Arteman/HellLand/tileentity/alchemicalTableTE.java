@@ -126,6 +126,7 @@ public class alchemicalTableTE extends TileEntity implements ISidedInventory {
         if (!this.worldObj.isRemote) {
             if (this.canProcess()) {
                 this.cookTime++;
+                this.setProcessingTime();
                 if (this.cookTime >= this.processingTime) {
                     this.cookTime = 0;
                     this.processing();
@@ -136,7 +137,16 @@ public class alchemicalTableTE extends TileEntity implements ISidedInventory {
         }
         super.updateEntity();
     }
-
+    
+    public static void setProcessingTime(){
+        int slot = getFirstInputSlot();
+        if (i!=-1){
+            this.processingTime = 150 * countCurrentProcessingLVL(getStackInSlot(i));
+        }else{
+            this.processingTime = 150;
+        }
+    }
+    
     public void readFromNBT(NBTTagCompound nbt) {
         super.readFromNBT(nbt);
 
