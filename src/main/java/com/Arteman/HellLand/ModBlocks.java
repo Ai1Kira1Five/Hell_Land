@@ -33,8 +33,8 @@ public class ModBlocks {
     public static BlockHell alchemicalTable;
 
     //machines
-    public static Block HellOvenIdle;
-    public static Block HellOvenActive;
+    public static BlockHell hellOvenIdle;
+    public static BlockHell hellOvenActive;
     public static BlockHell crystalOvenIdle;
     public static BlockHell crystalOvenActive;
     public static Block SoulCrystallizerIdle;
@@ -68,8 +68,9 @@ public class ModBlocks {
         NecroticLamp = new NecroticLamp("necroticLamp");
 
         //machines
-        HellOvenIdle = new HellOven(false).setCreativeTab(HellLand.HellMCTab).setHardness(3.4f);
-        HellOvenActive = new HellOven(true).setHardness(3.4f).setLightLevel(1.0f);
+        hellOvenIdle = new hellOven("hellOvenIdle",HellLand.HellMCTab,false);
+        hellOvenActive = new hellOven("hellOvenActive",null,true);
+            hellOvenActive.setCustomDrop(new ItemStack(hellOvenIdle));
         SoulCrystallizerIdle = new SoulCrystallizer(false).setCreativeTab(HellLand.HellMCTab);
         SoulCrystallizerActive = new SoulCrystallizer(true).setLightLevel(2.0f);
         crystalOvenIdle = new crystalOven("crystalOvenIdle", HellLand.HellMCTab,false);
@@ -84,9 +85,6 @@ public class ModBlocks {
         //wires
         WireOne = new WireOne().setCreativeTab(HellLand.HellMCTab);
 
-        //Register bad blocks
-        GameRegistry.registerBlock(HellOvenIdle, "HellOvenIdle");
-        GameRegistry.registerBlock(HellOvenActive, "HellOvenActive");
         GameRegistry.registerBlock(WireOne, "WireOne");
         GameRegistry.registerBlock(SoulCrystallizerIdle, "SoulCrystallizerIdle");
         GameRegistry.registerBlock(SoulCrystallizerActive, "SoulCrystallizerActive");

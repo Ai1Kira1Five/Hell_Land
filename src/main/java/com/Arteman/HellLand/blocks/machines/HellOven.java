@@ -2,42 +2,30 @@ package com.Arteman.HellLand.blocks.machines;
 
 import com.Arteman.HellLand.HellLand;
 import com.Arteman.HellLand.ModBlocks;
-import com.Arteman.HellLand.tileentity.TileEntityHellOven;
+import com.Arteman.HellLand.tileentity.hellOvenTE;
+import com.Arteman.HellLand.utils.TEBlockHell;
 import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockContainer;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityItem;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
-import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class HellOven extends BlockContainer {
+public class hellOven extends TEBlockHell {
     private final boolean isActive;
 
     @SideOnly(Side.CLIENT)
     private IIcon iconFront;
-
-    @SideOnly(Side.CLIENT)
     private IIcon iconTop;
 
-    private static boolean keepInventory;
-    private Random rand = new Random();
-
-    public HellOven(boolean isActive) {
-        super(Material.iron);
-        this.setBlockName(HellLand.MODID+":hellOven");
+    public hellOven(String name, CreativeTabs creativeTabs, boolean isActive) {
+        super(name, creativeTabs);
         this.isActive = isActive;
     }
 
@@ -50,11 +38,7 @@ public class HellOven extends BlockContainer {
 
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int metadata) {
-        return side == 1 ? this.iconTop : (side == 1 ? this.iconTop : (side == 0 ? this.iconTop : (side != metadata ? this.blockIcon : this.iconFront)));
-    }
-
-    public Item getItemDropped(int i, Random random, int j) {
-        return Item.getItemFromBlock(ModBlocks.HellOvenIdle);
+        return side == 1 ? this.iconTop : ((side == 0 ? this.iconTop : (side != metadata ? this.blockIcon : this.iconFront)));
     }
 
     private void setDefaultDirection(World world, int x, int y, int z) {
@@ -92,7 +76,7 @@ public class HellOven extends BlockContainer {
 
     @Override
     public TileEntity createNewTileEntity(World world, int i) {
-        return new TileEntityHellOven();
+        return new hellOvenTE();
     }
 
 
@@ -131,27 +115,6 @@ public class HellOven extends BlockContainer {
         }
     }
 
-    public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entityplayer, ItemStack itemstack) {
-        int l = MathHelper.floor_double((double) (entityplayer.rotationYaw * 4.0F / 360.F) + 0.5D) & 3;
-
-        if (l == 0) {
-            world.setBlockMetadataWithNotify(x, y, z, 2, 2);
-        }
-        if (l == 1) {
-            world.setBlockMetadataWithNotify(x, y, z, 5, 2);
-        }
-        if (l == 2) {
-            world.setBlockMetadataWithNotify(x, y, z, 3, 2);
-        }
-        if (l == 3) {
-            world.setBlockMetadataWithNotify(x, y, z, 4, 2);
-        }
-
-        if (itemstack.hasDisplayName()) {
-            ((TileEntityHellOven) world.getTileEntity(x, y, z)).setGuiDisplayName(itemstack.getDisplayName());
-        }
-    }
-
     public static void updateHellOvenBlockState(boolean active, World worldObj, int xCoord, int yCoord, int zCoord) {
         int i = worldObj.getBlockMetadata(xCoord, yCoord, zCoord);
 
@@ -159,9 +122,9 @@ public class HellOven extends BlockContainer {
         keepInventory = true;
 
         if (active) {
-            worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.HellOvenActive);
+            worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.hellOvenActive);
         } else {
-            worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.HellOvenIdle);
+            worldObj.setBlock(xCoord, yCoord, zCoord, ModBlocks.hellOvenIdle);
         }
 
         keepInventory = false;
@@ -172,49 +135,5 @@ public class HellOven extends BlockContainer {
             tileentity.validate();
             worldObj.setTileEntity(xCoord, yCoord, zCoord, tileentity);
         }
-    }
-
-    public void breakBlock(World world, int x, int y, int z, Block oldblock, int oldMetadata) {
-        if (!keepInventory) {
-            TileEntityHellOven tileentity = (TileEntityHellOven) world.getTileEntity(x, y, z);
-
-            if (tileentity != null) {
-                for (int i = 0; i < tileentity.getSizeInventory(); i++) {
-                    ItemStack itemstack = tileentity.getStackInSlot(i);
-
-                    if (itemstack != null) {
-                        float f = this.rand.nextFloat() * 0.8F + 0.1F;
-                        float f1 = this.rand.nextFloat() * 0.8F + 0.1F;
-                        float f2 = this.rand.nextFloat() * 0.8F + 0.1F;
-
-                        while (itemstack.stackSize > 0) {
-                            int j = this.rand.nextInt(21) + 10;
-
-                            if (j > itemstack.stackSize) {
-                                j = itemstack.stackSize;
-                            }
-
-                            itemstack.stackSize -= j;
-
-                            EntityItem item = new EntityItem(world, (double) ((float) x + f), (double) ((float) y + f1), (double) ((float) z + f2), new ItemStack(itemstack.getItem(), j, itemstack.getItemDamage()));
-
-                            if (itemstack.hasTagCompound()) {
-                                item.getEntityItem().setTagCompound((NBTTagCompound) itemstack.getTagCompound().copy());
-                            }
-
-                            world.spawnEntityInWorld(item);
-                        }
-                    }
-                }
-
-                world.func_147453_f(x, y, z, oldblock);
-            }
-        }
-
-        super.breakBlock(world, x, y, z, oldblock, oldMetadata);
-    }
-
-    public Item getItem(World world, int x, int y, int z) {
-        return Item.getItemFromBlock(ModBlocks.HellOvenIdle);
     }
 }

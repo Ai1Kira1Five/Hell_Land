@@ -16,7 +16,7 @@ public class ModRecipes {
         GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.StrongStone, 4), new Object[]{"X#X", "#Y#", "X#X", ('X'), Blocks.obsidian, ('#'), Blocks.netherrack, ('Y'), Blocks.stone});
         GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.StrongStone, 2), new Object[]{"X#X", "#Y#", "X#X", ('X'), Blocks.obsidian, ('#'), Blocks.netherrack, ('Y'), Blocks.cobblestone});
         GameRegistry.addShapedRecipe(new ItemStack(ModItems.BoneSword, 1), "Y", "X", 'X', ModItems.ToolRod1, 'Y', ModItems.BoneBlade);
-        GameRegistry.addRecipe(new ItemStack(ModBlocks.HellOvenIdle, 1), new Object[]{"XXX", "X#X", "XXX", ('X'), ModBlocks.StrongStone});
+        GameRegistry.addRecipe(new ItemStack(ModBlocks.hellOvenIdle, 1), new Object[]{"XXX", "X#X", "XXX", ('X'), ModBlocks.StrongStone});
         GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.BloodWood, 2), new Object[]{"#Y#", "YXY", "#Y#", ('X'), Blocks.planks, ('Y'), ModItems.BloodDrop});
         GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.AmuletTable, 1), new Object[]{"XX", "XX", ('X'), ModBlocks.BloodWood});
         GameRegistry.addShapedRecipe(new ItemStack(ModBlocks.BloodWoodLogs, 4), "X", 'X', ModBlocks.BloodWood);

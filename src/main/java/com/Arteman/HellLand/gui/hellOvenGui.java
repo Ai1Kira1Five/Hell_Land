@@ -1,22 +1,21 @@
 package com.Arteman.HellLand.gui;
 
 import com.Arteman.HellLand.HellLand;
-import com.Arteman.HellLand.container.ContainerHellOven;
-import com.Arteman.HellLand.tileentity.TileEntityHellOven;
+import com.Arteman.HellLand.container.hellOvenContainer;
+import com.Arteman.HellLand.tileentity.hellOvenTE;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-public class GuiHellOven extends GuiContainer {
-    public static final ResourceLocation bground = new ResourceLocation(HellLand.MODID + ":" + "textures/gui/GuiHellOven.png");
+public class hellOvenGui extends GuiContainer {
+    public static final ResourceLocation bground = new ResourceLocation(HellLand.MODID + ":" + "textures/gui/hellOvenGui.png");
 
-    public TileEntityHellOven hellOven;
+    public hellOvenTE hellOven;
 
-    public GuiHellOven(InventoryPlayer inventoryPlayer, TileEntityHellOven entity) {
-        super(new ContainerHellOven(inventoryPlayer, entity));
+    public hellOvenGui(InventoryPlayer inventoryPlayer, hellOvenTE entity) {
+        super(new hellOvenContainer(inventoryPlayer, entity));
 
         this.hellOven = entity;
 

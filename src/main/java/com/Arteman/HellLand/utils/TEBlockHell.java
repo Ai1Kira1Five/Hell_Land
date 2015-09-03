@@ -75,7 +75,7 @@ public abstract class TEBlockHell extends BlockHell implements ITileEntityProvid
     public boolean onBlockEventReceived(World world, int xCoord, int yCoord, int zCoord, int event, int args){
         super.onBlockEventReceived(world, xCoord, yCoord, zCoord, event, args);
         TileEntity tileentity = world.getTileEntity(xCoord, yCoord, zCoord);
-        return tileentity != null ? tileentity.receiveClientEvent(event, args) : false;
+        return tileentity != null && tileentity.receiveClientEvent(event, args);
     }
 
 

@@ -4,7 +4,7 @@ import com.Arteman.HellLand.HellLand;
 import com.Arteman.HellLand.container.*;
 import com.Arteman.HellLand.gui.*;
 import com.Arteman.HellLand.tileentity.crystalOvenTE;
-import com.Arteman.HellLand.tileentity.TileEntityHellOven;
+import com.Arteman.HellLand.tileentity.hellOvenTE;
 import com.Arteman.HellLand.tileentity.TileEntitySoulCrystallizer;
 import com.Arteman.HellLand.tileentity.alchemicalTableTE;
 import cpw.mods.fml.common.network.IGuiHandler;
@@ -20,8 +20,8 @@ public class GuiHandler implements IGuiHandler {
                 if (entity != null) {
                     switch (ID) {
                         case HellLand.guiIDHellOven:
-                            if (entity instanceof TileEntityHellOven) {
-                                return new ContainerHellOven(player.inventory, (TileEntityHellOven) entity);
+                            if (entity instanceof hellOvenTE) {
+                                return new hellOvenContainer(player.inventory, (hellOvenTE) entity);
                             }
                         case HellLand.guiIDSoulCrystallizer:
                             if (entity instanceof TileEntitySoulCrystallizer) {
@@ -52,8 +52,8 @@ public class GuiHandler implements IGuiHandler {
         if (entity != null) {
             switch (ID) {
                 case HellLand.guiIDHellOven:
-                    if (entity instanceof TileEntityHellOven) {
-                        return new GuiHellOven(player.inventory, (TileEntityHellOven) entity);
+                    if (entity instanceof hellOvenTE) {
+                        return new hellOvenGui(player.inventory, (hellOvenTE) entity);
                     }
                 case HellLand.guiIDSoulCrystallizer:
                     if (entity instanceof TileEntitySoulCrystallizer) {

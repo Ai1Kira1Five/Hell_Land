@@ -38,7 +38,7 @@ public class TileEntityWire extends TileEntity {
     }
 
     public boolean isHellOven(int x, int y, int z) {
-        return this.worldObj.getTileEntity(x, y, z) instanceof TileEntityHellOven && this.worldObj.getBlockMetadata(x, y, z) == 0;
+        return this.worldObj.getTileEntity(x, y, z) instanceof hellOvenTE && this.worldObj.getBlockMetadata(x, y, z) == 0;
     }
 
     public boolean onlyOneOpposite(ForgeDirection[] directions) {

@@ -1,6 +1,6 @@
 package com.Arteman.HellLand.container;
 
-import com.Arteman.HellLand.tileentity.TileEntityHellOven;
+import com.Arteman.HellLand.tileentity.hellOvenTE;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.entity.player.EntityPlayer;
@@ -8,15 +8,16 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraft.tileentity.TileEntityFurnace;
 
-public class ContainerHellOven extends Container {
-    private TileEntityHellOven hellOven;
+public class hellOvenContainer extends Container {
+    private hellOvenTE hellOven;
 
     public int lastBurnTime;
     public int lastCurrentItemBurnTime;
     public int lastCookTime;
 
-    public ContainerHellOven(InventoryPlayer inventory, TileEntityHellOven tileentity) {
+    public hellOvenContainer(InventoryPlayer inventory, hellOvenTE tileentity) {
         this.hellOven = tileentity;
 
         this.addSlotToContainer(new Slot((IInventory) tileentity, 0, 56, 35));
@@ -99,7 +100,7 @@ public class ContainerHellOven extends Container {
                         return null;
                     }
                     slot.onSlotChanged();
-                } else if (TileEntityHellOven.isItemFuel(itemstack1)) {
+                } else if (TileEntityFurnace.isItemFuel(itemstack1)) {
                     if (!this.mergeItemStack(itemstack1, 1, 2, false)) {
                         return null;
                     }
