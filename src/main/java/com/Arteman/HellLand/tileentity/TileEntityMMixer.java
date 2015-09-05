@@ -1,7 +1,12 @@
 package com.Arteman.HellLand.tileentity;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 import com.Arteman.HellLand.recipes.MixerRecipes;
+import com.Arteman.HellLand.utils.interfaces.IFacing;
+
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -9,209 +14,193 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
-public class TileEntityMMixer extends TileEntity implements ISidedInventory {
+public class TileEntityMMixer extends tileEntityWithInventory implements IFacing{
+	
     private static final int[] slots_final = new int[]{3};
     private static final int[] slots_ingredients = new int[]{0, 1, 2};
     private static final int[] slots_chest = new int[]{4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
 
-    private ItemStack[] mixerItemStacks = new ItemStack[16];
-
-    private int mixTime;
-    private int filledSlots;
-    private Item ingrID;
-    private String unlocalizedName;
-    private static final String __OBFID = "CL_00000345";
-
-    public void setGuiDisplayName(String displayName) {
-        this.unlocalizedName = displayName;
+    public int mixSpeed = 300;
+    public int mixTime;
+    public int currentItemMixTime;
+    
+    public TileEntityMMixer(){
+    	super(16);
     }
-
-    public String getInventoryName() {
-        return this.hasCustomInventoryName() ? this.unlocalizedName : "container.mixering";
+    
+    public boolean isItemValidForSlot(int i, ItemStack itemstack) {
+        if (ArrayUtils.contains(slots_final, i)) {
+            return false;
+        } else if (ArrayUtils.contains(slots_ingredients, i)) {
+            return TileEntityMMixer.isItemIngredient(itemstack);
+        } else if (MixerRecipes.mixering().getMixerResult(itemstack) != null) {
+            return true;
+        } else if (ArrayUtils.contains(slots_chest, i)){
+            return TileEntityMMixer.isItemToChest(itemstack);
+        }
+        else{
+        	return false;
+        }
     }
+    
+    private static boolean isItemToChest(ItemStack itemstack) {
+		return false;
+	}
 
+	private static boolean isItemIngredient(ItemStack itemstack) {
+		return false;
+	}
+
+	public boolean isMix(){
+    	return this.mixTime > 0;
+    }
+    
     @Override
-    public boolean hasCustomInventoryName() {
-        return this.unlocalizedName != null && this.unlocalizedName.length() > 0;
-    }
-
-    @Override
-    public int getSizeInventory() {
-        return this.mixerItemStacks.length;
-    }
-
     public void updateEntity() {
-        if (this.mixTime > 0) {
-            --this.mixTime;
+        boolean flag = this.mixTime > 0;
+        boolean flag1 = false;
 
-            if (this.mixTime == 0) {
-                this.mixItems();
-                this.markDirty();
-            } else if (!this.canMix()) {
-                this.mixTime = 0;
-                this.markDirty();
-            } else if (this.ingrID != this.mixerItemStacks[3].getItem()) {
-                this.mixTime = 0;
-                this.markDirty();
+        if (this.isMix()) {
+            this.mixTime--;
+        }
+        if (!this.worldObj.isRemote) {
+            if (this.mixTime == 0 && this.canMix()) {
+                int i = getIngredientSlot();
+                if (i >= 0) {
+                    this.currentItemMixTime = this.mixTime = TileEntityMMixer.getItemMixTime(this.inventory[i]);
+
+                    if (this.isMix()) {
+                        flag1 = true;
+
+                        if (this.inventory[i] != null) {
+                            this.inventory[i].stackSize--;
+
+                            if (this.inventory[i].stackSize == 0) {
+                                this.inventory[i] = this.inventory[i].getItem().getContainerItem(this.inventory[i]);
+                            }
+                        }
+                    }
+                }
             }
-        } else if (this.canMix()) {
-            this.mixTime = 200;
-            this.ingrID = this.mixerItemStacks[3].getItem();
+            if (flag != this.isMix()) {
+                flag1 = true;
+            }
         }
-
-        int i = this.getFilledSlots();
-
-        if (i != this.filledSlots) {
-            this.filledSlots = i;
-            this.worldObj.setBlockMetadataWithNotify(this.xCoord, this.yCoord, this.zCoord, i, 2);
+        if (flag1) {
+            this.markDirty();
         }
-
         super.updateEntity();
     }
+    
+    private static int getItemMixTime(ItemStack itemStack) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
-    public boolean canMix() {
-        if (this.mixerItemStacks[3] == null) {
-            return false;
-        } else {
-            ItemStack itemstack = MixerRecipes.mixering().getMixerResult(this.mixerItemStacks[0]);
+	public boolean canMix() {
 
-            if (itemstack == null) return false;
-
-            int result = this.mixerItemStacks[2].stackSize + itemstack.stackSize;
-
-            return (result <= getInventoryStackLimit() && result <= itemstack.getMaxStackSize());
-        }
+        int i = getInfusionSlot();
+        if (i < 0) return false;
+        ItemStack itemstack = MixerRecipes.mixering().getMixerResult(this.inventory[i]);
+        if (itemstack == null) return false;
+        return canMixToSlot(itemstack, 7) || canMixToSlot(itemstack, 8) || canMixToSlot(itemstack, 9) || canMixToSlot(itemstack, 10);
     }
 
-    public int getMixTime() {
-        return this.mixTime;
+    public boolean canMixToSlot(ItemStack itemstack, int slot) {
+        if (this.inventory[slot] == null) return true;
+        if (!this.inventory[slot].isItemEqual(itemstack)) return false;
+        int result = this.inventory[slot].stackSize + itemstack.stackSize;
+        return (result <= getInventoryStackLimit() && result <= itemstack.getMaxStackSize());
     }
 
-    public int getFilledSlots() {
-        return 0;
-    }
-
-    public void mixItems() {
+    public void mixItem() {
         if (this.canMix()) {
-            ItemStack itemstack = MixerRecipes.mixering().getMixerResult(this.mixerItemStacks[3]);
-
-/* WIP */
-            if (this.mixerItemStacks[1]==null)
-
-            {
-                this.mixerItemStacks[1]=itemstack.copy();
-            }
-            else if (this.mixerItemStacks[1].isItemEqual(itemstack))
-            {
-                this.mixerItemStacks[1].stackSize += itemstack.stackSize;
-            }
-
-            this.mixerItemStacks[1].stackSize--;
-
-            if (this.mixerItemStacks[0].stackSize <= 0) {
-                this.mixerItemStacks[0] = null;
+            for(int i=3;i<7;i++) {
+                if(this.inventory[i]==null) continue;
+                ItemStack itemstack = MixerRecipes.mixering().getMixerResult(this.getStackInSlot(i));
+                int s = getResultSlot(itemstack);
+                if(s<0)continue;
+                if (this.inventory[s] == null) {
+                    this.inventory[s] = itemstack.copy();
+                } else if (this.inventory[s].isItemEqual(itemstack)) {
+                    this.inventory[s].stackSize += itemstack.stackSize;
+                }
+                this.inventory[i].stackSize--;
+                if (this.inventory[i].stackSize <= 0) {
+                    this.inventory[i] = null;
+                }
             }
         }
     }
 
-    public void readFromNBT(NBTTagCompound nbt) {
-        super.readFromNBT(nbt);
-        NBTTagList nbttaglist = nbt.getTagList("Items", 10);
-        this.mixerItemStacks = new ItemStack[this.getSizeInventory()];
-
-        for (int i = 0; i < nbttaglist.tagCount(); i++) {
-            NBTTagCompound nbttagcompound1 = nbttaglist.getCompoundTagAt(i);
-            byte b0 = nbttagcompound1.getByte("Slot");
-
-            if (b0 >= 0 && b0 < this.mixerItemStacks.length) {
-                this.mixerItemStacks[b0] = ItemStack.loadItemStackFromNBT(nbttagcompound1);
-            }
-        }
-
-        this.mixTime = nbt.getShort("MixTime");
-
-        if (nbt.hasKey("CustomName", 8)) {
-            this.unlocalizedName = nbt.getString("CustomName");
-        }
-    }
-
-    public void writeToNBT(NBTTagCompound nbt) {
-        super.writeToNBT(nbt);
-        nbt.setShort("BrewTime", (short) this.mixTime);
-        NBTTagList nbttaglist = new NBTTagList();
-
-        for (int i = 0; i < this.mixerItemStacks.length; ++i) {
-            if (this.mixerItemStacks[i] != null) {
-                NBTTagCompound nbttagcompound1 = new NBTTagCompound();
-                nbttagcompound1.setByte("Slot", (byte) i);
-                this.mixerItemStacks[i].writeToNBT(nbttagcompound1);
-                nbttaglist.appendTag(nbttagcompound1);
-            }
-        }
-
-        nbt.setTag("Items", nbttaglist);
-
-        if (this.hasCustomInventoryName()) {
-            nbt.setString("CustomName", this.unlocalizedName);
-        }
-    }
-
-    @Override
-    public ItemStack getStackInSlot(int p_70301_1_) {
-        return null;
-    }
-
-    @Override
-    public ItemStack decrStackSize(int p_70298_1_, int p_70298_2_) {
-        return null;
-    }
-
-    @Override
-    public ItemStack getStackInSlotOnClosing(int p_70304_1_) {
-        return null;
-    }
-
-    @Override
-    public void setInventorySlotContents(int p_70299_1_, ItemStack p_70299_2_) {
-
-    }
-
-    @Override
-    public int getInventoryStackLimit() {
-        return 0;
-    }
-
-    @Override
-    public boolean isUseableByPlayer(EntityPlayer p_70300_1_) {
-        return false;
-    }
-
-    @Override
-    public void openInventory() {
-    }
-
-    @Override
-    public void closeInventory() {
-    }
-
-    @Override
-    public boolean isItemValidForSlot(int p_94041_1_, ItemStack p_94041_2_) {
-        return false;
-    }
-
-    @Override
     public int[] getAccessibleSlotsFromSide(int var1) {
         return var1 == 0 ? slots_ingredients : (var1 == 1 ? slots_final : slots_chest);
     }
 
-    @Override
-    public boolean canInsertItem(int p_102007_1_, ItemStack p_102007_2_, int p_102007_3_) {
+    public boolean canInsertItem(int i, ItemStack itemstack, int j) {
         return false;
     }
 
-    @Override
-    public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_, int p_102008_3_) {
+    public boolean canExtractItem(int i, ItemStack itemstack, int j) {
         return false;
     }
 
+    public int getBurnTimeRemainingScaled(int i) {
+        if (this.currentItemMixTime == 0) {
+            this.currentItemMixTime = this.mixSpeed;
+        }
+        return this.mixTime * i / this.currentItemMixTime;
+    }
+
+    @Override
+    public void readFromNBT(NBTTagCompound nbt) {
+        super.readFromNBT(nbt);
+
+        this.mixTime = (int) nbt.getShort("MixTime");
+        this.currentItemMixTime = (int) nbt.getShort("CurrentMixTime");
+    }
+    @Override
+    public void writeToNBT(NBTTagCompound nbt) {
+        super.writeToNBT(nbt);
+
+        nbt.setShort("BurnTime", (short) this.mixTime);
+        nbt.setShort("CurrentBurnTime", (short) this.currentItemMixTime);
+    }
+
+    private int getInfusionSlot() {
+        for (int i = 0; i < 3; i++) {
+            if (TileEntityMMixer.isInfusionItem(this.inventory[i])) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    private static boolean isInfusionItem(ItemStack itemStack) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	private int getIngredientSlot() {
+        for (int i = 3; i < 7; i++) {
+            if (this.inventory[i] != null && MixerRecipes.mixering().getMixerResult(this.inventory[i]) != null) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    private int getResultSlot(ItemStack itemStack) {
+        for (int i = 7; i < 11; i++) {
+            if (this.inventory[i] == null || (itemStack.isItemEqual(this.inventory[i]) && (this.inventory[i].stackSize + itemStack.stackSize) <= getInventoryStackLimit())) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    @Override
+    public boolean isActive() {
+        return isMix();
+    }
 }
