@@ -1,14 +1,20 @@
 package com.Arteman.HellLand.items;
 
 import com.Arteman.HellLand.HellLand;
+import com.Arteman.HellLand.items.tools.ToolCore;
 import com.google.common.collect.ImmutableSet;
+
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.material.Material;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.Random;
 import java.util.Set;
@@ -32,7 +38,7 @@ public class MagicHammer extends ItemPickaxe {
         return ImmutableSet.of("pickaxe", "sword");
     }
     
-    /*пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ*/
+    
     public void onItemUse(World world, int x, int y, int z, Random rand, Item item, ItemStack itemStack, EntityPlayer player, EntityLivingBase entity){
     	if (!world.isRemote && item.onLeftClickEntity(itemStack, player, entity))
     	{
@@ -50,15 +56,29 @@ public class MagicHammer extends ItemPickaxe {
     	}
     }
     
-    /*
-    private static Set effectiveAgainst = 
-    		Sets.newHashSet(new Block[] {
-    	    Blocks.planks,
-    	    Blocks.bookshelf,
-    	    Blocks.log,
-    	    Blocks.log2, 
-    	    Blocks.chest,
-    	    Blocks.pumpkin,
-    	    Blocks.lit_pumpkin});
-    	    */
+    //wip короче что-то я в конец запутался в расчётах... надо переключиться...
+    @Override
+	public boolean onBlockStartBreak(ItemStack stack, int x, int y, int z, EntityPlayer player) {
+		MovingObjectPosition raycast = ToolCore.raytraceFromEntity(player.worldObj, player, true, 10);
+		if(raycast != null) {
+			breakOtherBlock(player, stack, x, y, z, x, y, z, raycast.sideHit);
+		}
+
+		return false;
+	}
+    
+    public void breakOtherBlock(EntityPlayer player, ItemStack stack, int x, int y, int z, int originX, int originY, int originZ, int side) {
+
+		World world = player.worldObj;
+		Material mat = world.getBlock(x, y, z).getMaterial();
+		
+		if(world.isAirBlock(x, y, z))
+			return;
+
+		ForgeDirection direction = ForgeDirection.getOrientation(side);
+		int fortune = EnchantmentHelper.getFortuneModifier(player);
+		boolean silk = EnchantmentHelper.getSilkTouchModifier(player);
+
+		//ToolCore.removeBlocksInIteration(player, stack, world, x, y, z, fortune, fortune, fortune, fortune, fortune, fortune, null, null, silk, fortune, silk);
+	}
 }
