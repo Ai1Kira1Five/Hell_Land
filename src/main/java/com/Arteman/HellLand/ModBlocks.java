@@ -35,7 +35,7 @@ public class ModBlocks {
     public static BlockHell hellOven;
     public static BlockHell crystalOven;
     public static BlockHell soulCrystallizer;
-    public static BlockHell MMixer;
+    public static BlockHell mMixer;
     public static Block CrystalSpawn;
 
     //Wires
@@ -67,7 +67,7 @@ public class ModBlocks {
         soulCrystallizer = new soulCrystallizer("SoulCrystallizer", HellLand.HellMCTab);
         crystalOven = new crystalOven("crystalOven", HellLand.HellMCTab);
         alchemicalTable = new alchemicalTable("alchemicalTable",HellLand.HellMCTab);
-        MMixer = new MagicalMixer("magicalMixer", HellLand.HellMCTab);
+        mMixer = new mMixer("mMixer", HellLand.HellMCTab);
         CrystalSpawn = new CrystalSpawn();
         //wires
         WireOne = new WireOne().setCreativeTab(HellLand.HellMCTab);

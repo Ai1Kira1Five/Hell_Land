@@ -20,9 +20,9 @@ public class crystalOvenContainer extends Container {
     public int lastBurnTime;
     public int lastCurrentItemBurnTime;
     public int lastCookTime;
-    private int[] slots_after 		= new int[]{0, 1, 2};
-    private int[] slots_before 		= new int[]{3, 4, 5, 6};
-    private int[] slots_fuel 		= new int[]{7, 8, 9, 10};
+    private int[] slots_after = new int[]{0, 1, 2};
+    private int[] slots_before = new int[]{3, 4, 5, 6};
+    private int[] slots_fuel = new int[]{7, 8, 9, 10};
     /*
      * slot 1 - fuel 0, 1, 2
      * 

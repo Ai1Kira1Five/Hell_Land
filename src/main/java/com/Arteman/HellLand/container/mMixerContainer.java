@@ -1,7 +1,6 @@
 package com.Arteman.HellLand.container;
 
-import com.Arteman.HellLand.tileentity.TileEntityMMixer;
-
+import com.Arteman.HellLand.tileentity.mMixerTE;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
@@ -40,7 +39,7 @@ public class ContainerMMixer extends Container{
                 this.addSlotToContainer(new Slot(inv2, k + j * 2, 8 + k * 18, 18 + j * 18));
             }
         }
-
+        
         for (j = 0; j < 3; ++j)
         {
             for (k = 0; k < 2; ++k)
@@ -48,7 +47,7 @@ public class ContainerMMixer extends Container{
                 this.addSlotToContainer(new Slot(inv1, k + j * 2 + 2, 8 + k * 18, 103 + j * 18 + i));
             }
         }
-
+        
         for (j = 0; j < 2; ++j)
         {
             this.addSlotToContainer(new Slot(inv1, j, 8 + j * 18, 161 + i));

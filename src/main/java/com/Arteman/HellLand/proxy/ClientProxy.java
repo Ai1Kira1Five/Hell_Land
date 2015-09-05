@@ -34,7 +34,7 @@ public class ClientProxy extends CommonProxy {
         MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.hellOven), machRen);
         MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.alchemicalTable), machRen);
         MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.soulCrystallizer), machRen);
-        MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.MMixer), machRen);
+        MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.mMixer), machRen);
 
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWire.class, new TileEntityRenderWire());
         ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCrystalSpawn.class, new RenderCrystal());
