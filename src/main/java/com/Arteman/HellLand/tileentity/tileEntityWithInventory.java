@@ -1,5 +1,6 @@
 package com.Arteman.HellLand.tileentity;
 
+import com.Arteman.HellLand.utils.interfaces.IFacing;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ISidedInventory;
@@ -8,10 +9,12 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
-public abstract class tileEntityWithInventory extends TileEntity implements IInventory,ISidedInventory{
+public abstract class tileEntityWithInventory extends TileEntity implements IInventory,ISidedInventory,IFacing{
 
     public ItemStack[] inventory;
     public String localizedName;
+    public int facing = 3;
+    private boolean lastActivity = false;
 
     public tileEntityWithInventory(int slots){
         this.inventory = new ItemStack[slots];
@@ -114,7 +117,7 @@ public abstract class tileEntityWithInventory extends TileEntity implements IInv
                 this.inventory[b] = ItemStack.loadItemStackFromNBT(compound);
             }
         }
-
+        this.facing = nbt.getShort("facing");
         if (nbt.hasKey("CustomName")) {
             this.localizedName = nbt.getString("CustomName");
         }
@@ -122,6 +125,8 @@ public abstract class tileEntityWithInventory extends TileEntity implements IInv
     @Override
     public void writeToNBT(NBTTagCompound nbt) {
         super.writeToNBT(nbt);
+
+        nbt.setShort("facing",(short)this.getFacing());
 
         NBTTagList list = new NBTTagList();
 
@@ -135,10 +140,30 @@ public abstract class tileEntityWithInventory extends TileEntity implements IInv
         }
 
         nbt.setTag("Items", list);
-
         if (this.hasCustomInventoryName()) {
             nbt.setString("CustomName", this.localizedName);
         }
     }
+
+    @Override
+    public void updateEntity() {
+        boolean curActivity = isActive();
+        if(this.lastActivity != curActivity){
+            this.lastActivity = curActivity;
+            this.worldObj.markBlocksDirtyVertical(this.xCoord, this.yCoord, this.zCoord, this.zCoord+1);
+            this.worldObj.markBlockForUpdate(this.xCoord, this.yCoord, this.zCoord);
+        }
+        super.updateEntity();
+    }
+
+    public void setFacing(int facing) {
+        this.facing = facing;
+    }
+
+    public int getFacing() {
+        return this.facing;
+    }
+
+    public abstract boolean isActive();
 
 }

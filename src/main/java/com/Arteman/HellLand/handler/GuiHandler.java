@@ -3,10 +3,10 @@ package com.Arteman.HellLand.handler;
 import com.Arteman.HellLand.HellLand;
 import com.Arteman.HellLand.container.*;
 import com.Arteman.HellLand.gui.*;
+import com.Arteman.HellLand.tileentity.soulCrystallizerTE;
+import com.Arteman.HellLand.tileentity.alchemicalTableTE;
 import com.Arteman.HellLand.tileentity.crystalOvenTE;
 import com.Arteman.HellLand.tileentity.hellOvenTE;
-import com.Arteman.HellLand.tileentity.TileEntitySoulCrystallizer;
-import com.Arteman.HellLand.tileentity.alchemicalTableTE;
 import cpw.mods.fml.common.network.IGuiHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
@@ -24,8 +24,8 @@ public class GuiHandler implements IGuiHandler {
                                 return new hellOvenContainer(player.inventory, (hellOvenTE) entity);
                             }
                         case HellLand.guiIDSoulCrystallizer:
-                            if (entity instanceof TileEntitySoulCrystallizer) {
-                                return new ContainerSoulCrystallizer(player.inventory, (TileEntitySoulCrystallizer) entity);
+                            if (entity instanceof soulCrystallizerTE) {
+                                return new soulCrystallizerContainer(player.inventory, (soulCrystallizerTE) entity);
                             }
                         case HellLand.guiIDCrystalOven:
                             if (entity instanceof crystalOvenTE) {
@@ -56,8 +56,8 @@ public class GuiHandler implements IGuiHandler {
                         return new hellOvenGui(player.inventory, (hellOvenTE) entity);
                     }
                 case HellLand.guiIDSoulCrystallizer:
-                    if (entity instanceof TileEntitySoulCrystallizer) {
-                        return new GuiSoulCrystallizer(player.inventory, (TileEntitySoulCrystallizer) entity);
+                    if (entity instanceof soulCrystallizerTE) {
+                        return new soulCrystallizerGui(player.inventory, (soulCrystallizerTE) entity);
                     }
                 case HellLand.guiIDCrystalOven:
                     if (entity instanceof crystalOvenTE) {

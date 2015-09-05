@@ -7,7 +7,7 @@ public class ModTiles {
     public final static void init() {
         GameRegistry.registerTileEntity(hellOvenTE.class, HellLand.MODID + ":hellOven");
         GameRegistry.registerTileEntity(TileEntityWire.class, HellLand.MODID + ":wireOne");
-        GameRegistry.registerTileEntity(TileEntitySoulCrystallizer.class, HellLand.MODID + ":soulCrystallizer");
+        GameRegistry.registerTileEntity(soulCrystallizerTE.class, HellLand.MODID + ":soulCrystallizer");
         GameRegistry.registerTileEntity(crystalOvenTE.class, HellLand.MODID + ":crystalOven");
         GameRegistry.registerTileEntity(alchemicalTableTE.class, HellLand.MODID+":alchemicalTable");
     }

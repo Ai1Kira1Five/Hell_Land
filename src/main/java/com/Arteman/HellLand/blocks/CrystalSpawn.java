@@ -1,16 +1,13 @@
 package com.Arteman.HellLand.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockContainer;
-import net.minecraft.block.ITileEntityProvider;
-import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
-
 import com.Arteman.HellLand.HellLand;
 import com.Arteman.HellLand.tileentity.TileEntityCrystalSpawn;
 import com.Arteman.HellLand.utils.BlockHell;
+import net.minecraft.block.Block;
+import net.minecraft.block.ITileEntityProvider;
+import net.minecraft.block.material.Material;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 
 public class CrystalSpawn extends BlockHell implements ITileEntityProvider
 {

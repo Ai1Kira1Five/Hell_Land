@@ -1,13 +1,11 @@
 package com.Arteman.HellLand.renderer;
 
-import org.lwjgl.opengl.GL11;
-
 import com.Arteman.HellLand.HellLand;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
+import org.lwjgl.opengl.GL11;
 
 public class RenderItemCrystal implements IItemRenderer{
 	@Override

@@ -1,13 +1,11 @@
 package com.Arteman.HellLand.gui;
 
 import com.Arteman.HellLand.HellLand;
+import com.Arteman.HellLand.handler.ConfigurationHandler;
+import cpw.mods.fml.client.config.GuiConfig;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;
-
-import com.Arteman.HellLand.handler.ConfigurationHandler;
-
-import cpw.mods.fml.client.config.GuiConfig;
 
 public class ModGuiConfig extends GuiConfig{
 

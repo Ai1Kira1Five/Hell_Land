@@ -2,10 +2,10 @@ package codechicken.lib.vec;
 
 import codechicken.lib.math.MathHelper;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.math.BigDecimal;
 import java.math.MathContext;

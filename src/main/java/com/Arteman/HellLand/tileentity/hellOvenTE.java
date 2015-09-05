@@ -37,6 +37,7 @@ public class hellOvenTE extends tileEntityWithInventory {
         return this.burnTime > 0;
     }
 
+    @Override
     public void updateEntity() {
         boolean flag = this.burnTime > 0;
         boolean flag1 = false;
@@ -74,12 +75,12 @@ public class hellOvenTE extends tileEntityWithInventory {
 
             if (flag != this.isBurning()) {
                 flag1 = true;
-                hellOven.updateHellOvenBlockState(this.burnTime > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
             }
         }
         if (flag1) {
             this.markDirty();
         }
+        super.updateEntity();
     }
 
     public boolean canSmelt() {
@@ -156,5 +157,10 @@ public class hellOvenTE extends tileEntityWithInventory {
         nbt.setShort("BurnTime", (short) this.burnTime);
         nbt.setShort("CookTime", (short) this.cookTime);
         nbt.setShort("CurrentBurnTime", (short) this.currentItemBurnTime);
+    }
+
+    @Override
+    public boolean isActive() {
+        return isBurning();
     }
 }

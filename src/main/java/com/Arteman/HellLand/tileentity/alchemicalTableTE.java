@@ -2,12 +2,8 @@ package com.Arteman.HellLand.tileentity;
 
 import com.Arteman.HellLand.ModItems;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import org.apache.commons.lang3.ArrayUtils;
 
@@ -81,6 +77,12 @@ public class alchemicalTableTE extends tileEntityWithInventory{
 
         nbt.setShort("CookTime", (short) this.cookTime);
     }
+
+    @Override
+    public boolean isActive() {
+        return isProcessing();
+    }
+
     public boolean isProcessing() {
         return this.cookTime!=0;
     }

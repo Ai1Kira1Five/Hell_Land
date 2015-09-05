@@ -19,16 +19,16 @@ public class TileEntityWire extends TileEntity {
         else connections[0] = null;
         if (isWire(xCoord, yCoord - 1, zCoord)) connections[1] = ForgeDirection.DOWN;
         else connections[1] = null;
-        if (isWire(xCoord, yCoord, zCoord - 1) || isHellOven(xCoord, yCoord, zCoord - 1))
+        if (isWire(xCoord, yCoord, zCoord - 1) || isInventory(xCoord, yCoord, zCoord - 1))
             connections[2] = ForgeDirection.NORTH;
         else connections[2] = null;
-        if (isWire(xCoord + 1, yCoord, zCoord) || isHellOven(xCoord + 1, yCoord, zCoord))
+        if (isWire(xCoord + 1, yCoord, zCoord) || isInventory(xCoord + 1, yCoord, zCoord))
             connections[3] = ForgeDirection.EAST;
         else connections[3] = null;
-        if (isWire(xCoord, yCoord, zCoord + 1) || isHellOven(xCoord, yCoord, zCoord + 1))
+        if (isWire(xCoord, yCoord, zCoord + 1) || isInventory(xCoord, yCoord, zCoord + 1))
             connections[4] = ForgeDirection.SOUTH;
         else connections[4] = null;
-        if (isWire(xCoord - 1, yCoord, zCoord) || isHellOven(xCoord - 1, yCoord, zCoord))
+        if (isWire(xCoord - 1, yCoord, zCoord) || isInventory(xCoord - 1, yCoord, zCoord))
             connections[5] = ForgeDirection.WEST;
         else connections[5] = null;
     }
@@ -37,8 +37,8 @@ public class TileEntityWire extends TileEntity {
         return this.worldObj.getTileEntity(x, y, z) instanceof TileEntityWire;
     }
 
-    public boolean isHellOven(int x, int y, int z) {
-        return this.worldObj.getTileEntity(x, y, z) instanceof hellOvenTE && this.worldObj.getBlockMetadata(x, y, z) == 0;
+    public boolean isInventory(int x, int y, int z) {
+        return this.worldObj.getTileEntity(x, y, z) instanceof tileEntityWithInventory;// && this.worldObj.getBlockMetadata(x, y, z) == 0;
     }
 
     public boolean onlyOneOpposite(ForgeDirection[] directions) {

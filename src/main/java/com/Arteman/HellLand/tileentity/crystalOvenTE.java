@@ -1,6 +1,7 @@
 package com.Arteman.HellLand.tileentity;
 
 import com.Arteman.HellLand.blocks.machines.crystalOven;
+import com.Arteman.HellLand.utils.interfaces.IFacing;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
@@ -8,7 +9,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntityFurnace;
 import org.apache.commons.lang3.ArrayUtils;
 
-public class crystalOvenTE extends tileEntityWithInventory {
+public class crystalOvenTE extends tileEntityWithInventory implements IFacing{
 
     private static final int[] slots_top = new int[]{3, 4, 5, 6};
     private static final int[] slots_bottom = new int[]{0, 1, 2};
@@ -40,6 +41,7 @@ public class crystalOvenTE extends tileEntityWithInventory {
         return this.burnTime > 0;
     }
 
+    @Override
     public void updateEntity() {
         boolean flag = this.burnTime > 0;
         boolean flag1 = false;
@@ -80,12 +82,12 @@ public class crystalOvenTE extends tileEntityWithInventory {
 
             if (flag != this.isBurning()) {
                 flag1 = true;
-                crystalOven.updateCrystalOvenBlockState(this.burnTime > 0, this.worldObj, this.xCoord, this.yCoord, this.zCoord);
             }
         }
         if (flag1) {
             this.markDirty();
         }
+        super.updateEntity();
     }
 
     public boolean canSmelt() {
@@ -188,5 +190,10 @@ public class crystalOvenTE extends tileEntityWithInventory {
             }
         }
         return -1;
+    }
+
+    @Override
+    public boolean isActive() {
+        return isBurning();
     }
 }

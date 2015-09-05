@@ -7,7 +7,6 @@ import com.Arteman.HellLand.blocks.NecroticLamp;
 import com.Arteman.HellLand.blocks.machines.*;
 import com.Arteman.HellLand.blocks.wire.WireOne;
 import com.Arteman.HellLand.utils.BlockHell;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -33,14 +32,10 @@ public class ModBlocks {
     public static BlockHell alchemicalTable;
 
     //machines
-    public static BlockHell hellOvenIdle;
-    public static BlockHell hellOvenActive;
-    public static BlockHell crystalOvenIdle;
-    public static BlockHell crystalOvenActive;
-    public static Block SoulCrystallizerIdle;
-    public static Block SoulCrystallizerActive;
-    public static BlockHell MMixerIdle;
-    public static BlockHell MMixerActive;
+    public static BlockHell hellOven;
+    public static BlockHell crystalOven;
+    public static BlockHell soulCrystallizer;
+    public static BlockHell MMixer;
     public static Block CrystalSpawn;
 
     //Wires
@@ -68,26 +63,16 @@ public class ModBlocks {
         NecroticLamp = new NecroticLamp("necroticLamp");
 
         //machines
-        hellOvenIdle = new hellOven("hellOvenIdle",HellLand.HellMCTab,false);
-        hellOvenActive = new hellOven("hellOvenActive",null,true);
-            hellOvenActive.setCustomDrop(new ItemStack(hellOvenIdle));
-        SoulCrystallizerIdle = new SoulCrystallizer(false).setCreativeTab(HellLand.HellMCTab);
-        SoulCrystallizerActive = new SoulCrystallizer(true).setLightLevel(2.0f);
-        crystalOvenIdle = new crystalOven("crystalOvenIdle", HellLand.HellMCTab,false);
-        crystalOvenActive = new crystalOven("crystalOvenActive", null ,true);
-            crystalOvenActive.setCustomDrop(new ItemStack(crystalOvenIdle));
-        CrystalSpawn = new CrystalSpawn();
+        hellOven = new hellOven("hellOven",HellLand.HellMCTab);
+        soulCrystallizer = new soulCrystallizer("SoulCrystallizer", HellLand.HellMCTab);
+        crystalOven = new crystalOven("crystalOven", HellLand.HellMCTab);
         alchemicalTable = new alchemicalTable("alchemicalTable",HellLand.HellMCTab);
-        MMixerIdle = new MagicalMixer("magicalMixerIdle", HellLand.HellMCTab, false);
-        MMixerActive = new MagicalMixer("magicalMixerActive", null, true);
-            MMixerActive.setCustomDrop(new ItemStack(MMixerIdle));
-
+        MMixer = new MagicalMixer("magicalMixer", HellLand.HellMCTab);
+        CrystalSpawn = new CrystalSpawn();
         //wires
         WireOne = new WireOne().setCreativeTab(HellLand.HellMCTab);
 
         GameRegistry.registerBlock(WireOne, "WireOne");
-        GameRegistry.registerBlock(SoulCrystallizerIdle, "SoulCrystallizerIdle");
-        GameRegistry.registerBlock(SoulCrystallizerActive, "SoulCrystallizerActive");
     }
 
 }

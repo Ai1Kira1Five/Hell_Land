@@ -1,58 +1,27 @@
 package com.Arteman.HellLand.blocks.machines;
 
 import com.Arteman.HellLand.HellLand;
-import com.Arteman.HellLand.ModBlocks;
 import com.Arteman.HellLand.tileentity.TileEntityMMixer;
 import com.Arteman.HellLand.utils.TEBlockHell;
-
 import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockContainer;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.IIcon;
-import net.minecraft.util.MathHelper;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import java.util.Random;
 
 public class MagicalMixer extends TEBlockHell {
-	private final boolean isActive;
 
-    @SideOnly(Side.CLIENT)
-    private IIcon iconFront;
-
-    @SideOnly(Side.CLIENT)
-    private IIcon iconTop;
-
-    private Random rand = new Random();
-    private static final String __OBFID = "CL_00000207";
-
-    public MagicalMixer(String name, CreativeTabs creativeTabs, boolean isActive) {
+    public MagicalMixer(String name, CreativeTabs creativeTabs) {
         super(name, creativeTabs);
-        this.isActive = false;
     }
 
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister iconRegister) {
-        this.blockIcon = iconRegister.registerIcon(HellLand.MODID + ":" + "mmSide");
-        this.iconFront = iconRegister.registerIcon(HellLand.MODID + ":" + (this.isActive ? "mmActive" : "mmIdle"));
-        this.iconTop = iconRegister.registerIcon(HellLand.MODID + ":" + "hellOvenTop");
-    }
-    
-    @SideOnly(Side.CLIENT)
-    public IIcon getIcon(int side, int metadata) {
-        return side == 1 ? this.iconTop : (side == 1 ? this.iconTop : (side == 0 ? this.iconTop : (side != metadata ? this.blockIcon : this.iconFront)));
-    }
-    
     @Override
     public TileEntity createNewTileEntity(World world, int i) {
         return new TileEntityMMixer();
@@ -64,17 +33,10 @@ public class MagicalMixer extends TEBlockHell {
         }
         return true;
     }
-        
-    public void onBlockAdded(World world, int x, int y, int z){
-    	TileEntity tile = world.getTileEntity(x, y-1, z);
-    	if(tile instanceof TileEntityMMixer){
-    		
-    	}
-    }
-    
+
     @SideOnly(Side.CLIENT)
     public void randomDisplayTick(World world, int x, int y, int z, Random random) {
-        if (this.isActive) {
+        if (isActive((IBlockAccess)world,x,y,z)) {
             int direction = world.getBlockMetadata(x, y, z);
 
             float x1 = (float) x + 0.5F;
@@ -110,5 +72,18 @@ public class MagicalMixer extends TEBlockHell {
     	if (itemstack.hasDisplayName()){
     		((TileEntityMMixer) world.getTileEntity(x, y, z)).setGuiDisplayName(itemstack.getDisplayName());
     	}
+    }
+
+    @Override
+    public String getSideIcon(boolean isActive) {
+        return "mmSide";
+    }
+    @Override
+    public String getTopIcon(boolean isActive) {
+        return "hellOvenTop";
+    }
+    @Override
+    public String getFrontIcon(boolean isActive) {
+        return isActive ? "mmActive" : "mmIdle";
     }
 }

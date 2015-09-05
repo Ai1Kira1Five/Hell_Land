@@ -2,7 +2,6 @@ package codechicken.lib.lighting;
 
 import codechicken.lib.render.CCRenderState;
 import codechicken.lib.vec.BlockCoord;
-import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.IBlockAccess;

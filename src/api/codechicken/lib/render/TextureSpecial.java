@@ -2,8 +2,6 @@ package codechicken.lib.render;
 
 import codechicken.lib.render.SpriteSheetManager.SpriteSheet;
 import codechicken.lib.render.TextureUtils.IIconRegister;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureMap;
@@ -12,6 +10,8 @@ import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.client.resources.data.AnimationMetadataSection;
 import net.minecraft.client.settings.GameSettings;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;

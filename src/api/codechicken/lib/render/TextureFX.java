@@ -1,9 +1,9 @@
 package codechicken.lib.render;
 
 import codechicken.lib.render.SpriteSheetManager.SpriteSheet;
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraft.client.Minecraft;
 
 @SideOnly(Side.CLIENT)
 public class TextureFX

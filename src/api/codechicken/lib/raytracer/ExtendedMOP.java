@@ -3,7 +3,6 @@ package codechicken.lib.raytracer;
 import codechicken.lib.vec.BlockCoord;
 import codechicken.lib.vec.Vector3;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.MovingObjectPosition;
 

@@ -1,6 +1,5 @@
 package codechicken.lib.inventory;
 
-import codechicken.lib.vec.BlockCoord;
 import codechicken.lib.vec.Vector3;
 import com.google.common.base.Objects;
 import net.minecraft.entity.item.EntityItem;

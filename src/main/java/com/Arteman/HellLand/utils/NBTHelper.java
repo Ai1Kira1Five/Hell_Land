@@ -1,10 +1,10 @@
 package com.Arteman.HellLand.utils;
 
-        import net.minecraft.item.ItemStack;
-        import net.minecraft.nbt.NBTTagCompound;
-        import net.minecraft.nbt.NBTTagList;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 
-        import java.util.UUID;
+import java.util.UUID;
 
 public class NBTHelper
 {
