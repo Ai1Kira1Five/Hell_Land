@@ -15,7 +15,7 @@ import static org.lwjgl.opengl.GL11.*;
 
 public class EntityPentaFX extends EntityFX{
 
-	public static final ResourceLocation texture = new ResourceLocation(HellLand.MODID, "textures/particles/penta.png");
+	public static final ResourceLocation texture = new ResourceLocation(HellLand.MODID + "textures/particles/penta.png");
 	
 	public EntityPentaFX(World world, double x, double y, double z){
 		super(world, x, y, z);

@@ -27,6 +27,7 @@ public class NecroticLamp extends BlockHell {
         return false;
     }
     
+    // test
     public void randomDisplayTick(World world, int x, int y, int z, Random random){
     	if(world.isRemote){
     		Minecraft.getMinecraft().effectRenderer.addEffect(new EntityPentaFX(world, x, y + 1, z));

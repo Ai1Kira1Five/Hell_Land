@@ -34,7 +34,7 @@ public class TileEntityWire extends TileEntity {
     }
 
     public boolean isWire(int x, int y, int z) {
-        return this.worldObj.getTileEntity(x, y, z) instanceof TileEntityWire;
+        return this.worldObj.getTileEntity(x, y, z) instanceof TileEntityWire || this.worldObj.getTileEntity(x, y, z) instanceof crystalOvenTE;
     }
 
     public boolean isInventory(int x, int y, int z) {
