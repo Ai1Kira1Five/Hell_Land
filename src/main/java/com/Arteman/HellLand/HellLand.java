@@ -1,6 +1,9 @@
 package com.Arteman.HellLand;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.Arteman.HellLand.handler.ConfigurationHandler;
 import com.Arteman.HellLand.handler.GuiHandler;
 import com.Arteman.HellLand.otherStuff.Enchantments;
@@ -9,6 +12,7 @@ import com.Arteman.HellLand.proxy.CommonProxy;
 import com.Arteman.HellLand.recipes.CrystallizerRecipes;
 import com.Arteman.HellLand.recipes.ModRecipes;
 import com.Arteman.HellLand.utils.network.HellMessagePipeline;
+
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -23,6 +27,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
+
 import org.apache.logging.log4j.Logger;
 
 @Mod(modid = HellLand.MODID, version = HellLand.VERSION, guiFactory = "com.Arteman.HellLand.gui.GuiFactory")
@@ -36,6 +41,7 @@ public class HellLand {
 
     public HellMessagePipeline messagePipeline;
     public static Logger modLog;
+    public static List<Item> hammers = new ArrayList<Item>();
 
     //Materials
     public static final Item.ToolMaterial Bone = EnumHelper.addToolMaterial("BONE", 3, 38, 2.0f, 15.5f, 20);

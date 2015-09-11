@@ -4,6 +4,7 @@ import com.Arteman.HellLand.handler.ConfigurationHandler;
 import com.Arteman.HellLand.items.*;
 import com.Arteman.HellLand.utils.ItemHell;
 import com.Arteman.HellLand.utils.tools.*;
+
 import net.minecraft.item.Item;
 
 public class ModItems {
@@ -47,7 +48,7 @@ public class ModItems {
     public static Item Ring;
     public static Item Urn;
 
-    public static void init() {
+	public static void init() {
         //mob drop
         BloodDrop = new ItemHell("bloodDrop", HellLand.HellMCTab, false, 0);
         BoneFragment = new ItemHell("boneFragment", HellLand.HellMCTab, false, 0);
@@ -93,7 +94,6 @@ public class ModItems {
             MagicSkyth = new MagicScythe("magicScythe", HellLand.MagicSteel, HellLand.HellMCTab);
             BoneSword = new BoneSword("boneSword", HellLand.Bone, HellLand.HellMCTab);
 
-            MagicHammer = new MagicHammer(HellLand.MagicSteel);
             MagicChacram = new MagicChacram(HellLand.MagicSteel);
         }
 

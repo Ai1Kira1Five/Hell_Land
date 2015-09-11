@@ -25,7 +25,7 @@ public class ConfigurationHandler {
         enableSwords = config.getBoolean("enableSwords",Configuration.CATEGORY_GENERAL,  enableSwords,   "Enable swords stuff");
         enableTools = config.getBoolean("enableTools", Configuration.CATEGORY_GENERAL, enableTools,  "Enable tool stuff");
         allCanPickup= config.getBoolean("allCanPickup", Configuration.CATEGORY_GENERAL, allCanPickup,  "Enable pickUp stuff not owner");
-
+        
         if(config.hasChanged()){
             config.save();
         }

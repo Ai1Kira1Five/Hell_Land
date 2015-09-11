@@ -1,13 +1,15 @@
 package com.Arteman.HellLand.container;
 
 import com.Arteman.HellLand.tileentity.mMixerTE;
+
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 
-public class ContainerMMixer extends Container{
-	private TileEntityMMixer mMixer;
+public class mMixerContainer extends Container{
+	private mMixerTE mMixer;
 	
 	private IInventory lowerChestInventory;
     private int numRows;
@@ -18,7 +20,7 @@ public class ContainerMMixer extends Container{
     private int[] slots_chest 			= new int[]{4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
 
 
-    public ContainerMMixer(InventoryPlayer inventory, IInventory inv1, IInventory inv2, TileEntityMMixer tileentity) {
+    public mMixerContainer(InventoryPlayer inventory, IInventory inv1, IInventory inv2, mMixerTE tileentity) {
     	this.mMixer = tileentity;
     	this.lowerChestInventory = inv2;
         this.numRows = inv2.getSizeInventory() / 9;
@@ -53,5 +55,12 @@ public class ContainerMMixer extends Container{
             this.addSlotToContainer(new Slot(inv1, j, 8 + j * 18, 161 + i));
         }    	
     }
+
+
+	@Override
+	public boolean canInteractWith(EntityPlayer p_75145_1_) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 }
