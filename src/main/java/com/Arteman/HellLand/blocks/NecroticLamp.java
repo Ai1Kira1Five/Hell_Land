@@ -1,8 +1,14 @@
 package com.Arteman.HellLand.blocks;
 
+import java.util.Random;
+
 import com.Arteman.HellLand.HellLand;
+import com.Arteman.HellLand.PEffects.EntityPentaFX;
 import com.Arteman.HellLand.utils.BlockHell;
+
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
+import net.minecraft.world.World;
 
 public class NecroticLamp extends BlockHell {
 
@@ -19,5 +25,11 @@ public class NecroticLamp extends BlockHell {
     @Override
     public boolean renderAsNormalBlock() {
         return false;
+    }
+    
+    public void randomDisplayTick(World world, int x, int y, int z, Random random){
+    	if(world.isRemote){
+    		Minecraft.getMinecraft().effectRenderer.addEffect(new EntityPentaFX(world, x, y + 1, z));
+    	}
     }
 }
