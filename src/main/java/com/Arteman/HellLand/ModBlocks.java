@@ -4,9 +4,11 @@ import com.Arteman.HellLand.blocks.BloodWood;
 import com.Arteman.HellLand.blocks.BloodWoodLogs;
 import com.Arteman.HellLand.blocks.CrystalSpawn;
 import com.Arteman.HellLand.blocks.NecroticLamp;
+import com.Arteman.HellLand.blocks.mForge;
 import com.Arteman.HellLand.blocks.machines.*;
 import com.Arteman.HellLand.blocks.wire.WireOne;
 import com.Arteman.HellLand.utils.BlockHell;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -30,6 +32,7 @@ public class ModBlocks {
     public static BlockHell ArcaneSteelBlock;
     public static BlockHell recidiumBrick;
     public static BlockHell alchemicalTable;
+    public static BlockHell mForge;
 
     //machines
     public static BlockHell hellOven;
@@ -61,6 +64,7 @@ public class ModBlocks {
         AmuletTable = new AmuletTable("amuletTable");
         BloodWoodLogs = new BloodWoodLogs("bloodPlanks");
         NecroticLamp = new NecroticLamp("necroticLamp");
+        mForge = new mForge();
 
         //machines
         hellOven = new hellOven("hellOven",HellLand.HellMCTab);
