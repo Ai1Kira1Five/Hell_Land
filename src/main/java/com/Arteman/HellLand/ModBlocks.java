@@ -32,7 +32,7 @@ public class ModBlocks {
     public static BlockHell ArcaneSteelBlock;
     public static BlockHell recidiumBrick;
     public static BlockHell alchemicalTable;
-    public static BlockHell mForge;
+    public static Block mForge;
 
     //machines
     public static BlockHell hellOven;

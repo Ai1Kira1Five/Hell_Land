@@ -1,6 +1,7 @@
 package com.Arteman.HellLand.utils;
 
 import com.Arteman.HellLand.HellLand;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -64,7 +65,8 @@ public class ItemHell extends Item {
         }
     }
 
-    @Override
+    @SuppressWarnings("unused")
+	@Override
     public String getUnlocalizedName(ItemStack stack)
     {
         if(hasSubtypes) {
