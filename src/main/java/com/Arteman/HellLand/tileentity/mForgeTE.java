@@ -3,10 +3,11 @@ package com.Arteman.HellLand.tileentity;
 import java.util.Random;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 
-public class mForgeTE extends TileEntity 
+public class mForgeTE extends tileEntityWithInventory 
 {
 	public int field_145926_a;
     public float field_145933_i;
@@ -21,6 +22,10 @@ public class mForgeTE extends TileEntity
     private static Random rand = new Random();
     private String field_145922_s;
     private static final String __OBFID = "CL_00000354";
+    
+	public mForgeTE(int slots) {
+		super(slots);
+	}
     
     public void writeToNBT(NBTTagCompound p_145841_1_)
     {
@@ -139,4 +144,34 @@ public class mForgeTE extends TileEntity
     {
         this.field_145922_s = p_145920_1_;
     }
+
+	@Override
+	public int[] getAccessibleSlotsFromSide(int slot) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean canInsertItem(int slot, ItemStack itemStack, int side) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean canExtractItem(int slot, ItemStack itemStack, int side) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isActive() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
