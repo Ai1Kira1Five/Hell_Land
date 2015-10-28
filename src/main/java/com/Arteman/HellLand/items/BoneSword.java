@@ -1,10 +1,12 @@
 package com.Arteman.HellLand.items;
 
 import com.Arteman.HellLand.utils.tools.SwordsHell;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -12,7 +14,9 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class BoneSword extends SwordsHell {
 
@@ -25,12 +29,16 @@ public class BoneSword extends SwordsHell {
         ls.add("Not so good weapon, but you are need it...");
     }
 
-    public void isItemEnchanted(ItemStack itSt){
-        if (!itSt.isItemEnchanted()){
-            itSt.addEnchantment(Enchantment.sharpness, 4);
-            itSt.addEnchantment(Enchantment.looting, 5);
-        }
-
+    public ItemStack getItemStack(double charge)
+    {
+      ItemStack ret = super.getItemStack(charge);
+      
+      Map<Integer, Integer> enchantmentMap = new HashMap();
+      enchantmentMap.put(Integer.valueOf(Enchantment.fortune.effectId), Integer.valueOf(3));
+      
+      EnchantmentHelper.setEnchantments(enchantmentMap, ret);
+      
+      return ret;
     }
 
     @Override

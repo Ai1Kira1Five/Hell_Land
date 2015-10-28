@@ -15,6 +15,10 @@ import com.Arteman.HellLand.utils.TEBlockHell;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.relauncher.Side;
+import org.lwjgl.input.Keyboard;
+import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;
 
@@ -45,5 +49,14 @@ public class ClientProxy extends CommonProxy {
         ClientRegistry.bindTileEntitySpecialRenderer(mForgeTE.class, new renderMForgeBook());
         MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.mForge), new RenderMForgeItem());
         MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.CrystalSpawn), new RenderItemCrystal());
+    }
+    
+    public boolean isClientHoldingShift()
+    {
+    	if (FMLCommonHandler.instance().getEffectiveSide() != Side.CLIENT) {
+        return false;
+    }
+    	Minecraft mc = Minecraft.getMinecraft();
+    	return Keyboard.isKeyDown(42);
     }
 }

@@ -11,6 +11,7 @@ import com.Arteman.HellLand.otherStuff.enchantments.EnchantmentHandler;
 import com.Arteman.HellLand.proxy.CommonProxy;
 import com.Arteman.HellLand.recipes.CrystallizerRecipes;
 import com.Arteman.HellLand.recipes.ModRecipes;
+import com.Arteman.HellLand.utils.ItemHell;
 import com.Arteman.HellLand.utils.network.HellMessagePipeline;
 
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -23,8 +24,13 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.item.ItemStack;
+import net.minecraft.launchwrapper.Launch;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 
@@ -42,6 +48,17 @@ public class HellLand {
     public HellMessagePipeline messagePipeline;
     public static Logger modLog;
     public static List<Item> hammers = new ArrayList<Item>();
+    
+    public static final boolean cheat = dev_only(false);
+    public static final boolean dev_environ = Launch.blackboard != null ? ((Boolean)Launch.blackboard.get("fml.deobfuscatedEnvironment")).booleanValue() : false;
+    
+    private static boolean dev_only(boolean a)
+    {
+      if (!dev_environ) {
+        return false;
+      }
+      return a;
+    }
 
     //Materials
     public static final Item.ToolMaterial Bone = EnumHelper.addToolMaterial("BONE", 3, 38, 2.0f, 15.5f, 20);
@@ -124,6 +141,58 @@ public class HellLand {
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
         messagePipeline.postInitialize();
+    }
+    
+    private static void addTranslationHints(String hint_key, List list, String prefix)
+    {
+      if (StatCollector.canTranslate(hint_key))
+      {
+        String hint = StatCollector.translateToLocal(hint_key);
+        if (hint != null)
+        {
+          hint = hint.trim();
+          if (hint.length() > 0) {
+            for (String s : hint.split("\\\\n")) {
+              list.add(prefix + s);
+            }
+          }
+        }
+      }
+    }
+    
+    public static final String hintFormat = "" + EnumChatFormatting.DARK_PURPLE;
+    public static final String shiftFormat = "" + EnumChatFormatting.DARK_GRAY + EnumChatFormatting.ITALIC;
+    @SidedProxy(clientSide="com.Arteman.HellLand.proxy.ClientProxy", serverSide="com.Arteman.HellLand.proxy.CommonProxy")
+    public static CommonProxy proxy;
+    
+    public static void brand(ItemStack is, EntityPlayer player, List list, boolean verbose)
+    {
+      Item it = is.getItem();
+      String name = it.getUnlocalizedName(is);
+      addTranslationHints(name + ".hint", list, hintFormat);
+      if ((player != null) && (proxy.isClientHoldingShift())){
+    	  addTranslationHints(name + ".shift", list, shiftFormat);
+      }
+      ArrayList<String> untranslated = new ArrayList();
+      if ((it instanceof ItemHell)) {
+    	  ((ItemHell)it).addExtraInformation(is, player, untranslated, verbose);
+      }
+      String brand = "";
+      if (ConfigurationHandler.add_branding) {
+    	  brand = brand + "Hell Land";
+      }
+      if (cheat) {
+    	  brand = brand + " Cheat mode!";
+      }
+      if (dev_environ) {
+    	  brand = brand + " Development!";
+      }
+      if (brand.length() > 0) {
+    	  untranslated.add(EnumChatFormatting.BLUE + brand.trim());
+      }
+      for (String s : untranslated) {
+    	  list.add(StatCollector.translateToLocal(s));
+      }
     }
 
 }

@@ -25,4 +25,9 @@ public class CommonProxy {
     public void registerProxies() {
 
     }
+    
+    public boolean isClientHoldingShift()
+    {
+      return false;
+    }
 }

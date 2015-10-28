@@ -3,8 +3,11 @@ package com.Arteman.HellLand.utils;
 import com.Arteman.HellLand.HellLand;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -16,6 +19,7 @@ public class ItemHell extends Item {
     private boolean hasType = false;
     private IIcon[] icons = new IIcon[16];
     private int maxMeta = 0;
+    private int spriteNumber = 1;
 
     public ItemHell(String name, CreativeTabs creativeTabs, boolean hasType,int maxMeta){
         this.setFull3D();
@@ -75,5 +79,24 @@ public class ItemHell extends Item {
             }
         }
             return this.getUnlocalizedName();
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public final void addInformation(ItemStack is, EntityPlayer player, List list, boolean verbose)
+    {
+      HellLand.brand(is, player, list, verbose);
+    }
+    
+    public void addExtraInformation(ItemStack is, EntityPlayer player, List list, boolean verbose) {}
+    
+    @SideOnly(Side.CLIENT)
+    public int getSpriteNumber()
+    {
+      return this.spriteNumber;
+    }
+    
+    public void setSpriteNumber(int num)
+    {
+      this.spriteNumber = num;
     }
 }

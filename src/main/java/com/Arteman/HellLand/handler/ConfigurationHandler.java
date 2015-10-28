@@ -12,6 +12,7 @@ public class ConfigurationHandler {
     public static boolean enableSwords = true;
     public static boolean enableTools = true;
     public static boolean allCanPickup = true;
+    public static boolean add_branding = false;
 
     public static void init(File configFile){
         if (config == null){
