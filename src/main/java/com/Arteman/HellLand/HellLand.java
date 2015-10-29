@@ -13,6 +13,7 @@ import com.Arteman.HellLand.recipes.CrystallizerRecipes;
 import com.Arteman.HellLand.recipes.ModRecipes;
 import com.Arteman.HellLand.utils.ItemHell;
 import com.Arteman.HellLand.utils.network.HellMessagePipeline;
+import com.Arteman.HellLand.utils.network.NetworkHL;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
@@ -38,6 +39,12 @@ import org.apache.logging.log4j.Logger;
 
 @Mod(modid = HellLand.MODID, version = HellLand.VERSION, guiFactory = "com.Arteman.HellLand.gui.GuiFactory")
 public class HellLand {
+	
+    public HellLand() {
+        messagePipeline = new HellMessagePipeline();
+        network = new NetworkHL();
+    }
+	
     public static final String MODID = "HellLand";
     public static final String VERSION = "Alert_ver.0.1";
 
@@ -46,8 +53,11 @@ public class HellLand {
     public static CreativeTabs HellMCTabDecor;
 
     public HellMessagePipeline messagePipeline;
+    public static NetworkHL network;
     public static Logger modLog;
     public static List<Item> hammers = new ArrayList<Item>();
+    public static final boolean debug_network = false;
+    public static final boolean show_fine_logging = false;
     
     public static final boolean cheat = dev_only(false);
     public static final boolean dev_environ = Launch.blackboard != null ? ((Boolean)Launch.blackboard.get("fml.deobfuscatedEnvironment")).booleanValue() : false;
@@ -84,10 +94,6 @@ public class HellLand {
     
     @SidedProxy(clientSide = "com.Arteman.HellLand.proxy.ClientProxy", serverSide = "com.Arteman.HellLand.proxy.CommonProxy")
     public static CommonProxy artemanProxy;
-
-    public HellLand() {
-        messagePipeline = new HellMessagePipeline();
-    }
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
