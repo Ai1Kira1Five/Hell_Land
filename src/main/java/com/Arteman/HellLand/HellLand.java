@@ -76,6 +76,12 @@ public class HellLand {
     public static final int guiIDBag = 6;
     public static final int guiIDAlchemicalTable = 7;
 
+    public static void loadBus(Object obj)
+    {
+      FMLCommonHandler.instance().bus().register(obj);
+      MinecraftForge.EVENT_BUS.register(obj);
+    }
+    
     @SidedProxy(clientSide = "com.Arteman.HellLand.proxy.ClientProxy", serverSide = "com.Arteman.HellLand.proxy.CommonProxy")
     public static CommonProxy artemanProxy;
 
