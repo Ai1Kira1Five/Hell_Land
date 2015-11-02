@@ -12,6 +12,7 @@ import com.Arteman.HellLand.proxy.CommonProxy;
 import com.Arteman.HellLand.recipes.CrystallizerRecipes;
 import com.Arteman.HellLand.recipes.ModRecipes;
 import com.Arteman.HellLand.utils.ItemHell;
+import com.Arteman.HellLand.utils.interfaces.IHellRegistry;
 import com.Arteman.HellLand.utils.network.HellMessagePipeline;
 import com.Arteman.HellLand.utils.network.NetworkHL;
 
@@ -35,6 +36,7 @@ import net.minecraft.util.StatCollector;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @Mod(modid = HellLand.MODID, version = HellLand.VERSION, guiFactory = "com.Arteman.HellLand.gui.GuiFactory")
@@ -54,13 +56,39 @@ public class HellLand {
 
     public HellMessagePipeline messagePipeline;
     public static NetworkHL network;
-    public static Logger modLog;
+    public static Logger modLog = LogManager.getLogger("HellLand-init");
     public static List<Item> hammers = new ArrayList<Item>();
     public static final boolean debug_network = false;
     public static final boolean show_fine_logging = false;
     
     public static final boolean cheat = dev_only(false);
     public static final boolean dev_environ = Launch.blackboard != null ? ((Boolean)Launch.blackboard.get("fml.deobfuscatedEnvironment")).booleanValue() : false;
+    
+    public static IHellRegistry registry;
+    
+    //Херь пробная
+    public static enum FluidIcon{
+    	OPAQUE,  TRANSLUCENT,  MOLTEN,  GLITTERING;
+    	
+    	private FluidIcon() {}
+    }
+    
+    private void initializeLogging(Logger logger){
+    	modLog = logger;
+    	logInfo("This is Hell Land %s", new Object[] { "Alert_ver.0.1" });
+    }
+    
+    public static void logWarning(String format, Object... formatParameters){
+    	modLog.warn(String.format(format, formatParameters));
+    }
+    
+    public static void logInfo(String format, Object... formatParameters){
+    	modLog.info(String.format(format, formatParameters));
+    }
+    
+    public static void logSevere(String format, Object... formatParameters){
+    	modLog.error(String.format(format, formatParameters));
+    }
     
     private static boolean dev_only(boolean a)
     {
@@ -98,10 +126,14 @@ public class HellLand {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         //Main stuff
-        HellMCTab = new CreativeTabs("hellLand") {
+        HellMCTab = new CreativeTabs("hellLand") {        	
             @Override
             public Item getTabIconItem() {
                 return ModItems.HellCrystal;
+            }
+            
+            public boolean hasSearchBar(){
+            	return true;
             }
         };
         HellMCTabStuff = new CreativeTabs("hellLandStuff") {

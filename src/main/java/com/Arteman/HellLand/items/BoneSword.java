@@ -1,5 +1,6 @@
 package com.Arteman.HellLand.items;
 
+import com.Arteman.HellLand.ModItems;
 import com.Arteman.HellLand.utils.tools.SwordsHell;
 
 import cpw.mods.fml.relauncher.Side;
@@ -22,6 +23,8 @@ public class BoneSword extends SwordsHell {
 
     public BoneSword(String name, ToolMaterial toolMaterial, CreativeTabs creativeTab) {
         super(name,toolMaterial,creativeTab);
+        
+        //ModItems.BoneBlade = getItemStack(0.0D);
     }
 
     @SideOnly(Side.CLIENT)

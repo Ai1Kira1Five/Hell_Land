@@ -2,6 +2,7 @@ package com.Arteman.HellLand.renderer;
 
 import org.lwjgl.opengl.GL11;
 
+import com.Arteman.HellLand.utils.FaceUtil;
 import com.Arteman.HellLand.utils.interfaces.IHellRenderBlock;
 
 import net.minecraft.block.Block;

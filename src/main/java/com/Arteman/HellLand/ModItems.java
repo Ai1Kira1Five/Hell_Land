@@ -47,6 +47,7 @@ public class ModItems {
     public static Item CrystalLatern;
     public static Item Ring;
     public static Item Urn;
+    //public static ItemGlue utiliglue;
 
 	public static void init() {
         //mob drop
