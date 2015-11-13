@@ -3,6 +3,7 @@ package com.Arteman.HellLand.renderer.tiles;
 import org.lwjgl.opengl.GL11;
 
 import com.Arteman.HellLand.handler.BlockRenderingHandler;
+import com.Arteman.HellLand.tileentity.TilePylon;
 import com.Arteman.HellLand.utils.interfaces.IComplexBlockRenderingHandler;
 
 import net.minecraft.block.Block;

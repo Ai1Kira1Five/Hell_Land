@@ -134,12 +134,13 @@ public class BlockHell extends Block implements IHellRenderBlock, IBlockBase, IB
     public IIcon getBlockIcon(int side, int meta){
         if (meta < 0 || meta >= this.blockIcons.length){
             meta = 0;
-            return this.blockIcons[meta];
+            //return this.blockIcons[meta];
         }
-        //return this.blockIcons[meta];
-        else{
-        	return ModMisc.NULL_BLOCK_ICON;
-        }
+        return this.blockIcons[meta];
+        //else if(this.blockIcons[meta] != null){
+        //	return this.blockIcons[meta];
+        //}
+        //return ModMisc.NULL_BLOCK_ICON;
     }
     
     @SideOnly(Side.CLIENT)

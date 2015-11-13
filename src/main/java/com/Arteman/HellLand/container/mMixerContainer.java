@@ -17,8 +17,9 @@ public class mMixerContainer extends Container{
     public int lastCurrentItemMixTime;
     private int[] slots_final 			= new int[]{3};
     private int[] slots_ingredients 	= new int[]{0, 1, 2};
-    private int[] slots_chest 			= new int[]{4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
-
+    private int[] slotsInput_chest 		= new int[]{4, 5, 6, 7, 8, 9};
+    private int[] slotsOutput_chest		= new int[]{10, 11, 12, 13, 14, 15};
+    
 
     public mMixerContainer(InventoryPlayer inventory, IInventory inv1, IInventory inv2, mMixerTE tileentity) {
     	this.mMixer = tileentity;

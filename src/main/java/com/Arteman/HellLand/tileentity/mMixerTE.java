@@ -8,8 +8,10 @@ import net.minecraft.nbt.NBTTagCompound;
 
 public class mMixerTE extends tileEntityWithInventory{
 	
-    public int[] slotsInputChest = new int[]{0,1,2,3,4,5};
-    public int[] slotsOutputChest = new int[]{6,7,8,9,10,11};
+	private static final int[] slots_final = new int[]{3};
+	private static final int[] slots_ingredients = new int[]{0, 1, 2};
+	private static final int[] slotsInput_Chest = new int[]{4, 5, 6, 7, 8, 9};
+	private static final int[] slotsOutput_Chest = new int[]{10, 11, 12, 13, 14, 15};
 
     public int mixSpeed = 300;
     public int mixTime;
@@ -20,12 +22,12 @@ public class mMixerTE extends tileEntityWithInventory{
     }
     
     public boolean isItemValidForSlot(int slot, ItemStack itemstack) {
-        return ArrayUtils.contains(slotsInputChest,slot);
+        return ArrayUtils.contains(slotsInput_Chest,slot);
     }
 
     @Override
     public int[] getAccessibleSlotsFromSide(int side) {
-        return side == 0||side==1 ? slotsOutputChest : slotsInputChest;
+        return side == 0||side==1 ? slotsOutput_Chest : slotsInput_Chest;
     }
     @Override
     public boolean canInsertItem(int slot, ItemStack itemStack, int side) {
@@ -63,7 +65,7 @@ public class mMixerTE extends tileEntityWithInventory{
 
     private int getFirstRecipeItemSlot(){
 
-        for(int i:slotsInputChest){
+        for(int i:slotsInput_Chest){
             ItemStack tmp = getStackInSlot(i);
             if(tmp!=null&&mMixerRecipes.mixing().getResult(tmp)!=null){
                 return i;
