@@ -131,7 +131,7 @@ public class BlockHell extends Block implements IHellRenderBlock, IBlockBase, IB
 
     //ну вот хз, как это красивее сделать
     @SideOnly(Side.CLIENT)
-    public IIcon getBlockIcon(int side, int meta){
+    public IIcon getIcon(int side, int meta){
         if (meta < 0 || meta >= this.blockIcons.length){
             meta = 0;
             //return this.blockIcons[meta];

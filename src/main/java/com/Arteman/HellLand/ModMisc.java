@@ -5,7 +5,6 @@ import java.util.Iterator;
 
 import com.Arteman.HellLand.domains.Metal;
 import com.Arteman.HellLand.utils.BlockHell;
-import com.Arteman.HellLand.utils.HellTab;
 import com.Arteman.HellLand.utils.ItemBlockHell;
 import com.Arteman.HellLand.utils.ItemHell;
 import com.Arteman.HellLand.utils.interfaces.IDomain;

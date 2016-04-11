@@ -99,7 +99,7 @@ public enum Orientation {
 	}
 	
 	private void setupDirectionRotation(){
-		for (ForgeDirection dir : )
+		for (ForgeDirection dir : dirRotations)
 	    {
 	      Vec3 v = SpaceUtil.fromDirection(dir);
 	      Quaternion.fromOrientation(this).applyRotation(v);
@@ -108,7 +108,7 @@ public enum Orientation {
 	}
 	
 	private static Orientation find(ForgeDirection f, ForgeDirection t){
-		for (Orientation o : ) {
+		for (Orientation o : valuesCache) {
 		      if ((o.facing == f) && (o.top == t)) {
 		        return o;
 		      }

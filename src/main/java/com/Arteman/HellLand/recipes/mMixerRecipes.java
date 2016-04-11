@@ -82,13 +82,13 @@ public class mMixerRecipes {
 
     }
 
-    public float getExp(ItemStack itemStack) {
+    public Object getExp(ItemStack itemStack) {
         Iterator iterator = this.expList.entrySet().iterator();
         Entry entry;
         while(!iterator.hasNext()){
             entry = (Entry)iterator.next();
             if(itemStack.equals((ItemStack) entry.getKey())){
-                return (float)entry.getValue();
+                return entry.getValue();
             }
         }
         return 0.0f;

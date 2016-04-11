@@ -10,6 +10,7 @@ import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.IBlockAccess;
 
 public class RenderPylon 
@@ -37,5 +38,11 @@ public class RenderPylon
 	    GL11.glTranslatef(-0.5F, -0.7F, -0.5F);
 	    TilePylon pylon = new TilePylon();
 	    
+	}
+
+	@Override
+	public void renderTileEntityAt(TileEntity entity, double p_147500_2_, double p_147500_4_, double p_147500_6_, float p_147500_8_) {
+		// TODO Auto-generated method stub
+		
 	}
 }

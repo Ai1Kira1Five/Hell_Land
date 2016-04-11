@@ -56,7 +56,18 @@ public class mMixerContainer extends Container{
             this.addSlotToContainer(new Slot(inv1, j, 8 + j * 18, 161 + i));
         }    	
     }
-
+    
+    public class ingredientsSlot extends Slot{
+    	public ingredientsSlot(IInventory inventory, int index, int x, int y){
+    		super(inventory, index, x, y);
+    	}
+    }
+    
+    public class finalSlot extends Slot{
+    	public finalSlot(IInventory inventory, int index, int x, int y){
+    		super(inventory, index, x, y);
+    	}
+    }
 
 	@Override
 	public boolean canInteractWith(EntityPlayer p_75145_1_) {
